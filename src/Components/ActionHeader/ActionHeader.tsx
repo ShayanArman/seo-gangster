@@ -15,15 +15,26 @@ import Link from "next/link";
 import { useDisclosure } from '@mantine/hooks';
 import { BsChevronDown } from "react-icons/bs";
 import { FcEmptyFilter } from 'react-icons/fc'
-const HEADER_HEIGHT = rem(60);
+import classNames from 'classnames';
+
+export const HEADER_PIXEL_HEIGHT = 60;
+const HEADER_HEIGHT = rem(HEADER_PIXEL_HEIGHT);
 
 const useStyles = createStyles((theme) => ({
   header: {
     position: 'fixed',
+    backgroundColor: "white",
     top: 0,
     left: 0,
     zIndex: 9999,
+    transition: 'background-color 0.3s ease',
   },
+
+  headerColored: {
+    opacity: 0.7,
+    transition: 'background-color 0.3s ease',
+  },
+
 
   inner: {
     height: HEADER_HEIGHT,
@@ -92,12 +103,12 @@ const useStyles = createStyles((theme) => ({
 
 type Links = { link: string; label: string; links?: { link: string; label: string }[] }[];
 
-export default function ActionHeader({ links }: {links: Links }) {
+export default function ActionHeader({ links, scrolledToHeader }: {links: Links, scrolledToHeader: boolean }) {
   const { classes } = useStyles();
   const [opened, { toggle }] = useDisclosure(false);
 
   return (
-    <Header height={HEADER_HEIGHT} mb={120} className={classes.header}>
+    <Header height={HEADER_HEIGHT} mb={120} className={classNames(classes.header, {[classes.headerColored]: scrolledToHeader})}>
       <Container className={classes.inner} fluid>
         <Group>
           <Burger opened={opened} onClick={toggle} className={classes.burger} size="md" color="#3DBCF8" />

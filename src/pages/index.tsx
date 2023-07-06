@@ -1,7 +1,9 @@
 import Head from 'next/head'
+import {useRef, useState} from "react";
 import ActionHeader from '@/Components/ActionHeader';
 import { Box } from '@mantine/core';
 import { Waypoint } from 'react-waypoint';
+import { HEADER_PIXEL_HEIGHT } from '@/Components/ActionHeader/ActionHeader';
 
 const zeroLinks=[
   {link: 'https://google.com', label: 'GOOGLE', links: [{link: "https://google.com", label:"google"}, {link: "https://youtube.com", label:"youtube"}]},
@@ -10,12 +12,15 @@ const zeroLinks=[
 ];
 
 export default function Home() {
+  const [scrolledToHeader, setScrolledToHeader] = useState(false);
+  const waypointRef = useRef(null);
+  
   const onEnter = () => {
-    console.log('Waypoint entered');
+    setScrolledToHeader(false);
   };
 
   const onLeave = () => {
-    console.log('Waypoint left');
+    setScrolledToHeader(true);
   };
 
   return (
@@ -29,20 +34,44 @@ export default function Home() {
       </Head>
       
       <Box>
-        <ActionHeader links={zeroLinks} />
-        <Box mih="50rem" id="section1">
-          Hi HI hi
-        </Box>
+        <ActionHeader links={zeroLinks} scrolledToHeader={scrolledToHeader} />
+        <Waypoint
+          onLeave={onLeave}
+        >
+          <Box mih={"60px"} w={"100%"} style={{ backgroundColor: "white"}}>
+          </Box>
+        </Waypoint>
+        
+        {/* EnterWaypoint  topOffset is height plus 40*/}
+        <Waypoint onEnter={onEnter} topOffset={200+HEADER_PIXEL_HEIGHT-20} scrollableAncestor={waypointRef.current}>
+          <Box mih="200px" w={"100%"} style={{ backgroundColor: "black"}} id="section1">
+            First WAYPOINT
+          </Box>
+        </Waypoint>
+
         <Box mih="50rem" id="section2">
           Hi HI hi
         </Box>
         <Box mih="50rem" id="section3">
           Hi HI hi
         </Box>
-        <Waypoint
-          onEnter={onEnter}
-          onLeave={onLeave}
-        />
+
+        <Box mih="50rem" id="section5">
+          Hi HI hi
+        </Box>
+
+        <Box mih="50rem" id="section5">
+          Hi HI hi
+        </Box>
+        <Box mih="50rem" id="section5">
+          Hi HI hi
+        </Box>
+        <Box mih="50rem" id="section5">
+          Hi HI hi
+        </Box>
+        <Box mih="50rem" id="section5">
+          Hi HI hi
+        </Box>
         <Box mih="50rem" id="section5">
           Hi HI hi
         </Box>
