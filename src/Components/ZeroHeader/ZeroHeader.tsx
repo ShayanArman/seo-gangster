@@ -9,6 +9,7 @@ import {
   Burger,
   rem,
   Box,
+  MantineSize,
 } from "@mantine/core";
 import Image from "next/image";
 import Link from "next/link";
@@ -127,46 +128,50 @@ export default function ZeroHeader({
             size="md"
             color="#3DBCF8"
           />
-          <Link href="/" className={classes.logo}>
-            <Image
-              width={150}
-              height={50}
-              alt="zeroInbox"
-              src="/horizontal.svg"
-            />
-          </Link>
+          <Logo className={classes.logo} />
           {/* <MantineLogo size={28} /> */}
         </Group>
         <Group spacing={5} className={classes.links}>
           <LinksToItems />
         </Group>
-        <Button
-          component="a"
-          target="_blank"
-          href="https://app.zeroinbox.ai"
-          leftIcon={<FcEmptyFilter />}
-          radius="xl"
-          size="md"
-          color="pink"
-          className={classes.desktopActionButton}
-        >
-          Click + Unsubscribe
-        </Button>
+        <Box className={classes.desktopActionButton}>
+          <ActionButton buttonSize={"md"} innerText="Click + Unsubscribe" />
+        </Box>
         <Box className={classes.mobileButton}>
-          <Button
-            component="a"
-            target="_blank"
-            href="https://app.zeroinbox.ai"
-            leftIcon={<FcEmptyFilter />}
-            radius="xl"
-            size="xs"
-            color="pink"
-          >
-            Start
-          </Button>
+          <ActionButton buttonSize={"xs"} innerText="Start" />
         </Box>
       </Container>
     </Header>
+  );
+}
+
+function ActionButton({
+  buttonSize,
+  innerText,
+}: {
+  buttonSize: MantineSize;
+  innerText: string;
+}) {
+  return (
+    <Button
+      component="a"
+      target="_blank"
+      href="https://app.zeroinbox.ai"
+      leftIcon={<FcEmptyFilter />}
+      radius="xl"
+      size={buttonSize}
+      color="pink"
+    >
+      {innerText}
+    </Button>
+  );
+}
+
+function Logo({ className }: { className: string }) {
+  return (
+    <Link href="/" className={className}>
+      <Image width={150} height={50} alt="zeroInbox" src="/horizontal.svg" />
+    </Link>
   );
 }
 
