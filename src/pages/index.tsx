@@ -1,20 +1,12 @@
-import Head from 'next/head'
-import {useRef, useState} from "react";
-import ActionHeader from '@/Components/ActionHeader';
+import { useState } from "react";
 import { Box } from '@mantine/core';
 import { Waypoint } from 'react-waypoint';
-import { HEADER_PIXEL_HEIGHT } from '@/Components/ActionHeader/ActionHeader';
+import ZeroHeader, { HEADER_PIXEL_HEIGHT } from '@/Components/ZeroHeader/ZeroHeader';
 
-const zeroLinks=[
-  {link: 'https://google.com', label: 'GOOGLE', links: [{link: "https://google.com", label:"google"}, {link: "https://youtube.com", label:"youtube"}]},
-  {link: 'https://youtube.com', label: 'YouTube'},
-  {link: 'https://stumbleupon.com', label: 'StumbleUpon'},
-];
 
 export default function Home() {
   const [scrolledToHeader, setScrolledToHeader] = useState(false);
-  const waypointRef = useRef(null);
-  
+
   const onEnter = () => {
     setScrolledToHeader(false);
   };
@@ -24,17 +16,8 @@ export default function Home() {
   };
 
   return (
-    <>
-      <Head>
-        <title>Zero Inbox</title>
-        <link rel="icon" href="/logo.ico" />
-        <meta name="description" content="Clear your Email, clear your Mind." />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="og:title" content={"Zero Inbox"} />
-      </Head>
-      
       <Box>
-        <ActionHeader links={zeroLinks} scrolledToHeader={scrolledToHeader} />
+        <ZeroHeader scrolledToHeader={scrolledToHeader} />
         <Waypoint
           onLeave={onLeave}
         >
@@ -43,9 +26,9 @@ export default function Home() {
         </Waypoint>
         
         {/* EnterWaypoint  topOffset is height plus 40*/}
-        <Waypoint onEnter={onEnter} topOffset={200+HEADER_PIXEL_HEIGHT-20} scrollableAncestor={waypointRef.current}>
-          <Box mih="200px" w={"100%"} style={{ backgroundColor: "#fcf5eb"}} id="section1">
-            First WAYPOINT
+        <Waypoint onEnter={onEnter} topOffset={200+HEADER_PIXEL_HEIGHT-20}>
+          <Box mih="200px" w={"100%"} style={{ backgroundColor: "black"}} id="section1">
+
           </Box>
         </Waypoint>
 
@@ -76,6 +59,5 @@ export default function Home() {
           Hi HI hi
         </Box>
       </Box>
-    </>
   )
 }

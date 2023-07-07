@@ -5,64 +5,95 @@ import {
   Header,
   Container,
   Group,
+  Button,
   Burger,
   rem,
-  UnstyledButton,
-} from "@mantine/core";
+  Box,
+} from '@mantine/core';
 import Image from "next/image";
 import Link from "next/link";
-import { useDisclosure } from "@mantine/hooks";
+import { useDisclosure } from '@mantine/hooks';
 import { BsChevronDown } from "react-icons/bs";
-import { HideOnMobile } from "../common/HideOnMobile";
-import { ShowOnMobile } from "../common/ShowOnMobile";
-import useIsMobile from "@/hooks/useIsMobile";
-const HEADER_HEIGHT = rem(100);
+import { FcEmptyFilter } from 'react-icons/fc'
+import classNames from 'classnames';
 
-const useStyles = createStyles((theme) => ({
-  container: {
-    height: HEADER_HEIGHT,
-    display: "grid",
-    gridTemplateColumns: "1fr auto 1fr",
-    alignItems: "center",
+export const HEADER_PIXEL_HEIGHT = 60;
+const HEADER_HEIGHT = rem(HEADER_PIXEL_HEIGHT);
+
+const useStyles = createStyles((theme, { backgroundColor }: {backgroundColor: string }) => ({
+  header: {
+    position: 'fixed',
+    borderBottom: 0,
+    backgroundColor: backgroundColor,
+    top: 0,
+    left: 0,
+    zIndex: 9999,
+    transition: 'background-color 0.3s ease',
   },
+
+  headerColored: {
+    backgroundColor: "rgba(255, 255, 255, .8)",
+    transition: 'background-color 0.3s ease',
+  },
+
 
   inner: {
     height: HEADER_HEIGHT,
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
 
   links: {
-    [theme.fn.smallerThan("sm")]: {
-      display: "none",
+    [theme.fn.smallerThan('sm')]: {
+      display: 'none',
+    },
+  },
+
+  logoDesktop: {
+    [theme.fn.smallerThan('sm')]: {
+        display: 'none',
+    },
+  },
+
+  logoMobile: {
+    marginLeft: "1rem",
+    marginTop: '0.3rem',
+    [theme.fn.largerThan('sm')]: {
+        display: 'none',
     },
   },
 
   burger: {
-    [theme.fn.largerThan("sm")]: {
-      display: "none",
+    [theme.fn.largerThan('sm')]: {
+      display: 'none',
     },
   },
 
+  desktopActionButton: {
+    [theme.fn.smallerThan('sm')]: {
+        display: 'none'
+      },
+  },
+
+  mobileButton: {
+    [theme.fn.largerThan('sm')]: {
+        display: 'none'
+      },
+  },
+
   link: {
-    display: "block",
+    display: 'block',
     lineHeight: 1,
     padding: `${rem(8)} ${rem(12)}`,
     borderRadius: theme.radius.sm,
-    textDecoration: "none",
-    color:
-      theme.colorScheme === "dark"
-        ? theme.colors.dark[0]
-        : theme.colors.gray[7],
+    textDecoration: 'none',
+    color: theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.colors.gray[7],
     fontSize: theme.fontSizes.sm,
     fontWeight: 500,
 
-    "&:hover": {
-      backgroundColor:
-        theme.colorScheme === "dark"
-          ? theme.colors.dark[6]
-          : theme.colors.gray[0],
+    '&:hover': {
+      backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[0],
     },
   },
 
@@ -71,118 +102,112 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-type HeaderActionProps = {
-  links: {
-    link: string;
-    label: string;
-    links?: { link: string; label: string }[];
-  }[];
-};
-
-export default function ZeroHeader({ links }: HeaderActionProps) {
-  const { classes } = useStyles();
+export default function ZeroHeader({ scrolledToHeader }: { scrolledToHeader: boolean }) {
+  const { classes } = useStyles({ backgroundColor: "white"});
   const [opened, { toggle }] = useDisclosure(false);
-  const items = links.map((link) => {
-    const menuItems = link.links?.map((item) => (
-      <Menu.Item key={item.link}>{item.label}</Menu.Item>
-    ));
-
-    if (menuItems) {
-      return (
-        <Menu
-          key={link.label}
-          trigger="hover"
-          transitionProps={{ exitDuration: 0 }}
-          withinPortal
-        >
-          <Menu.Target>
-            <a
-              href={link.link}
-              className={classes.link}
-              onClick={(event) => event.preventDefault()}
-            >
-              <Center>
-                <span className={classes.linkLabel}>{link.label}</span>
-                <BsChevronDown size={rem(12)} stroke={"1.5"} />
-              </Center>
-            </a>
-          </Menu.Target>
-          <Menu.Dropdown>{menuItems}</Menu.Dropdown>
-        </Menu>
-      );
-    }
-
-    return (
-      <a
-        key={link.label}
-        href={link.link}
-        className={classes.link}
-        onClick={(event) => event.preventDefault()}
-      >
-        {link.label}
-      </a>
-    );
-  });
-
-  const isMobile = useIsMobile();
 
   return (
-    <Header
-      height={HEADER_HEIGHT}
-      sx={{
-        borderBottom: "1",
-      }}
-      mb={120}
-    >
-      <Container className={isMobile ? classes.container : classes.inner} fluid>
+    <Header height={HEADER_HEIGHT} mb={120} className={classNames(classes.header, {[classes.headerColored]: scrolledToHeader})}>
+      <Container className={classes.inner} fluid>
         <Group>
-          <Burger
-            opened={opened}
-            onClick={toggle}
-            className={classes.burger}
-            size="sm"
-          />
-          <HideOnMobile>
-            <Link href="https://app.zeroinbox.ai/login">
-              <Image
+          <Burger opened={opened} onClick={toggle} className={classes.burger} size="md" color="#3DBCF8" />
+          <Link href="/" className={classes.logoDesktop}>
+            <Image
+            width={150}
+            height={50}
+            alt="zeroInbox"
+            src="/horizWhite.svg"
+            />
+          </Link>
+          <Box className={classes.logoMobile}>
+            <Link href="/">
+                <Image
                 width={150}
                 height={50}
                 alt="zeroInbox"
-                src="/horizontal.svg"
-              />
+                src="/horizWhite.svg"
+                />
             </Link>
-          </HideOnMobile>
+        </Box>
+          {/* <MantineLogo size={28} /> */}
         </Group>
-
-        <ShowOnMobile>
-          <Link
-            style={{ border: "1px solid black" }}
-            href="https://app.zeroinbox.ai/login"
-          >
-            <Image
-              width={150}
-              height={50}
-              alt="zeroInbox"
-              src="/horizontal.svg"
-            />
-          </Link>
-        </ShowOnMobile>
-
-        <HideOnMobile>
-          <Group spacing={5} className={classes.links}>
-            {items}
-          </Group>
-        </HideOnMobile>
-
-        <HideOnMobile>
-          <UnstyledButton
-            h={30}
-            style={{ backgroundColor: "#EA577B", borderRadius: "50%" }}
-          >
-            Start
-          </UnstyledButton>
-        </HideOnMobile>
+        <Group spacing={5} className={classes.links}>
+          <LinksToItems />
+        </Group>
+        <Button component="a" target="_blank" href="https://app.zeroinbox.ai" leftIcon={<FcEmptyFilter />} radius="xl" size="md" color="pink" className={classes.desktopActionButton}>
+          Click + Unsubscribe
+        </Button>
+        <Box className={classes.mobileButton}>
+            <Button component="a" target="_blank" href="https://app.zeroinbox.ai" leftIcon={<FcEmptyFilter />} radius="xl" size="xs" color="pink">
+                Start
+            </Button>
+        </Box>
       </Container>
     </Header>
   );
+}
+
+type Links = { link: string; label: string; newTab: boolean; Icon?: JSX.Element; links?: { link: string; label: string; Icon: JSX.Element, newTab: boolean }[] }[];
+
+const zeroLinks: Links = [
+  {
+    link: "https://google.com",
+    label: "Privacy",
+    newTab: true,
+    links: [
+      { link: "/security", label: "Security", newTab: false, Icon: <FcEmptyFilter /> },
+      {
+        link: "https://zeroinbox.ai/datafaq.pdf",
+        label: "Terms",
+        newTab: true,
+        Icon: <FcEmptyFilter />,
+      },
+      {
+        link: "https://zeroinbox.ai/privacy.pdf",
+        label: "Privacy",
+        newTab: true,
+        Icon: <FcEmptyFilter />,
+      },
+    ],
+  },
+  { link: "https://blog.zeroinbox.ai/", label: "Blog", newTab: false },
+  { link: "https://stumbleupon.com", label: "StumbleUpon", newTab: true },
+];
+
+function LinksToItems({}) {
+    const { classes } = useStyles({ backgroundColor: "white" });
+
+    return zeroLinks.map((link) => {
+        const menuItems = link.links?.map((item) => (
+          <Menu.Item component="a" icon={item.Icon} href={item.link} key={item.label} target={item.newTab? "_blank" : "_self"}>
+            {item.label}
+          </Menu.Item>
+        ));
+    
+        if (menuItems) {
+          return (
+            <Menu key={link.label} trigger="hover" transitionProps={{ exitDuration: 0 }} withinPortal>
+              <Menu.Target>
+                <a
+                  href={link.link}
+                  className={classes.link}
+                  onClick={(event) => event.preventDefault()}
+                >
+                  <Center>
+                    <span className={classes.linkLabel}>{link.label}</span>
+                    <BsChevronDown size={rem(12)} stroke={"1.5"} />
+                  </Center>
+                </a>
+              </Menu.Target>
+              <Menu.Dropdown>{menuItems}</Menu.Dropdown>
+            </Menu>
+          );
+        }
+
+        return (
+          <Link href={link.link} key={link.label} target={link.newTab ? "_blank" : "_self"} className={classes.link}>
+            {link.label}
+          </Link>
+        );
+      });
 }
