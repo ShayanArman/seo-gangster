@@ -18,13 +18,12 @@ const useStyles = createStyles((theme) => ({
   
 
   hero: {
-    width: '95%',
-    height: '92%',
+    width: '100%',
+    height: '100%',
     position: 'relative',
     backgroundImage: "url('./testimg-1.jpg')",
     backgroundSize: 'cover',
     backgroundPosition: 'center',
-    borderRadius: '10px',
     border: '1px solid #333',
   },
 
