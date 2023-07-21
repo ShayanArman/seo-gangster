@@ -92,17 +92,17 @@ const useStyles = createStyles(
       display: "block",
       lineHeight: 1,
       padding: `${rem(8)} ${rem(12)}`,
-      borderRadius: theme.radius.sm,
       textDecoration: "none",
       color: 'white',
-      fontSize: theme.fontSizes.sm,
-      fontWeight: 500,
+      fontSize: theme.fontSizes.md,
+      fontWeight: 400,
+      transition: "0.3s ease-in",
+      borderRadius: '10px',
 
       "&:hover": {
-        backgroundColor:
-          theme.colorScheme === "dark"
-            ? theme.colors.dark[6]
-            : theme.colors.gray[0],
+        backgroundColor: "#E65E8C",
+        transition: "0.3s ease-out",
+        borderRadius: '10px',
       },
     },
 
@@ -171,12 +171,13 @@ function ActionButton({
       variant='outline'
       styles={(theme) => ({
         root: {
-          backgroundColor: "grey",
-          border: 0,
+          border: "2px solid #E65E8C",
           color:"white",
-          transition: "0.3s ease",
+          transition: "0.3s ease-in",
+          fontSize: theme.fontSizes.md,
+          fontWeight: "400",
         "&:hover": {
-          transition: "0.3s ease",
+          transition: "0.3s ease-out",
           backgroundColor: "#E65E8C",
           color: 'white',
         }
@@ -237,7 +238,7 @@ const zeroLinks: Links = [
   // { link: "https://stumbleupon.com", label: "StumbleUpon", newTab: true },
 ];
 
-function LinksToItems({}) {
+function LinksToItems() {
   const { classes } = useStyles({ backgroundColor: "white" });
 
   return zeroLinks.map((link) => {

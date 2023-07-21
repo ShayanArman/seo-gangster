@@ -82,7 +82,8 @@ const useStyles = createStyles((theme) => ({
     alignItems: 'center',
     fontWeight: 300,
     color: 'pink',
-    borderColor: 'pink',
+    border: "2px solid pink",
+    // borderColor: 'pink',
     transition: "0.3s ease",
 
     "&:hover": {
