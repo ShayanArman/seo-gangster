@@ -97,7 +97,7 @@ const useStyles = createStyles(
       fontSize: theme.fontSizes.md,
       fontWeight: 400,
       transition: "0.3s ease-in",
-      borderBottom: "2.5px double #333333",
+      borderBottom: "2.5px double #3DBCF8",
 
       "&:hover": {
         borderBottom: "2.5px double #E65E8C",
