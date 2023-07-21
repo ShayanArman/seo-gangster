@@ -7,7 +7,7 @@ import { title } from 'node:process';
 const useStyles = createStyles((theme) => ({
 
   wrapper: {
-    backgroundColor: 'black',
+    backgroundColor: '#333333',
     position: 'relative',
     display: 'flex',
     alignItems: 'center',
