@@ -5,20 +5,18 @@ import Image from "next/image";
 
 const useStyles = createStyles((theme) => ({
   footer: {
-    height: '90px',
     display: 'flex',
+    height: '90px',
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: rem(120),
     backgroundColor: '#333',
     color: 'white',
-    borderTop: `${rem(1)} solid ${
-      theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[2]
-    }`,
+    borderTop: ".5px solid grey",
   },
 
   inner: {
     width: '90%',
+    height: '100%',
     display: 'flex',
     position: "relative",
     justifyContent: "center",
@@ -67,11 +65,11 @@ const useStyles = createStyles((theme) => ({
 
   socialIcons: {
     color: '#E65E8C',
-    transition: "0.3s ease-in",
+    transition: "0.3s ease-out",
 
     "&:hover": {
       color: 'white',
-      transition: "0.3s ease-out",
+      transition: "0.3s ease-in",
     },
   },
 
@@ -90,7 +88,7 @@ const links = [
 ];
 
 
-export default function FooterCentered() {
+export default function Footer() {
   const { classes } = useStyles();
 
   const items = links.map((link) => (
