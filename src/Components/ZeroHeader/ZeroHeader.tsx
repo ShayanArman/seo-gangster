@@ -174,7 +174,7 @@ function ActionButton({
           color:"white",
           transition: "0.3s ease-in",
           fontSize: theme.fontSizes.md,
-          fontWeight: "400",
+          fontWeight: 400,
         "&:hover": {
           transition: "0.3s ease-out",
           backgroundColor: "#E65E8C",
@@ -205,7 +205,7 @@ type Links = {
 }[];
 
 const zeroLinks: Links = [
-  { link: "/", label: 'Features', newTab: false },
+  { link: "/features", label: 'Features', newTab: false },
   {
     link: "/privacy",
     label: "Privacy",

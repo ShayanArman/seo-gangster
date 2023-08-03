@@ -1,38 +1,107 @@
-import ZeroHeader from "@/Components/ZeroHeader";
-import { HEADER_PIXEL_HEIGHT } from "@/Components/ZeroHeader/ZeroHeader";
-import { createStyles, Box, Overlay, Container, Title, Button, Text, rem, Flex, } from '@mantine/core';
-import { useState } from "react";
-import { Waypoint } from "react-waypoint";
+import {
+  createStyles,
+  Text,
+  Title,
+  SimpleGrid,
+  TextInput,
+  Textarea,
+  Button,
+  Group,
+  ActionIcon,
+  rem,
+} from '@mantine/core';
+import { BrandTwitter, BrandYoutube, BrandInstagram } from 'tabler-icons-react';
+// import { ContactIconsList } from '../ContactIcons/ContactIcons';
 import FooterSection from "@/Components/Footer";
+import { useState } from "react";
+import ZeroHeader, { HEADER_PIXEL_HEIGHT } from '@/Components/ZeroHeader/ZeroHeader';
 
 const useStyles = createStyles((theme) => ({
 
   wrapper: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
     width: '100%',
     height: '100vh',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#333',
   },
 
   container: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: '75%',
-    width: '75%',
-    display: 'flex',
-    flexDirection: 'column',
+    minHeight: 400,
+    boxSizing: 'border-box',
+    backgroundColor: 'white',
+    borderRadius: theme.radius.lg,
+    padding: `calc(${theme.spacing.xl} * 2.5)`,
+
+    [theme.fn.smallerThan('sm')]: {
+      padding: `calc(${theme.spacing.xl} * 1.5)`,
+    },
   },
 
   title: {
-    fontWeight: 300,
-    fontSize: rem(45),
+    color: '#333',
+    lineHeight: 1,
   },
 
-})
-)
+  description: {
+    color: '#333',
+    maxWidth: rem(300),
 
-export default function Contact() {
+    [theme.fn.smallerThan('sm')]: {
+      maxWidth: '100%',
+    },
+  },
+
+  form: {
+    backgroundColor: '#333',
+    padding: theme.spacing.xl,
+    borderRadius: theme.radius.lg,
+    boxShadow: theme.shadows.lg,
+  },
+
+  social: {
+    color: '#333',
+
+    '&:hover': {
+      color: theme.colors[theme.primaryColor][1],
+    },
+  },
+
+  input: {
+    backgroundColor: theme.white,
+    borderColor: theme.colors.gray[4],
+    color: theme.black,
+
+    '&::placeholder': {
+      color: theme.colors.gray[5],
+    },
+  },
+
+  inputLabel: {
+    color: 'white',
+  },
+
+  control: {
+    border: '2px solid #E65E8C',
+    color: 'white',
+    transition: '0.3s ease-out',
+    fontSize: theme.fontSizes.md,
+    fontWeight: 400,
+    backgroundColor: '#333',
+    borderRadius: '',
+
+    "&:hover": {
+      transition: '0.3s ease-in',
+      backgroundColor: "#E65E8C"
+    },
+
+  },
+}));
+
+const social = [BrandTwitter, BrandYoutube, BrandInstagram];
+
+export default function ContactUs() {
   const { classes } = useStyles();
 
   const [scrolledToHeader, setScrolledToHeader] = useState(false);
@@ -44,25 +113,60 @@ export default function Contact() {
   const onLeave = () => {
     setScrolledToHeader(true);
   };
+
+  const icons = social.map((Icon, index) => (
+    <ActionIcon key={index} size={28} className={classes.social} variant="transparent">
+      <Icon size="1.4rem" stroke='1.5' />
+    </ActionIcon>
+  ));
+
   return (
     <>
-    <Box>
-      <ZeroHeader scrolledToHeader={scrolledToHeader} />
-      <Waypoint onLeave={onLeave}>
-        <Box mih={"60px"} w={"100%"} style={{ backgroundColor: "#333333" }}></Box>
-      </Waypoint>
-
-      {/* EnterWaypoint  topOffset is height plus 40*/}
-      <Waypoint onEnter={onEnter} topOffset={200 + HEADER_PIXEL_HEIGHT - 20}>
-      </Waypoint>
-    </Box>
+    
     <div className={classes.wrapper}>
-      <Container className={classes.container}>
-        <Title className={classes.title}>Big time contact page</Title>
-      </Container>
-    </div>
-    <FooterSection />
-    </>
+    <ZeroHeader scrolledToHeader={scrolledToHeader} />
+        <div className={classes.container}>
+          <SimpleGrid cols={2} spacing={50} breakpoints={[{ maxWidth: 'sm', cols: 1 }]}>
+            <div>
+              <Title className={classes.title}>Contact us</Title>
+              <Text className={classes.description} mt="sm" mb={30}>
+                Leave your email and we will get back to you within 24 hours
+              </Text>
 
+              {/* <ContactIconsList variant="white" /> */}
+
+              <Group mt="xl">{icons}</Group>
+            </div>
+            <div className={classes.form}>
+              <TextInput
+                label="Email"
+                placeholder="your@email.com"
+                required
+                classNames={{ input: classes.input, label: classes.inputLabel }}
+              />
+              <TextInput
+                label="Name"
+                placeholder="John Doe"
+                mt="md"
+                classNames={{ input: classes.input, label: classes.inputLabel }}
+              />
+              <Textarea
+                required
+                label="Your message"
+                placeholder="I want to order your goods"
+                minRows={4}
+                mt="md"
+                classNames={{ input: classes.input, label: classes.inputLabel }}
+              />
+
+              <Group position="right" mt="md">
+                <Button className={classes.control} radius='lg'>Send message</Button>
+              </Group>
+            </div>
+          </SimpleGrid>
+        </div>
+      </div>
+      <FooterSection />
+    </>
   );
 }

@@ -69,11 +69,6 @@ import {
       justifyContent: 'center',
       alignItems: 'center',
     },  
-
-    // badge: {
-    //     backgroundColor: 'white',
-    //     color: '#333'
-    // },
   
     description: {
       maxWidth: 800,
@@ -127,16 +122,6 @@ import {
     return (
       <div className={classes.wrapper}>  
         <Container size="lg" py="xl">
-            {/* <Group position="center">
-            <Badge variant="filled" size="xl" className={classes.badge}>
-                Zero Inbox
-            </Badge>
-            </Group> */}
-    
-            {/* <Title order={2} className={classes.title} ta="center" mt="sm" color={'white'}>
-            Organize, delete or unsubscribe from thousands of emails in seconds
-            </Title> */}
-    
             <Text className={classes.description} ta="center" mt="md" size={rem(34)}>
             Relax and let those emails do their thing; we'll swoop in to tidy up the mess whenever you want
             </Text>
@@ -144,10 +129,6 @@ import {
             <SimpleGrid cols={3} spacing="xl" mt={50} breakpoints={[{ maxWidth: 'md', cols: 1 }]}>
             {features}
             </SimpleGrid>
-            {/* <SimpleGrid cols={3} spacing="xl" mt={50} breakpoints={[{ maxWidth: 'md', cols: 1 }]}>
-            {features}
-            </SimpleGrid> */}
-            
         </Container>
       </div>
     );
