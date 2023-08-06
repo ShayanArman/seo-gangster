@@ -12,7 +12,25 @@ import {
   import React from 'react';
   import { Axe, Coin, HourglassHigh, Files } from 'tabler-icons-react';
   
-  const mockdata = [
+  const stepdata = [
+    {
+      title: 'Step 1',
+      description:
+        'Seamlessly organize thousands of emails into custom folders with a simple click.',
+    },
+    {
+      title: 'Step 2',
+      description:
+        'Overwhelmed by junk emails? Instantly opt-out from every unwanted message in your junk folder.',
+    },
+    {
+      title: 'Step 3',
+      description:
+        'Streamline your email sorting process from hours to minutes with Zero Inbox.',
+    },
+  ];
+
+  const featuredata = [
     {
       title: 'Organize',
       description:
@@ -51,14 +69,45 @@ import {
 
     wrapper: {
       backgroundColor: "#333",
-      height: '90vh',
+      height: 'auto',
       width: '100%',
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
+      padding: '45px',
     },  
+
+    stepsheading: {
+      margin: '0 auto',
+      color: 'white',
+      textAlign: 'center',
+
+      '&::after': {
+        content: '""',
+        display: 'block',
+        backgroundColor: "#E65E8C",
+        width: rem(45),
+        height: rem(2),
+        marginTop: theme.spacing.sm,
+        marginLeft: 'auto',
+        marginRight: 'auto',
+      },
+    },
+
+    stepscard: {
+      background: "#333",
+      boxShadow: '5px 5px 15px black'
+    },
+
+    stepstitle: {
+      color: "#e65e8c"
+    },
+
+    stepsdescription: {
+      color: 'white'
+    },
   
-    description: {
+    featuresdescription: {
       maxWidth: 800,
       margin: '0 auto',
       color: 'white',
@@ -75,7 +124,7 @@ import {
       },
     },
   
-    card: {
+    featurecard: {
       backgroundColor: '#e8e8e8'
     },
   
@@ -92,15 +141,26 @@ import {
   }));
   
   export default function Features() {
-    const { classes, theme } = useStyles();
-    const features = mockdata.map((feature) => (
-      <Card key={feature.title} shadow="md" radius="md" className={classes.card} padding="xl">
-        <feature.icon size={rem(50)}  color={'#333'} />
-        <Text fz="lg" fw={500} className={classes.cardTitle} mt="md">
+    const { classes } = useStyles();
+    const features = featuredata.map((feature) => (
+      <Card key={feature.title} shadow="md" radius="md" className={classes.featurecard} padding="xl">
+        <feature.icon size={rem(50)} strokeWidth={1.25} color={'#333'} />
+        <Text fz="lg" fw={225} className={classes.cardTitle} mt="md">
           {feature.title}
         </Text>
-        <Text fz="sm" c="dimmed" mt="sm">
+        <Text fz="sm" fw={225} c="dimmed" mt="sm">
           {feature.description}
+        </Text>
+      </Card>
+    ));
+
+    const steps = stepdata.map((step) => (
+      <Card key={step.title} radius="md" className={classes.stepscard} padding="xl">
+        <Text fz="lg" fw={225} className={classes.stepstitle} mt="md">
+          {step.title}
+        </Text>
+        <Text fz="sm" mt="sm" fw={225} className={classes.stepsdescription} >
+          {step.description}
         </Text>
       </Card>
     ));
@@ -108,7 +168,13 @@ import {
     return (
       <div className={classes.wrapper}>  
         <Container size="lg" py="xl">
-            <Text className={classes.description} ta="center" mt="md" size={rem(34)}>
+        <Text ta="center" mt="md" fw={250} size={rem(34)} className={classes.stepsheading}>
+          Our process
+        </Text>
+            <SimpleGrid cols={3} spacing="xl" mt={50} ta="left" breakpoints={[{ maxWidth: 'md', cols: 1 }]}>
+            {steps}
+            </SimpleGrid>
+            <Text className={classes.featuresdescription} ta="center" mt="md" fw={250} size={rem(34)}>
             Relax and let those emails do their thing; we'll swoop in to tidy up the mess whenever you want
             </Text>
     

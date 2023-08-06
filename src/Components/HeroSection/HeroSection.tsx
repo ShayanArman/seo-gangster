@@ -1,9 +1,4 @@
 import { createStyles, Overlay, Container, Title, Button, Text, rem, Flex, } from '@mantine/core';
-// import { url } from 'node:inspector';
-// import { isAbsolute } from 'node:path';
-// import { relative } from 'node:path/win32';
-// import { title } from 'node:process';
-
 
 const useStyles = createStyles((theme) => ({
 

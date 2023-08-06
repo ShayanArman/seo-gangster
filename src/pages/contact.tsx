@@ -71,7 +71,6 @@ const useStyles = createStyles((theme) => ({
   },
 
   form: {
-    backgroundColor: '#3b3b3b',
     padding: theme.spacing.xl,
     borderRadius: theme.radius.lg,
   },

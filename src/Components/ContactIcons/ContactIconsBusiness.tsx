@@ -98,7 +98,6 @@ export default function ContactIcons() {
         sx={(theme) => ({
           padding: theme.spacing.xl,
           borderRadius: theme.radius.lg,
-          backgroundColor: "#3b3b3b",
         })}
       >
         <ContactIconsList />
