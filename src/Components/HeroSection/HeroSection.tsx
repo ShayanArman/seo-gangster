@@ -1,5 +1,7 @@
 import { createStyles, Overlay, Container, Title, Button, Text, rem, Flex, } from '@mantine/core';
 import { Rotate } from 'tabler-icons-react';
+import React from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const useStyles = createStyles((theme) => ({
 
@@ -90,108 +92,107 @@ const useStyles = createStyles((theme) => ({
 
   linediv: {
     position: 'absolute',
-    bottom: 335,
+    bottom: 355,
     left: -60
-
   },
   
   line: {
     marginBottom: '5px',
-    height: '1px',
+    height: '10px',
     backgroundColor: '#e65e8c',
     width: '2000px',
     transform: 'Rotate(161.2deg)',
   },
 
-  mannquote: {
-    textAlign: 'center',
-    width: '300px',
-    color: '#444',
-    position: 'absolute',
-    right: 40,
-    bottom: 340,
-    transition: "0.3s ease-in",
+  // mannquote: {
+  //   textAlign: 'center',
+  //   width: '300px',
+  //   color: '#444',
+  //   position: 'absolute',
+  //   right: 40,
+  //   bottom: 340,
+  //   transition: "0.3s ease-in",
 
-    "&:hover": {
-      color: '#47AFE6',
-      transition: "0.3s ease-out",
-    }
-  },
+  //   "&:hover": {
+  //     color: '#47AFE6',
+  //     transition: "0.3s ease-out",
+  //   }
+  // },
 
-  kondoquote: {
-    textAlign: 'center',
-    width: '250px',
-    color: '#444',
-    position: 'absolute',
-    right: 590,
-    bottom: 110,
-    transition: "0.3s ease-in",
+  // kondoquote: {
+  //   textAlign: 'center',
+  //   width: '250px',
+  //   color: '#444',
+  //   position: 'absolute',
+  //   right: 590,
+  //   bottom: 110,
+  //   transition: "0.3s ease-in",
 
-    "&:hover": {
-      color: '#47AFE6',
-      transition: "0.3s ease-out",
-    }
-  },
+  //   "&:hover": {
+  //     color: '#47AFE6',
+  //     transition: "0.3s ease-out",
+  //   }
+  // },
 
-  franklinquote: {
-    textAlign: 'center',
-    width: '475px',
-    color: '#444',
-    position: 'absolute',
-    right: 650,
-    bottom: 0,
-    transition: "0.3s ease-in",
+  // franklinquote: {
+  //   textAlign: 'center',
+  //   width: '475px',
+  //   color: '#444',
+  //   position: 'absolute',
+  //   right: 650,
+  //   bottom: 0,
+  //   transition: "0.3s ease-in",
 
-    "&:hover": {
-      color: '#e65e8c',
-      transition: "0.3s ease-out",
-    }
-  },
+  //   "&:hover": {
+  //     color: '#e65e8c',
+  //     transition: "0.3s ease-out",
+  //   }
+  // },
 
-  burkequote: {
-    textAlign: 'center',
-    width: '375px',
-    color: '#444',
-    position: 'absolute',
-    right: 140,
-    bottom: 20,
-    transition: "0.3s ease-in",
+  // burkequote: {
+  //   textAlign: 'center',
+  //   width: '375px',
+  //   color: '#444',
+  //   position: 'absolute',
+  //   right: 140,
+  //   bottom: 20,
+  //   transition: "0.3s ease-in",
 
-    "&:hover": {
-      color: '#e65e8c',
-      transition: "0.3s ease-out",
-    }
-  },
+  //   "&:hover": {
+  //     color: '#e65e8c',
+  //     transition: "0.3s ease-out",
+  //   }
+  // },
 
-  mardenquote: {
-    textAlign: 'center',
-    width: '400px',
-    color: '#444',
-    position: 'absolute',
-    right: 130,
-    bottom: 220,
-    transition: "0.3s ease-in",
+  // mardenquote: {
+  //   textAlign: 'center',
+  //   width: '400px',
+  //   color: '#444',
+  //   position: 'absolute',
+  //   right: 130,
+  //   bottom: 220,
+  //   transition: "0.3s ease-in",
 
-    "&:hover": {
-      color: 'rgb(255,255,255, .7)',
-      transition: "0.3s ease-out",
-    }
-  },
+  //   "&:hover": {
+  //     color: 'rgb(255,255,255, .7)',
+  //     transition: "0.3s ease-out",
+  //   }
+  // },
 
-  unknownquote: {
-    textAlign: 'center',
-    width: '400px',
-    color: '#444',
-    position: 'absolute',
-    right: 70,
-    bottom: 120,
-    transition: "0.3s ease-in",
+  // unknownquote: {
+  //   textAlign: 'center',
+  //   width: '400px',
+  //   color: '#444',
+  //   position: 'absolute',
+  //   right: 70,
+  //   bottom: 120,
+  //   transition: "0.3s ease-in",
 
-    "&:hover": {
-      color: '#47AFE6',
-      transition: "0.3s ease-out",
-    }
-  },
+  //   "&:hover": {
+  //     color: '#47AFE6',
+  //     transition: "0.3s ease-out",
+  //   }
+  // },
 }));
 
 const description = "AI-powered, user-friendly, and secure. Simplify inbox management and save time with Zero Inbox.";
@@ -242,17 +243,17 @@ export default function HeroSection() {
         </Container>
         <div className={classes.linediv}>
           <div className={classes.line}></div>
-          <div className={classes.line}></div> 
+          {/* <div className={classes.line}></div> 
           <div className={classes.line}></div>
           <div className={classes.line}></div>
-          <div className={classes.line}></div>
+          <div className={classes.line}></div> */}
         </div>
-        <Text mt="md" fw={300} size={rem(20)} className={classes.mannquote}>"Do Email less" - Merlin Mann</Text>
+        {/* <Text mt="md" fw={300} size={rem(20)} className={classes.mannquote}>"Do Email less" - Merlin Mann</Text>
         <Text mt="md" fw={300} size={rem(20)} className={classes.kondoquote}>“Tidying allows you to tend to your psychological space.” — Marie Kondo</Text>
         <Text mt="md" fw={300} size={rem(20)} className={classes.franklinquote}>“For every minute spent organizing, an hour is earned.” - Benjamin Franklin</Text>
         <Text mt="md" fw={300} size={rem(20)} className={classes.burkequote}>"Good order is the foundation of all things." - Edmund Burke</Text>
         <Text mt="md" fw={300} size={rem(20)} className={classes.mardenquote}>“A good system shortens the road to the goal.” - Orison Swett Marden</Text>
-        <Text mt="md" fw={300} size={rem(20)} className={classes.unknownquote}>“Organization begins with awareness of what doesn’t work for us.” - Unknown</Text>
+        <Text mt="md" fw={300} size={rem(20)} className={classes.unknownquote}>“Organization begins with awareness of what doesn’t work for us.” - Unknown</Text> */}
       </div>
     </div>
   );
