@@ -51,6 +51,7 @@ const useStyles = createStyles((theme) => ({
     fontSize: rem(90),
     fontWeight: 300,
     lineHeight: 1.1,
+    letterSpacing: 0.1,
     padding: '5px',
 
 
@@ -193,8 +194,41 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
+const description = "AI-powered, user-friendly, and secure. Simplify inbox management and save time with Zero Inbox.";
+
 export default function HeroSection() {
   const { classes } = useStyles();
+  const [isReading, setIsReading] = useState(true);
+  const [visibleText, setVisibleText] = useState("");
+  const showIndexRef = useRef({ charIndex: 0 });
+
+  useEffect(() => {
+    let timeout: NodeJS.Timeout;
+
+    const displayChar = () => {
+      const { charIndex } = showIndexRef.current;
+
+      if (charIndex < description.length) {
+        const newCharacter = description[charIndex];
+        setVisibleText((oldVisText) => oldVisText + newCharacter);
+        showIndexRef.current = {
+          ...showIndexRef.current,
+          charIndex: charIndex + 1,
+        };
+        timeout = setTimeout(displayChar, (newCharacter === "." || newCharacter === ",") ? 500 :  50);
+      } else {
+        setIsReading(false);
+      }
+    };
+
+    if (isReading) {
+      displayChar();
+    }
+
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, [isReading]);
 
   return (
     <div className={classes.wrapper}>
@@ -203,7 +237,7 @@ export default function HeroSection() {
           <Title className={classes.title}>Clear your <span className={classes.inbox}>inbox</span></Title>
           <Title className={classes.title}>Clear your <span className={classes.mind}>mind</span></Title>
           <Text className={classes.description} size="xl" mt="xl">
-            AI-powered, user-friendly, and secure. Simplify inbox management and save time with Zero Inbox.
+            { visibleText }
           </Text>
         </Container>
         <div className={classes.linediv}>
