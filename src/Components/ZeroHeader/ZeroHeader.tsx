@@ -29,13 +29,13 @@ const useStyles = createStyles(
       left: 0,
       zIndex: 9999,
       transition: "background-color 0.3s ease",
-      borderBottom: ".5px solid grey",
     },
 
     headerColored: {
       // original background color was #333"
       backgroundColor: "rgba(51, 51, 51, 0.8)",
-      transition: "background-color 0.3s ease",
+      boxShadow: "0px 0px 20px 0px rgba(0, 0, 0, 0.1)",
+      transition: "all 0.3s"
     },
 
     inner: {

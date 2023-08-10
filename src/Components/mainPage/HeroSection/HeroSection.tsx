@@ -142,9 +142,9 @@ export default function HeroSection() {
             { visibleText }
           </Text>
         </Container>
-        <div className={classes.linediv}>
+        {/* <div className={classes.linediv}>
           <div className={classes.line}></div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
