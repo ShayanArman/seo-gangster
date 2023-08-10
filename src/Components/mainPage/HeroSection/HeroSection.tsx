@@ -95,6 +95,25 @@ const useStyles = createStyles((theme) => ({
     width: '2000px',
     transform: 'Rotate(161.2deg)',
   },
+
+  control: {
+    marginTop: `calc(${theme.spacing.xl} * 1.5)`,
+    display: 'flex-box',
+    justifyContent: 'center',
+    alignItems: 'center',
+    fontWeight: 300,
+    color: 'white',
+    border: "none",
+    backgroundColor: '#E65E8C',
+
+    "&:hover": {
+      backgroundColor: "rgba(230, 94, 140, 0.8)",
+    },
+
+    [theme.fn.smallerThan('sm')]: {
+      width: '25%',
+    },
+  },
 }));
 
 const description = "AI-powered, user-friendly, and secure. Simplify inbox management and save time with Zero Inbox.";
@@ -139,14 +158,13 @@ export default function HeroSection() {
         <Container className={classes.container}>
           <Title className={classes.title}>Zero <span style={{ color: "var(--zero-red)"}}>AI</span></Title>
           <Title className={classes.subTitle}>Email <span style={{ color: "var(--zero-blue)"}}>Manager</span></Title>
-          {/* <h2 className={classes.title}>Clear your Email, Clear your Mind</h2> */}
           <Text className={classes.description} size="xl" mt="xl">
             { visibleText }
           </Text>
+          { !isReading && <Button size="xl" radius="lg" className={classes.control}>
+            Learn more
+          </Button> }
         </Container>
-        {/* <div className={classes.linediv}>
-          <div className={classes.line}></div>
-        </div> */}
       </div>
     </div>
   );
