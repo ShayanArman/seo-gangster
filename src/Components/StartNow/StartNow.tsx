@@ -32,10 +32,6 @@ const useStyles = createStyles((theme) => ({
     fontWeight: 400,
   },
 
-  you: {
-    color: '#e65e8c'
-  },
-
   description: {
     color: 'white',
     paddingBottom: '35px',
@@ -96,7 +92,9 @@ export default function StartNow() {
         <Container className={classes.container}>
             <div className={classes.divider}></div>
             <Logo />
-            <Title fw={250} className={classes.title}>It's time for <span className={classes.you}>you</span> to start organizing your inbox.</Title>
+            <Title fw={250} className={classes.title}>
+              It&apos;s time for <span style={{color: "var(--zero-red)"}}>AI Email</span>. It&apos;s time for <span style={{ color: "var(--zero-blue)" }}> Zero Inbox</span>.
+            </Title>
             <Text className={classes.description} size="xl" mt="xl">
                 Your mind will thank you
             </Text>
