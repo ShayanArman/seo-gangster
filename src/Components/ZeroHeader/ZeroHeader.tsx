@@ -17,7 +17,7 @@ import { useDisclosure } from "@mantine/hooks";
 import { BsChevronDown } from "react-icons/bs";
 import classNames from "classnames";
 
-export const HEADER_PIXEL_HEIGHT = 60;
+export const HEADER_PIXEL_HEIGHT = 80;
 const HEADER_HEIGHT = rem(HEADER_PIXEL_HEIGHT);
 
 const useStyles = createStyles(
@@ -25,6 +25,7 @@ const useStyles = createStyles(
     header: {
       position: "fixed",
       backgroundColor: '#333',
+      borderBottom: "0px",
       top: 0,
       left: 0,
       zIndex: 9999,
@@ -34,7 +35,7 @@ const useStyles = createStyles(
     headerColored: {
       // original background color was #333"
       backgroundColor: "rgba(51, 51, 51, 0.8)",
-      boxShadow: "0px 0px 20px 0px rgba(0, 0, 0, 0.1)",
+      boxShadow: "0px 0px 10px 0px #eee",
       transition: "all 0.3s"
     },
 
