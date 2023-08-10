@@ -50,13 +50,8 @@ const useStyles = createStyles((theme) => ({
 
 
     [theme.fn.smallerThan('sm')]: {
-      fontSize: rem(40),
+      fontSize: rem(80),
       lineHeight: 1.2,
-    },
-
-    [theme.fn.smallerThan('xs')]: {
-      fontSize: rem(28),
-      lineHeight: 1.3,
     },
   },
 
@@ -73,11 +68,6 @@ const useStyles = createStyles((theme) => ({
       fontSize: rem(40),
       lineHeight: 1.2,
     },
-
-    [theme.fn.smallerThan('xs')]: {
-      fontSize: rem(28),
-      lineHeight: 1.3,
-    },
   },
 
   description: {
@@ -88,8 +78,7 @@ const useStyles = createStyles((theme) => ({
     fontSize: rem(25),
 
     [theme.fn.smallerThan('sm')]: {
-      maxWidth: '50%',
-      fontSize: theme.fontSizes.sm,
+      fontSize: rem(20),
     },
   },
 
