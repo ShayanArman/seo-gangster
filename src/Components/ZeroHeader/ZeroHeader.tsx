@@ -2,6 +2,7 @@ import {
   createStyles,
   Menu,
   Center,
+  Text,
   Header,
   Container,
   Group,
@@ -33,60 +34,43 @@ const useStyles = createStyles(
     },
 
     headerColored: {
-      // original background color was #333"
       backgroundColor: "rgba(51, 51, 51, 0.8)",
-      boxShadow: "0px 0px 30px 0px grey",
+      boxShadow: "0px 0px px 0px grey",
       transition: "all 0.3s"
     },
 
     inner: {
-      [theme.fn.smallerThan("sm")]:{
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-      },
       height: HEADER_HEIGHT,
       width: "90%",
       display: "flex",
-      justifyContent: "right",
+      justifyContent: "space-between",
       alignItems: "center",
       position: 'relative',
     },
 
     links: {
-      [theme.fn.smallerThan("sm")]: {
+      [theme.fn.smallerThan("lg")]: {
         display: "none",
       },
       marginRight: "5%",
     },
 
     logo: {
-      [theme.fn.smallerThan("sm")]: {
-        marginLeft: "1rem",
-        marginTop: "0.3rem",
-        position: 'relative',
-      },
       marginTop: "0.3rem",
       position: "absolute",
       left: 0,
+
+      [theme.fn.smallerThan("lg")]: {
+        // marginLeft: "0.5rem",
+        marginTop: "0.3rem",
+        position: 'relative',
+      },
     },
 
     burger: {
-      [theme.fn.largerThan("sm")]: {
-        display: "none",
-      },
-    },
-
-    desktopActionButton: {
-      [theme.fn.smallerThan("sm")]: {
-        display: "none",
-      },
-    },
-
-    mobileButton: {
-      [theme.fn.largerThan("sm")]: {
-        display: "none",
-      },
+      [theme.fn.largerThan("lg")]: {
+        display: "none"
+      }
     },
 
     link: {
@@ -134,17 +118,15 @@ export default function ZeroHeader({
             size="md"
             color="#3DBCF8"
           />
-          <Logo className={classes.logo} />
-          {/* <MantineLogo size={28} /> */}
+          <Link href="/" className={classes.logo}>
+            <Image width={150} height={40} alt="zeroInbox" src="/horizLogo.png" />
+          </Link>
         </Group>
         <Group spacing={5} className={classes.links}>
           <LinksToItems />
         </Group>
-        <Box className={classes.desktopActionButton}>
+        <Box>
           <ActionButton buttonSize={"md"} innerText="Sign In" />
-        </Box>
-        <Box className={classes.mobileButton}>
-          <ActionButton buttonSize={"xs"} innerText="Sign In" />
         </Box>
       </Container>
     </Header>
@@ -183,14 +165,6 @@ function ActionButton({
     >
       {innerText}
     </Button>
-  );
-}
-
-function Logo({ className }: { className: string }) {
-  return (
-    <Link href="/" className={className}>
-      <Image width={150} height={40} alt="zeroInbox" src="/horizLogo.png" />
-    </Link>
   );
 }
 
