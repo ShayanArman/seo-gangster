@@ -4,6 +4,7 @@ import {
   rem,
 } from '@mantine/core';
 import React from 'react';
+import { Backhoe, Mailbox, Clock2, ClockHour7, ClockHour8 } from 'tabler-icons-react';
 
 const useStyles = createStyles((theme) => ({
 
@@ -46,8 +47,7 @@ const useStyles = createStyles((theme) => ({
 
   vertline: {
     width: '230px',
-    height: '1px',
-    background: '#e65e8c',
+    borderBottom: '2px dotted #e65e8c',
     position: 'relative',
     transform: 'Rotate(90deg)',
     left: '24%',
@@ -56,28 +56,25 @@ const useStyles = createStyles((theme) => ({
 
   horizline1: {
     width: '35px',
-    height: '1px',
-    background: '#e65e8c',
+    borderBottom: '2px dotted #e65e8c',
     position: 'relative',
-    left: '31.95%',
+    left: '31.91%',
     top: 137,
   },
 
   horizline2: {
       width: '550px',
-      height: '1px',
-      background: '#e65e8c',
+      borderBottom: '2px dotted #e65e8c',
       position: 'relative',
-      left: 420,
+      left: 419.7,
       top: 253
     },
 
   horizline3: {
     width: '35px',
-    height: '1px',
-    background: '#e65e8c',
+    borderBottom: '2px dotted #e65e8c',
     position: 'relative',
-    left: '31.95%',
+    left: '31.91%',
     top: 365,
   },
 
@@ -86,7 +83,8 @@ const useStyles = createStyles((theme) => ({
     height: '500px',
     position: 'relative',
     display: 'flex',
-    margin: '0 auto'
+    margin: '0 auto',
+    marginBottom: '40px'
   },
 
   titlediv: {
@@ -111,14 +109,14 @@ const useStyles = createStyles((theme) => ({
   },
 
   stats: {
-    color: 'rgb(255,255,255, .7)',
+    color: 'black',
     width: '400px',
     height: '150px',
     display: 'flex',
     alignItems: 'center',
     textAlign: 'center',
-    padding: '25px',
-    background: '#333',
+    padding: '20px',
+    backgroundColor: 'white',
     boxShadow: '5px 5px 15px black',
     borderRadius: '10px',
     margin: '0 auto',
@@ -139,18 +137,40 @@ export default function ProblemSection() {
           <div className={classes.horizline2}></div>
           <div className={classes.horizline3}></div>
           <div className={classes.statscontainer}>
-              <div className={classes.titlediv}>
-                  <Text fw={225} size={rem(30)} className={classes.title}>The average employee</Text>
+            <div className={classes.titlediv}>
+              <Text fw={250} size={rem(30)} className={classes.title}>The average employee</Text>
+            </div>
+            <div className={classes.statsdiv}>
+              <div className={classes.stats}>
+                <div>
+                  <Backhoe size={50} strokeWidth={0.8} />
+                </div>
+                <div>
+                  <Text fw={200} size={rem(20)}>Has 62% of their inbox filled with unimportant emails that can be processed in bulk.</Text>
+                </div>
               </div>
-              <div className={classes.statsdiv}>
-                  <Text fw={200} size={rem(20)} className={classes.stats}>Loses 2.5 hours per day due to ineffective communication and collaboration in the workplace</Text>
-                  <Text fw={200} size={rem(20)} className={classes.stats}>Spends 17 hours per week reading and sending work emails but 30% of these emails are neither urgent nor important </Text>
+              <div className={classes.stats}>
+                <div>
+                  <ClockHour8 size={50} strokeWidth={0.8} />
+                </div>
+                <div>
+                  <Text fw={200} size={rem(20)}>Spends 10% of the total time on email organizing messages they want to keep.</Text>
+                </div>
+              </div>  
+            </div>
+            <div className={classes.statsdiv}>
+              <div className={classes.stats}>
+                <div>
+                  <Mailbox size={50} strokeWidth={0.8} />
+                </div>
+                <div>
+                  <Text fw={200} size={rem(20)}>Wastes 27 minutes a day due to a full and unorganized inbox.</Text>
+                </div>
               </div>
-              <div className={classes.statsdiv}>
-                  <Text fw={200} size={rem(20)} className={classes.stats}>Receives 74 emails during the workday while only sending 26 emails</Text>
-              </div>
+            </div>
           </div>
       </div>
     </div>
   );
 }
+
