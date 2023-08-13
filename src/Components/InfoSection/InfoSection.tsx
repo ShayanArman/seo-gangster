@@ -11,11 +11,12 @@ import {
         width: '100%',
         height: 'auto',
         backgroundColor: 'white',
+        marginTop: '5px'
     },
 
     container: {
         width: '100%',
-        height: '250px',
+        height: '260px',
         display: 'flex',
         justifyContent: 'space-around',
         padding: '40px',
@@ -29,7 +30,7 @@ import {
         display: 'flex-box',
         alignItems: 'top',
         justifyContent: 'left',
-        borderTop: '2px solid black',
+        borderTop: '2px solid #333',
 
         '&::after': {
             bottom: 0,
@@ -38,7 +39,7 @@ import {
             position: 'absolute',
             width: '15px',
             height: '1px',
-            backgroundColor: 'black',
+            backgroundColor: '#333',
         },
     },
 

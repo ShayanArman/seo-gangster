@@ -6,6 +6,10 @@ import ZeroHeader, { HEADER_PIXEL_HEIGHT } from '@/Components/ZeroHeader/ZeroHea
 import Features from "@/Components/mainPage/Features";
 import FooterSection from "@/Components/Footer";
 import StartNow from "@/Components/mainPage/StartNow";
+import Statement from "@/Components/Statement";
+import ProblemSection from "@/Components/ProblemSection";
+import InfoSection from "@/Components/InfoSection";
+import StepsSection from "@/Components/StepsSection";
 
 
 export default function Home() {
@@ -35,6 +39,9 @@ export default function Home() {
         </Waypoint>
         
         <HeroSection />
+        <ProblemSection />
+        <InfoSection />
+        <StepsSection />
         <Features />
         <StartNow />
         <FooterSection />
