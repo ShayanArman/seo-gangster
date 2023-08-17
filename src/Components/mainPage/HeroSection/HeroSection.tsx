@@ -87,7 +87,7 @@ const useStyles = createStyles((theme) => ({
     fontWeight: 300,
     color: 'white',
     border: "none",
-    backgroundColor: '#E65E8C',
+    backgroundColor: "var(--zero-red)",
 
     "&:hover": {
       backgroundColor: "rgba(230, 94, 140, 0.8)",

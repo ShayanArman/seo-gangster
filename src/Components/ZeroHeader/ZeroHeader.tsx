@@ -150,15 +150,13 @@ function ActionButton({
       variant='outline'
       styles={(theme) => ({
         root: {
-          border: "1px solid black",
-          color:"black",
-          transition: "0.3s ease-in",
+          border: "none",
+          color:"white",
           fontSize: theme.fontSizes.md,
           fontWeight: 300,
+          backgroundColor: "var(--zero-red)",
         "&:hover": {
-          transition: "0.3s ease-out",
-          backgroundColor: "#E65E8C",
-          color: 'white',
+          backgroundColor: "rgba(230, 94, 140, 0.8)",
         }
       }
       })}
