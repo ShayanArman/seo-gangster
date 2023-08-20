@@ -2,40 +2,10 @@ import {
   createStyles,
   rem,
 } from '@mantine/core';
-import { useEffect, useState } from "react";
 import React from 'react';
-
-const useFadeInOnScroll = (targetId) => {
-  const [isVisible, setIsVisible] = useState(false);
-
-  const handleScroll = () => {
-    const scrollY = window.scrollY;
-    const windowHeight = window.innerHeight;
-    const targetElement = document.getElementById(targetId);
-
-    if (targetElement) {
-      const elementOffset = targetElement.offsetTop;
-      const triggerPoint = elementOffset - (windowHeight * 0.8);
-
-      setIsVisible(scrollY > triggerPoint);
-
-      if (scrollY > triggerPoint) {
-        window.removeEventListener('scroll',handleScroll)
-      }
-    }
-  };
-
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  return isVisible;
-};
 
 
 const useStyles = createStyles((theme) => ({
-
   wrapper: {
     width: '100%',
     height: '100vh',
@@ -51,7 +21,6 @@ const useStyles = createStyles((theme) => ({
     justifyContent: 'center',
     alignItems: 'center',
     opacity: 0,
-
   },
 
   textwrapper: {
@@ -105,29 +74,31 @@ const useStyles = createStyles((theme) => ({
     objectFit: 'cover'
   },
 
+  nonVisible: {
+    opacity: 0,
+    transform: 'translateY(500px)',
+  },
+
   visible: {
     opacity: 1,
     transform: 'translateY(0)',
-    transition: 'opacity 2s ease, transform 2s ease',
+    transition: 'transform 5s ease-out'
   }
-  
 }))
 
-export default function Section1() {
+export default function TextPlusImage({isActive}: {isActive: boolean}) {
   const { classes } = useStyles();
-  const fadeInOnScroll = useFadeInOnScroll('section1');
 
   return (
-
     <div className={classes.wrapper}>
-      <div className={`${classes.container} ${fadeInOnScroll ? classes.visible : ''}`} id="section1">
+      <div className={`${classes.container} ${isActive ? classes.visible : classes.nonVisible}`} id="section1">
         <div className={classes.textwrapper}>
           <div className={classes.textcontainer}>
             <div className={classes.title}>
-              <p>Never miss a moment with voice and video calls</p>
+              <p>Zero AI poop</p>
             </div>
             <div className={classes.description}>
-              <p>From a group call to classmates to a quick call with mom, feel like you’re in the same room with voice and video calls.</p>
+              <p>Zero AI is a poop From a group call to classmates to a quick call with mom, feel like you’re in the same room with voice and video calls.</p>
             </div>
           </div>
         </div>
@@ -138,8 +109,6 @@ export default function Section1() {
         </div>
       </div>
     </div>
-    
-    
   );
 }
 

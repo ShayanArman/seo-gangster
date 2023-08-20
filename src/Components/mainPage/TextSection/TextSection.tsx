@@ -1,9 +1,5 @@
 import {
     createStyles,
-    Text,
-    Card,
-    SimpleGrid,
-    Container,
     rem,
   } from '@mantine/core';
   import React from 'react';
@@ -39,18 +35,29 @@ import {
     fontSize: rem(45),
   },
 
+  nonVisible: {
+    opacity: 0,
+    transform: 'translateY(150px)',
+  },
+
+  visible: {
+    opacity: 1,
+    transform: 'translateY(0)',
+    transition: 'all 1s ease-out'
+  }
 }));
 
 
-export default function TextSection() {
-
+export default function TextSection({isActive, innerText}: {isActive: boolean, innerText: string}) {
     const { classes } = useStyles();
-  
+
     return (
       <div className={classes.wrapper}>
         <div className={classes.container}>
           <div className={classes.textdiv}>
-            <p className={classes.text}>With private messaging and calling, you can be yourself, speak freely and feel close to the most important people in your life no matter where they are.</p>
+            <p className={`${classes.text} ${isActive ? classes.visible : classes.nonVisible}`}>
+              { innerText }
+            </p>
           </div>
         </div>
       </div>

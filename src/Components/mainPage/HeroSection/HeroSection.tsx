@@ -23,8 +23,7 @@ const useStyles = createStyles((theme) => ({
     backgroundImage: 'url(https://scontent.whatsapp.net/v/t39.8562-34/316546300_547692113846445_7299710494491288098_n.png?ccb=1-7&_nc_sid=2fbf2a&_nc_ohc=YcdYMSCdMFMAX93mIt7&_nc_ht=scontent.whatsapp.net&oh=01_AdQEo2eAtbrvdV9hFD0X3ceNdzyrONQlZIw98pJo0vN3Ow&oe=64E111E5)',
     backgroundPosition: 'stretch',
     position: 'relative',
-
-    },
+  },
 
   herodiv: {
     height: '400px',
@@ -68,7 +67,7 @@ const useStyles = createStyles((theme) => ({
   },
 
   description: {
-    color: "#333",
+    color: "white",
     maxWidth: 400,
     padding: '5px',
     fontWeight: 240,
@@ -99,7 +98,7 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-const description = "AI-powered, user-friendly, and secure. Simplify inbox management and save time with Zero Inbox.";
+const description = "AI-powered Email manager. The secure and simple way to save time on your emails.";
 
 export default function HeroSection() {
   const { classes } = useStyles();
