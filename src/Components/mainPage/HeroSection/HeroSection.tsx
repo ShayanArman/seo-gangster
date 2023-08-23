@@ -13,7 +13,7 @@ const useStyles = createStyles((theme) => ({
 
   main: {
     borderRadius: "30px",
-    boxShadow: "7px 7px 10px 0px var(--grey-color)",
+    boxShadow: "7px 7px 10px 0px var(--shadow-color)",
     backgroundColor: "black",
     backgroundPosition: "center",
     position: "relative",
@@ -80,7 +80,6 @@ const useStyles = createStyles((theme) => ({
     backgroundColor: "var(--zero-red)",
 
     "&:hover": {
-      //   backgroundColor: "rgba(230, 94, 140, 0.8)",
       backgroundColor: "var(--zero-red)",
       opacity: 0.8,
     },

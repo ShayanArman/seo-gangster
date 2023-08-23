@@ -9,7 +9,8 @@
     --green-light: #0DA2C6a1;
     --blue-color: #2196F3;
     --blue-light: #2195f3a1;
-    --grey-color: grey;
+    --grey-color: #eee;
+    --shadow-color: rgba(117, 116, 116, 0.856);
     --grey-light: #eee;
     --color-danger: #df1b41;
 }

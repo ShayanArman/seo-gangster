@@ -66,7 +66,6 @@ const useStyles = createStyles(
       left: 0,
 
       [theme.fn.smallerThan("lg")]: {
-        // marginLeft: "0.5rem",
         marginTop: "0.3rem",
         position: 'relative',
       },
