@@ -51,9 +51,11 @@ const useStyles = createStyles(
 
           content: {
             marginLeft: "120px",
+            maxWidth: "35%",
 
             [theme.fn.smallerThan("md")]: {
-                marginLeft: "20px"
+                marginLeft: "20px",
+                maxWidth: "70%"
             }
           },
 
