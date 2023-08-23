@@ -13,6 +13,7 @@ const useStyles = createStyles((theme) => ({
 
   main: {
     borderRadius: "30px",
+    boxShadow: "7px 7px 10px 0px var(--grey-color)",
     backgroundColor: "black",
     backgroundPosition: "center",
     position: "relative",
