@@ -1,1 +1,1 @@
-export { default as default } from "./HeroSection2";
+export { default as default } from "./HeroSection";
