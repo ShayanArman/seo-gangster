@@ -28,7 +28,13 @@ function WaypointWrapper({ Component, innerText }: {Component: typeof TextSectio
 
 export default function Home() {
   const [scrolledToHeader, setScrolledToHeader] = useState(false);
+  const [seenComponents, setSeenComponents] = useState<Set<string>>(new Set());
   const isSmallScreen = useIsMobile();
+
+  // Add item to the set
+  const addSeenComponent = (component: string) => {
+    setSeenComponents((prevItems) => new Set(prevItems).add(component));
+  };
 
   return (
       <Box>

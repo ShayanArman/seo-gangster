@@ -10,7 +10,6 @@ export default function Layout({ children }: { children: JSX.Element }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="og:title" content={"Zero Inbox"} />
       </Head>
-
       { children }
     </>
   );
