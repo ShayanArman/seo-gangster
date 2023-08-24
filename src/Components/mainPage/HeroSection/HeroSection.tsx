@@ -74,6 +74,7 @@ const useStyles = createStyles((theme) => ({
   learnMoreButton: {
     opacity: 0,
     fontWeight: 300,
+    maxWidth: 0,
     fontSize: "1.3em",
     color: "white",
     border: "none",
@@ -87,6 +88,7 @@ const useStyles = createStyles((theme) => ({
 
   showButton: {
     opacity: 1,
+    maxWidth: "15rem",
     transition: "all 1s ease-out",
   },
 }));
@@ -121,7 +123,7 @@ export default function HeroSection({
 }
 
 const description =
-  "AI-powered Email manager. The secure and simple way to save time on your emails.";
+  "AI-powered Email manager. Secure and simple. Save time, let Zero AI handle it.";
 
 function TypeDescription({ isSmallScreen }: { isSmallScreen: boolean }) {
   const { classes } = useStyles();
@@ -173,7 +175,7 @@ function TypeDescription({ isSmallScreen }: { isSmallScreen: boolean }) {
       <Button
         mt={"xl"}
         size={isSmallScreen ? "lg" : "xl"}
-        radius="lg"
+        radius="xl"
         className={`${classes.learnMoreButton} ${
           !isReading || showIndexRef.current.charIndex > description.length - 3
             ? classes.showButton
