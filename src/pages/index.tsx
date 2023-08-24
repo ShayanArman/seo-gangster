@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Box } from '@mantine/core';
 import { Waypoint } from 'react-waypoint';
 import ZeroHeader, { HEADER_HEIGHT } from '@/Components/ZeroHeader/ZeroHeader';
-import TextSection from "@/Components/mainPage/TextSection";
-import HeroSection from "@/Components/mainPage/HeroSection";
+import TextSection from "@/Components/TextSection";
+import HeroSection from "@/Components/HeroSection";
 import Footer from "@/Components/Footer";
 import useIsMobile from "@/hooks/useIsMobile";
 
