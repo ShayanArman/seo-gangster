@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 
 const useStyles = createStyles((theme) => ({
   container: {
-    backgroundColor: "var(--hero-gold)",
+    backgroundColor: "var(--landing-background)",
     padding: "2rem 5rem",
 
     [theme.fn.smallerThan("md")]: {
@@ -20,8 +20,8 @@ const useStyles = createStyles((theme) => ({
   },
 
   content: {
-    marginLeft: "120px",
-    maxWidth: "33%",
+    marginLeft: "10%",
+    maxWidth: "50%",
 
     [theme.fn.smallerThan("xl")]: {
       maxWidth: "45%",

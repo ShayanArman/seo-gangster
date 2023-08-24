@@ -12,19 +12,19 @@ import useIsMobile from "@/hooks/useIsMobile";
  * @param
  * @returns 
  */
-function WaypointWrapper({ Component, innerText }: {Component: typeof TextSection, innerText: string }) {
-  const [isVisible, setIsVisible] = useState(false);
-  return (
-    <>
-      <Component isActive={isVisible} innerText={innerText} />
-      <Waypoint
-        topOffset={800}
-        onEnter={() => {
-          setIsVisible(true);
-        }} />
-    </>
-  );
-}
+// function WaypointWrapper({ Component, innerText }: {Component: typeof TextSection, innerText: string }) {
+//   const [isVisible, setIsVisible] = useState(false);
+//   return (
+//     <>
+//       <Component isActive={isVisible} innerText={innerText} />
+//       <Waypoint
+//         topOffset={800}
+//         onEnter={() => {
+//           setIsVisible(true);
+//         }} />
+//     </>
+//   );
+// }
 
 export default function Home() {
   const [scrolledToHeader, setScrolledToHeader] = useState(false);
@@ -49,6 +49,14 @@ export default function Home() {
         </Waypoint>
 
         <HeroSection isSmallScreen={isSmallScreen} />
+
+        <TextSection 
+          key="text1" 
+          isVisible={seenComponents.has("text1")} 
+          innerText="With private messaging and calling, you can be yourself, speak freely
+          and feel close to the most important people in your life no matter where
+          they are."/>
+        <Waypoint topOffset={800} onEnter={() => {!seenComponents.has("text1") ? addSeenComponent("text1") : null }} />
 
         <Box mih={"500px"} w={"100%"} style={{ backgroundColor: "white"}}>
         </Box>

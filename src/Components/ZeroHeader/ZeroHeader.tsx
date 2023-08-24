@@ -153,7 +153,7 @@ function ActionButton({
       component="a"
       target="_blank"
       href="https://app.zeroinbox.ai"
-      radius="lg"
+      radius="xl"
       size={buttonSize}
       variant='outline'
       styles={(theme) => ({
