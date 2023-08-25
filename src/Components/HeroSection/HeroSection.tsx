@@ -21,18 +21,15 @@ const useStyles = createStyles((theme) => ({
 
   content: {
     marginLeft: "10%",
-    maxWidth: "50%",
+    maxWidth: "40%",
 
     [theme.fn.smallerThan("xl")]: {
-      maxWidth: "45%",
-    },
-
-    [theme.fn.smallerThan("lg")]: {
       maxWidth: "50%",
     },
 
     [theme.fn.smallerThan("md")]: {
       marginLeft: "3rem",
+      border: "1px solid white",
       maxWidth: "70%",
     },
   },
