@@ -127,7 +127,7 @@ export default function ZeroHeader({
             color="var(--zero-blue)"
           />
           <Link href="/" className={classes.logo}>
-            <Image width={150} height={40} alt="zeroInbox" src="/horizontalBlack.png" />
+            <Image width={150} height={40} alt="zeroInbox" src="/horizBlackBigger.svg" />
           </Link>
         </Group>
         <Group spacing={5} className={classes.links}>
