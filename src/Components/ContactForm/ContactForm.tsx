@@ -118,79 +118,80 @@ import {
   
   export default function ContactUs() {
     const { classes } = useStyles();
+    return <div>HI</div>;
   
-    const icons = social.map((Icon, index) => (
-      <ActionIcon key={index} size={28} className={classes.social} variant="transparent">
-        <Icon size="1.4rem" stroke='1.5' />
-      </ActionIcon>
-    ));
+    // const icons = social.map((Icon, index) => (
+    //   <ActionIcon key={index} size={28} className={classes.social} variant="transparent">
+    //     <Icon size="1.4rem" stroke='1.5' />
+    //   </ActionIcon>
+    // ));
   
-    return (
-      <>
+    // return (
+    //   <>
       
-      <div className={classes.wrapper}>
-          <div className={classes.container}>
-            <SimpleGrid cols={2} spacing={50} breakpoints={[{ maxWidth: 'sm', cols: 1 }]}>
-              <div>
-                <div className={classes.titlediv}>
-                  <Title className={classes.title}>Require further information?</Title>
-                  <div className={classes.underline}></div>
-                  <Text className={classes.description} mt="sm" mb={30}>
-                    Send us a message and we'll get back to you!
-                  </Text>
-                </div>
+    //   <div className={classes.wrapper}>
+    //       <div className={classes.container}>
+    //         <SimpleGrid cols={2} spacing={50} breakpoints={[{ maxWidth: 'sm', cols: 1 }]}>
+    //           <div>
+    //             <div className={classes.titlediv}>
+    //               <Title className={classes.title}>Require further information?</Title>
+    //               <div className={classes.underline}></div>
+    //               <Text className={classes.description} mt="sm" mb={30}>
+    //                 Send us a message and we'll get back to you!
+    //               </Text>
+    //             </div>
   
-                <ContactIcons />
+    //             <ContactIcons />
   
-                <Group mt="xl">{icons}</Group>
-              </div>
-              <div className={classes.form}>
-                <TextInput
-                  label="Email"
-                  onFocus={(e) => {
-                    e.target.style.border = '1px solid rgb(50,50,50, .5)';
-                  }}
-                  onBlur={(e) => {
-                    e.target.style.border = '1px solid rgb(155,155,155, .3)';
-                  }}
-                  placeholder="your@email.com"
-                  required
-                  classNames={{ input: classes.input, label: classes.inputLabel }}
-                />
-                <TextInput
-                  label="Name"
-                  onFocus={(e) => {
-                    e.target.style.border = '1px solid rgb(50,50,50, .5)';
-                  }}
-                  onBlur={(e) => {
-                    e.target.style.border = '1px solid rgb(155,155,155, .3)';
-                  }}
-                  placeholder="John Doe"
-                  mt="md"
-                  classNames={{ input: classes.input, label: classes.inputLabel }}
-                />
-                <Textarea
-                  required
-                  label="Your message"
-                  onFocus={(e) => {
-                    e.target.style.border = '1px solid rgb(50,50,50, .5)';
-                  }}
-                  onBlur={(e) => {
-                    e.target.style.border = '1px solid rgb(155,155,155, .3)';
-                  }}
-                  placeholder="Tell me more about.."
-                  minRows={6}
-                  mt="md"
-                  classNames={{ input: classes.input, label: classes.inputLabel }}
-                />
+    //             <Group mt="xl">{icons}</Group>
+    //           </div>
+    //           <div className={classes.form}>
+    //             <TextInput
+    //               label="Email"
+    //               onFocus={(e) => {
+    //                 e.target.style.border = '1px solid rgb(50,50,50, .5)';
+    //               }}
+    //               onBlur={(e) => {
+    //                 e.target.style.border = '1px solid rgb(155,155,155, .3)';
+    //               }}
+    //               placeholder="your@email.com"
+    //               required
+    //               classNames={{ input: classes.input, label: classes.inputLabel }}
+    //             />
+    //             <TextInput
+    //               label="Name"
+    //               onFocus={(e) => {
+    //                 e.target.style.border = '1px solid rgb(50,50,50, .5)';
+    //               }}
+    //               onBlur={(e) => {
+    //                 e.target.style.border = '1px solid rgb(155,155,155, .3)';
+    //               }}
+    //               placeholder="John Doe"
+    //               mt="md"
+    //               classNames={{ input: classes.input, label: classes.inputLabel }}
+    //             />
+    //             <Textarea
+    //               required
+    //               label="Your message"
+    //               onFocus={(e) => {
+    //                 e.target.style.border = '1px solid rgb(50,50,50, .5)';
+    //               }}
+    //               onBlur={(e) => {
+    //                 e.target.style.border = '1px solid rgb(155,155,155, .3)';
+    //               }}
+    //               placeholder="Tell me more about.."
+    //               minRows={6}
+    //               mt="md"
+    //               classNames={{ input: classes.input, label: classes.inputLabel }}
+    //             />
   
-                <Group position="center" mt="md">
-                  <Button className={classes.control}>Send message</Button>
-                </Group>
-              </div>
-            </SimpleGrid>
-          </div>
-        </div>
-      </>
-    );
+    //             <Group position="center" mt="md">
+    //               <Button className={classes.control}>Send message</Button>
+    //             </Group>
+    //           </div>
+    //         </SimpleGrid>
+    //       </div>
+    //     </div>
+    //   </>
+    // );
   }
