@@ -87,29 +87,30 @@ const useStyles = createStyles((theme) => ({
 }))
 
 export default function TextPlusImage({isActive}: {isActive: boolean}) {
-  const { classes } = useStyles();
+  return <div>hi</div>;
+  // const { classes } = useStyles();
 
-  return (
-    <div className={classes.wrapper}>
-      <div className={`${classes.container} ${isActive ? classes.visible : classes.nonVisible}`} id="section1">
-        <div className={classes.textwrapper}>
-          <div className={classes.textcontainer}>
-            <div className={classes.title}>
-              <p>Zero AI poop</p>
-            </div>
-            <div className={classes.description}>
-              <p>Zero AI is a poop From a group call to classmates to a quick call with mom, feel like you’re in the same room with voice and video calls.</p>
-            </div>
-          </div>
-        </div>
-        <div className={classes.imgwrapper}>
-          <div className={classes.imgcontainer}>
-            <img className={classes.img} src='https://img.freepik.com/premium-photo/silver-smartphone-front-side-white-background_187299-20187.jpg'></img>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+  // return (
+  //   <div className={classes.wrapper}>
+  //     <div className={`${classes.container} ${isActive ? classes.visible : classes.nonVisible}`} id="section1">
+  //       <div className={classes.textwrapper}>
+  //         <div className={classes.textcontainer}>
+  //           <div className={classes.title}>
+  //             <p>Zero AI poop</p>
+  //           </div>
+  //           <div className={classes.description}>
+  //             <p>Zero AI is a poop From a group call to classmates to a quick call with mom, feel like you’re in the same room with voice and video calls.</p>
+  //           </div>
+  //         </div>
+  //       </div>
+  //       <div className={classes.imgwrapper}>
+  //         <div className={classes.imgcontainer}>
+  //           <img className={classes.img} src='https://img.freepik.com/premium-photo/silver-smartphone-front-side-white-background_187299-20187.jpg'></img>
+  //         </div>
+  //       </div>
+  //     </div>
+  //   </div>
+  // );
 }
 
 
