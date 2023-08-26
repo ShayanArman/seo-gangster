@@ -6,6 +6,7 @@ import TextSection from "@/Components/TextSection";
 import HeroSection from "@/Components/HeroSection";
 import Footer from "@/Components/Footer";
 import useIsMobile from "@/hooks/useIsMobile";
+import TextPlusImage from "@/Components/TextPlusImage";
 
 export default function Home() {
   const [scrolledToHeader, setScrolledToHeader] = useState(false);
@@ -39,6 +40,8 @@ export default function Home() {
           </Text>
         }/>
         <Waypoint topOffset={800} onEnter={() => {!seenComponents.has("text1") ? addSeenComponent("text1") : null }} />
+
+        <TextPlusImage />
 
         <Box mih={"500px"} w={"100%"} style={{ backgroundColor: "white"}}>
         </Box>
