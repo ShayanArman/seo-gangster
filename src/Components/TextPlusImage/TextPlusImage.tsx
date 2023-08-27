@@ -22,7 +22,7 @@ const useStyles = createStyles((theme) => ({
     backgroundColor: "black",
     color: "white",
     borderRadius: "30px",
-    padding: "3rem 1rem 0 3rem",
+    padding: "2rem 1rem 0 1.5rem",
     textAlign: "left",
     minHeight: "20rem",
     maxWidth: "20em",
