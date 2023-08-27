@@ -1,4 +1,5 @@
 import {
+  createStyles,
   Box,
   Flex,
   Text,
@@ -6,10 +7,38 @@ import {
 } from '@mantine/core';
 import React, { useEffect, useRef, useState } from 'react';
 
+const useStyles = createStyles((theme) => ({
+  textSection: {
+    backgroundColor: "transparent",
+    textAlign: "left",
+    border: "1px solid black",
+    minHeight: "10rem",
+    fontFamily: "Helvetica Neue",
+    width: "40%",
+    [theme.fn.smallerThan("lg")]: {
+      width: "58%"
+    }
+  },
+
+  imgSection: {
+    border: "1px solid black",
+    width: "50%", 
+    margin: "0",
+    [theme.fn.smallerThan("lg")]: {
+      width: "100%",
+      margin: "0 auto",
+    }
+  }
+}));
+
+
+
+
 export default function TextPlusImage() {
   const [isWrapped, setIsWrapped] = useState(false);
   const isWrappedRef = useRef(isWrapped);
   const containerRef = useRef<HTMLDivElement>(null);
+  const { classes } = useStyles();
 
   useEffect(() => {
     isWrappedRef.current = isWrapped;
@@ -36,17 +65,31 @@ export default function TextPlusImage() {
 
   return (
     <Box w="100%" mr="auto" ml="auto" style={{maxWidth: "1080px"}}>
-      <Flex ref={containerRef} justify={"space-between"} p="88px 24px 56px 24px" wrap="wrap" gap={100} align="center" style={{border: "1px solid black"}}>
-        <Flex key="text" direction="column" justify="center" style={{border: "1px solid black"}}>
-          <Text>
-            <Title>
-              AI does not mean automatic.
+      <Flex 
+        ref={containerRef} 
+        w={"100%"} 
+        justify={"space-between"} 
+        gap={16} 
+        p="88px 24px 56px 24px" 
+        wrap="wrap" 
+        style={{border: "1px solid black"}}>
+        <Flex 
+          key="textSectionxxyy" 
+          direction="column" 
+          justify="center" 
+          className={classes.textSection}>
+            <Title style={{fontSize: isWrapped ? "32px" : "40px"}}>
+              Important emails will never be lost in your junk folder
             </Title>
-            Zero AI shows you bunches of emails. You choose what to do.
-          </Text>
+            <Text>
+              Zero AI shows you bunches of emails. You choose what to do.
+            </Text>
         </Flex>
-        <Flex key="image" style={{margin: isWrapped ? "0 auto" : "0", border: "1px solid black"}}>
-          <Box mih={"250px"} miw={"200px"} style={{ backgroundColor: isWrapped ? "orange" : "black"}}>
+        <Flex 
+          key="image" 
+          justify="center"
+          className={classes.imgSection}>
+          <Box mih={"400px"} miw={"200px"} style={{ backgroundColor: isWrapped ? "orange" : "black"}}>
 
           </Box>
         </Flex>
