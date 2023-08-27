@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="1340px" height="352px" viewBox="0 0 1340 352" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="1349px" height="352px" viewBox="0 0 1349 352" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <title>hazharLogo</title>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="horizontalLogoBlack">
@@ -8,7 +8,7 @@
                 <path d="M90.2092932,100 L196,100 C225.823376,100 250,124.176624 250,154 L250,264.723545 C250,284.506339 233.962877,300.543462 214.180083,300.543462 C204.599513,300.543462 195.418222,296.705515 188.68782,289.88723 L127.469024,227.869062 C127.406768,227.805994 127.344358,227.743079 127.281792,227.680318 L63.6878202,163.88723 C49.0861337,149.239825 49.1231959,125.528751 63.770601,110.927065 C70.790169,103.929407 80.2976055,100 90.2092932,100 Z" id="Rectangle" fill="#3DBCF8" opacity="0.666829427"></path>
             </g>
             <text id="ZeroInbox.ai" font-family="Calibri-Bold, Calibri" font-size="191" font-weight="bold" letter-spacing="5.96875" fill="#000000">
-                <tspan x="280.41333" y="224">ZeroInbox.ai</tspan>
+                <tspan x="289.41333" y="224">ZeroInbox.ai</tspan>
             </text>
         </g>
     </g>
