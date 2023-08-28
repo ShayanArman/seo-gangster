@@ -96,7 +96,7 @@ export default function TextPlusImage({title, description}: {title: string, desc
         p="88px 24px 56px 24px" 
         wrap="wrap"
         className={classes.content}>
-        <Box style={{border: "1px solid black"}} className={`${classes.textContainer} ${seenComponents.has("textSection") ? classes.visible : classes.nonVisible }`} style={{border: "1px solid black"}}>
+        <Box className={`${classes.textContainer} ${seenComponents.has("textSection") ? classes.visible : classes.nonVisible }`}>
           <TextPart key="textSection" title={title} description={description} />
           <Waypoint topOffset={0} onEnter={() => {!seenComponents.has("textSection") ? addSeenComponent("textSection") : null }} />
         </Box>
