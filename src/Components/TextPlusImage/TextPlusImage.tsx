@@ -21,7 +21,7 @@ const useStyles = createStyles((theme) => ({
   },
 
   textContainer: {
-    backgroundColor: "black",
+    backgroundColor: "transparent",
     borderRadius: "30px",
     minHeight: "20rem",
     boxShadow: "7px 7px 10px 0px var(--shadow-color)",
@@ -32,11 +32,10 @@ const useStyles = createStyles((theme) => ({
   },
 
   textContent: {
-    color: "white",
-    padding: "2rem 1rem 0 1.5rem",
     textAlign: "left",
     fontFamily: "Helvetica Neue",
     gap: "20px",
+    padding: "2rem 1rem 0 1.5rem",
     [theme.fn.smallerThan("md")]: {
       gap: "15px",
       padding: "1.2rem 1.2rem 2rem 1.2rem",
@@ -50,13 +49,20 @@ const useStyles = createStyles((theme) => ({
   },
 
   title: {
-    fontSize: "50px",
+    fontSize: "40px",
     fontWeight: 400,
     lineHeight: 1,
-    color: "white",
     [theme.fn.smallerThan("md")]: {
-      fontSize: "40px",
+      fontSize: "35px",
     }
+  },
+
+  reg: {
+    color: "black"
+  },
+
+  black: {
+    color: "white"
   },
 
   imgSection: {
@@ -87,7 +93,12 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-export default function TextPlusImage({title, description}: {title: string, description: string}) {
+type Link = {
+  text: string,
+  href: string
+}
+
+export default function TextPlusImage({title, description, version, link}: {title: string, description: string, version: "reg" | "black", link: Link}) {
   const [seenComponents, setSeenComponents] = useState<Set<string>>(new Set());
   const { classes } = useStyles();
 
@@ -104,8 +115,8 @@ export default function TextPlusImage({title, description}: {title: string, desc
         wrap="wrap"
         className={classes.content}>
         <Box className={`${classes.textContainer} ${seenComponents.has("textSection") ? classes.visible : classes.nonVisible }`}>
-          <TextPart key="textSection" title={title} description={description} />
-          <Waypoint topOffset={30} onEnter={() => {!seenComponents.has("textSection") ? addSeenComponent("textSection") : null }} />
+          <TextPart key="textSection" title={title} description={description} version={version} link={link} />
+          <Waypoint topOffset={0} onEnter={() => {!seenComponents.has("textSection") ? addSeenComponent("textSection") : null }} />
         </Box>
         <Flex 
           style={{border: "1px solid black"}}
@@ -114,31 +125,32 @@ export default function TextPlusImage({title, description}: {title: string, desc
           align="center"
           className={`${classes.imgSection} ${seenComponents.has("imgSection") ? classes.visible : classes.nonVisible }`}>
           <ImagePart key="imgSection" />
-          <Waypoint scrollableAncestor={"window"} topOffset={20} onEnter={() => {!seenComponents.has("imgSection") ? addSeenComponent("imgSection") : null }} />
+          <Waypoint scrollableAncestor={"window"} topOffset={0} onEnter={() => {!seenComponents.has("imgSection") ? addSeenComponent("imgSection") : null }} />
         </Flex>
     </Flex>
     </Flex>
   );
 }
 
-function TextPart({title, description}: {title: string, description: string}) {
+function TextPart({title, description, version, link}: {title: string, description: string, version: "reg" | "black", link: Link}) {
   const { classes } = useStyles();
 
   return (
     <Flex
       direction="column"
-      className={classes.textContent}>
-        <Text className={classes.title}>
+      className={`${classes.textContent} ${version === "reg" ? classes.reg : classes.black}`}>
+        <Text className={`${classes.title}`}>
           { title }
         </Text>
         <Text>
           { description }
         </Text>
-        <Link href="/features">
-          <Flex gap={5} className={classes.textLink}>
-            <Text style={{borderBottom: "1px solid var(--zero-blue)"}}>Features</Text>
+        <Link href={link.href}>
+          <Flex gap={5} className={`${classes.textLink}`}>
+            <Text style={{
+              borderBottom: "1px solid var(--zero-blue)"}}>{link.text}</Text>
             <Flex align="center">
-              <BsArrowRightCircle size="13px" />
+              <BsArrowRightCircle size="13px"  />
             </Flex>
           </Flex>
         </Link>

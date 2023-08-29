@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, Text } from '@mantine/core';
+import { Box, Space, Text } from '@mantine/core';
 import { Waypoint } from 'react-waypoint';
 import ZeroHeader, { HEADER_HEIGHT } from '@/Components/ZeroHeader/ZeroHeader';
 import TextSection from "@/Components/TextSection";
@@ -25,7 +25,7 @@ export default function Home() {
           onEnter={() => { setScrolledToHeader(false); }}
           onLeave={() => { setScrolledToHeader(true);}}
         >
-          <Box mih={HEADER_HEIGHT} w={"100%"} style={{ backgroundColor: "white"}}>
+          <Box mih={HEADER_HEIGHT} w={"100%"} style={{ backgroundColor: "var(--landing-background)"}}>
           </Box>
         </Waypoint>
 
@@ -43,17 +43,44 @@ export default function Home() {
 
         <TextPlusImage
           title={"Never miss an important email"}
-          description={"Zero AI shows you bunches of emails. You choose what to do."}
+          description={"Zero AI quickly sorts what you don't need. Only important emails are left."}
+          version={"reg"}
+          link={{text: "Features", href:"/features"}}
         />
 
-        <Box mih={"500px"} w={"100%"} style={{ backgroundColor: "white"}}>
+        <Box mih={"500px"} w={"100%"} style={{ backgroundColor: 'black' }} pt={30}>
+          <TextPlusImage
+            title={"Unsubscribe is here."}
+            description={"Unsubscribe seamlessly. With the press of a button. Try it below."}
+            version="black"
+            link={{text: "Unsubscribe", href:"https://app.zeroinbox.ai"}}
+          />
         </Box>
 
-        <Box mih={"500px"} w={"100%"} style={{ backgroundColor: "black"}}>
+        <Space />
+
+        <Box mih={"500px"} w={"100%"} pt={30}>
+          <TextPlusImage
+            title={"Never miss an important email"}
+            description={"Zero AI quickly sorts what you don't need. Only important emails are left."}
+            version={"reg"}
+            link={{text: "Features", href:"/features"}}
+          />
         </Box>
 
-        <Box mih={"500px"} w={"100%"} style={{ backgroundColor: "white"}}>
-        </Box>
+        <TextPlusImage
+          title={"Never miss an important email"}
+          description={"Zero AI quickly sorts what you don't need. Only important emails are left."}
+          version={"reg"}
+          link={{text: "Features", href:"/features"}}
+        />
+
+        <TextPlusImage
+          title={"Never miss an important email"}
+          description={"Zero AI quickly sorts what you don't need. Only important emails are left."}
+          version={"reg"}
+          link={{text: "Features", href:"/features"}}
+        />
 
         <Footer />
       </Box>
