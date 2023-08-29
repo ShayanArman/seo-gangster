@@ -3,7 +3,11 @@ import {
   Box,
   Flex,
   Text,
+  Space,
+  Group,
 } from '@mantine/core';
+import { BsArrowRightCircle } from "react-icons/bs";
+import Link from 'next/link';
 import React, { useState } from 'react';
 import { Waypoint } from 'react-waypoint';
 
@@ -28,7 +32,6 @@ const useStyles = createStyles((theme) => ({
     [theme.fn.smallerThan("md")]: {
       width: "58%",
       maxWidth: "16em",
-      padding: "2rem 1.2rem 1.2rem 1.2rem",
     }
   },
 
@@ -37,18 +40,19 @@ const useStyles = createStyles((theme) => ({
     padding: "2rem 1rem 0 1.5rem",
     textAlign: "left",
     fontFamily: "Helvetica Neue",
+    gap: "20px",
     [theme.fn.smallerThan("md")]: {
-      maxWidth: "16em",
-      padding: "2rem 1.2rem 1.2rem 1.2rem",
+      gap: "15px",
+      padding: "1.2rem 1.2rem 1.2rem 1.2rem",
     }
   },
 
   title: {
-    fontSize: "40px",
+    fontSize: "50px",
     fontWeight: 400,
     lineHeight: 1,
     [theme.fn.smallerThan("md")]: {
-      fontSize: "32px",
+      fontSize: "40px",
     }
   },
 
@@ -119,7 +123,6 @@ function TextPart({title, description}: {title: string, description: string}) {
 
   return (
     <Flex
-      gap={10}
       direction="column"
       className={classes.textContent}>
         <Text className={classes.title}>
@@ -128,6 +131,14 @@ function TextPart({title, description}: {title: string, description: string}) {
         <Text>
           { description }
         </Text>
+        <Link href="/features" style={{marginTop: "5px"}}>
+          <Flex gap={3}>
+            <Text style={{borderBottom: "1px solid var(--zero-blue)"}}>Features</Text>
+            <Flex align="center">
+              <BsArrowRightCircle />
+            </Flex>
+          </Flex>
+        </Link>
     </Flex>
   )
 }
