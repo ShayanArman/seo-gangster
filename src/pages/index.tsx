@@ -45,6 +45,7 @@ export default function Home() {
           title={"Never miss an important email"}
           description={"Zero AI quickly sorts what you don't need. Only important emails are left."}
           version={"reg"}
+          isSmallScreen={isSmallScreen}
           link={{text: "Features", href:"/features"}}
           placement="text-first"
         />
@@ -54,6 +55,7 @@ export default function Home() {
             title={"Unsubscribe is here."}
             description={"Unsubscribe seamlessly. With the press of a button. Try it below."}
             version="black"
+            isSmallScreen={isSmallScreen}
             link={{text: "Unsubscribe", href:"https://app.zeroinbox.ai"}}
             placement={!isSmallScreen ? "image-first" : "text-first"}
           />
@@ -64,6 +66,7 @@ export default function Home() {
             title={"Never miss an important email"}
             description={"Zero AI quickly sorts what you don't need. Only important emails are left."}
             version={"reg"}
+            isSmallScreen={isSmallScreen}
             link={{text: "Features", href:"/features"}}
             placement="text-first"
           />
@@ -74,6 +77,7 @@ export default function Home() {
             title={"Never miss an important email"}
             description={"Zero AI quickly sorts what you don't need. Only important emails are left."}
             version={"reg"}
+            isSmallScreen={isSmallScreen}
             link={{text: "Features", href:"/features"}}
             placement={!isSmallScreen ? "image-first" : "text-first"}
           />
@@ -84,6 +88,7 @@ export default function Home() {
             title={"Never miss an important email"}
             description={"Zero AI quickly sorts what you don't need. Only important emails are left."}
             version={"reg"}
+            isSmallScreen={isSmallScreen}
             link={{text: "Features", href:"/features"}}
             placement="text-first"
           />

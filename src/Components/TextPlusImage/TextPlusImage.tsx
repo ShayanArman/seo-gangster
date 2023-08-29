@@ -103,7 +103,7 @@ type Link = {
   href: string
 }
 
-export default function TextPlusImage({title, description, version, link, placement}: {title: string, description: string, version: "reg" | "black", link: Link, placement: "text-first" | "image-first" }) {
+export default function TextPlusImage({title, description, isSmallScreen, version, link, placement}: {title: string, description: string, isSmallScreen: boolean, version: "reg" | "black", link: Link, placement: "text-first" | "image-first" }) {
   const [seenComponents, setSeenComponents] = useState<Set<string>>(new Set());
   const { classes } = useStyles();
 
@@ -111,20 +111,22 @@ export default function TextPlusImage({title, description, version, link, placem
     setSeenComponents((prevItems) => new Set(prevItems).add(component));
   };
 
+  const image = (
+    <Flex 
+      direction="column"
+      key="imageSection"
+      align="center"
+      className={`${classes.imgSection} ${seenComponents.has("imgSection") ? classes.visible : classes.nonVisible }`}>
+      <ImagePart key="imgSection" />
+      <Waypoint topOffset={!isSmallScreen ? 1200 : 0} onEnter={() => {!seenComponents.has("imgSection") ? addSeenComponent("imgSection") : null }} />
+    </Flex>);
+
   const text = (
     <Box className={`${classes.textContainer} ${version === "black" ? classes.textBorder : null } ${seenComponents.has("textSection") ? classes.visible : classes.nonVisible }`}>
       <TextPart key="textSection" title={title} description={description} version={version} link={link} />
       <Waypoint topOffset={0} onEnter={() => {!seenComponents.has("textSection") ? addSeenComponent("textSection") : null }} />
     </Box>
   );
-       const image = ( <Flex 
-          direction="column"
-          key="imageSection"
-          align="center"
-          className={`${classes.imgSection} ${seenComponents.has("imgSection") ? classes.visible : classes.nonVisible }`}>
-          <ImagePart key="imgSection" />
-          <Waypoint scrollableAncestor={"window"} topOffset={0} onEnter={() => {!seenComponents.has("imgSection") ? addSeenComponent("imgSection") : null }} />
-        </Flex>);
 
   return (
     <Flex w="100%" justify="center" mr="auto" ml="auto" className={classes.container}>
