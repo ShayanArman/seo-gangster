@@ -5,13 +5,14 @@ import ZeroHeader, { HEADER_HEIGHT } from '@/Components/ZeroHeader/ZeroHeader';
 import TextSection from "@/Components/TextSection";
 import HeroSection from "@/Components/HeroSection";
 import Footer from "@/Components/Footer";
-import useIsMobile from "@/hooks/useIsMobile";
+import useIsMobile, { useIsLargeScreen } from "@/hooks/useIsMobile";
 import TextPlusImage from "@/Components/TextPlusImage";
 
 export default function Home() {
   const [scrolledToHeader, setScrolledToHeader] = useState(false);
   const [seenComponents, setSeenComponents] = useState<Set<string>>(new Set());
   const isSmallScreen = useIsMobile();
+  const isLargeScreen = useIsLargeScreen();
   
   const addSeenComponent = (component: string) => {
     setSeenComponents((prevItems) => new Set(prevItems).add(component));
@@ -57,7 +58,7 @@ export default function Home() {
             version="black"
             isSmallScreen={isSmallScreen}
             link={{text: "Unsubscribe", href:"https://app.zeroinbox.ai"}}
-            placement={!isSmallScreen ? "image-first" : "text-first"}
+            placement={isLargeScreen ? "image-first" : "text-first"}
           />
         </Box>
 
@@ -79,7 +80,7 @@ export default function Home() {
             version={"reg"}
             isSmallScreen={isSmallScreen}
             link={{text: "Features", href:"/features"}}
-            placement={!isSmallScreen ? "image-first" : "text-first"}
+            placement={isLargeScreen ? "image-first" : "text-first"}
           />
         </Box>
 
