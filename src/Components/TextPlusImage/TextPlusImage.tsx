@@ -22,13 +22,18 @@ const useStyles = createStyles((theme) => ({
 
   textContainer: {
     backgroundColor: "transparent",
-    borderRadius: "30px",
+    // borderRadius: "30px",
     minHeight: "20rem",
-    boxShadow: "7px 7px 10px 0px var(--shadow-color)",
+    // boxShadow: "7px 7px 10px 0px var(--shadow-color)",
     maxWidth: "20rem",
     [theme.fn.smallerThan("md")]: {
       maxWidth: "15rem"
     }
+  },
+
+  textBorder: {
+    borderRadius: "30px",
+    boxShadow: "7px 7px 10px 0px var(--shadow-color)",
   },
 
   textContent: {
@@ -98,13 +103,28 @@ type Link = {
   href: string
 }
 
-export default function TextPlusImage({title, description, version, link}: {title: string, description: string, version: "reg" | "black", link: Link}) {
+export default function TextPlusImage({title, description, version, link, placement}: {title: string, description: string, version: "reg" | "black", link: Link, placement: "text-first" | "image-first" }) {
   const [seenComponents, setSeenComponents] = useState<Set<string>>(new Set());
   const { classes } = useStyles();
 
   const addSeenComponent = (component: string) => {
     setSeenComponents((prevItems) => new Set(prevItems).add(component));
   };
+
+  const text = (
+    <Box className={`${classes.textContainer} ${version === "black" ? classes.textBorder : null } ${seenComponents.has("textSection") ? classes.visible : classes.nonVisible }`}>
+      <TextPart key="textSection" title={title} description={description} version={version} link={link} />
+      <Waypoint topOffset={0} onEnter={() => {!seenComponents.has("textSection") ? addSeenComponent("textSection") : null }} />
+    </Box>
+  );
+       const image = ( <Flex 
+          direction="column"
+          key="imageSection"
+          align="center"
+          className={`${classes.imgSection} ${seenComponents.has("imgSection") ? classes.visible : classes.nonVisible }`}>
+          <ImagePart key="imgSection" />
+          <Waypoint scrollableAncestor={"window"} topOffset={0} onEnter={() => {!seenComponents.has("imgSection") ? addSeenComponent("imgSection") : null }} />
+        </Flex>);
 
   return (
     <Flex w="100%" justify="center" mr="auto" ml="auto" className={classes.container}>
@@ -114,19 +134,16 @@ export default function TextPlusImage({title, description, version, link}: {titl
         p="0px 24px 56px 24px" 
         wrap="wrap"
         className={classes.content}>
-        <Box className={`${classes.textContainer} ${seenComponents.has("textSection") ? classes.visible : classes.nonVisible }`}>
-          <TextPart key="textSection" title={title} description={description} version={version} link={link} />
-          <Waypoint topOffset={0} onEnter={() => {!seenComponents.has("textSection") ? addSeenComponent("textSection") : null }} />
-        </Box>
-        <Flex 
-          style={{border: "1px solid black"}}
-          direction="column"
-          key="imageSection"
-          align="center"
-          className={`${classes.imgSection} ${seenComponents.has("imgSection") ? classes.visible : classes.nonVisible }`}>
-          <ImagePart key="imgSection" />
-          <Waypoint scrollableAncestor={"window"} topOffset={0} onEnter={() => {!seenComponents.has("imgSection") ? addSeenComponent("imgSection") : null }} />
-        </Flex>
+          { placement === "text-first" ?
+          <>
+            {text}
+            {image}
+          </> : 
+          <>
+            {image}
+            {text}
+          </>
+        }
     </Flex>
     </Flex>
   );

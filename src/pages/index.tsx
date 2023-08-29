@@ -46,6 +46,7 @@ export default function Home() {
           description={"Zero AI quickly sorts what you don't need. Only important emails are left."}
           version={"reg"}
           link={{text: "Features", href:"/features"}}
+          placement="text-first"
         />
 
         <Box mih={"500px"} w={"100%"} style={{ backgroundColor: 'black' }} pt={30}>
@@ -54,10 +55,9 @@ export default function Home() {
             description={"Unsubscribe seamlessly. With the press of a button. Try it below."}
             version="black"
             link={{text: "Unsubscribe", href:"https://app.zeroinbox.ai"}}
+            placement={!isSmallScreen ? "image-first" : "text-first"}
           />
         </Box>
-
-        <Space />
 
         <Box mih={"500px"} w={"100%"} pt={30}>
           <TextPlusImage
@@ -65,22 +65,29 @@ export default function Home() {
             description={"Zero AI quickly sorts what you don't need. Only important emails are left."}
             version={"reg"}
             link={{text: "Features", href:"/features"}}
+            placement="text-first"
           />
         </Box>
 
-        <TextPlusImage
-          title={"Never miss an important email"}
-          description={"Zero AI quickly sorts what you don't need. Only important emails are left."}
-          version={"reg"}
-          link={{text: "Features", href:"/features"}}
-        />
+        <Box mih={"500px"} w={"100%"} pt={150}>
+          <TextPlusImage
+            title={"Never miss an important email"}
+            description={"Zero AI quickly sorts what you don't need. Only important emails are left."}
+            version={"reg"}
+            link={{text: "Features", href:"/features"}}
+            placement={!isSmallScreen ? "image-first" : "text-first"}
+          />
+        </Box>
 
-        <TextPlusImage
-          title={"Never miss an important email"}
-          description={"Zero AI quickly sorts what you don't need. Only important emails are left."}
-          version={"reg"}
-          link={{text: "Features", href:"/features"}}
-        />
+        <Box mih={"500px"} w={"100%"} pt={150}>
+          <TextPlusImage
+            title={"Never miss an important email"}
+            description={"Zero AI quickly sorts what you don't need. Only important emails are left."}
+            version={"reg"}
+            link={{text: "Features", href:"/features"}}
+            placement="text-first"
+          />
+        </Box>
 
         <Footer />
       </Box>
