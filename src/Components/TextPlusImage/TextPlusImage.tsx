@@ -3,8 +3,6 @@ import {
   Box,
   Flex,
   Text,
-  Space,
-  Group,
 } from '@mantine/core';
 import { BsArrowRightCircle } from "react-icons/bs";
 import Link from 'next/link';
@@ -26,12 +24,10 @@ const useStyles = createStyles((theme) => ({
     backgroundColor: "black",
     borderRadius: "30px",
     minHeight: "20rem",
-    maxWidth: "20em",
     boxShadow: "7px 7px 10px 0px var(--shadow-color)",
-    width: "40%",
+    maxWidth: "20rem",
     [theme.fn.smallerThan("md")]: {
-      width: "58%",
-      maxWidth: "16em",
+      maxWidth: "15rem"
     }
   },
 
@@ -43,7 +39,7 @@ const useStyles = createStyles((theme) => ({
     gap: "20px",
     [theme.fn.smallerThan("md")]: {
       gap: "15px",
-      padding: "1.2rem 1.2rem 1.2rem 1.2rem",
+      padding: "1.2rem 1.2rem 2rem 1.2rem",
     }
   },
 
@@ -57,6 +53,7 @@ const useStyles = createStyles((theme) => ({
     fontSize: "50px",
     fontWeight: 400,
     lineHeight: 1,
+    color: "white",
     [theme.fn.smallerThan("md")]: {
       fontSize: "40px",
     }
@@ -103,12 +100,12 @@ export default function TextPlusImage({title, description}: {title: string, desc
       <Flex
         w={"100%"} 
         justify={"space-between"}
-        p="88px 24px 56px 24px" 
+        p="0px 24px 56px 24px" 
         wrap="wrap"
         className={classes.content}>
         <Box className={`${classes.textContainer} ${seenComponents.has("textSection") ? classes.visible : classes.nonVisible }`}>
           <TextPart key="textSection" title={title} description={description} />
-          <Waypoint topOffset={0} onEnter={() => {!seenComponents.has("textSection") ? addSeenComponent("textSection") : null }} />
+          <Waypoint topOffset={30} onEnter={() => {!seenComponents.has("textSection") ? addSeenComponent("textSection") : null }} />
         </Box>
         <Flex 
           style={{border: "1px solid black"}}
@@ -117,7 +114,7 @@ export default function TextPlusImage({title, description}: {title: string, desc
           align="center"
           className={`${classes.imgSection} ${seenComponents.has("imgSection") ? classes.visible : classes.nonVisible }`}>
           <ImagePart key="imgSection" />
-          <Waypoint scrollableAncestor={"window"} topOffset={0} onEnter={() => {!seenComponents.has("imgSection") ? addSeenComponent("imgSection") : null }} />
+          <Waypoint scrollableAncestor={"window"} topOffset={20} onEnter={() => {!seenComponents.has("imgSection") ? addSeenComponent("imgSection") : null }} />
         </Flex>
     </Flex>
     </Flex>
@@ -137,7 +134,7 @@ function TextPart({title, description}: {title: string, description: string}) {
         <Text>
           { description }
         </Text>
-        <Link href="/features" style={{marginTop: "5px"}}>
+        <Link href="/features">
           <Flex gap={5} className={classes.textLink}>
             <Text style={{borderBottom: "1px solid var(--zero-blue)"}}>Features</Text>
             <Flex align="center">

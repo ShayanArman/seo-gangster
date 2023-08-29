@@ -41,7 +41,7 @@ export default function Home() {
         }/>
         <Waypoint topOffset={800} onEnter={() => {!seenComponents.has("text1") ? addSeenComponent("text1") : null }} />
 
-        <TextPlusImage 
+        <TextPlusImage
           title={"Never miss an important email"}
           description={"Zero AI shows you bunches of emails. You choose what to do."}
         />
