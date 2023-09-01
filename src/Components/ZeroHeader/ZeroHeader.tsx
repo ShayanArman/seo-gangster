@@ -15,6 +15,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { BsChevronDown } from "react-icons/bs";
 import classNames from "classnames";
+import { useState } from "react";
+import NavBar from "../NavBar";
 
 
 export const HEADER_PIXEL_HEIGHT = 80;
@@ -101,17 +103,15 @@ const useStyles = createStyles(
 export default function ZeroHeader({
   scrolledToHeader,
   isSmallScreen,
-  opened,
-  toggleMenu
 }: {
   scrolledToHeader: boolean;
   isSmallScreen: boolean;
-  opened: boolean;
-  toggleMenu: () => void
 }) {
+  const [opened, setOpened] = useState(false);
   const { classes } = useStyles();
 
   return (
+    <>
     <Header
       height={HEADER_HEIGHT}
       mb={120}
@@ -123,7 +123,7 @@ export default function ZeroHeader({
         <Group>
           <Burger
             opened={opened}
-            onClick={toggleMenu}
+            onClick={() => setOpened((prev) => !prev)}
             className={classes.burger}
             size="md"
             color="var(--zero-blue)"
@@ -140,6 +140,8 @@ export default function ZeroHeader({
         </Box>
       </Container>
     </Header>
+    <NavBar opened={opened} />
+    </>
   );
 }
 

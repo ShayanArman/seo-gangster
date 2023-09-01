@@ -14,11 +14,6 @@ export default function Home() {
   const [seenComponents, setSeenComponents] = useState<Set<string>>(new Set());
   const isSmallScreen = useIsMobile();
   const isLargeScreen = useIsLargeScreen();
-  const [menuOpened, setMenuOpened] = useState(false);
-
-  if(menuOpened) {
-    console.log("OPENED MENU:");
-  }
 
   const addSeenComponent = (component: string) => {
     setSeenComponents((prevItems) => new Set(prevItems).add(component));
@@ -26,9 +21,7 @@ export default function Home() {
 
   return (
       <Box style={{backgroundColor: "var(--landing-background)"}}>
-        <ZeroHeader isSmallScreen={isSmallScreen} opened={menuOpened} toggleMenu={() => setMenuOpened((prev) => !prev)} scrolledToHeader={scrolledToHeader} />
-        
-        <NavBar opened={menuOpened} />
+        <ZeroHeader isSmallScreen={isSmallScreen} scrolledToHeader={scrolledToHeader} />
         
         <Waypoint
           onEnter={() => { setScrolledToHeader(false); }}
