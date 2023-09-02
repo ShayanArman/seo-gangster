@@ -131,7 +131,7 @@ export default function ZeroHeader({
           <LinksToItems />
         </Group>
         <Box>
-          <ActionButton buttonSize={isSmallScreen ? "sm" : "md"} innerText="Sign In" />
+          <ActionButton buttonSize={isSmallScreen ? "md" : "md"} innerText={ isSmallScreen ? "Start" : "Sign In" } />
         </Box>
       </Container>
     </Header>

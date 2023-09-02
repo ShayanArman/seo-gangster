@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Box, Text } from '@mantine/core';
 import { Waypoint } from 'react-waypoint';
 import ZeroHeader, { HEADER_HEIGHT } from '@/Components/ZeroHeader/ZeroHeader';
@@ -7,7 +7,7 @@ import HeroSection from "@/Components/HeroSection";
 import Footer from "@/Components/Footer";
 import useIsMobile, { useIsLargeScreen } from "@/hooks/useIsMobile";
 import TextPlusImage from "@/Components/TextPlusImage";
-import NavBar from "@/Components/NavBar";
+
 
 export default function Home() {
   const [scrolledToHeader, setScrolledToHeader] = useState(false);
