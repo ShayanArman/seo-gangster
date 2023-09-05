@@ -16,7 +16,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { BsChevronDown } from "react-icons/bs";
 import classNames from "classnames";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import NavBar from "../NavBar";
 
 
@@ -103,7 +103,15 @@ export default function ZeroHeader({
   isSmallScreen: boolean;
 }) {
   const [opened, setOpened] = useState(false);
-  const { classes } = useStyles();
+  const { classes, theme } = useStyles();
+  const linksRef = useRef<HTMLDivElement | null>(null);
+
+  if (linksRef.current && opened) {
+    const computedStyle = window.getComputedStyle(linksRef.current);
+    if (computedStyle.display !== 'none') {
+      setOpened(false);
+    }
+  }
 
   return (
     <>
@@ -127,7 +135,7 @@ export default function ZeroHeader({
             <Image width={192} height={50} alt="zeroInbox" src="/zeroInboxLogoBlack.svg" />
           </Link>
         </Flex>
-        <Group spacing={5} className={classes.links}>
+        <Group spacing={5} className={classes.links} ref={linksRef}>
           <LinksToItems />
         </Group>
         <Box>
