@@ -114,8 +114,8 @@ export default function ZeroHeader({
       }
     }
   
-    document.addEventListener("mousedown", handleClick);
-    return () => document.removeEventListener("mousedown", handleClick);
+    document.addEventListener("mouseup", handleClick);
+    return () => document.removeEventListener("mouseup", handleClick);
   }, [opened, setOpened]);
 
   if (linksRef.current && opened) {
