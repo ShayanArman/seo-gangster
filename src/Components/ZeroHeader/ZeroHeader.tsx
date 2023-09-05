@@ -103,7 +103,7 @@ export default function ZeroHeader({
   isSmallScreen: boolean;
 }) {
   const [opened, setOpened] = useState(false);
-  const { classes, theme } = useStyles();
+  const { classes } = useStyles();
   const linksRef = useRef<HTMLDivElement | null>(null);
 
   if (linksRef.current && opened) {
