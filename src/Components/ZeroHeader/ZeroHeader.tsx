@@ -116,7 +116,7 @@ export default function ZeroHeader({
   
     document.addEventListener("mouseup", handleClick);
     return () => document.removeEventListener("mouseup", handleClick);
-  }, [opened, setOpened]);
+  }, [opened]);
 
   if (linksRef.current && opened) {
     const computedStyle = window.getComputedStyle(linksRef.current);

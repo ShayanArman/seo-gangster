@@ -1,6 +1,5 @@
-import { createStyles, Flex, Button, Box } from "@mantine/core";
+import { createStyles, Flex, Button } from "@mantine/core";
 import { HEADER_HEIGHT, headerLinks } from "../ZeroHeader/ZeroHeader";
-import { useEffect, useRef } from "react";
 
 const useStyles = createStyles(
     (theme) => ({
