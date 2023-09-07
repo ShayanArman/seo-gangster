@@ -16,8 +16,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { BsChevronDown } from "react-icons/bs";
 import classNames from "classnames";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import NavBar from "../NavBar";
+import { FiBookOpen, FiChevronDown, FiLock } from "react-icons/fi"
+import { FcClock, FcLock, FcBookmark, FcBriefcase, FcGrid, FcDataSheet, FcBarChart, FcCloth, FcHeatMap, FcEmptyFilter, FcFolder, FcKey, FcLandscape } from "react-icons/fc"
 
 
 export const HEADER_PIXEL_HEIGHT = 80;
@@ -105,18 +107,6 @@ export default function ZeroHeader({
   const [opened, setOpened] = useState(false);
   const { classes } = useStyles();
   const linksRef = useRef<HTMLDivElement | null>(null);
-  const burgerRef = useRef<HTMLButtonElement | null>(null);
-
-  // useEffect(() => {
-  //   function handleClick(event: MouseEvent) {
-  //     if (opened && burgerRef.current && !burgerRef.current.contains(event.target as Node)) {
-  //       setOpened(false);
-  //     }
-  //   }
-  
-  //   document.addEventListener("mouseup", handleClick);
-  //   return () => document.removeEventListener("mouseup", handleClick);
-  // }, [opened]);
 
   if (linksRef.current && opened) {
     const computedStyle = window.getComputedStyle(linksRef.current);
@@ -138,7 +128,6 @@ export default function ZeroHeader({
           <Flex align="center" className={classes.logoBurgerContainer}>
             <Burger
               opened={opened}
-              ref={burgerRef}
               onClick={() => { setOpened((prev) => !prev) }}
               className={classes.burger}
               size="md"
@@ -203,15 +192,15 @@ type Links = {
 }[];
 
 export const headerLinks: Links = [
-  { link: "/features", label: 'Features', newTab: false },
-  { link: "/security", label: "Security", newTab: false },
-  { link: "/business", label: 'Business', newTab: false },
-  { link: "/privacyAndData", label: 'Privacy + Data', newTab: true,
+  { link: "/features", label: 'Features', Icon: <FcFolder />, newTab: false },
+  { link: "/security", label: "Security", Icon: <FcDataSheet />, newTab: false },
+  { link: "/business", label: 'Business', Icon: <FcBriefcase />, newTab: false },
+  { link: "/privacyAndData", label: 'Privacy', Icon: <FcHeatMap />, newTab: true,
     links: [
-      {link: "/privacy", label: "Privacy", newTab: true},
-      {link: "/data", label: "Data FAQ", newTab: true},
+      {link: "/privacy", label: "Privacy Info", Icon: <FcLandscape />,  newTab: true},
+      {link: "/data", label: "Data FAQ", Icon: <FcBookmark />, newTab: true},
     ] },
-  { link: "https://blog.zeroinbox.ai/", label: "Blog", newTab: true },
+  { link: "https://blog.zeroinbox.ai/", label: "Blog", Icon: <FcEmptyFilter />, newTab: true },
 ];
 
 function LinksToItems() {
@@ -246,7 +235,7 @@ function LinksToItems() {
             >
               <Center>
                 <span className={classes.linkLabel}>{link.label}</span>
-                <BsChevronDown size={rem(12)} stroke={"1.5"} />
+                <FiChevronDown />
               </Center>
             </a>
           </Menu.Target>
