@@ -18,7 +18,7 @@ import classNames from "classnames";
 import { useState, useRef } from "react";
 import NavBar from "../NavBar";
 import { FiChevronDown } from "react-icons/fi"
-import { FcLock, FcBookmark, FcBriefcase, FcHeatMap, FcFolder, FcAbout, FcDataSheet, FcLibrary } from "react-icons/fc"
+import { FcLock, FcBookmark, FcBriefcase, FcHeatMap, FcFolder, FcAbout, FcDataSheet, FcLibrary, FcDatabase, FcDocument, FcClock, FcSalesPerformance } from "react-icons/fc"
 
 
 export const HEADER_PIXEL_HEIGHT = 80;
@@ -195,11 +195,11 @@ type Links = {
 export const headerLinks: Links = [
   { link: "/features", label: 'Features', Icon: <FcFolder />, newTab: false, showOnHeader: true },
   { link: "/security", label: "Security", Icon: <FcDataSheet />, newTab: false, showOnHeader: true },
-  { link: "/business", label: 'Business', Icon: <FcBriefcase />, newTab: false, showOnHeader: true },
+  { link: "/business", label: 'Business', Icon: <FcSalesPerformance />, newTab: false, showOnHeader: true },
   { link: "/privacyAndData", label: 'Privacy', Icon: <FcHeatMap />, newTab: true, showOnHeader: true,
     links: [
-      {link: "/privacy", label: "Privacy Info", Icon: <FcLock />,  newTab: true},
-      {link: "/data", label: "Data FAQ", Icon: <FcBookmark />, newTab: true},
+      {link: "/privacy", label: "Privacy Info", Icon: <FcClock />,  newTab: true},
+      {link: "/data", label: "Data FAQ", Icon: <FcDocument />, newTab: true},
     ]
   },
   { link: "https://blog.zeroinbox.ai/", label: "Blog", Icon: <FcLibrary />, newTab: true, showOnHeader: true },
