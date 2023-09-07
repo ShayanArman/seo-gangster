@@ -15,7 +15,6 @@ const useStyles = createStyles(
         padding: "20px",
 
         [theme.fn.largerThan("xs")]: {
-          marginLeft: "10px",
           width: "20rem",
           backgroundColor: "var(--landing-blur)",
           borderBottomLeftRadius: "10px",
