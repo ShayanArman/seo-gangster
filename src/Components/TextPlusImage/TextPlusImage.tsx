@@ -80,7 +80,7 @@ const useStyles = createStyles((theme) => ({
   },
 
   img: {
-    backgroundColor: "yellow",
+    backgroundColor: "black",
     [theme.fn.smallerThan("md")]: {
       backgroundColor: "orange"
     }
