@@ -18,7 +18,7 @@ import classNames from "classnames";
 import { useState, useRef } from "react";
 import NavBar from "../NavBar";
 import { FiChevronDown } from "react-icons/fi"
-import { FcLock, FcBookmark, FcBriefcase, FcHeatMap, FcFolder, FcAbout, FcNews, FcDataSheet } from "react-icons/fc"
+import { FcLock, FcBookmark, FcBriefcase, FcHeatMap, FcFolder, FcAbout, FcDataSheet, FcLibrary } from "react-icons/fc"
 
 
 export const HEADER_PIXEL_HEIGHT = 80;
@@ -202,7 +202,7 @@ export const headerLinks: Links = [
       {link: "/data", label: "Data FAQ", Icon: <FcBookmark />, newTab: true},
     ]
   },
-  { link: "https://blog.zeroinbox.ai/", label: "Blog", Icon: <FcNews />, newTab: true, showOnHeader: true },
+  { link: "https://blog.zeroinbox.ai/", label: "Blog", Icon: <FcLibrary />, newTab: true, showOnHeader: true },
   { link: "/about", label: 'About', Icon: <FcAbout />, newTab: false, showOnHeader: false },
 ];
 
