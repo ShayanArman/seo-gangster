@@ -14,12 +14,11 @@ import {
 } from "@mantine/core";
 import Image from "next/image";
 import Link from "next/link";
-import { BsChevronDown } from "react-icons/bs";
 import classNames from "classnames";
 import { useState, useRef } from "react";
 import NavBar from "../NavBar";
-import { FiBookOpen, FiChevronDown, FiLock } from "react-icons/fi"
-import { FcClock, FcLock, FcBookmark, FcBriefcase, FcGrid, FcDataSheet, FcBarChart, FcCloth, FcHeatMap, FcEmptyFilter, FcFolder, FcKey, FcLandscape, FcCamera, FcAbout, FcNews } from "react-icons/fc"
+import { FiChevronDown } from "react-icons/fi"
+import { FcLock, FcBookmark, FcBriefcase, FcDataSheet, FcHeatMap, FcFolder, FcAbout, FcNews } from "react-icons/fc"
 
 
 export const HEADER_PIXEL_HEIGHT = 80;
@@ -198,7 +197,7 @@ export const headerLinks: Links = [
   { link: "/business", label: 'Business', Icon: <FcBriefcase />, newTab: false, showOnHeader: true },
   { link: "/privacyAndData", label: 'Privacy', Icon: <FcHeatMap />, newTab: true, showOnHeader: true,
     links: [
-      {link: "/privacy", label: "Privacy Info", Icon: <FcLandscape />,  newTab: true},
+      {link: "/privacy", label: "Privacy Info", Icon: <FcLock />,  newTab: true},
       {link: "/data", label: "Data FAQ", Icon: <FcBookmark />, newTab: true},
     ]
   },
