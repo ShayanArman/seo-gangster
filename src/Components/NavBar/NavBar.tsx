@@ -30,6 +30,7 @@ const useStyles = createStyles(
       },
 
       content: {
+        marginLeft: "2rem",
         rowGap: 5,
         width: "80%",
         [theme.fn.largerThan("sm")]: {
@@ -76,7 +77,7 @@ export default function NavBar({ opened }: { opened: boolean }) {
     }
 
     return (
-      <Flex justify="center" className={`${classes.container}`}>
+      <Flex className={`${classes.container}`}>
         <Flex 
           direction="column"
           className={classes.content}>
