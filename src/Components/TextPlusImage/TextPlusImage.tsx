@@ -20,11 +20,6 @@ const useStyles = createStyles((theme) => ({
     }
   },
 
-  textBorder: {
-    // borderRadius: "30px",
-    // boxShadow: "7px 7px 10px 0px var(--shadow-color)",
-  },
-
   textContainer: {
     backgroundColor: "transparent",
     minHeight: "20rem",
@@ -58,8 +53,19 @@ const useStyles = createStyles((theme) => ({
     fontSize: "60px",
     fontWeight: 400,
     lineHeight: 1,
+
+    [theme.fn.smallerThan("lg")]: {
+      maxWidth: "80%",
+      fontSize: "35px",
+    },
+
     [theme.fn.smallerThan("md")]: {
-      maxWidth: "70%",
+      maxWidth: "80%",
+      fontSize: "35px",
+    },
+
+    [theme.fn.smallerThan("sm")]: {
+      maxWidth: "55%",
       fontSize: "35px",
     }
   },

@@ -1,4 +1,4 @@
-import { createStyles, Flex, NavLink } from "@mantine/core";
+import { Box, Button, createStyles, Flex, NavLink } from "@mantine/core";
 import { HEADER_HEIGHT, headerLinks } from "../ZeroHeader/ZeroHeader";
 import { useRouter } from "next/router";
 import { FiChevronRight } from "react-icons/fi";
@@ -80,7 +80,7 @@ export default function NavBar({ opened }: { opened: boolean }) {
         <Flex 
           direction="column"
           className={classes.content}>
-            { headerLinks.map((link, index) => (
+            { headerLinks.map((link) => (
               <NavLink
                 component={"a"}
                 key={link.label}
