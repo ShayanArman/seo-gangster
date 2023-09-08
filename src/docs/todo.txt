@@ -1,5 +1,4 @@
 Now:
-- save in context that ZeroAI descriptor has already been read
 
 Later:
 - press outside of navbar close navbar.
@@ -10,3 +9,5 @@ Done:
 - add terms of service and privacy.pdf to links
 - import ZeroHeader only one placement
 - close navbar when links are pressed.
+- close navbar when browser expanded.
+- save in context that ZeroAI descriptor has already been read

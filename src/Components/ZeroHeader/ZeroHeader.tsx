@@ -15,7 +15,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import classNames from "classnames";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import NavBar from "../NavBar";
 import { FiChevronDown } from "react-icons/fi"
 import { FcHeatMap, FcFolder, FcAbout, FcDataSheet, FcLibrary, FcSalesPerformance, FcHome } from "react-icons/fc"
@@ -95,6 +95,17 @@ const useStyles = createStyles(
   })
 );
 
+function throttle(fn: () => void, limit: number) {
+  let lastCall = 0;
+  return function() {
+    const now = new Date().getTime();
+    if (now - lastCall < limit) {
+      return;
+    }
+    lastCall = now;
+    return fn();
+  };
+}
 
 export default function ZeroHeader({
   scrolledToHeader,
@@ -107,12 +118,23 @@ export default function ZeroHeader({
   const { classes } = useStyles();
   const linksRef = useRef<HTMLDivElement | null>(null);
 
-  if (linksRef.current && opened) {
-    const computedStyle = window.getComputedStyle(linksRef.current);
-    if (computedStyle.display !== 'none') {
-      setOpened(false);
+  useEffect(() => {
+    function handleResize() {
+      if (linksRef.current && opened) {
+        const computedStyle = window.getComputedStyle(linksRef.current);
+        if (computedStyle.display !== 'none') {
+          setOpened(false);
+        }
+      }
     }
-  }
+
+    handleResize();
+    const throttledHandleResize = throttle(handleResize, 250);
+    window.addEventListener('resize', throttledHandleResize);
+    return () => {
+      window.removeEventListener('resize', throttledHandleResize);
+    };
+  });
 
   return (
     <>

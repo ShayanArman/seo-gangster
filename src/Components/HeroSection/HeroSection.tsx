@@ -1,3 +1,4 @@
+import { useReadingStatus } from "@/hooks/useIsReading";
 import { createStyles, Box, Flex, Text, Button } from "@mantine/core";
 import { useEffect, useRef, useState } from "react";
 
@@ -122,9 +123,9 @@ const description =
 
 function TypeDescription({ isSmallScreen }: { isSmallScreen: boolean }) {
   const { classes } = useStyles();
-  const [isReading, setIsReading] = useState(true);
-  const [visibleText, setVisibleText] = useState("");
   const showIndexRef = useRef({ charIndex: 0 });
+  const { isHeroReading, setIsHeroReading } = useReadingStatus();
+  const [visibleText, setVisibleText] = useState(isHeroReading ? "" : description);
 
   useEffect(() => {
     let timeout: NodeJS.Timeout;
@@ -144,18 +145,18 @@ function TypeDescription({ isSmallScreen }: { isSmallScreen: boolean }) {
           newCharacter === "." || newCharacter === "," ? 500 : 40
         );
       } else {
-        setIsReading(false);
+        setIsHeroReading(false);
       }
     };
 
-    if (isReading) {
+    if (isHeroReading) {
       displayChar();
     }
 
     return () => {
       clearTimeout(timeout);
     };
-  }, [isReading]);
+  });
 
   return (
     <Box>
@@ -172,7 +173,7 @@ function TypeDescription({ isSmallScreen }: { isSmallScreen: boolean }) {
         size={isSmallScreen ? "lg" : "xl"}
         radius="xl"
         className={`${classes.learnMoreButton} ${
-          !isReading || showIndexRef.current.charIndex > description.length - 3
+          !isHeroReading || showIndexRef.current.charIndex > description.length - 3
             ? classes.showButton
             : ""
         }`}
