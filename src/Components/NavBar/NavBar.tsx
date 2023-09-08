@@ -68,7 +68,7 @@ const useStyles = createStyles(
     })
 )
 
-export default function NavBar({ opened }: { opened: boolean }) {
+export default function NavBar({ opened, closeNavBar }: { opened: boolean, closeNavBar: () => void }) {
     const { classes } = useStyles();
     const router = useRouter();
 
@@ -94,6 +94,7 @@ export default function NavBar({ opened }: { opened: boolean }) {
                     label: classes.label,
                     rightSection: classes.rightSection
                   }}
+                  onClick={() => { if (!link.links) { closeNavBar(); } else { null }  }}
                   rightSection={link.links && <FiChevronRight />}
                   variant="filled"
                   active={router.asPath === link.link}
@@ -109,6 +110,7 @@ export default function NavBar({ opened }: { opened: boolean }) {
                               icon: classes.iconNested, 
                               label: classes.labelNested
                             }}
+                            onClick={() => closeNavBar()}
                             label={subLink.label}
                             variant="filled"
                             icon={subLink.Icon}

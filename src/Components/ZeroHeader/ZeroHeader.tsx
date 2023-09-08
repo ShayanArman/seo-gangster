@@ -18,7 +18,7 @@ import classNames from "classnames";
 import { useState, useRef } from "react";
 import NavBar from "../NavBar";
 import { FiChevronDown } from "react-icons/fi"
-import { FcHeatMap, FcFolder, FcAbout, FcDataSheet, FcLibrary, FcSalesPerformance } from "react-icons/fc"
+import { FcHeatMap, FcFolder, FcAbout, FcDataSheet, FcLibrary, FcSalesPerformance, FcHome } from "react-icons/fc"
 
 
 export const HEADER_PIXEL_HEIGHT = 80;
@@ -144,7 +144,7 @@ export default function ZeroHeader({
           </Box>
         </Container>
       </Header>
-      <NavBar opened={opened} />
+      <NavBar opened={opened} closeNavBar={() => setOpened(false)} />
     </>
   );
 }
@@ -192,6 +192,7 @@ type Links = {
 }[];
 
 export const headerLinks: Links = [
+  { link: "/", label: 'Zero AI', Icon: <FcHome />, newTab: false, showOnHeader: false },
   { link: "/features", label: 'Features', Icon: <FcFolder />, newTab: false, showOnHeader: true },
   { link: "/security", label: "Security", Icon: <FcDataSheet />, newTab: false, showOnHeader: true },
   { link: "/business", label: 'Business', Icon: <FcSalesPerformance />, newTab: false, showOnHeader: true },
@@ -201,7 +202,7 @@ export const headerLinks: Links = [
       {link: "/terms.pdf", label: "Data FAQ", newTab: true},
     ]
   },
-  { link: "https://blog.zeroinbox.ai/", label: "Blog", Icon: <FcLibrary />, newTab: true, showOnHeader: true },
+  { link: "http://zero-blog.s3-website-us-west-2.amazonaws.com/", label: "Blog", Icon: <FcLibrary />, newTab: true, showOnHeader: true },
   { link: "/about", label: 'About', Icon: <FcAbout />, newTab: false, showOnHeader: false },
 ];
 
