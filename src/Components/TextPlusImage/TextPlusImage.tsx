@@ -117,7 +117,7 @@ type Link = {
   href: string
 }
 
-export default function TextPlusImage({title, description, isSmallScreen, version, link, placement}: {title: string, description: string, isSmallScreen: boolean, version: "reg" | "black", link: Link, placement: "text-first" | "image-first" }) {
+export default function TextPlusImage({id, title, description, isSmallScreen, version, link, placement}: {id: string, title: string, description: string, isSmallScreen: boolean, version: "reg" | "black", link: Link, placement: "text-first" | "image-first" }) {
   const [seenComponents, setSeenComponents] = useState<Set<string>>(new Set());
   const { classes } = useStyles();
 
@@ -143,7 +143,7 @@ export default function TextPlusImage({title, description, isSmallScreen, versio
   );
 
   return (
-    <Flex id="features" w="100%" justify="center" mr="auto" ml="auto" className={classes.container}>
+    <Flex id={id} w="100%" justify="center" mr="auto" ml="auto" className={classes.container}>
       <Flex
         w={"100%"} 
         justify={"space-between"}

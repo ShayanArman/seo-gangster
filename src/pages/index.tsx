@@ -20,7 +20,7 @@ export default function Home() {
       <>
         <HeroSection isSmallScreen={isSmallScreen} />
 
-        <TextSection 
+        <TextSection
           key="text1" 
           isVisible={seenComponents.has("text1")} 
           innerText={
@@ -31,6 +31,7 @@ export default function Home() {
         <Waypoint topOffset={800} onEnter={() => {!seenComponents.has("text1") ? addSeenComponent("text1") : null }} />
 
         <TextPlusImage
+          id="features"
           title={"Never miss an important email"}
           description={"Zero AI quickly sorts what you don't need. Only important emails are left."}
           version={"reg"}
@@ -41,6 +42,7 @@ export default function Home() {
 
         <Box mih={"500px"} w={"100%"} style={{ backgroundColor: 'black' }} pt={30}>
           <TextPlusImage
+            id="unsubscribe"
             title={"Unsubscribe is here."}
             description={"Unsubscribe seamlessly. With the press of a button. Try it below."}
             version="black"
@@ -52,6 +54,7 @@ export default function Home() {
 
         <Box mih={"500px"} w={"100%"} pt={30}>
           <TextPlusImage
+            id="security"
             title={"Secure from the ground up"}
             description={"Google Security Partner. End to End encryption, at every step."}
             version={"reg"}
@@ -63,6 +66,7 @@ export default function Home() {
 
         <Box mih={"500px"} w={"100%"} pt={150}>
           <TextPlusImage
+            id="privacy"
             title={"Never miss an important email"}
             description={"Zero AI quickly sorts what you don't need. Only important emails are left."}
             version={"reg"}
@@ -74,6 +78,7 @@ export default function Home() {
 
         <Box mih={"500px"} w={"100%"} pt={150}>
           <TextPlusImage
+            id="business"
             title={"Never miss an important email"}
             description={"Zero AI quickly sorts what you don't need. Only important emails are left."}
             version={"reg"}
