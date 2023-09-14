@@ -226,7 +226,7 @@ export const headerLinks: Links = [
       {link: "/terms.pdf", label: "Data FAQ", newTab: true},
     ]
   },
-  { link: "http://zero-blog.s3-website-us-west-2.amazonaws.com/", label: "Blog", Icon: <FcLibrary />, newTab: true, showOnHeader: true },
+  { link: "https://blog.zeroinbox.ai", label: "Blog", Icon: <FcLibrary />, newTab: true, showOnHeader: true },
   { link: "/about", label: 'About', Icon: <FcAbout />, newTab: false, showOnHeader: false },
 ];
 
