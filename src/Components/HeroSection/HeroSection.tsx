@@ -77,15 +77,14 @@ const useStyles = createStyles((theme) => ({
     backgroundColor: "var(--zero-red)",
 
     "&:hover": {
-      backgroundColor: "var(--zero-red)",
-      opacity: 0.8,
+      backgroundColor: "var(--zero-red-hover)",
     },
   },
 
   showButton: {
     opacity: 1,
     maxWidth: "15rem",
-    transition: "all 1s ease-out",
+    transition: "max-width 1s ease-out, opacity 1s ease-out",
   },
 }));
 
