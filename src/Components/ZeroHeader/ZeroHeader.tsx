@@ -90,6 +90,12 @@ const useStyles = createStyles(
       },
     },
 
+    linkOpen: {
+      color: "var(--zero-red-darker)",
+      fontWeight: 700,
+      transition: "all 0.08s ease-out",
+    },
+
     linkLabel: {
       marginRight: rem(5),
     },
@@ -232,6 +238,7 @@ export const headerLinks: Links = [
 
 function LinksToItems() {
   const { classes } = useStyles();
+  const [labelOpened, setLabelOpened] = useState("");
 
   return headerLinks.filter(link => link.showOnHeader).map((link) => {
     const menuItems = link.links?.map((item) => (
@@ -251,13 +258,15 @@ function LinksToItems() {
         <Menu
           key={link.label}
           trigger="hover"
+          onOpen={()=> { setLabelOpened(link.label)}}
+          onClose={()=> { setLabelOpened("") }}
           transitionProps={{ exitDuration: 0 }}
           withinPortal
         >
           <Menu.Target>
             <a
               href={link.link}
-              className={classes.link}
+              className={`${classes.link} ${link.label === labelOpened ? classes.linkOpen : null }`}
               onClick={(event) => event.preventDefault()}
             >
               <Center>

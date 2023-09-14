@@ -2,9 +2,11 @@ Now:
 
 Later:
 - write better copy
-- make nav links link to main page components.
+- make nav links link to main page components
 - press outside of navbar close navbar
 - (later) fix footer to always be at bottom of page
+- copy over Header to blog.zeroinbox.ai
+- testimonials section like WhatsApp with pictures
 
 Done:
 - make NavLink NextLink. not reload page
@@ -13,3 +15,4 @@ Done:
 - close navbar when links are pressed
 - close navbar when browser expanded
 - save in context that ZeroAI descriptor has already been read
+- make Privacy hover when hover
