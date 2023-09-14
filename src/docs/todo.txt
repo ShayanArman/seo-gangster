@@ -3,6 +3,7 @@ Now:
 Later:
 - write better copy
 - make nav links link to main page components
+- About page with employees
 - press outside of navbar close navbar
 - (later) fix footer to always be at bottom of page
 - copy over Header to blog.zeroinbox.ai
@@ -16,3 +17,20 @@ Done:
 - close navbar when browser expanded
 - save in context that ZeroAI descriptor has already been read
 - make Privacy hover when hover
+
+Sections:
+- Features initial
+------------------
+Black
+- Unsubscribe
+------------------
+- a: Security
+    End to end encryption, Google Security Cleared,
+- b: Privacy
+    Delete everything after you're finished. Link to your gmail,
+    all of your emails are stored as is.
+- c: Business
+    Zero Inbox for Business. Communicate, quickly. Employee chat, with Zero AI
+    email Manager to help you manage your emails. The average employee spends an hour a day
+    email. Let Zero AI handle it.
+
