@@ -1,7 +1,7 @@
 Now:
 
 Later:
-- make pitch deck notes and send back to Enrico
+- update privacy document and data faq document to be up to date.
 - make info@zeroinbox.ai email address
 - write better copy
 - About page with employees
@@ -11,6 +11,7 @@ Later:
 - testimonials section like WhatsApp with pictures
 
 Done:
+- make pitch deck notes and send back to Enrico
 - make NavLink NextLink. not reload page
 - contact us link on business section open up mail app
 - make nav links link to main page components
