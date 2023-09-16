@@ -106,7 +106,7 @@ export default function Home() {
             description={"Communicate, quickly. Employee chat, with Zero AI email Manager to help you manage your emails. The average employee spends an hour a day email. Let Zero AI handle it."}
             version={"reg"}
             isSmallScreen={isSmallScreen}
-            link={{text: "Contact us", href:"https://app.zeroinbox.ai"}}
+            link={{text: "Contact us", href:"mailto:info@zeroinbox.ai?subject=Zero Inbox: AI Email Manager for Business"}}
             placement="text-first"
           />
         </Box>
