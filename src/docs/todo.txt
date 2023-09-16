@@ -1,6 +1,8 @@
 Now:
 
 Later:
+- make pitch deck notes and send back to Enrico
+- make info@zeroinbox.ai email address
 - write better copy
 - About page with employees
 - press outside of navbar close navbar
