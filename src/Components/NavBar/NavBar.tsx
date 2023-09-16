@@ -82,7 +82,7 @@ export default function NavBar({ opened, closeNavBar }: { opened: boolean, close
           direction="column"
           className={classes.content}>
             { headerLinks.map((link) => (
-              <Link key={link.label} href={link.link} target={link.newTab ? "_blank" : "_self"} passHref>
+              <Link key={link.label} shallow={true} href={link.link} target={link.newTab ? "_blank" : "_self"} passHref>
                 <NavLink
                   component={"a"}
                   key={link.label}
@@ -101,7 +101,7 @@ export default function NavBar({ opened, closeNavBar }: { opened: boolean, close
                   icon={link.Icon}>
                     {
                       link.links?.map((subLink) => (
-                        <Link key={subLink.label} href={subLink.link} target={subLink.newTab ? "_blank" : "_self"} passHref>
+                        <Link key={subLink.label} shallow={true} href={subLink.link} target={subLink.newTab ? "_blank" : "_self"} passHref>
                           <NavLink 
                             component={"a"}
                             key={subLink.label}

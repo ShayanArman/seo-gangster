@@ -19,7 +19,19 @@ import { useState, useRef, useEffect } from "react";
 import NavBar from "../NavBar";
 import { FiChevronDown } from "react-icons/fi"
 import { FcHeatMap, FcFolder, FcAbout, FcDataSheet, FcLibrary, FcSalesPerformance, FcHome } from "react-icons/fc"
-import { BUSINESS_SECTION, FEATURES_SECTION, PRIVACY_SECTION, SECURITY_SECTION } from "@/common/constants";
+
+export const FEATURES_SECTION = "features";
+export const UNSUBSCRIBE_SECTION = "unsubscribe";
+export const SECURITY_SECTION = "security";
+export const PRIVACY_SECTION = "privacy";
+export const BUSINESS_SECTION = "business";
+
+export const mainPageSections = {
+  ["features"]: {sectionId: FEATURES_SECTION, offset: 40},
+  ["security"]: {sectionId: SECURITY_SECTION, offset: 30},
+  ["business"]: {sectionId: BUSINESS_SECTION, offset: 0},
+  ["privacy"]: {sectionId: PRIVACY_SECTION, offset: 40},
+}
 
 
 export const HEADER_PIXEL_HEIGHT = 80;
@@ -244,7 +256,7 @@ function LinksToItems() {
 
   return headerLinks.filter(link => link.showOnHeader).map((link) => {
     const menuItems = link.links?.map((item) => (
-      <Link key={item.label} href={item.link} target={item.newTab ? "_blank" : "_self"} passHref>
+      <Link key={item.label} shallow={true} href={item.link} target={item.newTab ? "_blank" : "_self"} passHref>
         <Menu.Item
           component="a"
           icon={item.Icon}
@@ -285,6 +297,7 @@ function LinksToItems() {
       return (
         <Link
           href={link.link}
+          shallow={true}
           key={link.label}
           target={link.newTab ? "_blank" : "_self"}
           className={classes.link}

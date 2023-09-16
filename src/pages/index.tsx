@@ -7,8 +7,8 @@ import TextSection from "@/Components/TextSection";
 import HeroSection from "@/Components/HeroSection";
 import useIsMobile, { useIsLargeScreen } from "@/hooks/useIsMobile";
 import TextPlusImage from "@/Components/TextPlusImage";
-import { BUSINESS_SECTION, FEATURES_SECTION, PRIVACY_SECTION, SECURITY_SECTION, UNSUBSCRIBE_SECTION, mainPageSections } from "@/common/constants";
 import { HEADER_PIXEL_HEIGHT } from "@/Components/ZeroHeader/ZeroHeader";
+import { FEATURES_SECTION, UNSUBSCRIBE_SECTION, PRIVACY_SECTION, SECURITY_SECTION, BUSINESS_SECTION, mainPageSections } from "@/Components/ZeroHeader/ZeroHeader";
 
 type SectionKey = keyof typeof mainPageSections;
 
