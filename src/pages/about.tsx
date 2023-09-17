@@ -34,7 +34,7 @@ export default function About() {
           The Future of Email
         </h1>
         <p className={classes.description}>
-          The goal of ZeroInbox.ai is to simplify Email. Information overload, caused by too many emails, has become unmanageable.
+          The goal of ZeroInbox.ai is to redesign Email. Information overload, caused by too many emails, has become unmanageable.
           But it doesn&apos;t have to be this way. Using AI, we can organize our emails as they come in.
           Learning from user behavior, email can become creative and fun rather than a chore.
         </p>
@@ -54,7 +54,7 @@ export default function About() {
           Advisory
         </h1>
         <p className={classes.description}>
-          We are advised by Bill York. Currently the head of Siri Communications.
+          We are advised by <span><PeopleLink link="https://www.linkedin.com/in/wmyork/" content="Bill York" /></span>. Currently the head of <span><a style={{textDecoration: "underline"}} href="https://www.apple.com/siri/" target="_blank">Siri</a></span> Communications.
         </p>
       </Flex>
 
@@ -63,9 +63,17 @@ export default function About() {
           Join Us
         </h1>
         <p className={classes.description}>
-          We are currently recruiting Engineers both in AI and Software Engineering. Drop us a line with your CV <span><a style={{textDecoration: "underline"}} href="mailto:jobs@zeroinbox.ai?subject=Roles - Zero Inbox: AI Email Manager">here</a></span>.
+          We are currently recruiting Engineers both in AI and Software Engineering. Drop us a line with your CV <span><PeopleLink link="mailto:jobs@zeroinbox.ai?subject=Roles - Zero Inbox: AI Email Manager" content="here" /></span>.
         </p>
       </Flex>
     </Flex>
   );
+}
+
+function PeopleLink({link, content}: {link: string, content: string}) {
+  return (
+    <a style={{textDecoration: "underline"}} href={link} target="_blank">
+      { content }
+    </a>
+  )
 }
