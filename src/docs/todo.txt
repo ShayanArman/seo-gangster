@@ -21,6 +21,7 @@ Done:
 - close navbar when browser expanded
 - save in context that ZeroAI descriptor has already been read
 - make Privacy hover when hover
+- make links font size larger in zero header
 
 
 Sections:

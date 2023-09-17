@@ -103,6 +103,10 @@ const useStyles = createStyles(
       },
     },
 
+    subLink: {
+      fontSize: theme.fontSizes.lg
+    },
+
     // for nested links
     linkOpen: {
       color: "var(--zero-red-darker)",
@@ -260,6 +264,7 @@ function LinksToItems() {
         <Menu.Item
           component="a"
           icon={item.Icon}
+          className={classes.subLink}
         >
           {item.label}
         </Menu.Item>
