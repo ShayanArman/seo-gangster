@@ -1,17 +1,17 @@
 Now:
+- About page with employees
 
 Later:
-- update privacy document and data faq document to be up to date.
-- make info@zeroinbox.ai email address
+- make info@zeroinbox.ai, jobs@zeroinbox.ai email addresses
 - write better copy
-- About page with employees
-- press outside of navbar close navbar
-- (later) fix footer to always be at bottom of page
-- Duplicate Header components of zeroinbox.ai to blog.zeroinbox.ai
+- (hard) Duplicate Header components of zeroinbox.ai to blog.zeroinbox.ai
 - testimonials section like WhatsApp with pictures
+- (maybe) press outside of navbar close navbar
+- (easy) update privacy document and data faq document to be up to date.
 
 Done:
 - make pitch deck notes and send back to Enrico
+- (later) fix footer to always be at bottom of page
 - make NavLink NextLink. not reload page
 - contact us link on business section open up mail app
 - make nav links link to main page components

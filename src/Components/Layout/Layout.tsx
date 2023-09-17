@@ -1,15 +1,26 @@
 import useIsMobile from "@/hooks/useIsMobile";
-import { Box } from "@mantine/core";
+import { createStyles, Box, Flex } from "@mantine/core";
 import Head from "next/head";
 import FooterSection from "@/Components/Footer";
 import { useEffect, useState } from "react";
 import ZeroHeader, { HEADER_HEIGHT } from "@/Components/ZeroHeader/ZeroHeader";
 import { Waypoint } from "react-waypoint";
 
+const useStyles = createStyles((theme) => ({
+  container: {
+    backgroundColor: "var(--landing-background)"
+  },
+
+  content: {
+    flex: 1
+  }
+}));
+
 export default function Layout({ children }: { children: JSX.Element }) {
   const [scrolledToHeader, setScrolledToHeader] = useState(false);
   const [pageReady, setPageReady] = useState(false);
   const isSmallScreen = useIsMobile();
+  const { classes } = useStyles();
 
   useEffect(() => {
     function handleLoad() {
@@ -41,7 +52,7 @@ export default function Layout({ children }: { children: JSX.Element }) {
         <meta name="og:title" content={"Zero Inbox"} />
       </Head>
       
-      <Box style={{backgroundColor: "var(--landing-background)"}}>
+      <Flex direction="column" mih="100vh" className={classes.container}>
         <ZeroHeader isSmallScreen={isSmallScreen} scrolledToHeader={scrolledToHeader} />
 
         <Waypoint
@@ -52,10 +63,12 @@ export default function Layout({ children }: { children: JSX.Element }) {
           </Box>
         </Waypoint>
 
-        { children }
+        <Box className={classes.content}>
+          { children }
+        </Box>
 
         <FooterSection />
-      </Box>
+      </Flex>
     </>
   );
 }
