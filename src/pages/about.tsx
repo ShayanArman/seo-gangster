@@ -1,17 +1,6 @@
 import { createStyles, Flex, Title, Text, Space } from "@mantine/core";
 
-
 const useStyles = createStyles((theme) => ({
-  '@font-face': {
-    fontFamily: 'Calibri',
-    src: `
-      url('/fonts/calibri-regular.ttf') format('truetype'),
-      url('/fonts/calibri-italic.ttf') format('truetype'),
-      url('/fonts/calibri-bold.ttf') format('truetype')
-      url('/fonts/calibri-bold-italic.ttf') format('truetype')
-    `,
-  },
-
   container: {
     margin: "3rem 0rem",
   },
