@@ -280,7 +280,7 @@ function LinksToItems() {
           onOpen={()=> { setLabelOpened(link.label)}}
           onClose={()=> { setLabelOpened("") }}
           transitionProps={{ exitDuration: 0 }}
-          withinPortal
+          withinPortal={false}
         >
           <Menu.Target>
             <a
