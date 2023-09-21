@@ -8,7 +8,6 @@ import { BsArrowRightCircle } from "react-icons/bs";
 import Link from 'next/link';
 import React, { useState } from 'react';
 import { Waypoint } from 'react-waypoint';
-import Image from 'next/image';
 
 const useStyles = createStyles((theme) => ({
   container: {
@@ -111,7 +110,7 @@ type Link = {
   href: string
 }
 
-export default function TextPlusImage({id, title, description, isSmallScreen, version, link, placement}: {id: string, title: string, description: string, isSmallScreen: boolean, version: "reg" | "black", link: Link, placement: "text-first" | "image-first" }) {
+export default function TextPlusImage({id, title, description, Image, isSmallScreen, version, link, placement}: {id: string, title: string, description: string, Image: JSX.Element, isSmallScreen: boolean, version: "reg" | "black", link: Link, placement: "text-first" | "image-first" }) {
   const [seenComponents, setSeenComponents] = useState<Set<string>>(new Set());
   const { classes } = useStyles();
 
@@ -125,7 +124,7 @@ export default function TextPlusImage({id, title, description, isSmallScreen, ve
       key="imageSection"
       align="center"
       className={`${classes.imgSection} ${seenComponents.has("imgSection") ? classes.visible : classes.nonVisible }`}>
-      <ImagePart key="imgSection" />
+      { Image }
       <Waypoint topOffset={!isSmallScreen ? 1200 : 0} onEnter={() => {!seenComponents.has("imgSection") ? addSeenComponent("imgSection") : null }} />
     </Flex>);
 
@@ -182,13 +181,5 @@ function TextPart({title, description, version, link}: {title: string, descripti
           </Flex>
         </Link>
     </Flex>
-  )
-}
-
-function ImagePart() {
-  return (
-    <Box>
-      <Image style={{borderRadius: "24px", boxShadow: "7px 7px 10px 0px var(--shadow-color)"}} width={200} height={400} alt="phone" src="/BlahBlahBlah.svg" />
-    </Box>
   )
 }

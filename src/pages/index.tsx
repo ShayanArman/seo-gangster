@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
+import Image from 'next/image';
 import { Box, Text } from '@mantine/core';
 import { Waypoint } from 'react-waypoint';
 import { scroller } from 'react-scroll';
@@ -57,6 +58,7 @@ export default function Home() {
           id={FEATURES_SECTION}
           title={"Never miss an important email"}
           description={"Zero AI quickly sorts what you don't need. Only important emails are left."}
+          Image={<Image style={{borderRadius: "24px", boxShadow: "7px 7px 10px 0px var(--shadow-color)"}} width={200} height={400} alt="phone" src="/BlahBlahBlah.svg" />}
           version={"reg"}
           isSmallScreen={isSmallScreen}
           link={{text: "Learn more", href:"https://app.zeroinbox.ai"}}
@@ -68,6 +70,7 @@ export default function Home() {
             id={UNSUBSCRIBE_SECTION}
             title={"Unsubscribe is here."}
             description={"Unsubscribe seamlessly. With the press of a button. Try it below."}
+            Image={<Image style={{borderRadius: "24px", boxShadow: "7px 7px 10px 0px var(--shadow-color)"}} width={200} height={400} alt="phone" src="/UnsubSymbol.svg" />}
             version="black"
             isSmallScreen={isSmallScreen}
             link={{text: "Unsubscribe", href:"https://app.zeroinbox.ai"}}
@@ -80,6 +83,7 @@ export default function Home() {
             id={SECURITY_SECTION}
             title={"Secure from the ground up"}
             description={"Google Security Partner. End to End encryption, at every step."}
+            Image={<Image style={{borderRadius: "24px", boxShadow: "7px 7px 10px 0px var(--shadow-color)"}} width={200} height={400} alt="phone" src="/UnsubSymbol.svg" />}
             version={"reg"}
             isSmallScreen={isSmallScreen}
             link={{text: "Learn more", href:"https://app.zeroinbox.ai"}}
@@ -92,6 +96,7 @@ export default function Home() {
             id={PRIVACY_SECTION}
             title={"You're in control."}
             description={"All your emails, your way. Complete control over your account and data. Delete everything with a simple click. All your emails stay in Gmail Folders."}
+            Image={<Image style={{borderRadius: "24px", boxShadow: "7px 7px 10px 0px var(--shadow-color)"}} width={200} height={400} alt="phone" src="/UnsubSymbol.svg" />}
             version={"reg"}
             isSmallScreen={isSmallScreen}
             link={{text: "Privacy", href:"https://app.zeroinbox.ai"}}
@@ -104,6 +109,7 @@ export default function Home() {
             id={BUSINESS_SECTION}
             title={"Zero Inbox for Business"}
             description={"Communicate, quickly. Employee chat, with Zero AI email Manager to help you manage your emails. The average employee spends an hour a day email. Let Zero AI handle it."}
+            Image={<Image style={{borderRadius: "24px", boxShadow: "7px 7px 10px 0px var(--shadow-color)"}} width={200} height={400} alt="phone" src="/UnsubSymbol.svg" />}
             version={"reg"}
             isSmallScreen={isSmallScreen}
             link={{text: "Contact us", href:"mailto:info@zeroinbox.ai?subject=Zero Inbox: AI Email Manager for Business"}}
