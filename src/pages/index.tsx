@@ -108,7 +108,7 @@ export default function Home() {
           <TextPlusImage
             id={BUSINESS_SECTION}
             title={"Zero Inbox for Business"}
-            description={"Communicate, quickly. Employee chat, with Zero AI email Manager to help you manage your emails. The average employee spends an hour a day email. Let Zero AI handle it."}
+            description={"Communicate quickly with Zero Inbox - Email Manager. The average employee spends an hour a day on email. Let Zero AI handle it."}
             Image={<Image style={{borderRadius: "24px", boxShadow: "7px 7px 10px 0px var(--shadow-color)"}} width={200} height={400} alt="phone" src="/Percolate.svg" />}
             version={"reg"}
             isSmallScreen={isSmallScreen}
