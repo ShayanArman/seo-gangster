@@ -70,7 +70,7 @@ export default function Home() {
             id={UNSUBSCRIBE_SECTION}
             title={"Unsubscribe is here."}
             description={"Unsubscribe seamlessly. With the press of a button. Try it below."}
-            Image={<Image style={{borderRadius: "24px", boxShadow: "7px 7px 10px 0px var(--shadow-color)"}} width={200} height={400} alt="phone" src="/UnsubSymbol.svg" />}
+            Image={<Image style={{borderRadius: "24px", boxShadow: "7px 7px 10px 0px var(--shadow-color)"}} width={200} height={400} alt="phone" src="/Unsubscribe.svg" />}
             version="black"
             isSmallScreen={isSmallScreen}
             link={{text: "Unsubscribe", href:"https://app.zeroinbox.ai"}}
