@@ -52,7 +52,7 @@ export default function Layout({ children }: { children: JSX.Element }) {
         <meta name="og:title" content={"Zero Inbox"} />
       </Head>
       
-      <Flex direction="column" mih="100vh" className={classes.container}>
+      <Flex id="#top" direction="column" mih="100vh" className={classes.container}>
         <ZeroHeader isSmallScreen={isSmallScreen} scrolledToHeader={scrolledToHeader} />
 
         <Waypoint
