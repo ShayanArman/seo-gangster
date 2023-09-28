@@ -15,7 +15,7 @@ const useStyles = createStyles((theme) => ({
   main: {
     borderRadius: "30px",
     boxShadow: "7px 7px 10px 0px var(--shadow-color)",
-    backgroundColor: "black",
+    backgroundImage: "url(HeroBackground.svg)",
     backgroundPosition: "center",
     position: "relative",
   },
@@ -37,7 +37,7 @@ const useStyles = createStyles((theme) => ({
   title: {
     fontSize: "8em",
     fontWeight: 500,
-    color: "white",
+    color: "black",
     fontFamily: "helvetica",
     letterSpacing: 0,
     padding: 0,
@@ -48,7 +48,7 @@ const useStyles = createStyles((theme) => ({
   },
 
   subTitle: {
-    color: "white",
+    color: "black",
     fontSize: "3em",
     fontWeight: 400,
     fontFamily: "helvetica",
@@ -63,7 +63,7 @@ const useStyles = createStyles((theme) => ({
   },
 
   description: {
-    color: "white",
+    color: "black",
     fontWeight: 300,
   },
 
