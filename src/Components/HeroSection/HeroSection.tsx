@@ -169,6 +169,8 @@ function TypeDescription({ isSmallScreen }: { isSmallScreen: boolean }) {
       </Text>
       <Button
         mt={"xl"}
+        component="a"
+        href={"https://app.zeroinbox.ai"}
         size={isSmallScreen ? "lg" : "xl"}
         radius="xl"
         className={`${classes.learnMoreButton} ${
