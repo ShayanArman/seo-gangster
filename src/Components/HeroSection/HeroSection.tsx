@@ -18,6 +18,10 @@ const useStyles = createStyles((theme) => ({
     backgroundImage: "url(HeroBackground.svg)",
     backgroundPosition: "center",
     position: "relative",
+
+    [theme.fn.smallerThan("sm")]: {
+      backgroundImage: "url(HeroBackgroundMobile.svg)"
+    }
   },
 
   content: {
