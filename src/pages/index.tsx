@@ -56,21 +56,21 @@ export default function Home() {
         }/>
         <Waypoint topOffset={800} onEnter={() => {!seenComponents.has("text1") ? addSeenComponent("text1") : null }} />
 
-        <Container size="lg" mb="60px" className="container">
-          <Grid gutter="xl">
-            <Grid.Col xs={12} sm={6} md={8} style={{
+        <Container size="md" mb="60px" className="container">
+          <Grid gutter="40px">
+            <Grid.Col xs={12} sm={6} md={7} style={{
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'center',
                 alignItems: 'center'
             }}>
               <Title order={2} size="h1" style={{fontSize: '60px', textAlign: 'center', marginBottom: '20px', lineHeight: 1, fontWeight: 600}}>Never miss an important email</Title>
-              <Text fz="md" align="center" mb="15px">Zero AI quickly sorts what you don&lsquo;t need. Only important emails are left.</Text>
-              <Button size="md" color="grape" component="a" href="https://app.zeroinbox.ai">
+              <Text fz="lg" align="center" mb="15px">Zero AI quickly sorts what you don&lsquo;t need.<br />Only important emails are left.</Text>
+              <Button size="lg" color="grape" component="a" href="https://app.zeroinbox.ai">
                 Learn More &nbsp; <BsArrowRightCircle size="13px"  />
               </Button>
             </Grid.Col>
-            <Grid.Col xs={12} sm={6} md={4} style={{
+            <Grid.Col xs={12} sm={6} md={5} style={{
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'center',
