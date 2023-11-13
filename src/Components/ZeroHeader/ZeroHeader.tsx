@@ -244,9 +244,8 @@ function ActionButton({
 
 export function registerClickSignUpEventGoogle() {
   if (typeof window !== 'undefined' && window.gtag) {
-    window.gtag('event', 'click', {
-      'event_category': 'Link',
-      'event_label': 'sign_up',
+    window.gtag('event', 'sign_up', {
+      'event_category': 'User Actions',
       'value': 1
     });
   }
