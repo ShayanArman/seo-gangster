@@ -123,7 +123,7 @@ export default function HeroSection({
 }
 
 const description =
-  "AI-powered Email manager. Secure and simple. Save time, let Zero AI handle it.";
+  "AI-powered Email organizer. Secure and simple. Save time, let Zero AI clear your unwanted emails.";
 
 function TypeDescription({ isSmallScreen }: { isSmallScreen: boolean }) {
   const { classes } = useStyles();

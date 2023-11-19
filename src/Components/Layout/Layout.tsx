@@ -46,11 +46,15 @@ export default function Layout({ children }: { children: JSX.Element }) {
   return (
     <>
       <Head>
-        <title>Zero AI</title>
+        <title>Zero Inbox AI Email Organizer: clear your inbox, be more productive with Zero Inbox.</title>
         <link rel="icon" href="/logo.ico" />
-        <meta name="description" content="Clear your Email, clear your Mind." />
+        <link rel="canonical" href="http://www.zeroinbox.ai" />
+        <meta name="description" content="Zero Inbox AI Email Organizer helps you clear your emails efficiently. Be more productive quickly. Feel lighter, by clearing your inbox. Get to inbox zero quickly using Zero Inbox AI Email Cleaner. Clear your Email with the ultimate email hack, clear your Mind." />
+        <meta property="og:description" content="Clear your email inbox, and get to inbox zero with the ultimate email productivity tool Zero AI Email Organizer. Be more effective, use Zero AI Email Cleaner productivity tool. Stay organized and stress-free." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="og:title" content={"Zero Inbox"} />
+        <meta name="og:title" content="Zero Inbox AI Email Cleaner. The ultimate email hack. Be more productive with Zero Inbox AI Email Organizer." />
+        <meta property="og:url" content="http://www.zeroinbox.ai" />
+        <meta property="og:type" content="website" />
       </Head>
       
       <Flex id="#top" direction="column" mih="100vh" className={classes.container}>
