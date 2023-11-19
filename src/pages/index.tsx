@@ -49,7 +49,7 @@ export default function Home() {
           isVisible={seenComponents.has("text1")} 
           innerText={
           <Text>
-            Overflowing inbox? <span style={{color: "var(--zero-red)"}}>Zero AI</span> can <span style={{color: "var(--zero-blue)"}}>organize</span> it in 30 seconds! - no matter the size. Clear your annoying emails. <span style={{color: "var(--zero-red)"}}>Zero AI</span> can do that.
+            Overflowing inbox? <span style={{color: "var(--zero-red)"}}>Zero AI</span> can <span style={{color: "var(--zero-blue)"}}>organize</span> it in 30 seconds! - no matter the size. Clear your annoying emails and get to Inbox Zero. <span style={{color: "var(--zero-red)"}}>Zero AI</span> can do that.
           </Text>
         }/>
         <Waypoint topOffset={800} onEnter={() => {!seenComponents.has("text1") ? addSeenComponent("text1") : null }} />
@@ -57,7 +57,7 @@ export default function Home() {
         <TextPlusImage
           id={FEATURES_SECTION}
           title={"Never miss an important email"}
-          description={"Zero AI quickly clears what you don't need. Only important emails are left. Use Zero AI Email Organizer to clean your email inbox in seconds. Feel more productive, use the best Email Productivity tool on the planet."}
+          description={"Zero AI quickly clears what you don't need. Only important emails are left. Use Zero AI Email Organizer to clean your email inbox in seconds. Get to Inbox Zero quickly. Feel more productive, use the best Email Productivity tool on the planet."}
           Image={<Image style={{borderRadius: "24px", boxShadow: "7px 7px 10px 0px var(--shadow-color)"}} width={200} height={400} alt="phone" src="/images/features-1200px.png" />}
           version={"reg"}
           isSmallScreen={isSmallScreen}
@@ -71,7 +71,7 @@ export default function Home() {
           <TextPlusImage
             id={UNSUBSCRIBE_SECTION}
             title={"Unsubscribe is here."}
-            description={"Unsubscribe seamlessly. With the press of a button. Try it below."}
+            description={"Unsubscribe seamlessly. With the press of a button. Get to Inbox Zero and stay there - try it below."}
             Image={<Image style={{borderRadius: "24px", boxShadow: "7px 7px 10px 0px var(--shadow-color)"}} width={200} height={400} alt="phone" src="/images/unsubscribe-1200px.png" />}
             version="black"
             isSmallScreen={isSmallScreen}
@@ -84,7 +84,7 @@ export default function Home() {
           <TextPlusImage
             id={SECURITY_SECTION}
             title={"Secure from the ground up"}
-            description={"Google Security Partner. End to End encryption, at every step. Zero AI Email Cleaner clears your inbox in seconds - securely."}
+            description={"Google Security Partner. End to End encryption, at every step. Get to Inbox Zero with the most secure AI Email Organizer on the planet. Zero AI Email Cleaner clears your inbox in seconds - securely."}
             Image={<Image style={{borderRadius: "24px"}} width={619} height={580} alt="phone" src="/images/security-1200px.png" />}
             version={"reg"}
             isSmallScreen={isSmallScreen}
@@ -97,7 +97,7 @@ export default function Home() {
           <TextPlusImage
             id={PRIVACY_SECTION}
             title={"You're in control."}
-            description={"Zero AI Email Cleaner gives you complete control over your account and data. Manage your data with a simple click. Privacy over your emails is at the forefront; with Zero Inbox Email Organizer."}
+            description={"Zero AI Email Cleaner gives you complete control over your account and data. Manage your data with a simple click. Get to Inbox Zero with Privacy in mind. Privacy over your emails is at the forefront; with Zero Inbox Email Organizer."}
             Image={<Image style={{borderRadius: "24px", boxShadow: "7px 7px 10px 0px var(--shadow-color)"}} width={200} height={400} alt="phone" src="/images/privacy-1200px.png" />}
             version={"reg"}
             isSmallScreen={isSmallScreen}
@@ -110,7 +110,7 @@ export default function Home() {
           <TextPlusImage
             id={BUSINESS_SECTION}
             title={"Zero Inbox for Business"}
-            description={"Be more productive with Zero AI: Email Productivity. Communicate quickly and efficiently with Zero Inbox - Email Manager. The average employee spends an hour a day on email. Try the ultimate email productivity hack. Let Zero AI handle it."}
+            description={"Be more productive with Zero AI: Email Productivity. Get to Inbox Zero and stay there. Communicate quickly and efficiently with Zero Inbox - Email Organizer. The average employee spends an hour a day on email. Try the ultimate email productivity hack. Let Zero AI handle it."}
             Image={<Image style={{borderRadius: "24px", boxShadow: "7px 7px 10px 0px var(--shadow-color)"}} width={200} height={400} alt="phone" src="/images/business-1200px.png" />}
             version={"reg"}
             isSmallScreen={isSmallScreen}
