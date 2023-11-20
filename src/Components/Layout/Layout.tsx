@@ -46,7 +46,7 @@ export default function Layout({ children }: { children: JSX.Element }) {
   return (
     <>
       <Head>
-        <title>Zero Inbox AI Email Organizer: clear your inbox, be more productive with Zero Inbox.</title>
+        <title>Zero Inbox AI Email Organizer: Clear your Inbox, Keep your emails clean and organized with Zero Inbox.</title>
         <link rel="icon" href="/logo.ico" />
         <link rel="canonical" href="http://www.zeroinbox.ai" />
         <meta name="description" content="Zero Inbox AI Email Organizer helps you clear your emails efficiently. Be more productive quickly. Feel lighter, by clearing your inbox. Get to inbox zero quickly using Zero Inbox AI Email Cleaner. Clear your Email with the ultimate email hack, clear your Mind." />
