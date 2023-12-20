@@ -122,12 +122,12 @@ export default function HeroSection({
   );
 }
 
-const description =
-  "Over 1 Million emails cleaned! Secure and simple. Save time, let Zero AI clear your unwanted emails.";
+const description: string[] =
+  "Over 1 Million emails cleaned. Secure and simple - save time, let Zero AI handle it.".split(" ");
 
 function TypeDescription({ isSmallScreen }: { isSmallScreen: boolean }) {
   const { classes } = useStyles();
-  const showIndexRef = useRef({ charIndex: 0 });
+  const showIndexRef = useRef({ wordIndex: 0 });
   const { isHeroReading, setIsHeroReading } = useReadingStatus();
   const [visibleText, setVisibleText] = useState(isHeroReading ? "" : description);
 
@@ -135,18 +135,18 @@ function TypeDescription({ isSmallScreen }: { isSmallScreen: boolean }) {
     let timeout: NodeJS.Timeout;
 
     const displayChar = () => {
-      const { charIndex } = showIndexRef.current;
+      const { wordIndex } = showIndexRef.current;
 
-      if (charIndex < description.length) {
-        const newCharacter = description[charIndex];
-        setVisibleText((oldVisText) => oldVisText + newCharacter);
+      if (wordIndex < description.length) {
+        const newWord = wordIndex === 0 ? description[wordIndex] : (" " + description[wordIndex]);
+        setVisibleText((oldVisText) => oldVisText + newWord);
         showIndexRef.current = {
           ...showIndexRef.current,
-          charIndex: charIndex + 1,
+          wordIndex: wordIndex + 1,
         };
         timeout = setTimeout(
           displayChar,
-          newCharacter === "." || newCharacter === "," ? 500 : 40
+          [".", "!", ","].some(fullStop => newWord.includes(fullStop)) ? 400 : 100
         );
       } else {
         setIsHeroReading(false);
