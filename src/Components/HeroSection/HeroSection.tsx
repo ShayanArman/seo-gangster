@@ -123,7 +123,7 @@ export default function HeroSection({
 }
 
 const description =
-  "Over 1 million emails cleaned. Secure and simple. Save time, let Zero AI clear your unwanted emails.";
+  "Over 1 Million emails cleaned! Secure and simple. Save time, let Zero AI clear your unwanted emails.";
 
 function TypeDescription({ isSmallScreen }: { isSmallScreen: boolean }) {
   const { classes } = useStyles();
