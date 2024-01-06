@@ -190,7 +190,7 @@ function TypeDescription({ isSmallScreen }: { isSmallScreen: boolean }) {
             : ""
         }`}
       >
-        Get started
+        Start Now
       </Button>
     </Box>
   );
