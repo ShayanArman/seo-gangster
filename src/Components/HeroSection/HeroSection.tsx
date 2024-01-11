@@ -129,15 +129,29 @@ export default function HeroSection({
 
 function TypeDescription({ isSmallScreen }: { isSmallScreen: boolean }) {
   const { classes } = useStyles();
-  const description: string[] = `Our users have deleted over 47,181 Facebook notifications (updated Jan 11th, 2024). ${isSmallScreen ? "" : "Secure and simple. "}Save time, let Zero AI handle it.`.split(" ");
   const showIndexRef = useRef({ wordIndex: 0 });
-  const { isHeroReading, setIsHeroReading } = useReadingStatus();
-  const [visibleText, setVisibleText] = useState(isHeroReading ? "" : description);
+  const { isHeroFinishedReading, setIsHeroFinishedReading } = useReadingStatus();
+  const [description, setDescription] = useState<string[]>([]);
+  const [visibleText, setVisibleText] = useState(isHeroFinishedReading ? description.join(" ") : "");
+
+  useEffect(() => {
+    if (description.length === 0 && isSmallScreen !== undefined) {
+      const description: string[] = `Our users have deleted over 47,181 Facebook notifications (updated Jan 11th, 2024). ${isSmallScreen ? "" : "Secure and simple. "}Save time, let Zero AI handle it.`.split(" ");
+      setDescription(description);
+    }
+  }, [isSmallScreen]);
+
+  useEffect(() => {
+    if (isSmallScreen !== undefined && isHeroFinishedReading) {
+      const description: string[] = `Our users have deleted over 47,181 Facebook notifications (updated Jan 11th, 2024). ${isSmallScreen ? "" : "Secure and simple. "}Save time, let Zero AI handle it.`.split(" ");
+      setVisibleText(description.join(" "));
+    }
+  }, [isHeroFinishedReading, isSmallScreen, description])
 
   useEffect(() => {
     let timeout: NodeJS.Timeout;
 
-    const displayChar = () => {
+    const displayChar = (description: string[]) => {
       const { wordIndex } = showIndexRef.current;
 
       if (wordIndex < description.length) {
@@ -149,21 +163,22 @@ function TypeDescription({ isSmallScreen }: { isSmallScreen: boolean }) {
         };
         timeout = setTimeout(
           displayChar,
-          [".", "!", ",", "-"].some(fullStop => newWord.includes(fullStop)) ? 400 : 100
+          [".", "!", ",", "-"].some(fullStop => newWord.includes(fullStop)) ? 400 : 100,
+          description
         );
       } else {
-        setIsHeroReading(false);
+        setIsHeroFinishedReading(true);
       }
     };
 
-    if (isHeroReading) {
-      displayChar();
+    if (!isHeroFinishedReading && description.length > 0) {
+      displayChar(description);
     }
 
     return () => {
       clearTimeout(timeout);
     };
-  }, [isHeroReading]);
+  }, [isHeroFinishedReading, description]);
 
   return (
     <Box>
@@ -183,7 +198,7 @@ function TypeDescription({ isSmallScreen }: { isSmallScreen: boolean }) {
         radius="xl"
         onClick={() => { registerClickSignUpEventGoogle() }}
         className={`${classes.learnMoreButton} ${
-          !isHeroReading || showIndexRef.current.wordIndex > description.length - 3
+          isHeroFinishedReading || showIndexRef.current.wordIndex > description.length - 3
             ? classes.showButton
             : ""
         }`}

@@ -40,10 +40,6 @@ export default function Home() {
     setSeenComponents((prevItems) => new Set(prevItems).add(component));
   };
 
-  if (isSmallScreen === undefined) {
-    return <></>;
-  }
-
   return (
       <>
         <HeroSection isSmallScreen={isSmallScreen} />
