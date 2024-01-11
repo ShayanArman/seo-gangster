@@ -101,7 +101,7 @@ export default function HeroSection({
 }) {
   const { classes } = useStyles();
   const heroContainerHeight = `calc(100svh - ${HEADER_PIXEL_HEIGHT}px)`;
-  const heroMainHeight = `calc(100svh - ${HEADER_PIXEL_HEIGHT}px - ${isSmallScreen ? 20 : 120}px)`;
+  const heroMainHeight = `calc(100svh - ${HEADER_PIXEL_HEIGHT}px - ${isSmallScreen ? 5 : 120}px)`;
 
   return (
     <Flex
@@ -127,11 +127,9 @@ export default function HeroSection({
   );
 }
 
-const description: string[] =
-  "Our users have deleted over 47,181 Facebook notifications (updated Jan 11th, 2024). Secure and simple. Save time, let Zero AI handle it.".split(" ");
-
 function TypeDescription({ isSmallScreen }: { isSmallScreen: boolean }) {
   const { classes } = useStyles();
+  const description: string[] = `Our users have deleted over 47,181 Facebook notifications (updated Jan 11th, 2024). ${isSmallScreen ? "" : "Secure and simple. "}Save time, let Zero AI handle it.`.split(" ");
   const showIndexRef = useRef({ wordIndex: 0 });
   const { isHeroReading, setIsHeroReading } = useReadingStatus();
   const [visibleText, setVisibleText] = useState(isHeroReading ? "" : description);
