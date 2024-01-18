@@ -65,8 +65,6 @@ export default function Home() {
           placement="text-first"
         />
 
-
-
         <Box mih={"500px"} w={"100%"} style={{ backgroundColor: 'black' }} pt={30}>
           <TextPlusImage
             id={UNSUBSCRIBE_SECTION}
