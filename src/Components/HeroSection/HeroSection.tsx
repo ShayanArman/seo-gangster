@@ -115,7 +115,7 @@ export default function HeroSection({
       <Flex mih={heroMainHeight} mah={heroMainHeight} w="100%" align="center" className={classes.main}>
         <Flex direction={"column"} className={classes.content} gap={5}>
           <h1 className={classes.title}>
-            Zero <span style={{ color: "var(--zero-red)" }}>AI</span>
+            Zero <span style={{ color: "var(--zero-red)" }}>Inbox</span>
           </h1>
           <h1 className={classes.subTitle}>
             Email <span style={{ color: "var(--zero-blue)" }}>Manager</span>
