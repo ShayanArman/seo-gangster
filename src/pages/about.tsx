@@ -66,18 +66,18 @@ export default function About() {
           Team
         </h1>
         <p className={classes.description}>
-          Our team is led by Shayan Arman, a Silicon Valley Engineer formerly at Apple. And Connor Robertson, a Senior Software Architect with a degree from the University of British Columbia. Both Connor and Shayan live in beautiful Vancouver British Columbia, Canada.
+          Our team is led by <span><PeopleLink link="https://www.linkedin.com/in/shayan-arman-005006280/" content="Shayan Arman" /></span>, a Silicon Valley Engineer formerly at Apple. And <span><PeopleLink link="https://www.linkedin.com/in/connor-tp-robertson/" content="Connor Robertson" /></span>, a Senior Software Architect with a degree from the University of British Columbia. Both Connor and Shayan live in beautiful Vancouver British Columbia, Canada.
         </p>
       </Flex>
 
-      {/* <Flex direction="column" className={classes.hero} gap={10}>
+      <Flex direction="column" className={classes.hero} gap={10}>
         <h1 className={classes.title}>
           Advisory
         </h1>
         <p className={classes.description}>
-          We are advised by <span><PeopleLink link="https://www.linkedin.com/in/wmyork/" content="Bill York" /></span>. Currently the head of <span><PeopleLink link="https://www.apple.com/siri/" content="Siri" /></span> Communications.
+          We are advised by <span><PeopleLink link="https://www.linkedin.com/in/catherinedahl/" content="Catherine Dahl" /></span>. Founder of Beanworks - sold for over $100M.
         </p>
-      </Flex> */}
+      </Flex>
 
       <Flex direction="column" className={classes.hero} gap={10}>
         <h1 className={classes.title}>
