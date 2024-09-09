@@ -24,6 +24,7 @@ const useStyles = createStyles((theme) => ({
 
     [theme.fn.smallerThan("md")]: {
       width: "100%",
+      padding: "0rem 1rem 2rem 1rem",
     },
   },
 
@@ -68,18 +69,21 @@ export default function UserStatsSection({ isVisible }: { isVisible: boolean }) 
             Updated Septemer 9th, 2024
           </Text>
         </Flex>
-        <Flex direction="column" align={"center"} gap={"sm"} mt={10}>
+        <Flex direction="column" gap={"sm"} mt={10}>
           { users.sort((a, b) => b.emailsCleanedCount - a.emailsCleanedCount).map((user, i) => {
             return (
               <Group key={user.fullName}>
                 <Avatar src={user.image} radius="xl" size="lg" />
                 <Flex direction="column">
                   <Flex align="center" gap={5}><Text>{user.fullName}</Text><Image width={15} height={15} alt="zero" src={user.countryImage} /></Flex>
-                  <Text size="xs" c="dimmed">
+                  {/* <Text weight={300} size="xs">
                     &quot;{user.testimonial}&quot;
+                  </Text> */}
+                  <Text weight={300} size="xs">
+                    {user.emailsCleanedCount} emails
                   </Text>
                   <Text size="sm" c="dimmed" fw={400}>
-                    {user.emailsCleanedCount} emails
+                    &quot;{user.testimonial}&quot;
                   </Text>
                   <Text size="sm" c="dimmed" fw={400}>
                     {user.city}
