@@ -1,9 +1,9 @@
 import { useReadingStatus } from "@/hooks/useIsReading";
-import { createStyles, Box, Flex, Text, Button } from "@mantine/core";
+import { createStyles, Box, Flex, Text, Button, UnstyledButton, ActionIcon } from "@mantine/core";
 import { useEffect, useRef, useState } from "react";
 import { registerClickSignUpEventGoogle } from "../Analytics/GoogleAnalytics";
 import { HEADER_PIXEL_HEIGHT } from "../ZeroHeader/ZeroHeader";
-import { FiCloudLightning } from "react-icons/fi";
+import { FiCloudLightning, FiVideo } from "react-icons/fi";
 
 
 const useStyles = createStyles((theme) => ({
@@ -187,22 +187,37 @@ function TypeDescription({ isSmallScreen }: { isSmallScreen: boolean }) {
       >
         {visibleText}
       </Text>
-      <Button
-        mt={"xl"}
-        component="a"
-        href={"https://app.zeroinbox.ai"}
-        size={isSmallScreen ? "xl" : "xl"}
-        radius="xl"
-        leftIcon={<FiCloudLightning />}
-        onClick={() => { registerClickSignUpEventGoogle() }}
+      <Flex align="center" gap={10} mt={5}>
+      <ActionIcon
         className={`${classes.learnMoreButton} ${
           isHeroFinishedReading || showIndexRef.current.wordIndex > description.length - 3
             ? classes.showButton
             : ""
         }`}
-      >
-        Start Now
-      </Button>
+          variant="gradient"
+          size="xl"
+          aria-label="Gradient action icon"
+          gradient={{ from: 'blue', to: 'cyan', deg: 90 }}
+         component="a" href={"https://www.youtube.com/watch?v=GtBLM1joH0w"}
+         >
+          <FiVideo />
+        </ActionIcon>
+        <Button
+          component="a"
+          href={"https://app.zeroinbox.ai"}
+          size={isSmallScreen ? "xl" : "xl"}
+          radius="xl"
+          leftIcon={<FiCloudLightning />}
+          onClick={() => { registerClickSignUpEventGoogle() }}
+          className={`${classes.learnMoreButton} ${
+            isHeroFinishedReading || showIndexRef.current.wordIndex > description.length - 3
+              ? classes.showButton
+              : ""
+          }`}
+        >
+          Start Now
+        </Button>
+      </Flex>
     </Box>
   );
 }
