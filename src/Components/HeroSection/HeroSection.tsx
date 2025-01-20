@@ -188,17 +188,18 @@ function TypeDescription({ isSmallScreen }: { isSmallScreen: boolean }) {
         {visibleText}
       </Text>
       <Flex align="center" gap={10} mt={5}>
-      <ActionIcon
-        className={`${classes.learnMoreButton} ${
-          isHeroFinishedReading || showIndexRef.current.wordIndex > description.length - 3
-            ? classes.showButton
-            : ""
-        }`}
+        <ActionIcon
+          className={`${classes.learnMoreButton} ${
+            isHeroFinishedReading || showIndexRef.current.wordIndex > description.length - 3
+              ? classes.showButton
+              : ""
+          }`}
           variant="gradient"
           size="xl"
           aria-label="Gradient action icon"
           gradient={{ from: 'blue', to: 'cyan', deg: 90 }}
-         component="a" href={"https://www.youtube.com/watch?v=GtBLM1joH0w"}
+          component="a" href={"https://www.youtube.com/watch?v=GtBLM1joH0w"}
+          target="_blank"
          >
           <FiVideo />
         </ActionIcon>
