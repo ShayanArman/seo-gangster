@@ -1,4 +1,4 @@
-import { createStyles, Flex, List, Text, Title } from "@mantine/core";
+import { Button, createStyles, Flex, List, Text, Title } from "@mantine/core";
 import Script from "next/script";
 
 const useStyles = createStyles((theme) => ({
@@ -79,6 +79,18 @@ export default function Invest() {
           Or a Real Estate Agent creating Listing websites with one Click. Were excited for you to join us on this Journey!
           - Shayan Arman, CEO of Zero Inbox AI Workflows LTD.
         </Text>
+        <Button 
+          mt={15}
+          radius="lg" 
+          component="a"
+          href="https://app.zeroinbox.ai"
+          size={ "xl"}
+          color="dark"
+          target="_blank"
+          variant="filled"
+        >
+          Try AI Workflows
+        </Button>
       </Flex>
 
       <Flex direction="column" align="center" className={classes.section} gap={10}>
