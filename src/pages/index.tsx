@@ -1,16 +1,16 @@
+import { FEATURES_SECTION, UNSUBSCRIBE_SECTION, PRIVACY_SECTION, SECURITY_SECTION, BUSINESS_SECTION, mainPageSections } from "@/Components/ZeroHeader/ZeroHeader";
+import { HEADER_PIXEL_HEIGHT, TEXT_INTRO_SECTION, USERS_STATS_SECTION } from "@/Components/ZeroHeader/ZeroHeader";
+import useIsMobile, { useIsLargeScreen } from "@/hooks/useIsMobile";
+import UserStatsSection from "@/Components/UserStatsSection";
+import TextPlusImage from "@/Components/TextPlusImage";
+import TextSection from "@/Components/TextSection";
 import { useState, useEffect } from "react";
-import { useRouter } from "next/router";
-import Image from 'next/image';
+import HeroSection from "@/Components/HeroSection";
 import { Box, Text } from '@mantine/core';
 import { Waypoint } from 'react-waypoint';
+import { useRouter } from "next/router";
 import { scroller } from 'react-scroll';
-import TextSection from "@/Components/TextSection";
-import HeroSection from "@/Components/HeroSection";
-import useIsMobile, { useIsLargeScreen } from "@/hooks/useIsMobile";
-import TextPlusImage from "@/Components/TextPlusImage";
-import { HEADER_PIXEL_HEIGHT, TEXT_INTRO_SECTION, USERS_STATS_SECTION } from "@/Components/ZeroHeader/ZeroHeader";
-import { FEATURES_SECTION, UNSUBSCRIBE_SECTION, PRIVACY_SECTION, SECURITY_SECTION, BUSINESS_SECTION, mainPageSections } from "@/Components/ZeroHeader/ZeroHeader";
-import UserStatsSection from "@/Components/UserStatsSection";
+import Image from 'next/image';
 
 type SectionKey = keyof typeof mainPageSections;
 
