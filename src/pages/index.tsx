@@ -1,5 +1,6 @@
 import { FEATURES_SECTION, UNSUBSCRIBE_SECTION, PRIVACY_SECTION, SECURITY_SECTION, BUSINESS_SECTION, mainPageSections } from "@/Components/ZeroHeader/ZeroHeader";
 import { HEADER_PIXEL_HEIGHT, TEXT_INTRO_SECTION, USERS_STATS_SECTION } from "@/Components/ZeroHeader/ZeroHeader";
+import AnnouncementModal from "@/Components/WelcomeModal/WelcomeModal";
 import useIsMobile, { useIsLargeScreen } from "@/hooks/useIsMobile";
 import UserStatsSection from "@/Components/UserStatsSection";
 import TextPlusImage from "@/Components/TextPlusImage";
@@ -11,7 +12,6 @@ import { Waypoint } from 'react-waypoint';
 import { useRouter } from "next/router";
 import { scroller } from 'react-scroll';
 import Image from 'next/image';
-import WelcomeModal, { AnnouncementModal } from "@/Components/WelcomeModal/WelcomeModal";
 
 type SectionKey = keyof typeof mainPageSections;
 

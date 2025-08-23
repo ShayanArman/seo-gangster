@@ -21,7 +21,7 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-export function AnnouncementModal({
+export default function AnnouncementModal({
   opened,
   onClose,
 }: {
