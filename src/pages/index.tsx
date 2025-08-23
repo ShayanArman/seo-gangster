@@ -11,11 +11,14 @@ import { Waypoint } from 'react-waypoint';
 import { useRouter } from "next/router";
 import { scroller } from 'react-scroll';
 import Image from 'next/image';
+import WelcomeModal, { AnnouncementModal } from "@/Components/WelcomeModal/WelcomeModal";
 
 type SectionKey = keyof typeof mainPageSections;
 
 export default function Home() {
   const [seenComponents, setSeenComponents] = useState<Set<string>>(new Set());
+  const [isTypewriteFinished, setIsTypewriteFinished] = useState<boolean>(false);
+  const [seenWelcomeModal, setSeenWelcomeModal] = useState(false);
   const isSmallScreen = useIsMobile();
   const isLargeScreen = useIsLargeScreen();
   const router = useRouter();
@@ -42,9 +45,11 @@ export default function Home() {
     setSeenComponents((prevItems) => new Set(prevItems).add(component));
   };
 
+  const shouldShowWelcomeModal = (isTypewriteFinished && !seenWelcomeModal) ? true : false;
+
   return (
       <>
-        <HeroSection isSmallScreen={isSmallScreen} />
+        <HeroSection isSmallScreen={isSmallScreen} onFinishedReading={() => { if (!isTypewriteFinished) { setIsTypewriteFinished(true); }}} />
 
         <TextSection
           key={TEXT_INTRO_SECTION}
@@ -56,6 +61,7 @@ export default function Home() {
           }
         />
         <Waypoint topOffset={800} onEnter={() => {!seenComponents.has(TEXT_INTRO_SECTION) ? addSeenComponent(TEXT_INTRO_SECTION) : null }} />
+        { (shouldShowWelcomeModal) && <AnnouncementModal opened={shouldShowWelcomeModal} onClose={() => { setSeenWelcomeModal(true) }} />}
         
         <UserStatsSection isVisible={seenComponents.has(USERS_STATS_SECTION)} 
         />

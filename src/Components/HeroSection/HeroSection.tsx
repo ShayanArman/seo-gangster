@@ -100,8 +100,10 @@ const useStyles = createStyles((theme) => ({
 
 export default function HeroSection({
   isSmallScreen,
+  onFinishedReading
 }: {
   isSmallScreen: boolean;
+  onFinishedReading: () => void;
 }) {
   const { classes } = useStyles();
   const heroContainerHeight = `calc(100svh - ${HEADER_PIXEL_HEIGHT}px)`;
@@ -125,7 +127,7 @@ export default function HeroSection({
           <h1 className={classes.subTitle}>
             Email <span style={{ color: "var(--zero-blue)" }}>Manager</span>
           </h1>
-          <TypeDescription isSmallScreen={isSmallScreen} />
+          <TypeDescription isSmallScreen={isSmallScreen} onFinishedReading={onFinishedReading} />
         </Flex>
       </Flex>
     </Flex>
@@ -133,7 +135,7 @@ export default function HeroSection({
 }
 
 const description: string[] = "Our users have deleted over 10 million emails. Secure and simple. Save time, let Zero AI handle it.".split(" ");
-function TypeDescription({ isSmallScreen }: { isSmallScreen: boolean }) {
+function TypeDescription({ isSmallScreen, onFinishedReading }: { isSmallScreen: boolean; onFinishedReading: () => void }) {
   const { classes } = useStyles();
   const showIndexRef = useRef({ wordIndex: 0 });
   const { isHeroFinishedReading, setIsHeroFinishedReading } = useReadingStatus();
@@ -142,6 +144,7 @@ function TypeDescription({ isSmallScreen }: { isSmallScreen: boolean }) {
   useEffect(() => {
     if (isHeroFinishedReading === true) {
       setVisibleText(description.join(" "));
+      onFinishedReading();
     }
   }, [isHeroFinishedReading])
 
