@@ -104,10 +104,10 @@ export default function Invest() {
 
       <Flex direction="column" align="center" className={classes.section} gap={10}>
         <h1 className={classes.title}>
-          The Team
+          Bio
         </h1>
         <p className={classes.description}>
-          Shayan Arman, Waterloo, Apple Inc.
+          Shayan Arman, graduated from Waterloo with an Honours Degree in Computer Engineer. He went on to work at Apple Inc in 2017, launching multiple Siri products. From there he gained worldwide experience traveling to over 35 countries. And starting ZeroInbox.ai, the worlds first AI First Email Manager.
         </p>
       </Flex>
     </Flex>
