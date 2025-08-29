@@ -74,9 +74,9 @@ export default function Invest() {
           size={ "xl"}
           color="dark"
           target="_blank"
-          variant="filled"
+          variant="outline"
         >
-          Try AI Workflows
+          Click Here
         </Button>
       </Flex>
 
