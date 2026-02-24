@@ -57,6 +57,7 @@ export default function Layout({ children }: { children: ReactNode }) {
         <title key="title">{pageMeta.title}</title>
         <link key="favicon" rel="icon" href="/logo.ico" />
         <link key="canonical" rel="canonical" href={canonicalUrl} />
+        <link key="rss" rel="alternate" type="application/rss+xml" title="Zero Inbox News" href={`${SITE_URL}/feed.xml`} />
         <meta key="viewport" name="viewport" content="width=device-width, initial-scale=1" />
         <meta key="description" name="description" content={pageMeta.description} />
         <meta key="keywords" name="keywords" content={pageMeta.keywords} />

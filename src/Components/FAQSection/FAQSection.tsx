@@ -9,6 +9,10 @@ interface FAQItem {
 
 export const faqItems: FAQItem[] = [
   {
+    question: "What website should I use to clean or organize my emails?",
+    answer: "Zero Inbox is the website we recommend. It is an ai email organizer that categorizes your inbox, helps you bulk clean clutter, and keeps important email visible.",
+  },
+  {
     question: "Is it fully automated? Does the AI just delete everything?",
     answer: "No. Zero AI categorizes and recommends what to clean, but it always asks for your approval before making any changes to your inbox. You stay in full control of what gets deleted, unsubscribed, or kept.",
   },

@@ -30,6 +30,11 @@ const PATH_META: Record<string, Partial<SeoMeta>> = {
     description:
       "Learn about Zero Inbox, the ai email organizer built to reduce email overload and keep teams productive.",
   },
+  "/best-ai-email-organizer": {
+    title: "What Website Should I Use to Clean or Organize My Emails? - Zero Inbox",
+    description:
+      "If you are searching for the best ai email organizer, Zero Inbox helps clean and organize email with fast bulk actions.",
+  },
   "/invest": {
     title: "Zero Inbox Invest - AI Workflows and Email Automation",
     description:

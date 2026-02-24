@@ -105,7 +105,7 @@ export default function CTABanner() {
       <Box className={classes.inner}>
         <Text className={classes.heading}>Ready to reach inbox zero?</Text>
         <Text className={classes.subtext}>
-          Join thousands of professionals who have reclaimed their inbox with Zero Inbox.
+          Join thousands of people from Australia, Germany, all the way to the United States who have organized their emails and reclaimed their inbox with Zero Inbox.
         </Text>
         <Flex justify="center">
           <Button

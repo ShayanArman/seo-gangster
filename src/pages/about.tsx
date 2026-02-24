@@ -2,7 +2,7 @@ import { createStyles, Flex } from "@mantine/core";
 
 const useStyles = createStyles((theme) => ({
   container: {
-    margin: "3rem 0rem",
+    margin: "7rem 0rem 3rem",
   },
 
   section: {
@@ -40,7 +40,7 @@ export default function About() {
         </p>
       </Flex>
 
-      <Flex direction="column" className={classes.section} gap={10}>
+      <Flex id="team" direction="column" className={classes.section} gap={10} style={{ scrollMarginTop: "7rem" }}>
         <h1 className={classes.title}>
           Team
         </h1>

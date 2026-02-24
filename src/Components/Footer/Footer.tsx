@@ -108,7 +108,9 @@ export default function FooterSection() {
           <div>
             <Text className={classes.columnTitle}>Resources</Text>
             <Link href="/news" className={classes.link}>News</Link>
+            <Link href="/best-ai-email-organizer" className={classes.link}>Best AI Email Organizer</Link>
             <Link href="/about" className={classes.link}>About</Link>
+            <Link href="/about#team" className={classes.link}>Team</Link>
             <Link href="mailto:info@zeroinbox.ai" className={classes.link}>Contact</Link>
             <Link href="/terms.pdf" target="_blank" className={classes.link}>Terms</Link>
           </div>
