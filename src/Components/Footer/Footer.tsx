@@ -1,23 +1,134 @@
-import { createStyles, Flex, Footer } from "@mantine/core";
+import { createStyles, Box, Text, Flex } from "@mantine/core";
 import Image from "next/image";
-import { Link } from "react-scroll";
+import Link from "next/link";
 
 const useStyles = createStyles((theme) => ({
   footer: {
-    backgroundColor: "var(--landing-background)"
-  }
+    width: "100%",
+    padding: "4rem 2rem 2rem",
+    backgroundColor: "var(--zi-dark)",
+
+    [theme.fn.smallerThan("md")]: {
+      padding: "3rem 1.5rem 2rem",
+    },
+  },
+
+  inner: {
+    maxWidth: 1100,
+    margin: "0 auto",
+  },
+
+  grid: {
+    display: "grid",
+    gridTemplateColumns: "2fr 1fr 1fr 1fr",
+    gap: 40,
+    marginBottom: 48,
+
+    [theme.fn.smallerThan("md")]: {
+      gridTemplateColumns: "1fr 1fr",
+      gap: 32,
+    },
+
+    [theme.fn.smallerThan("sm")]: {
+      gridTemplateColumns: "1fr",
+    },
+  },
+
+  brand: {
+    display: "flex",
+    flexDirection: "column",
+    gap: 16,
+  },
+
+  brandText: {
+    color: "rgba(255,255,255,0.6)",
+    fontSize: "0.9rem",
+    lineHeight: 1.6,
+    maxWidth: 260,
+  },
+
+  columnTitle: {
+    fontFamily: "var(--font-heading)",
+    fontWeight: 700,
+    fontSize: "0.85rem",
+    color: "rgba(255,255,255,0.4)",
+    textTransform: "uppercase" as const,
+    letterSpacing: "1px",
+    marginBottom: 16,
+  },
+
+  link: {
+    display: "block",
+    color: "rgba(255,255,255,0.7)",
+    fontSize: "0.95rem",
+    padding: "6px 0",
+    transition: "color var(--transition-fast)",
+
+    "&:hover": {
+      color: "white",
+    },
+  },
+
+  divider: {
+    borderTop: "1px solid rgba(255,255,255,0.1)",
+    paddingTop: 24,
+  },
+
+  bottomText: {
+    color: "rgba(255,255,255,0.4)",
+    fontSize: "0.8rem",
+  },
 }));
 
 export default function FooterSection() {
   const { classes } = useStyles();
 
   return (
-      <Footer height={80} className={classes.footer} withBorder={false}>
-        <Flex h={"inherit"} justify="center" align="center" style={{backgroundColor: "transparent"}}>
-          <Link to="#top" smooth={true} duration={500} offset={-50} >
-            <Image width={150} height={40} alt="zero" src="/justLogo.svg" />
-          </Link>
+    <Box component="footer" className={classes.footer}>
+      <Box className={classes.inner}>
+        <div className={classes.grid}>
+          {/* Brand Column */}
+          <div className={classes.brand}>
+            <Image width={140} height={37} alt="Zero Inbox" src="/zeroInboxLogoBlack.svg" style={{ filter: "brightness(0) invert(1)" }} />
+            <Text className={classes.brandText}>
+              AI-powered email organization. Clean your inbox, keep what matters.
+            </Text>
+          </div>
+
+          {/* Product Column */}
+          <div>
+            <Text className={classes.columnTitle}>Product</Text>
+            <Link href="/?section=features" className={classes.link}>Features</Link>
+            <Link href="/?section=security" className={classes.link}>Security</Link>
+            <Link href="/?section=privacy" className={classes.link}>Privacy</Link>
+            <Link href="/?section=business" className={classes.link}>Business</Link>
+          </div>
+
+          {/* Resources Column */}
+          <div>
+            <Text className={classes.columnTitle}>Resources</Text>
+            <Link href="https://blog.zeroinbox.ai" target="_blank" className={classes.link}>Blog</Link>
+            <Link href="/about" className={classes.link}>About</Link>
+            <Link href="mailto:info@zeroinbox.ai" className={classes.link}>Contact</Link>
+            <Link href="/terms.pdf" target="_blank" className={classes.link}>Terms</Link>
+          </div>
+
+          {/* Account Column */}
+          <div>
+            <Text className={classes.columnTitle}>Account</Text>
+            <Link href="https://app.zeroinbox.ai" target="_blank" className={classes.link}>Log In</Link>
+            <Link href="https://app.zeroinbox.ai" target="_blank" className={classes.link}>Sign Up</Link>
+          </div>
+        </div>
+
+        <Flex justify="space-between" align="center" className={classes.divider} wrap="wrap" gap={12}>
+          <Text className={classes.bottomText}>© {new Date().getFullYear()} Zero Inbox. All rights reserved.</Text>
+          <Flex gap={20}>
+            <Link href="/terms.pdf" target="_blank" className={classes.link} style={{ fontSize: "0.8rem", color: "rgba(255,255,255,0.4)" }}>Terms</Link>
+            <Link href="/privacy.pdf" target="_blank" className={classes.link} style={{ fontSize: "0.8rem", color: "rgba(255,255,255,0.4)" }}>Privacy</Link>
+          </Flex>
         </Flex>
-      </Footer>
+      </Box>
+    </Box>
   );
 }

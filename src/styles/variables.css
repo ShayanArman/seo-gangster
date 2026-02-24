@@ -1,16 +1,28 @@
 :root {
+    /* Brand Colors */
     --zero-orange: hsl(11, 100%, 60%);
     --zero-orange-light: hsla(11, 100%, 60%, 0.6);
     --zero-red: #e65e8c;
     --zero-red-darker: #ff3277;
     --zero-red-light: #f4d0dc;
     --zero-red-hover: #f93275;
-    /* --landing-background: #fffef6; */
-    --landing-background: white;
-    --landing-blur: rgba(255, 255, 255, 0.464);
-    /* --landing-blur: rgba(255, 254, 246, 0.8); */
     --zero-blue: #47AFE6;
     --zero-blue-old: #3DBCF8;
+
+    /* Section Palette */
+    --zi-deep-blue: #0f1d3d;
+    --zi-electric-blue: #254EDB;
+    --zi-lime: #c8e64a;
+    --zi-lilac: #e9d7fd;
+    --zi-cream: #faf5eb;
+    --zi-dark: #111111;
+    --zi-white: #ffffff;
+
+    /* Landing */
+    --landing-background: white;
+    --landing-blur: rgba(255, 255, 255, 0.85);
+
+    /* Utility */
     --green-color: #0DA2C6;
     --green-light: #0DA2C6a1;
     --blue-color: #2196F3;
@@ -20,4 +32,19 @@
     --grey-light: #eee;
     --color-danger: #df1b41;
     --zero-light: #eeeeeeb4;
+
+    /* Typography */
+    --font-heading: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --font-body: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+    /* Transitions */
+    --transition-fast: 0.15s ease;
+    --transition-smooth: 0.3s ease;
+
+    /* Border Radius */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+    --radius-xl: 30px;
+    --radius-pill: 999px;
 }

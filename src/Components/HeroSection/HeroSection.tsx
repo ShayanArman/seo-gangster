@@ -1,227 +1,140 @@
-import { useReadingStatus } from "@/hooks/useIsReading";
-import { createStyles, Box, Flex, Text, Button, UnstyledButton, ActionIcon } from "@mantine/core";
-import { useEffect, useRef, useState } from "react";
-import { registerClickSignUpEventGoogle } from "../Analytics/GoogleAnalytics";
+import { createStyles, Flex, Text, Button, Box } from "@mantine/core";
+import { FiZap } from "react-icons/fi";
 import { HEADER_PIXEL_HEIGHT } from "../ZeroHeader/ZeroHeader";
-import { FiCloudLightning, FiVideo } from "react-icons/fi";
-
+import { registerClickSignUpEventGoogle } from "../Analytics/GoogleAnalytics";
 
 const useStyles = createStyles((theme) => ({
   container: {
-    backgroundColor: "var(--landing-background)",
-    padding: "2rem 5rem",
-
-    [theme.fn.smallerThan("md")]: {
-      padding: "2rem 1.3rem",
-    },
-  },
-
-  main: {
-    borderRadius: "30px",
-    boxShadow: "7px 7px 10px 0px var(--shadow-color)",
-    // backgroundImage: "url(HeroBackground.svg)",
-    backgroundColor: "black",
-    backgroundPosition: "center",
+    background: "#007aff",
+    padding: "0 5rem",
     position: "relative",
-
-    // [theme.fn.smallerThan("sm")]: {
-    //   // backgroundImage: "url(HeroBackgroundMobile.svg)"
-    // }
-  },
-
-  content: {
-    marginLeft: "10%",
-    maxWidth: "40%",
-
-    [theme.fn.smallerThan("xl")]: {
-      maxWidth: "50%",
-    },
+    overflow: "hidden",
 
     [theme.fn.smallerThan("md")]: {
-      marginLeft: "3rem",
-      maxWidth: "70%",
+      padding: "0 1.5rem",
+    },
+  },
+
+  inner: {
+    maxWidth: 1200,
+    margin: "0 auto",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    gap: 24,
+    paddingTop: 80,
+    paddingBottom: 80,
+
+    [theme.fn.smallerThan("md")]: {
+      paddingTop: 48,
+      paddingBottom: 48,
     },
   },
 
   title: {
-    fontSize: "8em",
-    fontWeight: 500,
-    // color: "black",
+    fontSize: "5rem",
+    fontWeight: 800,
     color: "white",
-    fontFamily: "helvetica",
-    letterSpacing: 0,
-    padding: 0,
+    fontFamily: "var(--font-heading)",
+    lineHeight: 1.05,
+    letterSpacing: "-2px",
 
-    [theme.fn.smallerThan("sm")]: {
-      fontSize: "6em",
+    [theme.fn.smallerThan("md")]: {
+      fontSize: "3rem",
+      letterSpacing: "-1px",
     },
   },
 
-  subTitle: {
-    color: "white",
-    fontSize: "3em",
-    fontWeight: 400,
-    fontFamily: "helvetica",
-    lineHeight: 1.1,
-    letterSpacing: 0,
-    padding: 0,
+  highlight: {
+    background: "linear-gradient(90deg, var(--zero-red) 0%, var(--zero-blue) 100%)",
+    WebkitBackgroundClip: "text",
+    WebkitTextFillColor: "transparent",
+    backgroundClip: "text",
+  },
 
-    [theme.fn.smallerThan("sm")]: {
-      fontSize: "2em",
-      lineHeight: 1.2,
+  subtitle: {
+    color: "rgba(255,255,255,0.8)",
+    fontSize: "1.3rem",
+    fontWeight: 400,
+    maxWidth: 560,
+    lineHeight: 1.6,
+    fontFamily: "var(--font-body)",
+
+    [theme.fn.smallerThan("md")]: {
+      fontSize: "1.1rem",
     },
   },
 
-  description: {
-    color: "white",
-    fontWeight: 400,
-  },
-
-  learnMoreButton: {
-    opacity: 0,
-    fontWeight: 300,
-    maxWidth: 0,
-    fontSize: "1.3em",
-    color: "white",
+  ctaButton: {
     border: "none",
+    fontWeight: 700,
+    fontSize: "1.1rem",
     backgroundColor: "var(--zero-red-darker)",
+    transition: "all var(--transition-smooth)",
 
     "&:hover": {
-      backgroundColor: "#228be6",
+      backgroundColor: "#d4205a",
+      transform: "translateY(-2px)",
+      boxShadow: "0 8px 24px rgba(255,50,119,0.35)",
     },
   },
 
-  showButton: {
-    opacity: 1,
-    maxWidth: "15rem",
-    transition: "max-width 1s ease-out, opacity 1s ease-out",
+  glow: {
+    position: "absolute",
+    width: 500,
+    height: 500,
+    borderRadius: "50%",
+    background: "radial-gradient(circle, rgba(255,50,119,0.15) 0%, transparent 70%)",
+    top: -100,
+    right: -100,
+    pointerEvents: "none",
   },
 }));
 
 export default function HeroSection({
   isSmallScreen,
-  onFinishedReading
 }: {
   isSmallScreen: boolean;
-  onFinishedReading: () => void;
+  onFinishedReading?: () => void;
 }) {
   const { classes } = useStyles();
-  const heroContainerHeight = `calc(100svh - ${HEADER_PIXEL_HEIGHT}px)`;
-  const heroMainHeight = `calc(100svh - ${HEADER_PIXEL_HEIGHT}px - ${isSmallScreen ? 5 : 120}px)`;
-  const isZeroInbox = process.env.NEXT_PUBLIC_IS_ZERO_INBOX === "true";
-  
+  const heroMinHeight = `calc(100svh - ${HEADER_PIXEL_HEIGHT}px)`;
+
   return (
     <Flex
       direction="column"
-      justify={"center"}
-      mih={heroContainerHeight}
-      mah={heroContainerHeight}
-      align="center"
+      justify="center"
+      mih={heroMinHeight}
       className={classes.container}
     >
-      <Flex mih={heroMainHeight} mah={heroMainHeight} w="100%" align="center" className={classes.main}>
-        <Flex direction={"column"} className={classes.content} gap={5}>
-          <h1 className={classes.title}>
-            {isZeroInbox ? "Zero" : "Inbox"} <span style={{ color: "var(--zero-red)" }}>{isZeroInbox ? "Inbox" : "Zero"}</span>
-          </h1>
-          <h1 className={classes.subTitle}>
-            Email <span style={{ color: "var(--zero-blue)" }}>Manager</span>
-          </h1>
-          <TypeDescription isSmallScreen={isSmallScreen} onFinishedReading={onFinishedReading} />
+      <div className={classes.glow} />
+      <Box className={classes.inner}>
+        <h1 className={classes.title}>
+          Clean your inbox.
+          <br />
+          <span className={classes.highlight}>Keep what matters.</span>
+        </h1>
+
+        <Text className={classes.subtitle}>
+          Zero Inbox is the AI email manager that deletes spam, unsubscribes from
+          noise, and organizes what&apos;s left — in seconds.
+        </Text>
+
+        <Flex align="center" gap={12} wrap="wrap">
+          <Button
+            component="a"
+            href="https://app.zeroinbox.ai"
+            target="_blank"
+            size={isSmallScreen ? "lg" : "xl"}
+            radius="xl"
+            leftIcon={<FiZap />}
+            onClick={() => registerClickSignUpEventGoogle()}
+            className={classes.ctaButton}
+          >
+            Get Started
+          </Button>
         </Flex>
-      </Flex>
+      </Box>
     </Flex>
-  );
-}
-
-const description: string[] = "Our users have deleted over 10 million emails. Secure and simple. Save time, let Zero AI handle it.".split(" ");
-function TypeDescription({ isSmallScreen, onFinishedReading }: { isSmallScreen: boolean; onFinishedReading: () => void }) {
-  const { classes } = useStyles();
-  const showIndexRef = useRef({ wordIndex: 0 });
-  const { isHeroFinishedReading, setIsHeroFinishedReading } = useReadingStatus();
-  const [visibleText, setVisibleText] = useState(isHeroFinishedReading ? description.join(" ") : "");
-
-  useEffect(() => {
-    if (isHeroFinishedReading === true) {
-      setVisibleText(description.join(" "));
-      onFinishedReading();
-    }
-  }, [isHeroFinishedReading])
-
-  useEffect(() => {
-    let timeout: NodeJS.Timeout;
-
-    const displayChar = (description: string[]) => {
-      const { wordIndex } = showIndexRef.current;
-
-      if (wordIndex < description.length) {
-        const newWord = wordIndex === 0 ? description[wordIndex] : (" " + description[wordIndex]);
-        setVisibleText((oldVisText) => oldVisText + newWord);
-        showIndexRef.current = {
-          ...showIndexRef.current,
-          wordIndex: wordIndex + 1,
-        };
-        timeout = setTimeout(
-          displayChar,
-          [".", "!", ",", "-"].some(fullStop => newWord.includes(fullStop)) ? 400 : 100,
-          description
-        );
-      } else {
-        setIsHeroFinishedReading(true);
-      }
-    };
-
-    if (!isHeroFinishedReading && description.length > 0) {
-      displayChar(description);
-    }
-
-    return () => {
-      clearTimeout(timeout);
-    };
-  }, [isHeroFinishedReading, description]);
-
-  return (
-    <Box>
-      <Text
-        mih={isSmallScreen ? "6rem" : "4rem"}
-        className={classes.description}
-        size="xl"
-        mt="xl"
-      >
-        {visibleText}
-      </Text>
-      <Flex align="center" gap={10} mt={5}>
-        <ActionIcon
-          className={`${classes.learnMoreButton} ${
-            isHeroFinishedReading || showIndexRef.current.wordIndex > description.length - 3
-              ? classes.showButton
-              : ""
-          }`}
-          variant="gradient"
-          size="xl"
-          aria-label="Gradient action icon"
-          gradient={{ from: 'blue', to: 'cyan', deg: 90 }}
-          component="a" href={"https://www.youtube.com/watch?v=GtBLM1joH0w"}
-          target="_blank"
-         >
-          <FiVideo />
-        </ActionIcon>
-        <Button
-          component="a"
-          href={"https://app.zeroinbox.ai"}
-          size={isSmallScreen ? "xl" : "xl"}
-          radius="xl"
-          leftIcon={<FiCloudLightning />}
-          onClick={() => { registerClickSignUpEventGoogle() }}
-          className={`${classes.learnMoreButton} ${
-            isHeroFinishedReading || showIndexRef.current.wordIndex > description.length - 3
-              ? classes.showButton
-              : ""
-          }`}
-        >
-          Start Now
-        </Button>
-      </Flex>
-    </Box>
   );
 }

@@ -1,129 +1,195 @@
-import { FEATURES_SECTION, UNSUBSCRIBE_SECTION, PRIVACY_SECTION, SECURITY_SECTION, BUSINESS_SECTION, mainPageSections } from "@/Components/ZeroHeader/ZeroHeader";
-import { HEADER_PIXEL_HEIGHT, TEXT_INTRO_SECTION, USERS_STATS_SECTION } from "@/Components/ZeroHeader/ZeroHeader";
+import { FEATURES_SECTION, UNSUBSCRIBE_SECTION, SECURITY_SECTION, PRIVACY_SECTION, BUSINESS_SECTION, mainPageSections } from "@/Components/ZeroHeader/ZeroHeader";
+import { HEADER_PIXEL_HEIGHT } from "@/Components/ZeroHeader/ZeroHeader";
 import useIsMobile, { useIsLargeScreen } from "@/hooks/useIsMobile";
-import UserStatsSection from "@/Components/UserStatsSection";
-import TextPlusImage from "@/Components/TextPlusImage";
-import TextSection from "@/Components/TextSection";
-import { useState, useEffect } from "react";
+import FeatureSection from "@/Components/FeatureSection";
+import StepsSection from "@/Components/StepsSection";
+import FAQSection from "@/Components/FAQSection";
+import CTABanner from "@/Components/CTABanner";
+import UserTypes from "@/Components/UserTypes";
+import ToolsGrid from "@/Components/ToolsGrid";
 import HeroSection from "@/Components/HeroSection";
-import { Box, Text } from '@mantine/core';
-import { Waypoint } from 'react-waypoint';
+import { useEffect } from "react";
 import { useRouter } from "next/router";
-import { scroller } from 'react-scroll';
-import Image from 'next/image';
+import { scroller } from "react-scroll";
+import Image from "next/image";
 
 type SectionKey = keyof typeof mainPageSections;
 
 export default function Home() {
-  const [seenComponents, setSeenComponents] = useState<Set<string>>(new Set());
   const isSmallScreen = useIsMobile();
   const isLargeScreen = useIsLargeScreen();
   const router = useRouter();
-  const isZeroInbox = process.env.NEXT_PUBLIC_IS_ZERO_INBOX === "true";
 
   useEffect(() => {
-    // If there's a section query in the URL, use react-scroll to scroll to that section
     const { section } = router.query;
-
-    if (section && typeof section === 'string' && mainPageSections[section as SectionKey]) {
-      // Use a delay to ensure page elements have rendered, then scroll smoothly to the section
+    if (section && typeof section === "string" && mainPageSections[section as SectionKey]) {
       setTimeout(() => {
         scroller.scrollTo(section, {
           duration: 800,
           delay: 0,
-          offset: -1*(HEADER_PIXEL_HEIGHT+mainPageSections[section as SectionKey].offset),
-          smooth: 'easeInOutQuart',
+          offset: -1 * (HEADER_PIXEL_HEIGHT + mainPageSections[section as SectionKey].offset),
+          smooth: "easeInOutQuart",
         });
       }, 50);
     }
   }, [router.query]);
 
-  const addSeenComponent = (component: string) => {
-    setSeenComponents((prevItems) => new Set(prevItems).add(component));
-  };
-
   return (
-      <>
-        <HeroSection isSmallScreen={isSmallScreen} onFinishedReading={() => undefined} />
+    <>
+      {/* ── Hero ── */}
+      <HeroSection isSmallScreen={isSmallScreen} />
 
-        <TextSection
-          key={TEXT_INTRO_SECTION}
-          isVisible={seenComponents.has(TEXT_INTRO_SECTION)} 
-          innerText={
-            <Text>
-              Overflowing inbox? <span style={{color: "var(--zero-red)"}}>{isZeroInbox ? "Zero Inbox" : "Inbox Zero"}</span> can <span style={{color: "var(--zero-blue)"}}>organize</span> it in 30 seconds! - no matter the size. Clear your annoying emails and get to Inbox Zero. <span style={{color: "var(--zero-red)"}}>Zero AI</span> can do that.
-            </Text>
-          }
-        />
-        <Waypoint topOffset={800} onEnter={() => {!seenComponents.has(TEXT_INTRO_SECTION) ? addSeenComponent(TEXT_INTRO_SECTION) : null }} />
-        
-        <UserStatsSection isVisible={seenComponents.has(USERS_STATS_SECTION)} 
-        />
-        <Waypoint topOffset={800} onEnter={() => {!seenComponents.has(USERS_STATS_SECTION) ? addSeenComponent(USERS_STATS_SECTION) : null }} />
-
-
-        <TextPlusImage
-          id={FEATURES_SECTION}
-          title={`Delete spam fast with ${isZeroInbox ? "Zero Inbox" : "Inbox Zero"}`}
-          description={`${isZeroInbox ? "Zero Inbox" : "Inbox Zero"} quickly clears what you don't need. Only important emails are left. Use ${isZeroInbox ? "Zero Inbox" : "Inbox Zero"}: AI Email Organizer to clean your email inbox in seconds. Get to Inbox Zero quickly. Feel more productive, use the best Email Productivity tool on the planet.`}
-          Image={<Image style={{borderRadius: "24px", boxShadow: "7px 7px 10px 0px var(--shadow-color)"}} width={200} height={400} alt="phone" src="/images/features-1200px.png" />}
-          version={"reg"}
-          isSmallScreen={isSmallScreen}
-          link={{text: "Learn more", href:"https://app.zeroinbox.ai"}}
-          placement="text-first"
-        />
-
-        <Box mih={"500px"} w={"100%"} style={{ backgroundColor: 'black' }} pt={30}>
-          <TextPlusImage
-            id={UNSUBSCRIBE_SECTION}
-            title={"Unsubscribe is here."}
-            description={"Unsubscribe seamlessly. With the press of a button. Get to Inbox Zero and stay there - try it below."}
-            Image={<Image style={{borderRadius: "24px", boxShadow: "7px 7px 10px 0px var(--shadow-color)"}} width={200} height={400} alt="phone" src="/images/unsubscribe-1200px.png" />}
-            version="black"
-            isSmallScreen={isSmallScreen}
-            link={{text: "Unsubscribe", href:"https://app.zeroinbox.ai"}}
-            placement={isLargeScreen ? "image-first" : "text-first"}
+      {/* ── Feature: Delete Spam ── */}
+      <FeatureSection
+        id={FEATURES_SECTION}
+        title="Delete spam fast with Zero Inbox."
+        description="Zero Inbox quickly clears what you don't need. Only important emails are left. Clean your email inbox in seconds."
+        checks={[
+          "AI-powered email categorization in seconds.",
+          "Bulk delete thousands of emails with one click.",
+          "Smart filters keep what matters to you.",
+        ]}
+        ctaText="Start Cleaning"
+        ctaHref="https://app.zeroinbox.ai"
+        image={
+          <Image
+            style={{ borderRadius: "24px", boxShadow: "7px 7px 10px 0px var(--shadow-color)" }}
+            width={200}
+            height={400}
+            alt="Zero Inbox features"
+            src="/images/features-1200px.png"
           />
-        </Box>
+        }
+        bgColor="#f6f7f5"
+        textColor="var(--zi-deep-blue)"
+        checkColor="#007aff"
+        isSmallScreen={isSmallScreen}
+      />
 
-        <Box mih={"500px"} w={"100%"} pt={30}>
-          <TextPlusImage
-            id={SECURITY_SECTION}
-            title={"Secure from the ground up"}
-            description={`Google Security Partner. End to End encryption, at every step. Get to Inbox Zero with the most secure AI Email Organizer on the planet. ${isZeroInbox ? "Zero Inbox" : "Inbox Zero"}: Email Cleaner clears your inbox in seconds - securely.`}
-            Image={<Image style={{borderRadius: "24px"}} width={619} height={580} alt="phone" src="/images/security-1200px.png" />}
-            version={"reg"}
-            isSmallScreen={isSmallScreen}
-            link={{text: "Learn more", href:"https://app.zeroinbox.ai"}}
-            placement="text-first"
+      {/* ── Feature: Unsubscribe ── */}
+      <FeatureSection
+        id={UNSUBSCRIBE_SECTION}
+        title="Unsubscribe is here."
+        description="Unsubscribe seamlessly from newsletters and promotions. With the press of a button, clean your inbox and stay at zero."
+        checks={[
+          "One-click unsubscribe from any sender.",
+          "Permanently block unwanted newsletters.",
+          "Track every unsubscribe action.",
+        ]}
+        ctaText="Try Unsubscribe"
+        ctaHref="https://app.zeroinbox.ai"
+        image={
+          <Image
+            style={{ borderRadius: "24px", boxShadow: "7px 7px 10px 0px var(--shadow-color)" }}
+            width={200}
+            height={400}
+            alt="Unsubscribe feature"
+            src="/images/unsubscribe-1200px.png"
           />
-        </Box>
+        }
+        bgColor="#f6f7f5"
+        textColor="var(--zi-deep-blue)"
+        checkColor="#007aff"
+        imageFirst={!isSmallScreen}
+        isSmallScreen={isSmallScreen}
+      />
 
-        <Box mih={"500px"} w={"100%"} pt={150}>
-          <TextPlusImage
-            id={PRIVACY_SECTION}
-            title={"You're in control."}
-            description={`${isZeroInbox ? "Zero Inbox" : "Inbox Zero"}: Email Cleaner gives you complete control over your account and data. Manage your data with a simple click. Get to Inbox Zero with Privacy in mind. Privacy over your emails is at the forefront; with ${isZeroInbox ? "Zero Inbox" : "Inbox Zero"}: Email Organizer.`}
-            Image={<Image style={{borderRadius: "24px", boxShadow: "7px 7px 10px 0px var(--shadow-color)"}} width={200} height={400} alt="phone" src="/images/privacy-1200px.png" />}
-            version={"reg"}
-            isSmallScreen={isSmallScreen}
-            link={{text: "Privacy", href:"https://app.zeroinbox.ai"}}
-            placement={isLargeScreen ? "image-first" : "text-first"}
+      {/* ── Feature: Security ── */}
+      <FeatureSection
+        id={SECURITY_SECTION}
+        title="Secure from the ground up."
+        description="Google Security Partner. End-to-end encryption at every step. Your emails are never stored or shared."
+        checks={[
+          "Google Security Partner certified.",
+          "End-to-end encryption for all data.",
+          "No email content is ever stored on our servers.",
+        ]}
+        ctaText="Learn More"
+        ctaHref="https://app.zeroinbox.ai"
+        image={
+          <Image
+            style={{ borderRadius: "24px" }}
+            width={619}
+            height={580}
+            alt="Security"
+            src="/images/security-1200px.png"
           />
-        </Box>
+        }
+        bgColor="#d2e823"
+        textColor="var(--zi-deep-blue)"
+        checkColor="var(--zi-deep-blue)"
+        isSmallScreen={isSmallScreen}
+      />
 
-        <Box mih={"500px"} w={"100%"} pt={150}>
-          <TextPlusImage
-            id={BUSINESS_SECTION}
-            title={`${isZeroInbox ? "Zero Inbox" : "Inbox Zero"} for Business`}
-            description={`Be more productive with ${isZeroInbox ? "Zero Inbox" : "Inbox Zero"}: Email Productivity. Get to Inbox Zero and stay there. Communicate quickly and efficiently with ${isZeroInbox ? "Zero Inbox" : "Inbox Zero"} - Email Organizer. The average employee spends an hour a day on email. Try the ultimate email productivity hack. Let Zero AI handle it.`}
-            Image={<Image style={{borderRadius: "24px", boxShadow: "7px 7px 10px 0px var(--shadow-color)"}} width={200} height={400} alt="phone" src="/images/business-1200px.png" />}
-            version={"reg"}
-            isSmallScreen={isSmallScreen}
-            link={{text: "Contact us", href:"mailto:info@zeroinbox.ai?subject=Zero Inbox: AI Email Manager for Business"}}
-            placement="text-first"
+      {/* ── Feature: Privacy ── */}
+      <FeatureSection
+        id={PRIVACY_SECTION}
+        title="You're in control."
+        description="Zero Inbox gives you complete control over your account and data. Manage your data with a simple click. Privacy is at the forefront."
+        checks={[
+          "Delete your account and data instantly.",
+          "No third-party data sharing. Ever.",
+          "Full transparency over what we access.",
+        ]}
+        ctaText="Privacy Info"
+        ctaHref="https://app.zeroinbox.ai"
+        image={
+          <Image
+            style={{ borderRadius: "24px", boxShadow: "7px 7px 10px 0px var(--shadow-color)" }}
+            width={200}
+            height={400}
+            alt="Privacy controls"
+            src="/images/privacy-1200px.png"
           />
-        </Box>
-      </>
-  )
+        }
+        bgColor="var(--zi-lilac)"
+        textColor="var(--zi-deep-blue)"
+        checkColor="var(--zi-electric-blue)"
+        imageFirst={!isSmallScreen}
+        isSmallScreen={isSmallScreen}
+      />
+
+      {/* ── Tools Grid ── */}
+      <ToolsGrid />
+
+      {/* ── Feature: Business ── */}
+      <FeatureSection
+        id={BUSINESS_SECTION}
+        title="Zero Inbox for Business."
+        description="Be more productive. The average employee spends an hour a day on email. Let Zero AI handle the clutter so your team can focus."
+        checks={[
+          "Enterprise-grade security and compliance.",
+          "Per-user controls and admin dashboard.",
+          "Boost team email productivity instantly.",
+        ]}
+        ctaText="Contact Us"
+        ctaHref="mailto:info@zeroinbox.ai?subject=Zero Inbox for Business"
+        image={
+          <Image
+            style={{ borderRadius: "24px", boxShadow: "7px 7px 10px 0px var(--shadow-color)" }}
+            width={200}
+            height={400}
+            alt="Business features"
+            src="/images/business-1200px.png"
+          />
+        }
+        bgColor="var(--zi-deep-blue)"
+        textColor="white"
+        checkColor="var(--zi-lime)"
+        isSmallScreen={isSmallScreen}
+      />
+
+      {/* ── User Types ── */}
+      <UserTypes />
+
+      {/* ── Steps ── */}
+      <StepsSection />
+
+      {/* ── FAQ ── */}
+      <FAQSection />
+
+      {/* ── Final CTA ── */}
+      <CTABanner />
+    </>
+  );
 }

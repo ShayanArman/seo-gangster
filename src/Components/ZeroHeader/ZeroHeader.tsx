@@ -1,26 +1,25 @@
 import {
   createStyles,
-  Menu,
-  Center,
-  Header,
   Container,
   Group,
   Button,
   Burger,
   rem,
-  Box,
-  MantineSize,
   Flex,
+  MantineSize,
 } from "@mantine/core";
 import Image from "next/image";
 import Link from "next/link";
 import classNames from "classnames";
 import { useState, useRef, useEffect } from "react";
 import NavBar from "../NavBar";
-import { FiChevronDown, FiFastForward } from "react-icons/fi"
-import { FcHeatMap, FcFolder, FcAbout, FcDataSheet, FcLibrary, FcSalesPerformance, FcHome } from "react-icons/fc"
+import { FiFastForward } from "react-icons/fi";
 import { registerClickSignUpEventGoogle } from "../Analytics/GoogleAnalytics";
 
+export const HEADER_PIXEL_HEIGHT = 72;
+export const HEADER_HEIGHT = rem(HEADER_PIXEL_HEIGHT);
+
+/* ─── Section IDs (unchanged) ─── */
 export const TEXT_INTRO_SECTION = "text_intro_section";
 export const USERS_STATS_SECTION = "users_section";
 export const FEATURES_SECTION = "features";
@@ -30,190 +29,188 @@ export const PRIVACY_SECTION = "privacy";
 export const BUSINESS_SECTION = "business";
 
 export const mainPageSections = {
-  [FEATURES_SECTION]: {sectionId: FEATURES_SECTION, offset: 40},
-  [USERS_STATS_SECTION]: {sectionId: USERS_STATS_SECTION, offset: 40},
-  [SECURITY_SECTION]: {sectionId: SECURITY_SECTION, offset: 30},
-  [BUSINESS_SECTION]: {sectionId: BUSINESS_SECTION, offset: 0},
-  [PRIVACY_SECTION]: {sectionId: PRIVACY_SECTION, offset: 40},
-}
+  [FEATURES_SECTION]: { sectionId: FEATURES_SECTION, offset: 40 },
+  [USERS_STATS_SECTION]: { sectionId: USERS_STATS_SECTION, offset: 40 },
+  [SECURITY_SECTION]: { sectionId: SECURITY_SECTION, offset: 30 },
+  [BUSINESS_SECTION]: { sectionId: BUSINESS_SECTION, offset: 0 },
+  [PRIVACY_SECTION]: { sectionId: PRIVACY_SECTION, offset: 40 },
+};
 
+/* ─── Header Links ─── */
+type HeaderLink = {
+  link: string;
+  label: string;
+  newTab: boolean;
+};
 
-export const HEADER_PIXEL_HEIGHT = 80;
-export const HEADER_HEIGHT = rem(HEADER_PIXEL_HEIGHT);
+export const headerLinks: HeaderLink[] = [
+  { link: `/?section=${FEATURES_SECTION}`, label: "Features", newTab: false },
+  { link: `/?section=${SECURITY_SECTION}`, label: "Security", newTab: false },
+  { link: `/?section=${BUSINESS_SECTION}`, label: "Business", newTab: false },
+  { link: "https://blog.zeroinbox.ai", label: "Blog", newTab: true },
+  { link: "/about", label: "About", newTab: false },
+];
 
-const useStyles = createStyles(
-  (theme) => ({
-    header: {
-      position: "fixed",
-      backgroundColor: 'var(--landing-background)',
-      borderBottom: "0px",
-      boxShadow: "0px 0px 20px 0px rgba(0, 0, 0, 0.1)",
-      top: 0,
-      left: 0,
-      zIndex: 9999,
-      transition: "background-color 0.3s ease",
-    },
+/* ─── Styles ─── */
+const useStyles = createStyles((theme) => ({
+  header: {
+    position: "fixed",
+    top: 0,
+    left: 0,
+    right: 0,
+    zIndex: 9999,
+    height: HEADER_HEIGHT,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    transition: "transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease",
+    backgroundColor: "transparent",
+  },
 
-    headerColored: {
-      backgroundColor: "var(--landing-blur)",
-      // boxShadow: "0px 0px 20px 0px rgba(0, 0, 0, 0.1)",
-      boxShadow: "0px 0px 20px 0px rgba(0, 0, 0, 0.5)",
-      transition: "all 0.3s"
-    },
+  headerHidden: {
+    transform: "translateY(-100%)",
+    opacity: 0,
+  },
 
-    inner: {
-      height: HEADER_HEIGHT,
-      width: "90%",
-      display: "flex",
-      justifyContent: "space-between",
-      alignItems: "center",
-      position: 'relative',
+  pill: {
+    width: "92%",
+    maxWidth: 1200,
+    height: 56,
+    borderRadius: "var(--radius-pill)",
+    backgroundColor: "rgba(255,255,255,0.95)",
+    backdropFilter: "blur(16px)",
+    boxShadow: "0 4px 24px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.04)",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    padding: `0 ${rem(24)}`,
+  },
 
-      [theme.fn.smallerThan("md")]: {
-        width: "100%"
-      }
-    },
-
-    links: {
-      [theme.fn.smallerThan("md")]: {
-        display: "none",
-      },
-    },
-
-    logoBurgerContainer: {
-      [theme.fn.smallerThan("md")]: {
-        columnGap: "10px",
-      }
-    },
-
-    burger: {
+  links: {
+    [theme.fn.smallerThan("md")]: {
       display: "none",
-      [theme.fn.smallerThan("md")]: {
-        display: "initial"
-      }
     },
+  },
 
-    link: {
-      display: "block",
-      lineHeight: 1,
-      padding: `${rem(8)} ${rem(12)}`,
-      textDecoration: "none",
-      fontWeight: 500,
-      color: 'black',
-      fontSize: theme.fontSizes.xl,
-
-      "&:hover": {
-        color: "var(--zero-red-darker)",
-        fontWeight: 700,
-        transition: "all 0.08s ease-out",
-      },
+  burger: {
+    display: "none",
+    [theme.fn.smallerThan("md")]: {
+      display: "initial",
     },
+  },
 
-    // nestedLinks when link has nested links
-    nestedLink: {
-      fontSize: theme.fontSizes.lg
-    },
+  link: {
+    display: "block",
+    lineHeight: 1,
+    padding: `${rem(8)} ${rem(14)}`,
+    textDecoration: "none",
+    fontWeight: 500,
+    color: "#333",
+    fontSize: rem(15),
+    borderRadius: "var(--radius-sm)",
+    transition: "color var(--transition-fast), background-color var(--transition-fast)",
 
-    // for nested links
-    linkOpen: {
+    "&:hover": {
       color: "var(--zero-red-darker)",
-      fontWeight: 700,
-      transition: "all 0.08s ease-out",
+      backgroundColor: "rgba(255,50,119,0.06)",
     },
+  },
+}));
 
-    linkLabel: {
-      marginRight: rem(5),
-    },
-
-  })
-);
-
-function throttle(fn: () => void, limit: number) {
-  let lastCall = 0;
-  return function() {
-    const now = new Date().getTime();
-    if (now - lastCall < limit) {
-      return;
-    }
-    lastCall = now;
-    return fn();
-  };
-}
-
+/* ─── Smart-Hide Header ─── */
 export default function ZeroHeader({
-  scrolledToHeader,
   isSmallScreen,
 }: {
-  scrolledToHeader: boolean;
+  scrolledToHeader?: boolean;
   isSmallScreen: boolean;
 }) {
   const [opened, setOpened] = useState(false);
+  const [isHidden, setIsHidden] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const lastScrollY = useRef(0);
   const { classes } = useStyles();
-  const linksRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    function handleResize() {
-      if (linksRef.current && opened) {
-        const computedStyle = window.getComputedStyle(linksRef.current);
-        if (computedStyle.display !== 'none') {
-          setOpened(false);
-        }
+    const THRESHOLD = 10;
+
+    function handleScroll() {
+      const currentY = window.scrollY;
+      const delta = currentY - lastScrollY.current;
+
+      setIsScrolled(currentY > 50);
+
+      if (Math.abs(delta) < THRESHOLD) return;
+
+      if (delta > 0 && currentY > HEADER_PIXEL_HEIGHT) {
+        setIsHidden(true);  // scrolling down → hide
+      } else {
+        setIsHidden(false); // scrolling up → show
       }
+
+      lastScrollY.current = currentY;
     }
 
-    handleResize();
-    const throttledHandleResize = throttle(handleResize, 50);
-    window.addEventListener('resize', throttledHandleResize);
-    return () => {
-      window.removeEventListener('resize', throttledHandleResize);
-    };
-  });
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <>
-      <Header
-        height={HEADER_HEIGHT}
-        mb={120}
+      <div
         className={classNames(classes.header, {
-          [classes.headerColored]: scrolledToHeader,
+          [classes.headerHidden]: isHidden && !opened,
         })}
       >
-        <Container className={classes.inner} fluid>
-          <Flex align="center" className={classes.logoBurgerContainer}>
+        <div className={classes.pill}>
+          <Flex align="center" gap={10}>
             <Burger
               opened={opened}
-              onClick={() => { setOpened((prev) => !prev) }}
+              onClick={() => setOpened((prev) => !prev)}
               className={classes.burger}
-              size="md"
-              color="var(--zero-blue)"
+              size="sm"
+              color="var(--zero-red-darker)"
             />
-            <Link href="/" style={{marginTop: "0.3rem"}} onClick={() => setOpened(false)}>
-              <Image width={192} height={50} alt="zeroInbox" src="/zeroInboxLogoBlack.svg" />
+            <Link href="/" onClick={() => setOpened(false)}>
+              <Image width={160} height={42} alt="Zero Inbox" src="/zeroInboxLogoBlack.svg" />
             </Link>
           </Flex>
-          <Group spacing={5} className={classes.links} ref={linksRef}>
-            <LinksToItems />
-          </Group>
-          <Group>
-            { !isSmallScreen &&
+
+          <Group spacing={4} className={classes.links}>
+            {headerLinks.map((item) => (
               <Link
-              href={"https://app.zeroinbox.ai"}
-              shallow={true}
-              target={"_blank"}
-              onClick={() => { registerClickSignUpEventGoogle() }}
-              className={classes.link}
-            >
-              Sign In
-            </Link>}
-            <ActionButton buttonSize={isSmallScreen ? "md" : "lg"} innerText={ isSmallScreen ? "Start" : "Register" } />
+                key={item.label}
+                href={item.link}
+                target={item.newTab ? "_blank" : "_self"}
+                className={classes.link}
+              >
+                {item.label}
+              </Link>
+            ))}
           </Group>
-        </Container>
-      </Header>
+
+          <Group spacing={8}>
+            {!isSmallScreen && (
+              <Link
+                href="https://app.zeroinbox.ai"
+                target="_blank"
+                className={classes.link}
+              >
+                Log In
+              </Link>
+            )}
+            <ActionButton
+              buttonSize={isSmallScreen ? "sm" : "md"}
+              innerText={isSmallScreen ? "Start" : "Sign Up"}
+            />
+          </Group>
+        </div>
+      </div>
       <NavBar opened={opened} closeNavBar={() => setOpened(false)} />
     </>
   );
 }
 
+/* ─── CTA Button ─── */
 function ActionButton({
   buttonSize,
   innerText,
@@ -228,106 +225,21 @@ function ActionButton({
       href="https://app.zeroinbox.ai"
       radius="xl"
       size={buttonSize}
-      leftIcon={<FiFastForward />}
-      variant='outline'
-      onClick={() => registerClickSignUpEventGoogle() }
-      styles={(theme) => ({
+      leftIcon={<FiFastForward size={14} />}
+      onClick={() => registerClickSignUpEventGoogle()}
+      styles={() => ({
         root: {
           border: "none",
-          color:"white",
-          fontSize: theme.fontSizes.md,
-          fontWeight: 300,
+          color: "white",
+          fontWeight: 600,
           backgroundColor: "var(--zero-red-darker)",
-        "&:hover": {
-          backgroundColor: "#228be6",
-        }
-      }
+          "&:hover": {
+            backgroundColor: "#d4205a",
+          },
+        },
       })}
     >
       {innerText}
     </Button>
   );
-}
-
-type Link = {
-  link: string;
-  label: string;
-  newTab: boolean;
-  showOnHeader: boolean;
-  Icon?: JSX.Element;
-  links?: { link: string; label: string; Icon?: JSX.Element; newTab: boolean }[];
-};
-
-const isZeroInbox = process.env.NEXT_PUBLIC_IS_ZERO_INBOX === "true";
-export const headerLinks: Link[] = [
-  { link: "/", label: `${isZeroInbox ? "Zero Inbox" : "Inbox Zero"}`, Icon: <FcHome />, newTab: false, showOnHeader: false },
-  { link: `/?section=${FEATURES_SECTION}`, label: 'Features', Icon: <FcFolder />, newTab: false, showOnHeader: true },
-  { link: `/?section=${SECURITY_SECTION}`, label: "Security", Icon: <FcDataSheet />, newTab: false, showOnHeader: true },
-  { link: `/?section=${BUSINESS_SECTION}`, label: 'Business', Icon: <FcSalesPerformance />, newTab: false, showOnHeader: true },
-  { link: "/privacyAndData", label: 'Privacy', Icon: <FcHeatMap />, newTab: true, showOnHeader: true,
-    links: [
-      {link: `/?section=${PRIVACY_SECTION}`, label: "Privacy Info",  newTab: false},
-      {link: "/terms.pdf", label: "Data FAQ", newTab: true},
-    ]
-  },
-  { link: "https://blog.zeroinbox.ai", label: "Blog", Icon: <FcLibrary />, newTab: true, showOnHeader: true },
-  { link: "/about", label: 'About', Icon: <FcAbout />, newTab: false, showOnHeader: false },
-];
-
-function LinksToItems() {
-  const { classes } = useStyles();
-  const [labelOpened, setLabelOpened] = useState("");
-
-  return headerLinks.filter(link => link.showOnHeader).map((link) => {
-    const menuItems = link.links?.map((item) => (
-      <Link key={item.label} shallow={true} href={item.link} target={item.newTab ? "_blank" : "_self"} passHref>
-        <Menu.Item
-          component="a"
-          icon={item.Icon}
-          className={classes.nestedLink}
-        >
-          {item.label}
-        </Menu.Item>
-      </Link>
-    ));
-
-    if (menuItems) {
-      return (
-        <Menu
-          key={link.label}
-          trigger="hover"
-          onOpen={()=> { setLabelOpened(link.label)}}
-          onClose={()=> { setLabelOpened("") }}
-          transitionProps={{ exitDuration: 0 }}
-          withinPortal={false}
-        >
-          <Menu.Target>
-            <a
-              href={link.link}
-              className={`${classes.link} ${link.label === labelOpened ? classes.linkOpen : null }`}
-              onClick={(event) => event.preventDefault()}
-            >
-              <Center>
-                <span className={classes.linkLabel}>{link.label}</span>
-                <FiChevronDown />
-              </Center>
-            </a>
-          </Menu.Target>
-          <Menu.Dropdown>{menuItems}</Menu.Dropdown>
-        </Menu>
-      );
-    }
-
-    return (
-      <Link
-        href={link.link}
-        shallow={true}
-        key={link.label}
-        target={link.newTab ? "_blank" : "_self"}
-        className={classes.link}
-      >
-        {link.label}
-      </Link>
-    );
-  });
 }
