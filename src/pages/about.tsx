@@ -63,7 +63,7 @@ export default function About() {
           Join Us
         </h1>
         <p className={classes.description}>
-          We are currently recruiting Engineers both in AI and Software Engineering. Drop us a line with your CV <span><PeopleLink link="mailto:jobs@zeroinbox.ai?subject=Roles - Zero Inbox: AI Email Manager" content="here" /></span>.
+          We are currently recruiting Engineers both in AI and Software Engineering. Drop us a line with your CV <span><PeopleLink link="mailto:jobs@zeroinbox.ai?subject=Roles - Zero Inbox: AI Email Organizer" content="here" /></span>.
         </p>
       </Flex>
     </Flex>

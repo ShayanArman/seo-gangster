@@ -116,7 +116,7 @@ export default function HeroSection({
         </h1>
 
         <Text className={classes.subtitle}>
-          Zero Inbox is the AI email manager that deletes spam, unsubscribes from
+          Zero Inbox is the AI email organizer that deletes spam, unsubscribes from
           noise, and organizes what&apos;s left — in seconds.
         </Text>
 

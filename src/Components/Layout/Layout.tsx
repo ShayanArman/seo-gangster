@@ -1,9 +1,9 @@
-import useIsMobile from "@/hooks/useIsMobile";
-import { createStyles, Box, Flex } from "@mantine/core";
-import Head from "next/head";
-import FooterSection from "@/Components/Footer";
 import ZeroHeader from "@/Components/ZeroHeader/ZeroHeader";
 import GoogleAnalytics from "../Analytics/GoogleAnalytics";
+import { createStyles, Box, Flex } from "@mantine/core";
+import FooterSection from "@/Components/Footer";
+import useIsMobile from "@/hooks/useIsMobile";
+import Head from "next/head";
 
 const useStyles = createStyles(() => ({
   container: {
@@ -22,12 +22,12 @@ export default function Layout({ children }: { children: JSX.Element }) {
   return (
     <>
       <Head>
-        <title>Zero Inbox — AI Email Manager. Clean your inbox, keep what matters.</title>
+        <title>Zero Inbox — AI Email Organizer. Clean your inbox, keep what matters.</title>
         <link rel="icon" href="/logo.ico" />
         <link rel="canonical" href="https://www.zeroinbox.ai" />
         <meta
           name="description"
-          content="Zero Inbox is the AI email manager that deletes spam, unsubscribes from noise, and organizes what's left — in seconds. Be more productive. Get to inbox zero."
+          content="Zero Inbox is the AI email organizer that deletes spam, unsubscribes from noise, and organizes what's left — in seconds. Be more productive. Get to inbox zero."
         />
         <meta
           property="og:description"
@@ -36,7 +36,7 @@ export default function Layout({ children }: { children: JSX.Element }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta
           name="og:title"
-          content="Zero Inbox — AI Email Manager. Clean your inbox, keep what matters."
+          content="Zero Inbox — AI Email Organizer. Clean your inbox, keep what matters."
         />
         <meta property="og:url" content="https://www.zeroinbox.ai" />
         <meta property="og:type" content="website" />

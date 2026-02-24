@@ -102,7 +102,7 @@ export default function Invest() {
           Founder Bio
         </h1>
         <p className={classes.description}>
-          <span><PeopleLink link="https://www.linkedin.com/in/shayan-arman/" content="Shayan Arman" /></span> graduated from Waterloo with an Honours Degree in Computer Engineer. He went on to work at Apple Inc in 2017, launching multiple Siri products. From there he gained worldwide experience traveling to over 35 countries. And starting ZeroInbox.ai, the worlds first AI First Email Manager.
+          <span><PeopleLink link="https://www.linkedin.com/in/shayan-arman/" content="Shayan Arman" /></span> graduated from Waterloo with an Honours Degree in Computer Engineer. He went on to work at Apple Inc in 2017, launching multiple Siri products. From there he gained worldwide experience traveling to over 35 countries. And starting ZeroInbox.ai, the worlds first AI First Email Organizer.
         </p>
       </Flex>
     </Flex>
