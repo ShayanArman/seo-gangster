@@ -138,19 +138,29 @@ function formatCurrentTime(date = new Date()) {
   });
 }
 
-function getRandomInt(min: number, max: number) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
 function getLoggedInUsers(date = new Date()) {
-  const hour = date.getHours();
-  const isPeakHours = hour >= 9 && hour <= 18;
+  const minutesPerDay = 24 * 60;
+  const peakStartMinute = 9 * 60;
+  const peakEndMinute = 19 * 60; // 7:00 PM exclusive => includes 6:59 PM
+  const peakMinUsers = 300;
+  const peakMaxUsers = 1299;
+  const offPeakMinUsers = 89;
+  const offPeakMaxUsers = 300;
+  const minuteOfDay = date.getHours() * 60 + date.getMinutes();
 
-  if (isPeakHours) {
-    return getRandomInt(300, 1299);
+  if (minuteOfDay >= peakStartMinute && minuteOfDay < peakEndMinute) {
+    const peakProgress = (minuteOfDay - peakStartMinute) / (peakEndMinute - peakStartMinute);
+    const middayCurve = Math.sin(Math.PI * peakProgress);
+    return Math.round(peakMinUsers + middayCurve * (peakMaxUsers - peakMinUsers));
   }
 
-  return getRandomInt(89, 300);
+  if (minuteOfDay < peakStartMinute) {
+    const morningRamp = minuteOfDay / peakStartMinute;
+    return Math.round(offPeakMinUsers + morningRamp * (offPeakMaxUsers - offPeakMinUsers));
+  }
+
+  const eveningRamp = (minuteOfDay - peakEndMinute) / (minutesPerDay - peakEndMinute);
+  return Math.round(offPeakMaxUsers - eveningRamp * (offPeakMaxUsers - offPeakMinUsers));
 }
 
 export default function HeroLiveMetric({
