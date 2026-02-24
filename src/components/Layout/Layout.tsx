@@ -1,7 +1,7 @@
-import ZeroHeader from "@/Components/ZeroHeader/ZeroHeader";
+import ZeroHeader from "@/components/ZeroHeader/ZeroHeader";
 import GoogleAnalytics from "../Analytics/GoogleAnalytics";
 import { createStyles, Box, Flex } from "@mantine/core";
-import FooterSection from "@/Components/Footer";
+import FooterSection from "@/components/Footer";
 import useIsMobile from "@/hooks/useIsMobile";
 import Head from "next/head";
 import { useRouter } from "next/router";

@@ -1,5 +1,5 @@
 import { GetStaticProps, InferGetStaticPropsType } from "next";
-import NewsSection from "@/Components/NewsSection";
+import NewsSection from "@/components/NewsSection";
 import { getAllNews, NewsArticle } from "@/lib/news";
 import Head from "next/head";
 import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL } from "@/lib/seo";

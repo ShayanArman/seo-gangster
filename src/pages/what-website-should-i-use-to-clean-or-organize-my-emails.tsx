@@ -2,7 +2,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { Box, Button, Flex, Text, createStyles } from "@mantine/core";
 import { FiArrowRight } from "react-icons/fi";
-import { registerClickSignUpEventGoogle } from "@/Components/Analytics/GoogleAnalytics";
+import { registerClickSignUpEventGoogle } from "@/components/Analytics/GoogleAnalytics";
 import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL } from "@/lib/seo";
 
 const useStyles = createStyles((theme) => ({
