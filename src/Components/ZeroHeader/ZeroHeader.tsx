@@ -47,7 +47,7 @@ export const headerLinks: HeaderLink[] = [
   { link: `/?section=${FEATURES_SECTION}`, label: "Features", newTab: false },
   { link: `/?section=${SECURITY_SECTION}`, label: "Security", newTab: false },
   { link: `/?section=${BUSINESS_SECTION}`, label: "Business", newTab: false },
-  { link: "https://blog.zeroinbox.ai", label: "Blog", newTab: true },
+  // TODO ADD THIS BACK LATER AFTER WE ADD A BLOG { link: "https://blog.zeroinbox.ai", label: "Blog", newTab: true },
   { link: "/about", label: "About", newTab: false },
 ];
 
