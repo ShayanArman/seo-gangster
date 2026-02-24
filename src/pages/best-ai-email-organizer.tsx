@@ -196,6 +196,8 @@ export default function BestAiEmailOrganizerPage() {
         </Flex>
 
         <div className={classes.subLinks}>
+          <Link href="/ai-email-organizer" className={classes.subLink}>AI Email Organizer</Link>
+          <Link href="/clean-and-organize-emails" className={classes.subLink}>How to Clean and Organize Emails</Link>
           <Link href="/news" className={classes.subLink}>Read product news</Link>
           <Link href="/about" className={classes.subLink}>Learn about the team</Link>
         </div>

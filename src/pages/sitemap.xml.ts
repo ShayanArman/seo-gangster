@@ -12,7 +12,9 @@ interface SitemapUrl {
 const STATIC_ROUTES = [
   "/",
   "/about",
+  "/ai-email-organizer",
   "/best-ai-email-organizer",
+  "/clean-and-organize-emails",
   "/invest",
   "/news",
   "/workflows",

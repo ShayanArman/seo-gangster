@@ -36,6 +36,20 @@ const useStyles = createStyles((theme) => ({
     },
   },
 
+  intentLinks: {
+    display: "flex",
+    flexWrap: "wrap",
+    gap: 16,
+    marginBottom: "1.8rem",
+  },
+
+  intentLink: {
+    color: "var(--zi-deep-blue)",
+    fontWeight: 600,
+    textDecoration: "underline",
+    textUnderlineOffset: "3px",
+  },
+
   grid: {
     display: "grid",
     gridTemplateColumns: "repeat(3, 1fr)",
@@ -140,6 +154,11 @@ export default function NewsSection({ articles }: { articles: NewsArticle[] }) {
   return (
     <Box className={classes.container}>
       <h1 className={classes.heading}>News</h1>
+      <div className={classes.intentLinks}>
+        <Link href="/ai-email-organizer" className={classes.intentLink}>AI Email Organizer</Link>
+        <Link href="/best-ai-email-organizer" className={classes.intentLink}>Best AI Email Organizer</Link>
+        <Link href="/clean-and-organize-emails" className={classes.intentLink}>How to Clean and Organize Emails</Link>
+      </div>
 
       <div className={classes.grid}>
         {articles.map((article, i) => (
