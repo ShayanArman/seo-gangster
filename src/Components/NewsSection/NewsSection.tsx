@@ -9,6 +9,8 @@ const CARD_GRADIENTS = [
   "linear-gradient(135deg, #d4fc79 0%, #96e6a1 100%)",
 ];
 
+const THUMBNAIL_HOVER_CLASS = "news-thumbnail";
+
 const useStyles = createStyles((theme) => ({
   container: {
     width: "100%",
@@ -55,9 +57,10 @@ const useStyles = createStyles((theme) => ({
     flexDirection: "column" as const,
     cursor: "pointer",
 
-    "&:hover $thumbnail": {
-      boxShadow: "0 12px 32px rgba(0,0,0,0.10)",
-      transform: "scale(1.02)",
+    [`&:hover .${THUMBNAIL_HOVER_CLASS}`]: {
+      transform: "translateY(-4px)",
+      borderColor: "rgba(15, 29, 61, 0.2)",
+      boxShadow: "0 14px 30px rgba(15, 29, 61, 0.14)",
     },
   },
 
@@ -67,7 +70,8 @@ const useStyles = createStyles((theme) => ({
     borderRadius: "var(--radius-md)",
     overflow: "hidden",
     position: "relative" as const,
-    transition: "transform 0.3s ease, box-shadow 0.3s ease",
+    border: "1px solid rgba(15, 29, 61, 0.08)",
+    transition: "transform 0.24s ease, box-shadow 0.24s ease, border-color 0.24s ease",
   },
 
   thumbnailImage: {
@@ -141,7 +145,7 @@ export default function NewsSection({ articles }: { articles: NewsArticle[] }) {
         {articles.map((article, i) => (
           <Link key={article.slug} href={`/news/${article.slug}`} className={classes.card}>
             {/* Thumbnail */}
-            <div className={classes.thumbnail}>
+            <div className={`${classes.thumbnail} ${THUMBNAIL_HOVER_CLASS}`}>
               <div
                 className={classes.thumbnailGradient}
                 style={{ background: CARD_GRADIENTS[i % CARD_GRADIENTS.length] }}
