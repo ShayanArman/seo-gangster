@@ -20,6 +20,7 @@ const STATIC_ROUTES = [
   "/sanebox-vs-superhuman",
   "/fyxer-alternatives",
   "/fyxer-ai-vs-zero-inbox-ai",
+  "/fyxer-ai-vs-superhuman",
   "/invest",
   "/news",
   "/workflows",

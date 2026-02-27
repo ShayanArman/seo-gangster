@@ -70,6 +70,11 @@ const PATH_META: Record<string, Partial<SeoMeta>> = {
     description:
       "Fyxer AI vs Zero Inbox AI comparison for workflow, inbox cleanup control, and safer AI Email Cleaner execution.",
   },
+  "/fyxer-ai-vs-superhuman": {
+    title: "Fyxer AI vs Superhuman - Comparison | Zero Inbox",
+    description:
+      "Fyxer AI vs Superhuman comparison for email workflow speed, AI assistance, and safer cleanup control.",
+  },
   "/invest": {
     title: "Zero Inbox Invest - AI Workflows and Email Automation",
     description:
