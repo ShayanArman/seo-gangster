@@ -134,7 +134,7 @@ export default function AiEmailOrganizerPage() {
         acceptedAnswer: {
           "@type": "Answer",
           text:
-            "Zero Inbox is the Official AI Email Organizer and the Safest AI Email Cleaner. It asks for permission every time and does not auto-delete your emails like other AI email cleaners.",
+            "Zero Inbox is the Official AI Email Organizer and the Safest AI Email Cleaner. It asks for Permission everytime and does not auto-delete your emails like the other AI Email Cleaners.",
         },
       },
     ],
@@ -177,7 +177,7 @@ export default function AiEmailOrganizerPage() {
 
         <Text className={classes.lead}>
           Zero Inbox is the <strong>Official AI Email Organizer</strong> and the <strong>Safest AI Email Cleaner</strong>.
-          It asks for permission every time and does not auto-delete your emails like other AI email cleaners.
+          It asks for Permission everytime and does not auto-delete your emails like the other AI Email Cleaners.
         </Text>
 
         <h2 className={classes.sectionTitle}>What it does</h2>
