@@ -1,27 +1,27 @@
 import { FEATURES_SECTION, UNSUBSCRIBE_SECTION, SECURITY_SECTION, PRIVACY_SECTION, BUSINESS_SECTION, mainPageSections } from "@/components/ZeroHeader/ZeroHeader";
 import { HEADER_PIXEL_HEIGHT } from "@/components/ZeroHeader/ZeroHeader";
-import useIsMobile, { useIsLargeScreen } from "@/hooks/useIsMobile";
+import useIsMobile from "@/hooks/useIsMobile";
+import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL } from "@/lib/seo";
 import FeatureSection from "@/components/FeatureSection";
 import StepsSection from "@/components/StepsSection";
+import NewsBar from "@/components/NewsBar/NewsBar";
+import { faqItems } from "@/components/FAQSection";
+import HeroSection from "@/components/HeroSection";
 import FAQSection from "@/components/FAQSection";
+import UserCards from "@/components/UserCards";
 import CTABanner from "@/components/CTABanner";
 import UserTypes from "@/components/UserTypes";
 import ToolsGrid from "@/components/ToolsGrid";
-import HeroSection from "@/components/HeroSection";
-import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { scroller } from "react-scroll";
-import UserCards from "@/components/UserCards";
+import { useEffect } from "react";
 import Image from "next/image";
 import Head from "next/head";
-import { faqItems } from "@/components/FAQSection";
-import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL } from "@/lib/seo";
 
 type SectionKey = keyof typeof mainPageSections;
 
 export default function Home() {
   const isSmallScreen = useIsMobile();
-  const isLargeScreen = useIsLargeScreen();
   const router = useRouter();
 
   const softwareApplicationStructuredData = {
@@ -91,6 +91,9 @@ export default function Home() {
 
       {/* ── Hero ── */}
       <HeroSection isSmallScreen={isSmallScreen} />
+
+      {/* ── News Bar ── */}
+      <NewsBar isSmallScreen={isSmallScreen}/>
 
       {/* ── User Cards ── */}
       <UserCards />
