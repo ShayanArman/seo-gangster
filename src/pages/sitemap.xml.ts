@@ -24,6 +24,7 @@ const STATIC_ROUTES = [
   "/fyxer-ai-vs-superhuman",
   "/invest",
   "/news",
+  "/dynamodb",
   "/workflows",
   "/workflows/accounting",
   "/workflows/email-management",

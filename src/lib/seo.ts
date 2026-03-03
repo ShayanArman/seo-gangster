@@ -90,6 +90,11 @@ const PATH_META: Record<string, Partial<SeoMeta>> = {
     description:
       "Read Zero Inbox updates, product news, and research on inbox zero, privacy, and AI email management.",
   },
+  "/dynamodb": {
+    title: "DynamoDB, but elegant. | @zeroinbox/dynamo",
+    description:
+      "@zeroinbox/dynamo is a TypeScript DynamoDB ORM from Zero Inbox for strongly typed models and cleaner DynamoDB workflows.",
+  },
   "/workflows": {
     title: "Zero Inbox Workflows - AI Workflow Automation",
     description:
