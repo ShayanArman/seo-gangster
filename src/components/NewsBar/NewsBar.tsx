@@ -1,122 +1,97 @@
+import { Flex } from "@mantine/core";
 import Link from "next/link";
 
 export default function NewsBar({ isSmallScreen }: { isSmallScreen: boolean }) {
+  const badgeText = isSmallScreen ? "Zero Inbox v3.0.1" : "Zero Inbox v3.0.1";
+  const ctaText = "Read update";
+
   return (
-    <div
+    <Flex
+      justify="center"
       style={{
         width: "100%",
         backgroundColor: "#f6f7f5",
-        padding: "0.75rem 1.25rem 0",
+        padding: isSmallScreen ? "0.65rem 0.5rem 0" : "0.7rem 1.25rem 0",
       }}
     >
-    <div
-      style={{
-        maxWidth: 1100,
-        margin: "0 auto",
-      }}
-    >
-      <div
+      <Flex
+        justify="center"
         style={{
-          display: "flex",
-          flexWrap: "wrap",
-          alignItems: "center",
-          gap: "0.5rem",
-          background: "rgba(15, 29, 61, 0.04)",
-          border: "1px solid rgba(15, 29, 61, 0.1)",
-          borderRadius: isSmallScreen ? "16px" : "100px",
-          padding: "0.4rem 0.75rem 0.4rem 0.35rem",
-          fontSize: "0.82rem",
-          color: "rgba(15, 29, 61, 0.72)",
-          lineHeight: 1.5,
+          width: "100%",
+          maxWidth: 1100,
         }}
       >
-        {/* "NEW" pill */}
-        <span
+        <Flex
+          align="center"
+          justify="center"
+          direction="row"
           style={{
-            background: "var(--zi-lime, #d2e823)",
-            color: "var(--zi-deep-blue, #0f1d3d)",
-            fontWeight: 700,
-            fontSize: "0.65rem",
-            letterSpacing: "0.06em",
-            textTransform: "uppercase",
-            borderRadius: "100px",
-            padding: "0.15rem 0.55rem",
-            flexShrink: 0,
+            width: "fit-content",
+            maxWidth: "100%",
+            gap: isSmallScreen ? "0.35rem" : "0.48rem",
+            border: "1px solid var(--zero-red-light, #f4d0dc)",
+            borderRadius: isSmallScreen ? "14px" : "14px",
+            backgroundColor: "#fff7fb",
+            boxShadow: "0 2px 6px rgba(230, 94, 140, 0.14)",
+            padding: isSmallScreen ? "0.24rem 0.28rem" : "0.26rem 0.38rem",
           }}
         >
-          New
-        </span>
-
-        {/* Date */}
-        <span style={{ opacity: 0.55, fontSize: "0.78rem", flexShrink: 0 }}>Mar 2, 2026</span>
-
-        {/* Divider */}
-        {!isSmallScreen && <span style={{ opacity: 0.2, fontSize: "0.9rem" }}>|</span>}
-
-        {/* Message */}
-        <span style={{ flex: 1, minWidth: 0 }}>
-          Launched{" "}
-          <code
+          <Flex
+            align="center"
+            justify="center"
             style={{
-              fontFamily: "ui-monospace, 'Fira Code', monospace",
-              fontSize: "0.79rem",
-              background: "rgba(15, 29, 61, 0.07)",
-              borderRadius: "4px",
-              padding: "0.05rem 0.35rem",
-              color: "var(--zi-deep-blue, #0f1d3d)",
+              width: "auto",
+              gap: isSmallScreen ? "0.35rem" : "0.42rem",
+              background: "linear-gradient(135deg, #f33f96 0%, #e12381 100%)",
+              color: "#ffffff",
+              fontWeight: 700,
+              fontSize: isSmallScreen ? "0.78rem" : "0.84rem",
+              lineHeight: 1.2,
+              borderRadius: "9px",
+              padding: isSmallScreen ? "0.38rem 0.5rem" : "0.34rem 0.58rem",
+              whiteSpace: "nowrap",
             }}
           >
-            @zeroinbox/dynamo
-          </code>{" "}
-          — TypeScript DynamoDB ORM.{" "}
-          <code
+            <svg width={isSmallScreen ? "13" : "14"} height={isSmallScreen ? "13" : "14"} viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path
+                d="M9.47 1.56 3.36 9.2a.83.83 0 0 0 .65 1.35h3.12l-.54 4.9c-.05.48.56.76.9.42l6.12-7.64a.83.83 0 0 0-.65-1.35H9.83l.53-4.9c.05-.48-.56-.76-.9-.42Z"
+                fill="currentColor"
+              />
+            </svg>
+            <span>{badgeText}</span>
+          </Flex>
+
+          <Link
+            href="https://app.zeroinbox.ai"
             style={{
-              fontFamily: "ui-monospace, 'Fira Code', monospace",
-              fontSize: "0.79rem",
-              background: "rgba(15, 29, 61, 0.07)",
-              borderRadius: "4px",
-              padding: "0.05rem 0.35rem",
-              color: "var(--zi-deep-blue, #0f1d3d)",
+              display: "inline-flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "0.28rem",
+              color: "var(--zero-red-darker, #ff3277)",
+              fontWeight: 600,
+              fontSize: isSmallScreen ? "0.8rem" : "0.84rem",
+              textDecoration: "none",
+              lineHeight: 1.2,
+              textAlign: "center",
+              width: "auto",
+              whiteSpace: "nowrap",
+              padding: isSmallScreen ? "0.02rem 0.08rem 0.05rem" : "0 0.14rem",
             }}
           >
-            npm i @zeroinbox/dynamo
-          </code>
-        </span>
-
-        {/* CTA arrow link */}
-        <Link
-          href="/news/zeroinbox-dynamo-launch"
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: "0.2rem",
-            color: "var(--zi-deep-blue, #0f1d3d)",
-            fontWeight: 700,
-            fontSize: "0.82rem",
-            textDecoration: "none",
-            flexShrink: 0,
-          }}
-        >
-          Read more
-          <svg
-            width="13"
-            height="13"
-            viewBox="0 0 13 13"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            style={{ marginTop: "0.5px" }}
-          >
-            <path
-              d="M2.5 6.5h8M7 3.5l3 3-3 3"
-              stroke="currentColor"
-              strokeWidth="1.6"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </Link>
-      </div>
-    </div>
-    </div>
-  )
+            {ctaText}
+            <svg width={isSmallScreen ? "12" : "13"} height={isSmallScreen ? "12" : "13"} viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path
+                d="M5.25 3.5 8.75 7l-3.5 3.5"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </Link>
+        </Flex>
+      </Flex>
+    </Flex>
+  );
 }
