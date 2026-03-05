@@ -205,6 +205,7 @@ export default function AiEmailOrganizerPage() {
 
         <div className={classes.links}>
           <Link href="/best-ai-email-organizer" className={classes.link}>Best AI Email Organizer</Link>
+          <Link href="/news/ai-email-organizer" className={classes.link}>AI Email Organizer Guide</Link>
           <Link href="/sanebox-alternatives" className={classes.link}>SaneBox Alternatives</Link>
           <Link href="/sanebox-vs-superhuman" className={classes.link}>SaneBox vs Superhuman</Link>
           <Link href="/fyxer-alternatives" className={classes.link}>Fyxer Alternatives</Link>

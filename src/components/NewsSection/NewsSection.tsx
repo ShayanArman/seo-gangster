@@ -170,6 +170,10 @@ function getThumbnailCenterText(article: NewsArticle): string | null {
     return "AI Email Revolution";
   }
 
+  if (article.slug === "ai-email-organizer") {
+    return "AI Email Organizer";
+  }
+
   if (article.slug === "privacy-first-approach") {
     return "Privacy First AI";
   }
