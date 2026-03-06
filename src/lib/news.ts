@@ -11,39 +11,12 @@ export interface NewsArticle {
   category: string;
   excerpt: string;
   thumbnail: string | null;
+  imageFallbackText: string | null;
   videoEmbedUrl: string | null;
   content?: string; // rendered HTML (only for single-article views)
 }
 
 const newsDirectory = path.join(process.cwd(), "src/content/news");
-
-export function getThumbnailCenterText(article: NewsArticle): string | null {
-  if (article.slug === "zeroinbox-dynamo-launch") {
-    return "npm i @zeroinbox/dynamo";
-  }
-
-  if (article.slug === "ai-email-revolution") {
-    return "AI Email Revolution";
-  }
-
-  if (article.slug === "ai-email-organizer") {
-    return "AI Email Organizer";
-  }
-
-  if (article.slug === "privacy-first-approach") {
-    return "Privacy First AI";
-  }
-
-  if (article.slug === "inbox-zero-productivity") {
-    return "Inbox Zero and Productivity";
-  }
-
-  if (article.slug === "inbox-zero") {
-    return "Inbox Zero";
-  }
-
-  return null;
-}
 
 function normalizeThumbnail(thumbnail: unknown): string | null {
   if (typeof thumbnail !== "string") {
@@ -75,6 +48,7 @@ export function getAllNews(): NewsArticle[] {
       category: data.category,
       excerpt: data.excerpt,
       thumbnail: normalizeThumbnail(data.thumbnail),
+      imageFallbackText: data.imageFallbackText ?? null,
       videoEmbedUrl: data.videoEmbedUrl ?? null,
     } as NewsArticle;
   });
@@ -104,6 +78,7 @@ export async function getNewsArticle(slug: string): Promise<NewsArticle | null> 
     category: data.category,
     excerpt: data.excerpt,
     thumbnail: normalizeThumbnail(data.thumbnail),
+    imageFallbackText: data.imageFallbackText ?? null,
     videoEmbedUrl: data.videoEmbedUrl ?? null,
     content: processed.toString(),
   };

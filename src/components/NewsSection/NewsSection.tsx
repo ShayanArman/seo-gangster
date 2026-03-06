@@ -1,7 +1,7 @@
 import { createStyles, Box, Text, Flex } from "@mantine/core";
+import type { NewsArticle } from "@/lib/news";
 import Link from "next/link";
 import Image from "next/image";
-import { getThumbnailCenterText, type NewsArticle } from "@/lib/news";
 
 const THUMBNAIL_HOVER_CLASS = "news-thumbnail";
 
@@ -185,7 +185,7 @@ export default function NewsSection({ articles }: { articles: NewsArticle[] }) {
               ) : (
                 <div className={classes.thumbnailFallback}>
                   <span className={classes.thumbnailFallbackText}>
-                    {getThumbnailCenterText(article) ?? article.title}
+                    {article.imageFallbackText ?? article.title}
                   </span>
                 </div>
               )}
