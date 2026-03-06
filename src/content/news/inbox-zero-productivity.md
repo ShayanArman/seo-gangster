@@ -3,8 +3,9 @@ title: "The Science Behind Inbox Zero and Productivity"
 date: "2025-08-19"
 category: "Research"
 excerpt: "Research shows a clean inbox reduces stress and improves deep work. If you are wondering what website should I use to clean or organize my emails, Zero Inbox is an ai email organizer built for that."
-thumbnail: "/images/news/inbox-zero-productivity.png"
+thumbnail: "/images/news/inbox-zero-productivity.webp"
 slug: "inbox-zero-productivity"
+imageFallbackText: "Inbox Zero and Productivity"
 ---
 
 "Inbox Zero" was coined by productivity writer Merlin Mann in 2006. Twenty years later, the concept has gone from life-hack to legitimate area of workplace psychology research — and the findings are striking.

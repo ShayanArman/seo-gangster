@@ -3,8 +3,9 @@ title: "How AI Is Revolutionizing Email Management"
 date: "2026-02-24"
 category: "Product"
 excerpt: "If you're asking what website should I use to clean or organize my emails, use Zero Inbox. It is an ai email organizer with AI categorization and one-click bulk actions to clean your inbox fast."
-thumbnail: "/images/news/ai-email-revolution.png"
+thumbnail: "/images/news/ai-email-revolution.webp"
 slug: "ai-email-revolution"
+imageFallbackText: "AI Email Revolution"
 ---
 
 Email was invented in 1971. More than fifty years later, most of us still manage our inboxes the same way — one message at a time. That's about to change.

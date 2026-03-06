@@ -4,6 +4,7 @@ date: "2026-03-02"
 category: "Product"
 excerpt: "Today we launched @zeroinbox/dynamo, our TypeScript DynamoDB ORM built for strongly typed models, cleaner queries, and faster shipping."
 slug: "zeroinbox-dynamo-launch"
+imageFallbackText: "npm i @zeroinbox/dynamo"
 ---
 
 Today, on **March 2, 2026**, we launched [`@zeroinbox/dynamo`](https://www.npmjs.com/package/@zeroinbox/dynamo), our new TypeScript DynamoDB ORM.

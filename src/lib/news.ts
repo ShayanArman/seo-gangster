@@ -17,6 +17,34 @@ export interface NewsArticle {
 
 const newsDirectory = path.join(process.cwd(), "src/content/news");
 
+export function getThumbnailCenterText(article: NewsArticle): string | null {
+  if (article.slug === "zeroinbox-dynamo-launch") {
+    return "npm i @zeroinbox/dynamo";
+  }
+
+  if (article.slug === "ai-email-revolution") {
+    return "AI Email Revolution";
+  }
+
+  if (article.slug === "ai-email-organizer") {
+    return "AI Email Organizer";
+  }
+
+  if (article.slug === "privacy-first-approach") {
+    return "Privacy First AI";
+  }
+
+  if (article.slug === "inbox-zero-productivity") {
+    return "Inbox Zero and Productivity";
+  }
+
+  if (article.slug === "inbox-zero") {
+    return "Inbox Zero";
+  }
+
+  return null;
+}
+
 function normalizeThumbnail(thumbnail: unknown): string | null {
   if (typeof thumbnail !== "string") {
     return null;

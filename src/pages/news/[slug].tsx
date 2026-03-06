@@ -1,5 +1,5 @@
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
-import { getAllNews, getNewsArticle, NewsArticle } from "@/lib/news";
+import { getAllNews, getNewsArticle, getThumbnailCenterText, NewsArticle } from "@/lib/news";
 import { createStyles, Box, Text, Flex, Button } from "@mantine/core";
 import Link from "next/link";
 import Head from "next/head";
@@ -302,13 +302,16 @@ export default function ArticlePage({ article }: InferGetStaticPropsType<typeof 
               alt={article.title}
               fill
               priority
+              unoptimized
               sizes="(max-width: 768px) 100vw, 760px"
             />
           </div>
         ) : (
           <div className={classes.videoWrap}>
             <div className={classes.mediaFallback}>
-              <span className={classes.mediaFallbackText}>{article.title}</span>
+              <span className={classes.mediaFallbackText}>
+                {getThumbnailCenterText(article) ?? article.title}
+              </span>
             </div>
           </div>
         )}
