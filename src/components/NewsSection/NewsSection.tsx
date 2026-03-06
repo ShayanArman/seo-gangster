@@ -1,13 +1,7 @@
 import { createStyles, Box, Text, Flex } from "@mantine/core";
 import Link from "next/link";
+import Image from "next/image";
 import type { NewsArticle } from "@/lib/news";
-
-/* ─── Gradient thumbnails (used when no image is available) ─── */
-const CARD_GRADIENTS = [
-  "linear-gradient(135deg, #f9d5c0 0%, #ee9ca7 100%)",
-  "linear-gradient(135deg, #c3cfe2 0%, #a1c4fd 100%)",
-  "linear-gradient(135deg, #d4fc79 0%, #96e6a1 100%)",
-];
 
 const THUMBNAIL_HOVER_CLASS = "news-thumbnail";
 
@@ -95,25 +89,24 @@ const useStyles = createStyles((theme) => ({
     display: "block",
   },
 
-  thumbnailGradient: {
+  thumbnailFallback: {
     width: "100%",
     height: "100%",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+    backgroundColor: "#000000",
+    padding: "1.25rem",
   },
 
-  thumbnailCommand: {
-    fontFamily:
-      "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace",
+  thumbnailFallbackText: {
+    fontFamily: "var(--font-heading)",
+    fontSize: "clamp(1rem, 2.6vw, 1.5rem)",
+    lineHeight: 1.2,
+    fontWeight: 700,
     color: "#ffffff",
-    fontSize: "clamp(0.78rem, 1.7vw, 1rem)",
-    lineHeight: 1.25,
-    letterSpacing: "-0.01em",
-    fontWeight: 500,
-    textShadow: "0 2px 18px rgba(255, 255, 255, 0.25)",
     textAlign: "center" as const,
-    padding: "0 0.8rem",
+    textWrap: "balance" as const,
   },
 
   cardBody: {
@@ -161,46 +154,6 @@ function formatDate(dateStr: string): string {
   });
 }
 
-function getThumbnailCenterText(article: NewsArticle): string | null {
-  if (article.slug === "zeroinbox-dynamo-launch") {
-    return "npm i @zeroinbox/dynamo";
-  }
-
-  if (article.slug === "ai-email-revolution") {
-    return "AI Email Revolution";
-  }
-
-  if (article.slug === "ai-email-organizer") {
-    return "AI Email Organizer";
-  }
-
-  if (article.slug === "privacy-first-approach") {
-    return "Privacy First AI";
-  }
-
-  if (article.slug === "inbox-zero-productivity") {
-    return "Inbox Zero and Productivity";
-  }
-
-  if (article.slug === "inbox-zero") {
-    return "Inbox Zero";
-  }
-
-  return null;
-}
-
-function getThumbnailBackground(article: NewsArticle, index: number): string {
-  if (article.slug === "zeroinbox-dynamo-launch") {
-    return "linear-gradient(145deg, #000000 0%, #060606 65%, #111111 100%)";
-  }
-
-  if (getThumbnailCenterText(article)) {
-    return `linear-gradient(145deg, rgba(0, 0, 0, 0.42) 0%, rgba(0, 0, 0, 0.24) 100%), ${CARD_GRADIENTS[index % CARD_GRADIENTS.length]}`;
-  }
-
-  return CARD_GRADIENTS[index % CARD_GRADIENTS.length];
-}
-
 export default function NewsSection({ articles }: { articles: NewsArticle[] }) {
   const { classes } = useStyles();
 
@@ -217,35 +170,34 @@ export default function NewsSection({ articles }: { articles: NewsArticle[] }) {
       </div>
 
       <div className={classes.grid}>
-        {articles.map((article, i) => {
-          const centerText = getThumbnailCenterText(article);
-
-          return (
-            <Link key={article.slug} href={`/news/${article.slug}`} className={classes.card}>
-              {/* Thumbnail */}
-              <div className={`${classes.thumbnail} ${THUMBNAIL_HOVER_CLASS}`}>
-                <div
-                  className={classes.thumbnailGradient}
-                  style={{ background: getThumbnailBackground(article, i) }}
-                >
-                  {centerText && (
-                    <span className={classes.thumbnailCommand}>{centerText}</span>
-                  )}
+        {articles.map((article) => (
+          <Link key={article.slug} href={`/news/${article.slug}`} className={classes.card}>
+            <div className={`${classes.thumbnail} ${THUMBNAIL_HOVER_CLASS}`}>
+              {article.thumbnail ? (
+                <Image
+                  className={classes.thumbnailImage}
+                  src={article.thumbnail}
+                  alt={article.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 992px) 50vw, 33vw"
+                />
+              ) : (
+                <div className={classes.thumbnailFallback}>
+                  <span className={classes.thumbnailFallbackText}>{article.title}</span>
                 </div>
-              </div>
+              )}
+            </div>
 
-              {/* Body */}
-              <div className={classes.cardBody}>
-                <Text className={classes.cardTitle}>{article.title}</Text>
-                <Flex className={classes.meta}>
-                  <span className={classes.category}>{article.category}</span>
-                  <span className={classes.dot} />
-                  <span>{formatDate(article.date)}</span>
-                </Flex>
-              </div>
-            </Link>
-          );
-        })}
+            <div className={classes.cardBody}>
+              <Text className={classes.cardTitle}>{article.title}</Text>
+              <Flex className={classes.meta}>
+                <span className={classes.category}>{article.category}</span>
+                <span className={classes.dot} />
+                <span>{formatDate(article.date)}</span>
+              </Flex>
+            </div>
+          </Link>
+        ))}
       </div>
     </Box>
   );

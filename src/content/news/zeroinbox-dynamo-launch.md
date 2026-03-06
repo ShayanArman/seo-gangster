@@ -3,7 +3,6 @@ title: "Introducing @zeroinbox/dynamo: A TypeScript DynamoDB ORM"
 date: "2026-03-02"
 category: "Product"
 excerpt: "Today we launched @zeroinbox/dynamo, our TypeScript DynamoDB ORM built for strongly typed models, cleaner queries, and faster shipping."
-thumbnail: "/images/features-1200px.png"
 slug: "zeroinbox-dynamo-launch"
 ---
 

@@ -10,12 +10,26 @@ export interface NewsArticle {
   date: string;
   category: string;
   excerpt: string;
-  thumbnail: string;
+  thumbnail: string | null;
   videoEmbedUrl: string | null;
-  content?: string;       // rendered HTML (only for single-article views)
+  content?: string; // rendered HTML (only for single-article views)
 }
 
 const newsDirectory = path.join(process.cwd(), "src/content/news");
+
+function normalizeThumbnail(thumbnail: unknown): string | null {
+  if (typeof thumbnail !== "string") {
+    return null;
+  }
+
+  const trimmedThumbnail = thumbnail.trim();
+
+  if (!trimmedThumbnail) {
+    return null;
+  }
+
+  return trimmedThumbnail.startsWith("/") ? trimmedThumbnail : `/${trimmedThumbnail}`;
+}
 
 /** Return every article, newest first. */
 export function getAllNews(): NewsArticle[] {
@@ -32,7 +46,7 @@ export function getAllNews(): NewsArticle[] {
       date: data.date,
       category: data.category,
       excerpt: data.excerpt,
-      thumbnail: data.thumbnail,
+      thumbnail: normalizeThumbnail(data.thumbnail),
       videoEmbedUrl: data.videoEmbedUrl ?? null,
     } as NewsArticle;
   });
@@ -61,7 +75,7 @@ export async function getNewsArticle(slug: string): Promise<NewsArticle | null> 
     date: data.date,
     category: data.category,
     excerpt: data.excerpt,
-    thumbnail: data.thumbnail,
+    thumbnail: normalizeThumbnail(data.thumbnail),
     videoEmbedUrl: data.videoEmbedUrl ?? null,
     content: processed.toString(),
   };

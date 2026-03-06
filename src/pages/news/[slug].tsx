@@ -3,6 +3,7 @@ import { getAllNews, getNewsArticle, NewsArticle } from "@/lib/news";
 import { createStyles, Box, Text, Flex, Button } from "@mantine/core";
 import Link from "next/link";
 import Head from "next/head";
+import Image from "next/image";
 import { FiArrowLeft } from "react-icons/fi";
 import { registerClickSignUpEventGoogle } from "@/components/Analytics/GoogleAnalytics";
 import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL } from "@/lib/seo";
@@ -106,6 +107,33 @@ const useStyles = createStyles((theme) => ({
     overflow: "hidden",
     backgroundColor: "#000000",
     boxShadow: "0 14px 40px rgba(15, 29, 61, 0.12)",
+  },
+
+  mediaImage: {
+    width: "100%",
+    height: "100%",
+    objectFit: "cover" as const,
+    display: "block",
+  },
+
+  mediaFallback: {
+    width: "100%",
+    height: "100%",
+    backgroundColor: "#000000",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    padding: "2rem",
+  },
+
+  mediaFallbackText: {
+    fontFamily: "var(--font-heading)",
+    fontSize: "clamp(1.5rem, 4vw, 2.75rem)",
+    lineHeight: 1.15,
+    fontWeight: 700,
+    color: "#ffffff",
+    textAlign: "center" as const,
+    textWrap: "balance" as const,
   },
 
   videoFrame: {
@@ -266,7 +294,24 @@ export default function ArticlePage({ article }: InferGetStaticPropsType<typeof 
               allowFullScreen
             />
           </div>
-        ) : null}
+        ) : article.thumbnail ? (
+          <div className={classes.videoWrap}>
+            <Image
+              className={classes.mediaImage}
+              src={article.thumbnail}
+              alt={article.title}
+              fill
+              priority
+              sizes="(max-width: 768px) 100vw, 760px"
+            />
+          </div>
+        ) : (
+          <div className={classes.videoWrap}>
+            <div className={classes.mediaFallback}>
+              <span className={classes.mediaFallbackText}>{article.title}</span>
+            </div>
+          </div>
+        )}
 
         <Text className={classes.excerpt}>{article.excerpt}</Text>
 

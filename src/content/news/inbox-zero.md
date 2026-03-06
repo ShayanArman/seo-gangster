@@ -3,8 +3,8 @@ title: "Inbox Zero Method 101: How to Master It"
 date: "2026-03-06"
 category: "Productivity"
 excerpt: "Inbox Zero is a popular email management method that helps you keep your inbox organized and free of clutter. Learn the steps, strategies, and tools to achieve and maintain it."
-thumbnail: "/images/news/inbox-zero-method.png"
 slug: "inbox-zero"
+thumbnail: "/images/news/inbox-zero.png"
 videoEmbedUrl: "https://www.youtube.com/embed/z9UjeTMb3Yk?si=nujO2vZ7rroXs071"
 ---
 
