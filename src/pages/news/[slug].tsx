@@ -37,18 +37,6 @@ const useStyles = createStyles((theme) => ({
   },
 
   meta: {
-    display: "inline-flex",
-    marginBottom: "0.9rem",
-    padding: "0.35rem 0.75rem",
-    borderRadius: 999,
-    background: "rgba(15, 29, 61, 0.07)",
-    color: "rgba(15, 29, 61, 0.75)",
-    fontSize: "0.92rem",
-    fontWeight: 700,
-    letterSpacing: "0.01em",
-  },
-
-  articleMeta: {
     display: "flex",
     alignItems: "center",
     gap: 8,
@@ -214,15 +202,6 @@ function formatDate(dateStr: string): string {
   });
 }
 
-function formatPublishedDate(dateStr: string): string {
-  const d = new Date(dateStr + "T00:00:00");
-  return d.toLocaleDateString("en-US", {
-    month: "long",
-    day: "numeric",
-    year: "numeric",
-  });
-}
-
 export const getStaticPaths: GetStaticPaths = async () => {
   const articles = getAllNews();
   return {
@@ -299,9 +278,7 @@ export default function ArticlePage({ article }: InferGetStaticPropsType<typeof 
           Back to News
         </Link>
 
-        <Text className={classes.meta}>Published {formatPublishedDate(article.date)}</Text>
-
-        <Flex className={classes.articleMeta}>
+        <Flex className={classes.meta}>
           <span className={classes.category}>{article.category}</span>
           <span className={classes.dot} />
           <span>{formatDate(article.date)}</span>

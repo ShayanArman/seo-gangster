@@ -16,6 +16,8 @@ const useStyles = createStyles((theme) => ({
 
   meta: {
     display: "inline-flex",
+    alignSelf: "flex-start",
+    width: "fit-content",
     marginBottom: "0.9rem",
     padding: "0.35rem 0.75rem",
     borderRadius: 999,
