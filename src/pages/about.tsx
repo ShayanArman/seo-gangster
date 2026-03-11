@@ -1,4 +1,5 @@
-import { createStyles, Flex } from "@mantine/core";
+import { createStyles, Flex, Text } from "@mantine/core";
+import { getPathLastModified } from "@/lib/seo";
 
 const useStyles = createStyles((theme) => ({
   container: {
@@ -9,27 +10,49 @@ const useStyles = createStyles((theme) => ({
     width: "50%",
 
     [theme.fn.smallerThan("xl")]: {
-      width: "80%"
-    }
+      width: "80%",
+    },
+  },
+
+  meta: {
+    display: "inline-flex",
+    marginBottom: "0.9rem",
+    padding: "0.35rem 0.75rem",
+    borderRadius: 999,
+    background: "rgba(15, 29, 61, 0.07)",
+    color: "rgba(15, 29, 61, 0.75)",
+    fontSize: "0.92rem",
+    fontWeight: 700,
+    letterSpacing: "0.01em",
   },
 
   title: {
-    fontFamily: "Calibri, Arial, sans-serif"
+    fontFamily: "Calibri, Arial, sans-serif",
   },
 
   description: {
     fontFamily: "Calibri, Arial, sans-serif",
     fontSize: "1.5rem",
-    lineHeight: "2.5rem"
-  }
+    lineHeight: "2.5rem",
+  },
 }));
+
+function formatPublishedDate(dateStr: string): string {
+  return new Date(dateStr).toLocaleDateString("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  });
+}
 
 export default function About() {
   const { classes } = useStyles();
+  const publishedDate = formatPublishedDate(getPathLastModified("/about") ?? "2026-02-27T10:49:51-08:00");
 
   return (
     <Flex direction="column" align={"center"} className={classes.container} gap={30}>
       <Flex direction="column" className={classes.section} gap={10}>
+        <Text className={classes.meta}>Published {publishedDate}</Text>
         <h1 className={classes.title}>
           The Future of Email
         </h1>
@@ -71,10 +94,10 @@ export default function About() {
   );
 }
 
-function PeopleLink({link, content}: {link: string, content: string}) {
+function PeopleLink({ link, content }: { link: string; content: string }) {
   return (
-    <a style={{textDecoration: "underline"}} href={link} target="_blank" rel="noreferrer noopener">
-      { content }
+    <a style={{ textDecoration: "underline" }} href={link} target="_blank" rel="noreferrer noopener">
+      {content}
     </a>
-  )
+  );
 }

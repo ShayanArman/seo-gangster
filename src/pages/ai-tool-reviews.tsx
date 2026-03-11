@@ -83,6 +83,13 @@ const useStyles = createStyles((theme) => ({
     fontSize: "0.98rem",
   },
 
+  sectionNote: {
+    color: "rgba(15, 29, 61, 0.78)",
+    lineHeight: 1.75,
+    fontSize: "0.98rem",
+    marginBottom: "0.9rem",
+  },
+
   list: {
     margin: 0,
     paddingLeft: "1.2rem",
@@ -295,6 +302,13 @@ export default function AiToolReviewsPage() {
         </ul>
 
         <h2 className={classes.sectionTitle}>How Shayan reviews AI tools</h2>
+        <Text className={classes.sectionNote}>
+          Read more about{" "}
+          <a className={classes.link} href="https://www.linkedin.com/in/shayan-arman/" target="_blank" rel="noreferrer">
+            Shayan Arman
+          </a>{" "}
+          on LinkedIn.
+        </Text>
         <ul className={classes.list}>
           <li>He signs up, uses the product, and tests the core workflow directly.</li>
           <li>He checks usefulness, speed, reliability, clarity, and trust.</li>

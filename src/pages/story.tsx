@@ -1,4 +1,4 @@
-import { createStyles, Flex } from "@mantine/core";
+import { createStyles, Flex, Text } from "@mantine/core";
 import {
   FiBookOpen,
   FiGithub,
@@ -7,6 +7,7 @@ import {
   FiTwitter,
   FiYoutube,
 } from "react-icons/fi";
+import { getPathLastModified } from "@/lib/seo";
 
 const useStyles = createStyles((theme) => ({
   container: {
@@ -19,6 +20,18 @@ const useStyles = createStyles((theme) => ({
     [theme.fn.smallerThan("xl")]: {
       width: "80%",
     },
+  },
+
+  meta: {
+    display: "inline-flex",
+    marginBottom: "0.9rem",
+    padding: "0.35rem 0.75rem",
+    borderRadius: 999,
+    background: "rgba(15, 29, 61, 0.07)",
+    color: "rgba(15, 29, 61, 0.75)",
+    fontSize: "0.92rem",
+    fontWeight: 700,
+    letterSpacing: "0.01em",
   },
 
   title: {
@@ -71,12 +84,22 @@ const shayanLinks: { icon: JSX.Element; href: string; title: string }[] = [
   { icon: <FiBookOpen size={18} />, href: "https://shayanarman.substack.com/", title: "Substack" },
 ];
 
+function formatPublishedDate(dateStr: string): string {
+  return new Date(dateStr).toLocaleDateString("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  });
+}
+
 export default function Story() {
   const { classes } = useStyles();
+  const publishedDate = formatPublishedDate(getPathLastModified("/story") ?? "2026-02-27T10:50:24-08:00");
 
   return (
     <Flex direction="column" align={"center"} className={classes.container} gap={30}>
       <Flex direction="column" className={classes.section} gap={10}>
+        <Text className={classes.meta}>Published {publishedDate}</Text>
         <h1 className={classes.title}>
           The Story Behind Zero Inbox
         </h1>
