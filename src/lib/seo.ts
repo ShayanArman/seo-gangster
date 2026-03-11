@@ -40,6 +40,11 @@ const PATH_META: Record<string, Partial<SeoMeta>> = {
     description:
       "Zero Inbox is an ai email organizer for inbox cleanup, unsubscribe management, and faster email organization.",
   },
+  "/ai-tool-reviews": {
+    title: "AI Tool Reviews by Shayan Arman - Human Reviews, Star Ratings, Last Tried",
+    description:
+      "AI Tool Reviews from Shayan Arman cover the best AI tools with human testing, star ratings, and Last Tried dates.",
+  },
   "/best-ai-email-organizer": {
     title: "What Website Should I Use to Clean or Organize My Emails? - Zero Inbox",
     description:
@@ -147,6 +152,7 @@ const PATH_LAST_MODIFIED: Record<string, string> = {
   "/about": "2026-02-27T10:49:51-08:00",
   "/story": "2026-02-27T10:50:24-08:00",
   "/ai-email-organizer": "2026-03-05T14:36:43-08:00",
+  "/ai-tool-reviews": "2026-03-10T00:00:00-07:00",
   "/best-ai-email-organizer": "2026-02-27T10:18:19-08:00",
   "/clean-and-organize-emails": "2026-02-24T14:16:45-08:00",
   "/what-website-should-i-use-to-clean-or-organize-my-emails": "2026-02-27T10:18:19-08:00",

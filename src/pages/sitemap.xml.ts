@@ -36,6 +36,11 @@ const STATIC_ROUTES: StaticRoute[] = [
     priority: "0.95",
   },
   {
+    route: "/ai-tool-reviews",
+    changefreq: "weekly",
+    priority: "0.8",
+  },
+  {
     route: "/best-ai-email-organizer",
     changefreq: "weekly",
     priority: "0.9",
