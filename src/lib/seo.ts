@@ -43,7 +43,7 @@ const PATH_META: Record<string, Partial<SeoMeta>> = {
   "/ai-tool-reviews": {
     title: "AI Tool Reviews by Shayan Arman - Human Reviews, Star Ratings, Last Tried",
     description:
-      "AI Tool Reviews from Shayan Arman cover the best AI tools with human testing, star ratings, and Last Tried dates.",
+      "AI Tool Reviews from Shayan Arman help you find the best AI tools for the job with human-tested, 5-star reviews, Last Tried dates, and frequent updates.",
   },
   "/best-ai-email-organizer": {
     title: "What Website Should I Use to Clean or Organize My Emails? - Zero Inbox",

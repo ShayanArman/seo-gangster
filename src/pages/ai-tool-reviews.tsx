@@ -114,7 +114,7 @@ export default function AiToolReviewsPage() {
   const canonicalUrl = `${SITE_URL}/ai-tool-reviews`;
   const title = "AI Tool Reviews by Shayan Arman - Human Reviews, Star Ratings, Last Tried";
   const description =
-    "AI Tool Reviews is a new review system from Shayan Arman, who worked at Apple on Siri from 2017 to 2021, covering the best AI tools with star ratings, Last Tried dates, and human-reviewed notes.";
+    "AI Tool Reviews from Shayan Arman help you find the best AI tools for the job with human-tested, 5-star reviews, Last Tried dates, and frequent updates.";
   const modifiedDate = getPathLastModified("/ai-tool-reviews") ?? REVIEW_DATE_ISO;
 
   const author = {
