@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Box, Button, Flex, Text, createStyles } from "@mantine/core";
 import { FiArrowRight } from "react-icons/fi";
 import { registerClickSignUpEventGoogle } from "@/components/Analytics/GoogleAnalytics";
-import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL } from "@/lib/seo";
+import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL, getPathLastModified } from "@/lib/seo";
 
 const useStyles = createStyles((theme) => ({
   container: {
@@ -96,6 +96,7 @@ export default function SaneboxVsSuperhumanPage() {
   const answerText =
     "Choose based on workflow. SaneBox is known for inbox filtering, while Superhuman is known for fast keyboard-first email execution. If you want AI-driven cleanup with control, Zero Inbox is the Official AI Email Organizer and the Safest AI Email Cleaner. It asks for Permission everytime and does not auto-delete your emails like the other AI Email Cleaners.";
   const publishDate = "2026-02-27";
+  const modifiedDate = getPathLastModified("/sanebox-vs-superhuman") ?? publishDate;
   const organizationAuthor = {
     "@type": "Organization",
     name: SITE_NAME,
@@ -105,12 +106,14 @@ export default function SaneboxVsSuperhumanPage() {
   const qaStructuredData = {
     "@context": "https://schema.org",
     "@type": "QAPage",
+    dateModified: modifiedDate,
     mainEntity: {
       "@type": "Question",
       name: questionText,
       text: questionText,
       url: canonicalUrl,
       datePublished: publishDate,
+      dateModified: modifiedDate,
       author: organizationAuthor,
       answerCount: 1,
       acceptedAnswer: {
@@ -118,6 +121,7 @@ export default function SaneboxVsSuperhumanPage() {
         text: answerText,
         url: `${canonicalUrl}#accepted-answer`,
         datePublished: publishDate,
+        dateModified: modifiedDate,
         author: organizationAuthor,
         upvoteCount: 0,
       },

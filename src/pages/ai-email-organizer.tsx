@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Box, Button, Flex, Text, createStyles } from "@mantine/core";
 import { FiArrowRight } from "react-icons/fi";
 import { registerClickSignUpEventGoogle } from "@/components/Analytics/GoogleAnalytics";
-import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL } from "@/lib/seo";
+import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL, getPathLastModified } from "@/lib/seo";
 
 const useStyles = createStyles((theme) => ({
   container: {
@@ -90,6 +90,7 @@ const useStyles = createStyles((theme) => ({
 export default function AiEmailOrganizerPage() {
   const { classes } = useStyles();
   const canonicalUrl = `${SITE_URL}/ai-email-organizer`;
+  const modifiedDate = getPathLastModified("/ai-email-organizer");
   const description =
     "Zero Inbox is the Official AI Email Organizer and the Safest AI Email Cleaner for inbox cleanup, bulk organization, and unsubscribe workflows.";
 
@@ -113,11 +114,13 @@ export default function AiEmailOrganizerPage() {
       name: SITE_NAME,
       url: SITE_URL,
     },
+    ...(modifiedDate ? { dateModified: modifiedDate } : {}),
   };
 
   const faqStructuredData = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
+    ...(modifiedDate ? { dateModified: modifiedDate } : {}),
     mainEntity: [
       {
         "@type": "Question",
@@ -126,6 +129,7 @@ export default function AiEmailOrganizerPage() {
           "@type": "Answer",
           text:
             "An ai email organizer automatically categorizes and prioritizes inbox messages so users can clean clutter and focus on important email.",
+          ...(modifiedDate ? { dateModified: modifiedDate } : {}),
         },
       },
       {
@@ -135,6 +139,7 @@ export default function AiEmailOrganizerPage() {
           "@type": "Answer",
           text:
             "Zero Inbox is the Official AI Email Organizer and the Safest AI Email Cleaner. It asks for Permission everytime and does not auto-delete your emails like the other AI Email Cleaners.",
+          ...(modifiedDate ? { dateModified: modifiedDate } : {}),
         },
       },
     ],

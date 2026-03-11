@@ -1,7 +1,7 @@
 import { FEATURES_SECTION, UNSUBSCRIBE_SECTION, SECURITY_SECTION, PRIVACY_SECTION, BUSINESS_SECTION, mainPageSections } from "@/components/ZeroHeader/ZeroHeader";
 import { HEADER_PIXEL_HEIGHT } from "@/components/ZeroHeader/ZeroHeader";
 import useIsMobile from "@/hooks/useIsMobile";
-import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL } from "@/lib/seo";
+import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL, getPathLastModified } from "@/lib/seo";
 import FeatureSection from "@/components/FeatureSection";
 import StepsSection from "@/components/StepsSection";
 import NewsBar from "@/components/NewsBar/NewsBar";
@@ -23,6 +23,7 @@ type SectionKey = keyof typeof mainPageSections;
 export default function Home() {
   const isSmallScreen = useIsMobile();
   const router = useRouter();
+  const modifiedDate = getPathLastModified("/");
 
   const softwareApplicationStructuredData = {
     "@context": "https://schema.org",
@@ -45,11 +46,13 @@ export default function Home() {
       name: SITE_NAME,
       url: SITE_URL,
     },
+    ...(modifiedDate ? { dateModified: modifiedDate } : {}),
   };
 
   const faqStructuredData = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
+    ...(modifiedDate ? { dateModified: modifiedDate } : {}),
     mainEntity: faqItems.map((faq) => ({
       "@type": "Question",
       name: faq.question,

@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { Box, Container, Text, createStyles } from "@mantine/core";
-import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL } from "@/lib/seo";
+import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL, getPathLastModified } from "@/lib/seo";
 
 const useStyles = createStyles((theme) => ({
   page: {
@@ -169,6 +169,7 @@ const useStyles = createStyles((theme) => ({
 export default function DynamoDbPage() {
   const { classes } = useStyles();
   const canonicalUrl = `${SITE_URL}/dynamodb`;
+  const modifiedDate = getPathLastModified("/dynamodb");
   const title = "DynamoDB, but elegant. | @zeroinbox/dynamo";
   const description =
     "@zeroinbox/dynamo is the TypeScript DynamoDB ORM from Zero Inbox. Install it with npm i @zeroinbox/dynamo.";
@@ -188,6 +189,7 @@ export default function DynamoDbPage() {
       name: SITE_NAME,
       url: SITE_URL,
     },
+    ...(modifiedDate ? { dateModified: modifiedDate } : {}),
   };
 
   return (

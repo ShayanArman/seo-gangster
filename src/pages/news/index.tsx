@@ -2,7 +2,7 @@ import { GetStaticProps, InferGetStaticPropsType } from "next";
 import NewsSection from "@/components/NewsSection";
 import { getAllNews, NewsArticle } from "@/lib/news";
 import Head from "next/head";
-import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL } from "@/lib/seo";
+import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL, getPathLastModified } from "@/lib/seo";
 
 export const getStaticProps: GetStaticProps<{ articles: NewsArticle[] }> = async () => {
   const articles = getAllNews();
@@ -12,6 +12,9 @@ export const getStaticProps: GetStaticProps<{ articles: NewsArticle[] }> = async
 export default function NewsPage({ articles }: InferGetStaticPropsType<typeof getStaticProps>) {
   const canonicalUrl = `${SITE_URL}/news`;
   const description = "The latest updates, research, and product news from Zero Inbox.";
+  const modifiedDate = articles.length > 0
+    ? new Date(`${articles[0].date}T00:00:00Z`).toISOString()
+    : (getPathLastModified("/news") ?? undefined);
 
   const newsCollectionStructuredData = {
     "@context": "https://schema.org",
@@ -19,6 +22,7 @@ export default function NewsPage({ articles }: InferGetStaticPropsType<typeof ge
     name: "Zero Inbox News",
     url: canonicalUrl,
     description,
+    ...(modifiedDate ? { dateModified: modifiedDate } : {}),
     isPartOf: {
       "@type": "WebSite",
       name: SITE_NAME,
@@ -46,6 +50,8 @@ export default function NewsPage({ articles }: InferGetStaticPropsType<typeof ge
         <meta key="og:type" property="og:type" content="website" />
         <meta key="og:url" property="og:url" content={canonicalUrl} />
         <meta key="og:image" property="og:image" content={DEFAULT_OG_IMAGE} />
+        {modifiedDate ? <meta key="og:updated_time" property="og:updated_time" content={modifiedDate} /> : null}
+        {modifiedDate ? <meta key="last-modified" name="last-modified" content={modifiedDate} /> : null}
         <meta key="twitter:card" name="twitter:card" content="summary_large_image" />
         <meta key="twitter:title" name="twitter:title" content="News - Zero Inbox" />
         <meta key="twitter:description" name="twitter:description" content={description} />

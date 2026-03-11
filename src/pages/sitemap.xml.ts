@@ -1,7 +1,7 @@
 import { createHash } from "crypto";
 import { GetServerSideProps } from "next";
 import { getAllNews } from "@/lib/news";
-import { SITE_URL } from "@/lib/seo";
+import { SITE_URL, getPathLastModified } from "@/lib/seo";
 
 interface SitemapUrl {
   loc: string;
@@ -10,147 +10,123 @@ interface SitemapUrl {
   priority: string;
 }
 
-interface StaticRoute extends Omit<SitemapUrl, "loc"> {
+interface StaticRoute extends Omit<SitemapUrl, "loc" | "lastmod"> {
   route: string;
 }
 
-// Keep these dates aligned with the page's most recent meaningful content update.
 const STATIC_ROUTES: StaticRoute[] = [
   {
     route: "/",
-    lastmod: "2026-03-03T00:11:55-08:00",
     changefreq: "daily",
     priority: "1.0",
   },
   {
     route: "/about",
-    lastmod: "2026-02-27T10:49:51-08:00",
     changefreq: "monthly",
     priority: "0.7",
   },
   {
     route: "/story",
-    lastmod: "2026-02-27T10:50:24-08:00",
     changefreq: "monthly",
     priority: "0.7",
   },
   {
     route: "/ai-email-organizer",
-    lastmod: "2026-03-05T14:36:43-08:00",
     changefreq: "weekly",
     priority: "0.95",
   },
   {
     route: "/best-ai-email-organizer",
-    lastmod: "2026-02-27T10:18:19-08:00",
     changefreq: "weekly",
     priority: "0.9",
   },
   {
     route: "/clean-and-organize-emails",
-    lastmod: "2026-02-24T14:16:45-08:00",
     changefreq: "weekly",
     priority: "0.9",
   },
   {
     route: "/what-website-should-i-use-to-clean-or-organize-my-emails",
-    lastmod: "2026-02-27T10:18:19-08:00",
     changefreq: "weekly",
     priority: "0.85",
   },
   {
     route: "/sanebox-alternatives",
-    lastmod: "2026-02-27T10:27:58-08:00",
     changefreq: "weekly",
     priority: "0.8",
   },
   {
     route: "/sanebox-vs-superhuman",
-    lastmod: "2026-02-27T10:27:58-08:00",
     changefreq: "weekly",
     priority: "0.8",
   },
   {
     route: "/fyxer-alternatives",
-    lastmod: "2026-02-27T10:37:07-08:00",
     changefreq: "weekly",
     priority: "0.8",
   },
   {
     route: "/fyxer-ai-vs-zero-inbox-ai",
-    lastmod: "2026-02-27T10:34:40-08:00",
     changefreq: "weekly",
     priority: "0.8",
   },
   {
     route: "/fyxer-ai-vs-superhuman",
-    lastmod: "2026-02-27T10:37:07-08:00",
     changefreq: "weekly",
     priority: "0.8",
   },
   {
     route: "/invest",
-    lastmod: "2026-02-24T00:41:59-08:00",
     changefreq: "monthly",
     priority: "0.7",
   },
   {
     route: "/news",
-    lastmod: "2026-02-24T14:16:45-08:00",
     changefreq: "weekly",
     priority: "0.75",
   },
   {
     route: "/dynamodb",
-    lastmod: "2026-03-02T23:51:39-08:00",
     changefreq: "monthly",
     priority: "0.7",
   },
   {
     route: "/workflows",
-    lastmod: "2025-08-23T08:33:12-07:00",
     changefreq: "monthly",
     priority: "0.7",
   },
   {
     route: "/workflows/accounting",
-    lastmod: "2025-08-23T08:33:12-07:00",
     changefreq: "monthly",
     priority: "0.65",
   },
   {
     route: "/workflows/email-management",
-    lastmod: "2025-08-23T08:33:12-07:00",
     changefreq: "monthly",
     priority: "0.65",
   },
   {
     route: "/workflows/sales",
-    lastmod: "2025-08-23T08:33:12-07:00",
     changefreq: "monthly",
     priority: "0.65",
   },
   {
     route: "/workflows/workflow/contacts-sync",
-    lastmod: "2025-08-23T08:33:12-07:00",
     changefreq: "monthly",
     priority: "0.6",
   },
   {
     route: "/workflows/workflow/email-cleaner",
-    lastmod: "2025-08-23T08:33:12-07:00",
     changefreq: "monthly",
     priority: "0.6",
   },
   {
     route: "/workflows/workflow/sequencer",
-    lastmod: "2025-08-23T08:33:12-07:00",
     changefreq: "monthly",
     priority: "0.6",
   },
   {
     route: "/workflows/workflow/transaction-summary",
-    lastmod: "2025-08-23T08:33:12-07:00",
     changefreq: "monthly",
     priority: "0.6",
   },
@@ -183,10 +159,20 @@ ${urlSet}
 </urlset>`;
 }
 
+function requirePathLastModified(route: string) {
+  const lastModified = getPathLastModified(route);
+
+  if (!lastModified) {
+    throw new Error(`Missing last modified date for sitemap route: ${route}`);
+  }
+
+  return lastModified;
+}
+
 export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
   const staticUrls: SitemapUrl[] = STATIC_ROUTES.map((routeConfig) => ({
     loc: routeConfig.route === "/" ? SITE_URL : `${SITE_URL}${routeConfig.route}`,
-    lastmod: routeConfig.lastmod,
+    lastmod: requirePathLastModified(routeConfig.route),
     changefreq: routeConfig.changefreq,
     priority: routeConfig.priority,
   }));

@@ -257,7 +257,10 @@ export default function ArticlePage({ article }: InferGetStaticPropsType<typeof 
         <meta key="og:type" property="og:type" content="article" />
         <meta key="og:url" property="og:url" content={canonicalUrl} />
         <meta key="og:image" property="og:image" content={articleImageUrl} />
+        <meta key="og:updated_time" property="og:updated_time" content={isoDate} />
+        <meta key="last-modified" name="last-modified" content={isoDate} />
         <meta key="article:published_time" property="article:published_time" content={isoDate} />
+        <meta key="article:modified_time" property="article:modified_time" content={isoDate} />
         <meta key="twitter:card" name="twitter:card" content="summary_large_image" />
         <meta key="twitter:title" name="twitter:title" content={`${article.title} - Zero Inbox`} />
         <meta key="twitter:description" name="twitter:description" content={article.excerpt} />

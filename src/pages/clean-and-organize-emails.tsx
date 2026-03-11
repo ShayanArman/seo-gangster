@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Box, Button, Flex, Text, createStyles } from "@mantine/core";
 import { FiArrowRight } from "react-icons/fi";
 import { registerClickSignUpEventGoogle } from "@/components/Analytics/GoogleAnalytics";
-import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL } from "@/lib/seo";
+import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL, getPathLastModified } from "@/lib/seo";
 
 const useStyles = createStyles((theme) => ({
   container: {
@@ -81,6 +81,7 @@ const useStyles = createStyles((theme) => ({
 export default function CleanAndOrganizeEmailsPage() {
   const { classes } = useStyles();
   const canonicalUrl = `${SITE_URL}/clean-and-organize-emails`;
+  const modifiedDate = getPathLastModified("/clean-and-organize-emails");
   const description =
     "How to clean and organize emails quickly with Zero Inbox, an ai email organizer for bulk cleanup and focused inbox management.";
 
@@ -91,6 +92,7 @@ export default function CleanAndOrganizeEmailsPage() {
     description:
       "A practical workflow for cleaning and organizing email with an ai email organizer.",
     totalTime: "PT10M",
+    ...(modifiedDate ? { dateModified: modifiedDate } : {}),
     supply: [
       {
         "@type": "HowToSupply",

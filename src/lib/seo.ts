@@ -151,7 +151,7 @@ const PATH_LAST_MODIFIED: Record<string, string> = {
   "/fyxer-ai-vs-zero-inbox-ai": "2026-02-27T10:34:40-08:00",
   "/fyxer-ai-vs-superhuman": "2026-02-27T10:37:07-08:00",
   "/invest": "2026-02-24T00:41:59-08:00",
-  "/news": "2026-02-24T14:16:45-08:00",
+  "/news": "2026-03-06T00:00:00.000Z",
   "/dynamodb": "2026-03-02T23:51:39-08:00",
   "/workflows": "2025-08-23T08:33:12-07:00",
   "/workflows/accounting": "2025-08-23T08:33:12-07:00",

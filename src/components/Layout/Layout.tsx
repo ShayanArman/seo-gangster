@@ -10,6 +10,7 @@ import {
   DEFAULT_OG_IMAGE,
   SITE_NAME,
   SITE_URL,
+  getPathLastModified,
   getSeoMeta,
   toCanonicalUrl,
 } from "@/lib/seo";
@@ -30,6 +31,7 @@ export default function Layout({ children }: { children: ReactNode }) {
   const router = useRouter();
   const pageMeta = getSeoMeta(router.pathname);
   const canonicalUrl = toCanonicalUrl(router.asPath || "/");
+  const lastModified = getPathLastModified(router.pathname);
 
   const organizationStructuredData = {
     "@context": "https://schema.org",
@@ -61,6 +63,20 @@ export default function Layout({ children }: { children: ReactNode }) {
     inLanguage: "en-US",
   };
 
+  const webPageStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: pageMeta.title,
+    url: canonicalUrl,
+    description: pageMeta.description,
+    isPartOf: {
+      "@type": "WebSite",
+      name: SITE_NAME,
+      url: SITE_URL,
+    },
+    ...(lastModified ? { dateModified: lastModified } : {}),
+  };
+
   return (
     <>
       <Head>
@@ -86,6 +102,7 @@ export default function Layout({ children }: { children: ReactNode }) {
         />
         <meta key="theme-color" name="theme-color" content="#007aff" />
         <meta key="application-name" name="application-name" content={SITE_NAME} />
+        {lastModified ? <meta key="last-modified" name="last-modified" content={lastModified} /> : null}
 
         <meta key="og:title" property="og:title" content={pageMeta.title} />
         <meta key="og:description" property="og:description" content={pageMeta.description} />
@@ -95,6 +112,10 @@ export default function Layout({ children }: { children: ReactNode }) {
         <meta key="og:locale" property="og:locale" content="en_US" />
         <meta key="og:image" property="og:image" content={DEFAULT_OG_IMAGE} />
         <meta key="og:image:alt" property="og:image:alt" content="Zero Inbox dashboard preview" />
+        {lastModified ? <meta key="og:updated_time" property="og:updated_time" content={lastModified} /> : null}
+        {pageMeta.ogType === "article" && lastModified ? (
+          <meta key="article:modified_time" property="article:modified_time" content={lastModified} />
+        ) : null}
 
         <meta key="twitter:card" name="twitter:card" content="summary_large_image" />
         <meta key="twitter:title" name="twitter:title" content={pageMeta.title} />
@@ -110,6 +131,11 @@ export default function Layout({ children }: { children: ReactNode }) {
           key="ld-website"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteStructuredData) }}
+        />
+        <script
+          key="ld-webpage"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageStructuredData) }}
         />
       </Head>
 
