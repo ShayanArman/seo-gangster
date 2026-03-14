@@ -2,7 +2,7 @@ import { Flex } from "@mantine/core";
 import Link from "next/link";
 
 export default function NewsBar({ isSmallScreen }: { isSmallScreen: boolean }) {
-  const badgeText = isSmallScreen ? "Zero Inbox v3.0.1" : "Zero Inbox v3.0.1";
+  const badgeText = "Zero Inbox v3.0.3";
   const ctaText = "Read update";
 
   return (
