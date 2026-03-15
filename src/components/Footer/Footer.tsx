@@ -20,7 +20,7 @@ const useStyles = createStyles((theme) => ({
 
   grid: {
     display: "grid",
-    gridTemplateColumns: "2fr 1fr 1fr 1fr",
+    gridTemplateColumns: "2fr 1fr 1fr 1fr 1fr",
     gap: 40,
     marginBottom: 48,
 
@@ -107,15 +107,24 @@ export default function FooterSection() {
           {/* Resources Column */}
           <div>
             <Text className={classes.columnTitle}>Resources</Text>
-            <Link href="/ai-email-organizer" className={classes.link}>AI Email Organizer</Link>
             <Link href="/news" className={classes.link}>News</Link>
+            <Link href="/about" className={classes.link}>About</Link>
+            <Link href="/about#team" className={classes.link}>Team</Link>
+            <Link href="/story" className={classes.link}>Story</Link>
+            <Link href="mailto:info@zeroinbox.ai" className={classes.link}>Contact</Link>
+            <Link href="/terms.pdf" target="_blank" className={classes.link}>Terms</Link>
+          </div>
+
+          {/* Learn More Column */}
+          <div>
+            <Text className={classes.columnTitle}>Learn more</Text>
+            <Link href="/ai-email-organizer" className={classes.link}>AI Email Organizer</Link>
             <Link href="/best-ai-email-organizer" className={classes.link}>Best AI Email Organizer</Link>
             <Link href="/clean-and-organize-emails" className={classes.link}>Clean and Organize Emails</Link>
             <Link href="/what-website-should-i-use-to-clean-or-organize-my-emails" className={classes.link}>Organize My Emails</Link>
-            <Link href="/about" className={classes.link}>About</Link>
-            <Link href="/about#team" className={classes.link}>Team</Link>
-            <Link href="mailto:info@zeroinbox.ai" className={classes.link}>Contact</Link>
-            <Link href="/terms.pdf" target="_blank" className={classes.link}>Terms</Link>
+            <Link href="/mark-zuckerberg-loves-inbox-zero-ai" className={classes.link}>Mark Zuckerberg</Link>
+            <Link href="/news/why-zero-inbox" className={classes.link}>Why Zero Inbox</Link>
+            <Link href="/superhuman-alternatives" className={classes.link}>Superhuman Alternatives</Link>
           </div>
 
           {/* Account Column */}
