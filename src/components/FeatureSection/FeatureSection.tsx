@@ -5,7 +5,7 @@ import { registerClickSignUpEventGoogle } from "../Analytics/GoogleAnalytics";
 interface FeatureSectionProps {
   id: string;
   title: string;
-  description: string;
+  description: React.ReactNode;
   checks: string[];
   ctaText: string;
   ctaHref: string;

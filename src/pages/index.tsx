@@ -105,7 +105,7 @@ export default function Home() {
       <FeatureSection
         id={FEATURES_SECTION}
         title="Delete spam fast with Zero Inbox."
-        description="Zero Inbox quickly clears what you don't need. Only important emails are left. Clean your email inbox in seconds."
+        description="You've got too much going on to clean emails."
         checks={[
           "AI-powered email organization in seconds.",
           "Bulk delete thousands of emails with one click.",
@@ -187,7 +187,13 @@ export default function Home() {
       <FeatureSection
         id={PRIVACY_SECTION}
         title="You're in control."
-        description="Zero Inbox gives you complete control over your account and data. Manage your data with a simple click. Privacy is at the forefront."
+        description={
+          <>
+            Inbox Zero AI{" "}
+            <strong>always</strong>{" "}
+            asks for your permission before deleting or moving emails. You remain in complete control.
+          </>
+        }
         checks={[
           "Delete your account and data instantly.",
           "No third-party data sharing. Ever.",
