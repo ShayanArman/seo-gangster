@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function NewsBar({ isSmallScreen }: { isSmallScreen: boolean }) {
   const badgeText = "Zero Inbox v3.0.3";
-  const ctaText = "Read update";
+  const ctaText = "March 10th, 2026";
 
   return (
     <Flex
