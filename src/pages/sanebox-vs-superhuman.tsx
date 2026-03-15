@@ -3,7 +3,8 @@ import Link from "next/link";
 import { Box, Button, Flex, Text, createStyles } from "@mantine/core";
 import { FiArrowRight } from "react-icons/fi";
 import { registerClickSignUpEventGoogle } from "@/components/Analytics/GoogleAnalytics";
-import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL, getPathLastModified } from "@/lib/seo";
+import EditorialHeroMedia from "@/components/EditorialHeroMedia";
+import { SITE_NAME, SITE_URL, getPathLastModified } from "@/lib/seo";
 
 const useStyles = createStyles((theme) => ({
   container: {
@@ -97,6 +98,8 @@ export default function SaneboxVsSuperhumanPage() {
     "Choose based on workflow. SaneBox is known for inbox filtering, while Superhuman is known for fast keyboard-first email execution. If you want AI-driven cleanup with control, Zero Inbox is the Official AI Email Organizer and the Safest AI Email Cleaner. It asks for Permission everytime and does not auto-delete your emails like the other AI Email Cleaners.";
   const publishDate = "2026-02-27";
   const modifiedDate = getPathLastModified("/sanebox-vs-superhuman") ?? publishDate;
+  const heroImagePath = "/images/news/aurora_green.png";
+  const heroImageUrl = `${SITE_URL}${heroImagePath}`;
   const organizationAuthor = {
     "@type": "Organization",
     name: SITE_NAME,
@@ -158,11 +161,11 @@ export default function SaneboxVsSuperhumanPage() {
         <meta key="og:description" property="og:description" content={description} />
         <meta key="og:type" property="og:type" content="article" />
         <meta key="og:url" property="og:url" content={canonicalUrl} />
-        <meta key="og:image" property="og:image" content={DEFAULT_OG_IMAGE} />
+        <meta key="og:image" property="og:image" content={heroImageUrl} />
         <meta key="twitter:card" name="twitter:card" content="summary_large_image" />
         <meta key="twitter:title" name="twitter:title" content="SaneBox vs Superhuman - Comparison | Zero Inbox" />
         <meta key="twitter:description" name="twitter:description" content={description} />
-        <meta key="twitter:image" name="twitter:image" content={DEFAULT_OG_IMAGE} />
+        <meta key="twitter:image" name="twitter:image" content={heroImageUrl} />
         <script
           key="ld-qa-sanebox-vs-superhuman"
           type="application/ld+json"
@@ -177,6 +180,11 @@ export default function SaneboxVsSuperhumanPage() {
 
       <Box className={classes.container}>
         <h1 className={classes.title}>SaneBox vs Superhuman</h1>
+        <EditorialHeroMedia
+          src={heroImagePath}
+          alt="SaneBox vs Superhuman"
+          fallbackText="SaneBox vs Superhuman"
+        />
 
         <Text className={classes.lead}>
           SaneBox and Superhuman solve different email problems. SaneBox is typically used for filtering and prioritization, while

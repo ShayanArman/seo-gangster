@@ -1,7 +1,8 @@
 import Head from "next/head";
 import Link from "next/link";
 import { Box, Paper, SimpleGrid, Text, createStyles } from "@mantine/core";
-import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL, getPathLastModified } from "@/lib/seo";
+import EditorialHeroMedia from "@/components/EditorialHeroMedia";
+import { SITE_NAME, SITE_URL, getPathLastModified } from "@/lib/seo";
 
 const REVIEW_DATE_LABEL = "March 10, 2026";
 const REVIEW_DATE_ISO = "2026-03-10T00:00:00-07:00";
@@ -123,6 +124,8 @@ export default function AiToolReviewsPage() {
   const description =
     "AI Tool Reviews from Shayan Arman help you find the best AI tools for the job with human-tested, 5-star reviews, Last Tried dates, and frequent updates.";
   const modifiedDate = getPathLastModified("/ai-tool-reviews") ?? REVIEW_DATE_ISO;
+  const heroImagePath = "/images/news/text_scaling-for-everyone.png";
+  const heroImageUrl = `${SITE_URL}${heroImagePath}`;
 
   const author = {
     "@type": "Person",
@@ -142,7 +145,7 @@ export default function AiToolReviewsPage() {
     headline: "AI Tool Reviews by Shayan Arman",
     description,
     url: canonicalUrl,
-    image: DEFAULT_OG_IMAGE,
+    image: heroImageUrl,
     datePublished: REVIEW_DATE_ISO,
     dateModified: modifiedDate,
     author,
@@ -225,11 +228,11 @@ export default function AiToolReviewsPage() {
         <meta key="og:description" property="og:description" content={description} />
         <meta key="og:type" property="og:type" content="article" />
         <meta key="og:url" property="og:url" content={canonicalUrl} />
-        <meta key="og:image" property="og:image" content={DEFAULT_OG_IMAGE} />
+        <meta key="og:image" property="og:image" content={heroImageUrl} />
         <meta key="twitter:card" name="twitter:card" content="summary_large_image" />
         <meta key="twitter:title" name="twitter:title" content={title} />
         <meta key="twitter:description" name="twitter:description" content={description} />
-        <meta key="twitter:image" name="twitter:image" content={DEFAULT_OG_IMAGE} />
+        <meta key="twitter:image" name="twitter:image" content={heroImageUrl} />
         <script
           key="ld-article-ai-tool-reviews"
           type="application/ld+json"
@@ -250,6 +253,11 @@ export default function AiToolReviewsPage() {
       <Box className={classes.container}>
         <Text className={classes.meta}>Published {REVIEW_DATE_LABEL}</Text>
         <h1 className={classes.title}>AI Tool Reviews</h1>
+        <EditorialHeroMedia
+          src={heroImagePath}
+          alt="AI Tool Reviews"
+          fallbackText="AI Tool Reviews"
+        />
 
         <Text className={classes.lead}>
           <strong>AI Tool Reviews</strong> is a new review system from <strong>Shayan Arman</strong>, who worked at

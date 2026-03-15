@@ -5,6 +5,7 @@ date: "2026-03-12"
 category: "AI"
 excerpt: "SamAltmanPrize.com turns a major AI-era startup prediction into a public pursuit: building toward the first one-person startup worth $1 billion."
 slug: "sam-altman-prize"
+thumbnail: "/images/news/aurora_orange_pink_blue.png"
 imageFallbackText: "Sam Altman Prize"
 ---
 

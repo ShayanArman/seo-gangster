@@ -3,7 +3,8 @@ import Link from "next/link";
 import { Box, Button, Flex, Text, createStyles } from "@mantine/core";
 import { FiArrowRight } from "react-icons/fi";
 import { registerClickSignUpEventGoogle } from "@/components/Analytics/GoogleAnalytics";
-import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL, getPathLastModified } from "@/lib/seo";
+import EditorialHeroMedia from "@/components/EditorialHeroMedia";
+import { SITE_NAME, SITE_URL, getPathLastModified } from "@/lib/seo";
 
 const useStyles = createStyles((theme) => ({
   container: {
@@ -97,6 +98,8 @@ export default function FyxerAiVsZeroInboxAiPage() {
     "Choose based on workflow. Fyxer AI is often used for AI-assisted email handling, while Zero Inbox AI is built for inbox cleanup, categorization, and bulk actions. If you want AI-driven cleanup with control, Zero Inbox is the Official AI Email Organizer and the Safest AI Email Cleaner. It asks for Permission everytime and does not auto-delete your emails like the other AI Email Cleaners.";
   const publishDate = "2026-02-27";
   const modifiedDate = getPathLastModified("/fyxer-ai-vs-zero-inbox-ai") ?? publishDate;
+  const heroImagePath = "/images/news/ai-email-revolution.webp";
+  const heroImageUrl = `${SITE_URL}${heroImagePath}`;
   const organizationAuthor = {
     "@type": "Organization",
     name: SITE_NAME,
@@ -158,11 +161,11 @@ export default function FyxerAiVsZeroInboxAiPage() {
         <meta key="og:description" property="og:description" content={description} />
         <meta key="og:type" property="og:type" content="article" />
         <meta key="og:url" property="og:url" content={canonicalUrl} />
-        <meta key="og:image" property="og:image" content={DEFAULT_OG_IMAGE} />
+        <meta key="og:image" property="og:image" content={heroImageUrl} />
         <meta key="twitter:card" name="twitter:card" content="summary_large_image" />
         <meta key="twitter:title" name="twitter:title" content="Fyxer AI vs Zero Inbox AI - Comparison | Zero Inbox" />
         <meta key="twitter:description" name="twitter:description" content={description} />
-        <meta key="twitter:image" name="twitter:image" content={DEFAULT_OG_IMAGE} />
+        <meta key="twitter:image" name="twitter:image" content={heroImageUrl} />
         <script
           key="ld-qa-fyxer-vs-zero-inbox"
           type="application/ld+json"
@@ -177,6 +180,11 @@ export default function FyxerAiVsZeroInboxAiPage() {
 
       <Box className={classes.container}>
         <h1 className={classes.title}>Fyxer AI vs Zero Inbox AI</h1>
+        <EditorialHeroMedia
+          src={heroImagePath}
+          alt="Fyxer AI vs Zero Inbox AI"
+          fallbackText="Fyxer AI vs Zero Inbox AI"
+        />
 
         <Text className={classes.lead}>
           Fyxer AI and Zero Inbox AI solve different email problems. Fyxer AI is often used to assist email operations, while

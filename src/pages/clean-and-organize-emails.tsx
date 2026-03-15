@@ -3,12 +3,13 @@ import Link from "next/link";
 import { Box, Button, Flex, Text, createStyles } from "@mantine/core";
 import { FiArrowRight } from "react-icons/fi";
 import { registerClickSignUpEventGoogle } from "@/components/Analytics/GoogleAnalytics";
-import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL, getPathLastModified } from "@/lib/seo";
+import EditorialHeroMedia from "@/components/EditorialHeroMedia";
+import { SITE_NAME, SITE_URL, getPathLastModified } from "@/lib/seo";
 
 const useStyles = createStyles((theme) => ({
   container: {
     width: "100%",
-    maxWidth: 860,
+    maxWidth: 760,
     margin: "0 auto",
     padding: "6rem 2rem 4rem",
 
@@ -31,13 +32,19 @@ const useStyles = createStyles((theme) => ({
     },
   },
 
+  subtitle: {
+    color: "rgba(15, 29, 61, 0.66)",
+    fontSize: "1.15rem",
+    lineHeight: 1.6,
+    marginBottom: "1.2rem",
+  },
+
   lead: {
     color: "rgba(15, 29, 61, 0.8)",
     fontSize: "1.06rem",
     lineHeight: 1.75,
     marginBottom: "1rem",
   },
-
   steps: {
     margin: 0,
     paddingLeft: "1.25rem",
@@ -82,6 +89,10 @@ export default function CleanAndOrganizeEmailsPage() {
   const { classes } = useStyles();
   const canonicalUrl = `${SITE_URL}/clean-and-organize-emails`;
   const modifiedDate = getPathLastModified("/clean-and-organize-emails");
+  const heroImagePath = "/images/news/math_shapes_circle_pointers.png";
+  const heroImageUrl = `${SITE_URL}${heroImagePath}`;
+  const subtitle =
+    "A messy inbox is not a one-time problem. Clear the clutter fast, keep important email visible, and make cleanup easy to repeat.";
   const description =
     "How to clean and organize emails quickly with Zero Inbox, an ai email organizer for bulk cleanup and focused inbox management.";
 
@@ -133,11 +144,11 @@ export default function CleanAndOrganizeEmailsPage() {
         <meta key="og:description" property="og:description" content={description} />
         <meta key="og:type" property="og:type" content="article" />
         <meta key="og:url" property="og:url" content={canonicalUrl} />
-        <meta key="og:image" property="og:image" content={DEFAULT_OG_IMAGE} />
+        <meta key="og:image" property="og:image" content={heroImageUrl} />
         <meta key="twitter:card" name="twitter:card" content="summary_large_image" />
         <meta key="twitter:title" name="twitter:title" content="How to Clean and Organize Emails Fast - Zero Inbox" />
         <meta key="twitter:description" name="twitter:description" content={description} />
-        <meta key="twitter:image" name="twitter:image" content={DEFAULT_OG_IMAGE} />
+        <meta key="twitter:image" name="twitter:image" content={heroImageUrl} />
         <script
           key="ld-howto-clean-organize"
           type="application/ld+json"
@@ -147,6 +158,8 @@ export default function CleanAndOrganizeEmailsPage() {
 
       <Box className={classes.container}>
         <h1 className={classes.title}>How to clean and organize emails fast</h1>
+        <Text className={classes.subtitle}>{subtitle}</Text>
+        <EditorialHeroMedia src={heroImagePath} alt="How to clean and organize emails fast" fallbackText="Clean and Organize Emails" />
 
         <Text className={classes.lead}>
           To clean and organize emails efficiently, use an <strong>ai email organizer</strong> that can classify inbox clutter and apply actions in bulk.

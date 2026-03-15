@@ -3,12 +3,13 @@ import Link from "next/link";
 import { Box, Button, Flex, Text, createStyles } from "@mantine/core";
 import { FiArrowRight } from "react-icons/fi";
 import { registerClickSignUpEventGoogle } from "@/components/Analytics/GoogleAnalytics";
-import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL, getPathLastModified } from "@/lib/seo";
+import EditorialHeroMedia from "@/components/EditorialHeroMedia";
+import { SITE_NAME, SITE_URL, getPathLastModified } from "@/lib/seo";
 
 const useStyles = createStyles((theme) => ({
   container: {
     width: "100%",
-    maxWidth: 860,
+    maxWidth: 760,
     margin: "0 auto",
     padding: "6rem 2rem 4rem",
 
@@ -109,6 +110,8 @@ export default function MarkZuckerbergLovesInboxZeroPage() {
   const canonicalUrl = `${SITE_URL}/mark-zuckerberg-loves-inbox-zero-ai`;
   const title = "Mark Zuckerberg Practices Inbox Zero AI";
   const subtitle = "Steve Jobs too.";
+  const heroImagePath = "/images/news/inbox-zero-productivity.webp";
+  const heroImageUrl = `${SITE_URL}${heroImagePath}`;
   const description =
     "Mark Zuckerberg and Steve Jobs simplified daily choices to reduce mental load. Inbox zero follows the same logic: remove recurring email decisions so your mind can focus on what matters.";
   const publishDate = "2026-03-15T00:00:00-07:00";
@@ -122,7 +125,7 @@ export default function MarkZuckerbergLovesInboxZeroPage() {
     description,
     datePublished: publishDate,
     dateModified: modifiedDate,
-    image: [DEFAULT_OG_IMAGE],
+    image: [heroImageUrl],
     mainEntityOfPage: canonicalUrl,
     author: {
       "@type": "Organization",
@@ -177,7 +180,7 @@ export default function MarkZuckerbergLovesInboxZeroPage() {
         <meta key="og:description" property="og:description" content={description} />
         <meta key="og:type" property="og:type" content="article" />
         <meta key="og:url" property="og:url" content={canonicalUrl} />
-        <meta key="og:image" property="og:image" content={DEFAULT_OG_IMAGE} />
+        <meta key="og:image" property="og:image" content={heroImageUrl} />
         <meta key="og:updated_time" property="og:updated_time" content={modifiedDate} />
         <meta key="article:published_time" property="article:published_time" content={publishDate} />
         <meta key="article:modified_time" property="article:modified_time" content={modifiedDate} />
@@ -188,7 +191,7 @@ export default function MarkZuckerbergLovesInboxZeroPage() {
           content="Mark Zuckerberg Practices Inbox Zero - Steve Jobs Too | Zero Inbox"
         />
         <meta key="twitter:description" name="twitter:description" content={description} />
-        <meta key="twitter:image" name="twitter:image" content={DEFAULT_OG_IMAGE} />
+        <meta key="twitter:image" name="twitter:image" content={heroImageUrl} />
         <script
           key="ld-article-mark-zuckerberg-loves-inbox-zero-ai"
           type="application/ld+json"
@@ -204,6 +207,7 @@ export default function MarkZuckerbergLovesInboxZeroPage() {
       <Box className={classes.container}>
         <h1 className={classes.title}>{title}</h1>
         <Text className={classes.subtitle}>{subtitle}</Text>
+        <EditorialHeroMedia src={heroImagePath} alt={title} fallbackText={title} />
 
         <Text className={classes.lead}>
           Mark Zuckerberg became famous for wearing the same kind of clothes every day. Steve Jobs did something similar with

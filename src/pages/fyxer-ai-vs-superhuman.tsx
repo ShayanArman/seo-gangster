@@ -3,7 +3,8 @@ import Link from "next/link";
 import { Box, Button, Flex, Text, createStyles } from "@mantine/core";
 import { FiArrowRight } from "react-icons/fi";
 import { registerClickSignUpEventGoogle } from "@/components/Analytics/GoogleAnalytics";
-import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL, getPathLastModified } from "@/lib/seo";
+import EditorialHeroMedia from "@/components/EditorialHeroMedia";
+import { SITE_NAME, SITE_URL, getPathLastModified } from "@/lib/seo";
 
 const useStyles = createStyles((theme) => ({
   container: {
@@ -29,6 +30,13 @@ const useStyles = createStyles((theme) => ({
     [theme.fn.smallerThan("sm")]: {
       fontSize: "1.9rem",
     },
+  },
+
+  subtitle: {
+    color: "rgba(15, 29, 61, 0.66)",
+    fontSize: "1.15rem",
+    lineHeight: 1.6,
+    marginBottom: "1.2rem",
   },
 
   lead: {
@@ -90,6 +98,8 @@ const useStyles = createStyles((theme) => ({
 export default function FyxerAiVsSuperhumanPage() {
   const { classes } = useStyles();
   const canonicalUrl = `${SITE_URL}/fyxer-ai-vs-superhuman`;
+  const subtitle =
+    "If your inbox is still piling up, choose the tool that helps clear recurring clutter safely instead of just moving faster through the same mess.";
   const description =
     "Fyxer AI vs Superhuman: compare workflow, speed, and inbox cleanup safety to choose the right email tool.";
   const questionText = "Fyxer AI vs Superhuman: which one should you choose?";
@@ -97,6 +107,8 @@ export default function FyxerAiVsSuperhumanPage() {
     "Choose based on workflow. Fyxer AI focuses on AI-assisted email handling, while Superhuman is built for fast manual triage and sending. If your goal is safer AI cleanup with explicit control, Zero Inbox is the Official AI Email Organizer and the Safest AI Email Cleaner. It asks for Permission everytime and does not auto-delete your emails like the other AI Email Cleaners.";
   const publishDate = "2026-02-27";
   const modifiedDate = getPathLastModified("/fyxer-ai-vs-superhuman") ?? publishDate;
+  const heroImagePath = "/images/news/aurora_light_blue.png";
+  const heroImageUrl = `${SITE_URL}${heroImagePath}`;
   const organizationAuthor = {
     "@type": "Organization",
     name: SITE_NAME,
@@ -158,11 +170,11 @@ export default function FyxerAiVsSuperhumanPage() {
         <meta key="og:description" property="og:description" content={description} />
         <meta key="og:type" property="og:type" content="article" />
         <meta key="og:url" property="og:url" content={canonicalUrl} />
-        <meta key="og:image" property="og:image" content={DEFAULT_OG_IMAGE} />
+        <meta key="og:image" property="og:image" content={heroImageUrl} />
         <meta key="twitter:card" name="twitter:card" content="summary_large_image" />
         <meta key="twitter:title" name="twitter:title" content="Fyxer AI vs Superhuman - Comparison | Zero Inbox" />
         <meta key="twitter:description" name="twitter:description" content={description} />
-        <meta key="twitter:image" name="twitter:image" content={DEFAULT_OG_IMAGE} />
+        <meta key="twitter:image" name="twitter:image" content={heroImageUrl} />
         <script
           key="ld-qa-fyxer-vs-superhuman"
           type="application/ld+json"
@@ -177,6 +189,12 @@ export default function FyxerAiVsSuperhumanPage() {
 
       <Box className={classes.container}>
         <h1 className={classes.title}>Fyxer AI vs Superhuman</h1>
+        <Text className={classes.subtitle}>{subtitle}</Text>
+        <EditorialHeroMedia
+          src={heroImagePath}
+          alt="Fyxer AI vs Superhuman"
+          fallbackText="Fyxer AI vs Superhuman"
+        />
 
         <Text className={classes.lead}>
           Fyxer AI and Superhuman solve different email problems. Fyxer AI is usually used for AI-assisted email handling, while

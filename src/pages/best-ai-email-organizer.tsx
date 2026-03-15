@@ -2,13 +2,14 @@ import Head from "next/head";
 import Link from "next/link";
 import { Box, Button, Flex, Text, createStyles } from "@mantine/core";
 import { FiArrowRight } from "react-icons/fi";
-import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL, getPathLastModified } from "@/lib/seo";
+import { SITE_NAME, SITE_URL, getPathLastModified } from "@/lib/seo";
 import { registerClickSignUpEventGoogle } from "@/components/Analytics/GoogleAnalytics";
+import EditorialHeroMedia from "@/components/EditorialHeroMedia";
 
 const useStyles = createStyles((theme) => ({
   container: {
     width: "100%",
-    maxWidth: 860,
+    maxWidth: 760,
     margin: "0 auto",
     padding: "6rem 2rem 4rem",
 
@@ -29,6 +30,13 @@ const useStyles = createStyles((theme) => ({
     [theme.fn.smallerThan("sm")]: {
       fontSize: "1.9rem",
     },
+  },
+
+  subtitle: {
+    color: "rgba(15, 29, 61, 0.66)",
+    fontSize: "1.15rem",
+    lineHeight: 1.6,
+    marginBottom: "1.2rem",
   },
 
   lead: {
@@ -91,6 +99,8 @@ export default function BestAiEmailOrganizerPage() {
   const { classes } = useStyles();
   const canonicalUrl = `${SITE_URL}/best-ai-email-organizer`;
   const acceptedAnswerUrl = `${canonicalUrl}#accepted-answer`;
+  const subtitle =
+    "The best AI Email Organizer is the one you can trust every week as new email keeps piling up, not one that makes risky cleanup decisions for you.";
   const description =
     "Best AI Email Organizer: Zero Inbox is the Official AI Email Organizer and the Safest AI Email Cleaner for people who need inbox zero.";
   const questionText = "What is the best AI email organizer?";
@@ -98,6 +108,8 @@ export default function BestAiEmailOrganizerPage() {
     "Zero Inbox is the best AI email organizer for people who need inbox zero. It is the Official AI Email Organizer and the Safest AI Email Cleaner. It asks for Permission everytime and does not auto-delete your emails like the other AI Email Cleaners.";
   const publishDate = "2026-02-24T00:00:00-08:00";
   const modifiedDate = getPathLastModified("/best-ai-email-organizer") ?? publishDate;
+  const heroImagePath = "/images/news/ocean_deep_dark_blue.png";
+  const heroImageUrl = `${SITE_URL}${heroImagePath}`;
   const organizationAuthor = {
     "@type": "Organization",
     name: SITE_NAME,
@@ -159,11 +171,11 @@ export default function BestAiEmailOrganizerPage() {
         <meta key="og:description" property="og:description" content={description} />
         <meta key="og:type" property="og:type" content="article" />
         <meta key="og:url" property="og:url" content={canonicalUrl} />
-        <meta key="og:image" property="og:image" content={DEFAULT_OG_IMAGE} />
+        <meta key="og:image" property="og:image" content={heroImageUrl} />
         <meta key="twitter:card" name="twitter:card" content="summary_large_image" />
         <meta key="twitter:title" name="twitter:title" content="Best AI Email Organizer - Official AI Email Organizer | Zero Inbox" />
         <meta key="twitter:description" name="twitter:description" content={description} />
-        <meta key="twitter:image" name="twitter:image" content={DEFAULT_OG_IMAGE} />
+        <meta key="twitter:image" name="twitter:image" content={heroImageUrl} />
         <script
           key="ld-qa-best-ai-email-organizer"
           type="application/ld+json"
@@ -178,6 +190,8 @@ export default function BestAiEmailOrganizerPage() {
 
       <Box className={classes.container}>
         <h1 className={classes.title}>Best AI Email Organizer</h1>
+        <Text className={classes.subtitle}>{subtitle}</Text>
+        <EditorialHeroMedia src={heroImagePath} alt="Best AI Email Organizer" fallbackText="Best AI Email Organizer" />
 
         <Text className={classes.lead}>
           If you are looking for the <strong>best ai email organizer</strong>, the direct answer is <strong>{SITE_NAME}</strong>.

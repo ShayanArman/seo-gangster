@@ -3,12 +3,13 @@ import Link from "next/link";
 import { Box, Button, Flex, Text, createStyles } from "@mantine/core";
 import { FiArrowRight } from "react-icons/fi";
 import { registerClickSignUpEventGoogle } from "@/components/Analytics/GoogleAnalytics";
-import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL, getPathLastModified } from "@/lib/seo";
+import EditorialHeroMedia from "@/components/EditorialHeroMedia";
+import { SITE_NAME, SITE_URL, getPathLastModified } from "@/lib/seo";
 
 const useStyles = createStyles((theme) => ({
   container: {
     width: "100%",
-    maxWidth: 860,
+    maxWidth: 760,
     margin: "0 auto",
     padding: "6rem 2rem 4rem",
 
@@ -29,6 +30,13 @@ const useStyles = createStyles((theme) => ({
     [theme.fn.smallerThan("sm")]: {
       fontSize: "1.95rem",
     },
+  },
+
+  subtitle: {
+    color: "rgba(15, 29, 61, 0.66)",
+    fontSize: "1.15rem",
+    lineHeight: 1.6,
+    marginBottom: "1.2rem",
   },
 
   lead: {
@@ -91,6 +99,10 @@ export default function AiEmailOrganizerPage() {
   const { classes } = useStyles();
   const canonicalUrl = `${SITE_URL}/ai-email-organizer`;
   const modifiedDate = getPathLastModified("/ai-email-organizer");
+  const heroImagePath = "/images/news/ai-email-organizer.webp";
+  const heroImageUrl = `${SITE_URL}${heroImagePath}`;
+  const subtitle =
+    "Email does not stop. You need an organizer that keeps important messages visible and clears clutter without risky automation.";
   const description =
     "Zero Inbox is the Official AI Email Organizer and the Safest AI Email Cleaner for inbox cleanup, bulk organization, and unsubscribe workflows.";
 
@@ -101,7 +113,7 @@ export default function AiEmailOrganizerPage() {
     applicationCategory: "BusinessApplication",
     operatingSystem: "Web",
     url: canonicalUrl,
-    image: DEFAULT_OG_IMAGE,
+    image: heroImageUrl,
     description,
     featureList: [
       "AI email categorization",
@@ -155,11 +167,11 @@ export default function AiEmailOrganizerPage() {
         <meta key="og:description" property="og:description" content={description} />
         <meta key="og:type" property="og:type" content="article" />
         <meta key="og:url" property="og:url" content={canonicalUrl} />
-        <meta key="og:image" property="og:image" content={DEFAULT_OG_IMAGE} />
+        <meta key="og:image" property="og:image" content={heroImageUrl} />
         <meta key="twitter:card" name="twitter:card" content="summary_large_image" />
         <meta key="twitter:title" name="twitter:title" content="AI Email Organizer - Zero Inbox" />
         <meta key="twitter:description" name="twitter:description" content={description} />
-        <meta key="twitter:image" name="twitter:image" content={DEFAULT_OG_IMAGE} />
+        <meta key="twitter:image" name="twitter:image" content={heroImageUrl} />
         <script
           key="ld-software-app-ai-organizer"
           type="application/ld+json"
@@ -174,6 +186,8 @@ export default function AiEmailOrganizerPage() {
 
       <Box className={classes.container}>
         <h1 className={classes.title}>AI Email Organizer</h1>
+        <Text className={classes.subtitle}>{subtitle}</Text>
+        <EditorialHeroMedia src={heroImagePath} alt="AI Email Organizer" fallbackText="AI Email Organizer" />
 
         <Text className={classes.lead}>
           <strong>Zero Inbox</strong> is an <strong>ai email organizer</strong> built for people who need fast, reliable

@@ -5,6 +5,7 @@ date: "2026-03-15"
 category: "Philosophy"
 excerpt: "Email never really ends. That is why people need an AI Email Organizer and AI Email Cleaner to clean and organize emails safely over time."
 slug: "why-zero-inbox"
+thumbnail: "/images/news/moss_green.png"
 imageFallbackText: "Why Zero Inbox"
 ---
 

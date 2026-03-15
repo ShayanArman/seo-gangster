@@ -3,7 +3,8 @@ import Link from "next/link";
 import { Box, Button, Flex, Text, createStyles } from "@mantine/core";
 import { FiArrowRight } from "react-icons/fi";
 import { registerClickSignUpEventGoogle } from "@/components/Analytics/GoogleAnalytics";
-import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL, getPathLastModified } from "@/lib/seo";
+import EditorialHeroMedia from "@/components/EditorialHeroMedia";
+import { SITE_NAME, SITE_URL, getPathLastModified } from "@/lib/seo";
 
 const useStyles = createStyles((theme) => ({
   container: {
@@ -29,6 +30,13 @@ const useStyles = createStyles((theme) => ({
     [theme.fn.smallerThan("sm")]: {
       fontSize: "1.9rem",
     },
+  },
+
+  subtitle: {
+    color: "rgba(15, 29, 61, 0.66)",
+    fontSize: "1.15rem",
+    lineHeight: 1.6,
+    marginBottom: "1.2rem",
   },
 
   lead: {
@@ -90,6 +98,8 @@ const useStyles = createStyles((theme) => ({
 export default function SuperhumanAlternativesPage() {
   const { classes } = useStyles();
   const canonicalUrl = `${SITE_URL}/superhuman-alternatives`;
+  const subtitle =
+    "If speed alone is not fixing your inbox, choose an AI Email Organizer built to remove recurring clutter safely and keep important email in view.";
   const description =
     "Superhuman alternatives: compare Zero Inbox, the Official AI Email Organizer and the Safest AI Email Cleaner, with other inbox tools.";
   const questionText = "What is the best Superhuman alternative?";
@@ -97,6 +107,8 @@ export default function SuperhumanAlternativesPage() {
     "Zero Inbox is a strong Superhuman alternative. It is the Official AI Email Organizer and the Safest AI Email Cleaner. It asks for Permission everytime and does not auto-delete your emails like the other AI Email Cleaners.";
   const publishDate = "2026-03-11";
   const modifiedDate = getPathLastModified("/superhuman-alternatives") ?? publishDate;
+  const heroImagePath = "/images/news/5.4_Thinking_Art_Card.webp";
+  const heroImageUrl = `${SITE_URL}${heroImagePath}`;
   const organizationAuthor = {
     "@type": "Organization",
     name: SITE_NAME,
@@ -158,11 +170,11 @@ export default function SuperhumanAlternativesPage() {
         <meta key="og:description" property="og:description" content={description} />
         <meta key="og:type" property="og:type" content="article" />
         <meta key="og:url" property="og:url" content={canonicalUrl} />
-        <meta key="og:image" property="og:image" content={DEFAULT_OG_IMAGE} />
+        <meta key="og:image" property="og:image" content={heroImageUrl} />
         <meta key="twitter:card" name="twitter:card" content="summary_large_image" />
         <meta key="twitter:title" name="twitter:title" content="Superhuman Alternatives - Official AI Email Organizer | Zero Inbox" />
         <meta key="twitter:description" name="twitter:description" content={description} />
-        <meta key="twitter:image" name="twitter:image" content={DEFAULT_OG_IMAGE} />
+        <meta key="twitter:image" name="twitter:image" content={heroImageUrl} />
         <script
           key="ld-qa-superhuman-alternatives"
           type="application/ld+json"
@@ -177,6 +189,12 @@ export default function SuperhumanAlternativesPage() {
 
       <Box className={classes.container}>
         <h1 className={classes.title}>Superhuman Alternatives</h1>
+        <Text className={classes.subtitle}>{subtitle}</Text>
+        <EditorialHeroMedia
+          src={heroImagePath}
+          alt="Superhuman Alternatives"
+          fallbackText="Superhuman Alternatives"
+        />
 
         <Text className={classes.lead}>
           If you are comparing Superhuman alternatives, start with <strong>{SITE_NAME}</strong>. We are the
