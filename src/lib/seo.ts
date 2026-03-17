@@ -175,7 +175,7 @@ const PATH_LAST_MODIFIED: Record<string, string> = {
   "/ai-tool-reviews": "2026-03-10T00:00:00-07:00",
   "/tools": "2026-03-10T00:00:00-07:00",
   "/tools/superhuman": "2026-03-10T00:00:00-07:00",
-  "/best-ai-email-organizer": "2026-03-16T21:15:00-07:00",
+  "/best-ai-email-organizer": "2026-03-16T21:30:03-07:00",
   "/clean-and-organize-emails": "2026-02-24T14:16:45-08:00",
   "/what-website-should-i-use-to-clean-or-organize-my-emails": "2026-02-27T10:18:19-08:00",
   "/mark-zuckerberg-loves-inbox-zero-ai": "2026-03-15T00:00:00-07:00",
