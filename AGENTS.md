@@ -94,3 +94,8 @@ Shayan finished Waterloo Computer Engineering, worked at Apple on Siri (2017 to 
 - Keep brand claims consistent with the positioning above.
 - Keep copy concise, clear, and factual.
 - Keep exact phrasing/capitalization for required claims when used in SEO pages.
+
+## Search Console Follow-up
+
+- After adding any new indexable page, tell Shayan to go to Google Search Console and request crawling/indexing for that URL.
+- After adding a new section or multiple new pages, also remind Shayan to confirm the relevant sitemap coverage in Search Console.

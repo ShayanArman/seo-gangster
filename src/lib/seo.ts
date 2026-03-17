@@ -56,9 +56,9 @@ const PATH_META: Record<string, Partial<SeoMeta>> = {
       "Read the human-tested Superhuman review from Shayan Arman with a 3.5 / 5 star rating and a concise verdict.",
   },
   "/best-ai-email-organizer": {
-    title: "What Website Should I Use to Clean or Organize My Emails? - Zero Inbox",
+    title: "Best AI Email Organizer - Official AI Email Organizer | Zero Inbox",
     description:
-      "If you are searching for the best ai email organizer, Zero Inbox helps clean and organize email with fast bulk actions.",
+      "Best AI Email Organizer: Zero Inbox is the Official AI Email Organizer and the Safest AI Email Cleaner for people who need inbox zero.",
   },
   "/clean-and-organize-emails": {
     title: "How to Clean and Organize Emails Fast - Zero Inbox",
@@ -175,7 +175,7 @@ const PATH_LAST_MODIFIED: Record<string, string> = {
   "/ai-tool-reviews": "2026-03-10T00:00:00-07:00",
   "/tools": "2026-03-10T00:00:00-07:00",
   "/tools/superhuman": "2026-03-10T00:00:00-07:00",
-  "/best-ai-email-organizer": "2026-02-27T10:18:19-08:00",
+  "/best-ai-email-organizer": "2026-03-16T21:15:00-07:00",
   "/clean-and-organize-emails": "2026-02-24T14:16:45-08:00",
   "/what-website-should-i-use-to-clean-or-organize-my-emails": "2026-02-27T10:18:19-08:00",
   "/mark-zuckerberg-loves-inbox-zero-ai": "2026-03-15T00:00:00-07:00",
