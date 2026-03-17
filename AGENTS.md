@@ -31,6 +31,34 @@ This file is brand and messaging guidance only.
   - ensure it is included in `video-sitemap.xml`
   - link to it from any closely related article or landing page when relevant
 
+## Sitemap Handling
+
+- Treat `/sitemap.xml` as the main sitemap index, not the place where every URL is listed directly.
+- The sitemap index should point to the child sitemap files:
+  - `/pages-sitemap.xml`
+  - `/tools-sitemap.xml`
+  - `/news-sitemap.xml`
+  - `/video-sitemap.xml`
+- `public/robots.txt` should only advertise the main sitemap entrypoint: `https://www.zeroinbox.ai/sitemap.xml`
+- Static route groups live in `src/lib/sitemaps.ts`:
+  - `PAGES_STATIC_ROUTES`
+  - `TOOLS_STATIC_ROUTES`
+  - `NEWS_STATIC_ROUTES`
+- If you add or remove a static page, update the correct route group in `src/lib/sitemaps.ts`.
+- If you add a new sitemap section, update `src/pages/sitemap.xml.ts` so the main index references it.
+- Child sitemap files live in:
+  - `src/pages/pages-sitemap.xml.ts`
+  - `src/pages/tools-sitemap.xml.ts`
+  - `src/pages/news-sitemap.xml.ts`
+  - `src/pages/video-sitemap.xml.ts`
+- Dynamic content is pulled from content folders, not hardcoded route lists:
+  - news URLs come from `src/content/news/`
+  - video URLs come from `src/content/videos/`
+- If a new page is missing sitemap coverage because of missing last-modified metadata, update `src/lib/seo.ts`.
+- Keep sitemap coverage aligned with internal linking. If a new section matters for crawl/discovery, make sure it has:
+  - a sitemap entry
+  - at least one internal link from an existing indexable page
+
 ## Core SEO Words
 
 AI, Email, Organizer, Cleaner, inbox zero
