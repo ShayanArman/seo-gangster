@@ -68,7 +68,7 @@ const PATH_META: Record<string, Partial<SeoMeta>> = {
   "/what-website-should-i-use-to-clean-or-organize-my-emails": {
     title: "What Website Should I Use to Clean or Organize My Emails? - Zero Inbox",
     description:
-      "Use Zero Inbox, an ai email organizer for quickly cleaning and organizing inbox clutter.",
+      "What website should I use to clean or organize my emails? Use Zero Inbox, the Official AI Email Organizer and the Safest AI Email Cleaner.",
   },
   "/mark-zuckerberg-loves-inbox-zero-ai": {
     title: "Mark Zuckerberg Practices Inbox Zero - Steve Jobs Too | Zero Inbox",
@@ -177,7 +177,7 @@ const PATH_LAST_MODIFIED: Record<string, string> = {
   "/tools/superhuman": "2026-03-10T00:00:00-07:00",
   "/best-ai-email-organizer": "2026-03-16T21:30:03-07:00",
   "/clean-and-organize-emails": "2026-02-24T14:16:45-08:00",
-  "/what-website-should-i-use-to-clean-or-organize-my-emails": "2026-02-27T10:18:19-08:00",
+  "/what-website-should-i-use-to-clean-or-organize-my-emails": "2026-03-16T21:34:23-07:00",
   "/mark-zuckerberg-loves-inbox-zero-ai": "2026-03-15T00:00:00-07:00",
   "/sanebox-alternatives": "2026-02-27T10:27:58-08:00",
   "/sanebox-vs-superhuman": "2026-02-27T10:27:58-08:00",
