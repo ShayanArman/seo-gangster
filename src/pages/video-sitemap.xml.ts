@@ -1,16 +1,7 @@
 import { GetServerSideProps } from "next";
-import { createHash } from "crypto";
-import { SITE_URL } from "@/lib/seo";
 import { getAllVideos } from "@/lib/videos";
-
-function escapeXml(value: string) {
-  return value
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&apos;");
-}
+import { SITE_URL } from "@/lib/seo";
+import { escapeXml, getLatestLastModifiedTimestamp, writeXmlResponse } from "@/lib/sitemaps";
 
 function buildVideoSitemap() {
   const videos = getAllVideos();
@@ -40,35 +31,13 @@ ${videoEntries}
 }
 
 export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
+  const videos = getAllVideos();
   const sitemap = buildVideoSitemap();
-  const etag = `"${createHash("sha1").update(sitemap).digest("hex")}"`;
-  const ifNoneMatch = req.headers["if-none-match"];
-  const matchesEtag =
-    typeof ifNoneMatch === "string" &&
-    ifNoneMatch
-      .split(",")
-      .map((value) => value.trim())
-      .includes(etag);
+  const lastModifiedAt = getLatestLastModifiedTimestamp(
+    videos.map((video) => new Date(`${video.date}T00:00:00Z`).toISOString()),
+  );
 
-  res.setHeader("Content-Type", "text/xml");
-  res.setHeader("Cache-Control", "s-maxage=3600, stale-while-revalidate");
-  res.setHeader("ETag", etag);
-
-  if (matchesEtag) {
-    res.statusCode = 304;
-    res.end();
-
-    return {
-      props: {},
-    };
-  }
-
-  res.write(sitemap);
-  res.end();
-
-  return {
-    props: {},
-  };
+  return writeXmlResponse({ req, res }, sitemap, lastModifiedAt);
 };
 
 export default function VideoSitemapXml() {
