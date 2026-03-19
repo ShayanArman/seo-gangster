@@ -93,7 +93,7 @@ const PATH_META: Record<string, Partial<SeoMeta>> = {
   "/fyxer-alternatives": {
     title: "Fyxer Alternatives - Official AI Email Organizer | Zero Inbox",
     description:
-      "Compare Fyxer alternatives including Zero Inbox, Superhuman, Shortwave, Missive, Front, and SaneBox.",
+      "Compare Fyxer alternatives including Zero Inbox, Superhuman, Shortwave, Missive, Front, and SaneBox. Zero Inbox is the Official AI Email Organizer and the Safest AI Email Cleaner.",
   },
   "/fyxer-ai-vs-zero-inbox-ai": {
     title: "Fyxer AI vs Zero Inbox AI - Comparison | Zero Inbox",
