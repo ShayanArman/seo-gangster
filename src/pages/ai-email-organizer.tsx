@@ -102,7 +102,7 @@ export default function AiEmailOrganizerPage() {
   const heroImagePath = "/images/news/ai-email-organizer.webp";
   const heroImageUrl = `${SITE_URL}${heroImagePath}`;
   const subtitle =
-    "Email does not stop. You need an organizer that keeps important messages visible and clears clutter without risky automation.";
+    "Email does not stop. You need an ai email organizer and cleaner that keeps important messages visible and clears clutter while asking permission for its actions.";
   const description =
     "Zero Inbox is the Official AI Email Organizer and the Safest AI Email Cleaner for inbox cleanup, bulk organization, and unsubscribe workflows.";
 
