@@ -95,17 +95,19 @@ When creating a new SEO page or page pair, update files in this order:
 
 1. Create new page files in `src/pages/`.
 2. Add route metadata entries in `src/lib/seo.ts` (`PATH_META`).
-3. Add routes to the correct static route group in `src/lib/sitemaps.ts`.
-4. Add internal links from existing authority pages (currently `src/pages/ai-email-organizer.tsx`).
-5. Run lint/verification and confirm schema fields are present.
+3. Add route last-modified entries in `src/lib/seo.ts` (`PATH_LAST_MODIFIED`).
+4. Add routes to the correct static route group in `src/lib/sitemaps.ts`.
+5. Add internal links from existing authority pages (currently `src/pages/ai-email-organizer.tsx`).
+6. Run lint/verification and confirm schema fields are present.
 
 Reason for this order:
 
 1. Page files define the actual indexable content and schema.
 2. `seo.ts` keeps shared title/description behavior consistent across layout/system usage.
-3. `sitemaps.ts` plus the sitemap page routes ensure crawl discoverability.
-4. Internal links improve crawl paths and topical clustering.
-5. Verification catches regressions before deploy.
+3. `PATH_LAST_MODIFIED` is required for sitemap last-modified values on static routes.
+4. `sitemaps.ts` plus the sitemap page routes ensure crawl discoverability.
+5. Internal links improve crawl paths and topical clustering.
+6. Verification catches regressions before deploy.
 
 ## What Was Changed In This Session And Why
 
@@ -153,12 +155,14 @@ For each pair request (`A Alternatives`, `A vs B`):
 1. Create `src/pages/a-alternatives.tsx`.
 2. Create `src/pages/a-vs-b.tsx` (or exact requested slug).
 3. Include full metadata + QAPage + BreadcrumbList in both.
-4. Add both routes to `seo.ts` and `src/lib/sitemaps.ts`.
-5. Add both to internal links in `ai-email-organizer.tsx`.
-6. Run:
+4. Add both routes to `src/lib/seo.ts` in `PATH_META`.
+5. Add both routes to `src/lib/seo.ts` in `PATH_LAST_MODIFIED`.
+6. Add both routes to `src/lib/sitemaps.ts`.
+7. Add both to internal links in `ai-email-organizer.tsx`.
+8. Run:
    - `yarn lint`
    - `rg` checks for required schema fields
-7. Deploy and validate in Search Console.
+9. Deploy and validate in Search Console.
 
 ## Validation Commands Used
 

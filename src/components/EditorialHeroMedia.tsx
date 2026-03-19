@@ -40,16 +40,36 @@ const useStyles = createStyles(() => ({
     textAlign: "center" as const,
     textWrap: "balance" as const,
   },
+
+  overlayText: {
+    position: "absolute" as const,
+    inset: 0,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    padding: "1.5rem",
+    fontFamily: "var(--font-heading)",
+    fontSize: "clamp(1.5rem, 4vw, 3rem)",
+    lineHeight: 1.05,
+    fontWeight: 800,
+    color: "#ffffff",
+    textAlign: "center" as const,
+    textWrap: "balance" as const,
+    textShadow: "0 10px 26px rgba(15, 29, 61, 0.4)",
+    pointerEvents: "none" as const,
+  },
 }));
 
 export default function EditorialHeroMedia({
   src,
   alt,
   fallbackText,
+  overlayText,
 }: {
   src?: string | null;
   alt: string;
   fallbackText: string;
+  overlayText?: string;
 }) {
   const { classes } = useStyles();
 
@@ -70,6 +90,7 @@ export default function EditorialHeroMedia({
           <span className={classes.mediaFallbackText}>{fallbackText}</span>
         </div>
       )}
+      {overlayText ? <span className={classes.overlayText}>{overlayText}</span> : null}
     </div>
   );
 }
