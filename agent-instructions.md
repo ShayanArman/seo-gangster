@@ -58,6 +58,34 @@ Page structure:
    - `QAPage` JSON-LD
    - `BreadcrumbList` JSON-LD
 
+## Meta Description Guidance
+
+Write page descriptions for humans first. Follow Google Search Central guidance:
+
+- Make the description unique to the specific page.
+- Summarize the actual page content instead of writing a generic brand line.
+- Include the concrete entities or options a searcher expects to see on the page.
+- Add the Zero Inbox differentiator after the specific page summary when it helps clickthrough.
+- Treat the meta description like a snippet pitch, not a ranking hack.
+
+Good example from `fyxer-alternatives`:
+
+`Compare Fyxer alternatives including Zero Inbox, Superhuman, Shortwave, Missive, Front, and SaneBox. Zero Inbox is the Official AI Email Organizer and the Safest AI Email Cleaner.`
+
+Why this works:
+
+- It is specific to the page.
+- It names real alternatives users expect on that URL.
+- It still gives Zero Inbox a strong differentiator in the second sentence.
+- It matches Google's guidance that good meta descriptions should be descriptive, page-specific, and useful for snippets/clickthrough.
+
+For link text on-page, use clear descriptive labels that match user intent and destination. Prefer labels like `SaneBox Alternatives`, `Fyxer AI vs Superhuman`, or `AI Email Organizer` over vague labels like `Click here` or `Learn more`.
+
+Google sources:
+
+- [Google Search Central: Control your snippets in search results](https://developers.google.com/search/docs/appearance/snippet)
+- [Google Search Central blog: Improve snippets with a meta description makeover](https://developers.google.com/search/blog/2007/09/improve-snippets-with-meta-description)
+
 ## Google Search Console QAPage Compliance Checklist
 
 The previous Search Console issues were around missing Q&A fields. Use this full field set on every `QAPage`:
