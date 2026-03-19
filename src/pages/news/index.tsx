@@ -9,13 +9,16 @@ export const getStaticProps: GetStaticProps<{ articles: NewsArticle[] }> = async
   return { props: { articles } };
 };
 
+function toArticleIsoDate(date: string): string {
+  return new Date(`${date}T00:00:00Z`).toISOString();
+}
+
 export default function NewsPage({ articles }: InferGetStaticPropsType<typeof getStaticProps>) {
   const canonicalUrl = `${SITE_URL}/news`;
   const description = "The latest updates, research, and product news from Zero Inbox.";
   const collectionImageUrl = `${SITE_URL}/images/news/ai-email-revolution.webp`;
-  const modifiedDate = articles.length > 0
-    ? new Date(`${articles[0].date}T00:00:00Z`).toISOString()
-    : (getPathLastModified("/news") ?? undefined);
+  const modifiedDate = getPathLastModified("/news")
+    ?? (articles.length > 0 ? toArticleIsoDate(articles[0].date) : undefined);
 
   const newsCollectionStructuredData = {
     "@context": "https://schema.org",
