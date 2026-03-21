@@ -164,9 +164,9 @@ function getLoggedInUsers(date = new Date()) {
 }
 
 export default function HeroLiveMetric({
-  value = "10M+",
-  label = "emails processed by users",
-  statusLabel = "Live usage",
+  value = "14,000+",
+  label = "pages and refreshes shipped",
+  statusLabel = "Agents running",
 }: HeroLiveMetricProps) {
   const { classes } = useStyles();
   const [currentTime, setCurrentTime] = useState("");
@@ -200,7 +200,7 @@ export default function HeroLiveMetric({
           {currentTime && <Text className={classes.timeText}>{currentTime}</Text>}
         </Box>
         {loggedInUsers !== null && (
-          <Text className={classes.loggedInLabel}>{loggedInUsers.toLocaleString()} users logged in</Text>
+          <Text className={classes.loggedInLabel}>{loggedInUsers.toLocaleString()} automation runs active</Text>
         )}
       </Box>
 

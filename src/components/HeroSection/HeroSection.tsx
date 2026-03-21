@@ -3,6 +3,7 @@ import { FiZap } from "react-icons/fi";
 import { HEADER_PIXEL_HEIGHT } from "../ZeroHeader/ZeroHeader";
 import { registerClickSignUpEventGoogle } from "../Analytics/GoogleAnalytics";
 import HeroLiveMetric from "../HeroLiveMetric";
+import { SIGNUP_URL } from "@/lib/seo";
 
 const useStyles = createStyles((theme) => ({
   container: {
@@ -111,32 +112,31 @@ export default function HeroSection({
       <div className={classes.glow} />
       <Box className={classes.inner}>
         <h1 className={classes.title}>
-          Clean your inbox.
+          Build the site.
           <br />
-          <span className={classes.highlight}>Discover magic.</span>
+          <span className={classes.highlight}>Keep it fresh.</span>
         </h1>
 
         <Text className={classes.subtitle}>
-          Zero Inbox is the AI email organizer that deletes spam, unsubscribes from
-          noise, and organizes what&apos;s left — in seconds.
+          SEO Gangster uses AI SEO agents to ship pages, publish articles, and run the
+          weekly updates that keep rankings moving.
         </Text>
 
         <Flex align="center" gap={12} wrap="wrap">
           <Button
             component="a"
-            href="https://app.zeroinbox.ai"
-            target="_blank"
+            href={SIGNUP_URL}
             size={isSmallScreen ? "lg" : "xl"}
             radius="xl"
             leftIcon={<FiZap />}
             onClick={() => registerClickSignUpEventGoogle()}
             className={classes.ctaButton}
           >
-            Get Started
+            Start with SEO Gangster
           </Button>
         </Flex>
 
-        <HeroLiveMetric />
+        <HeroLiveMetric value="14,000+" label="pages and refreshes shipped" statusLabel="Agents running" />
       </Box>
     </Flex>
   );

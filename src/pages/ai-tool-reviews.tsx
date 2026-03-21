@@ -4,8 +4,8 @@ import { Box, Paper, SimpleGrid, Text, createStyles } from "@mantine/core";
 import EditorialHeroMedia from "@/components/EditorialHeroMedia";
 import { SITE_NAME, SITE_URL, getPathLastModified } from "@/lib/seo";
 
-const REVIEW_DATE_LABEL = "March 10, 2026";
-const REVIEW_DATE_ISO = "2026-03-10T00:00:00-07:00";
+const REVIEW_DATE_LABEL = "March 21, 2026";
+const REVIEW_DATE_ISO = "2026-03-21T00:00:00-07:00";
 
 const useStyles = createStyles((theme) => ({
   container: {
@@ -120,9 +120,9 @@ const useStyles = createStyles((theme) => ({
 export default function AiToolReviewsPage() {
   const { classes } = useStyles();
   const canonicalUrl = `${SITE_URL}/ai-tool-reviews`;
-  const title = "AI Tool Reviews by Shayan Arman - Human Reviews, Star Ratings, Last Tried";
+  const title = "AI SEO Tool Reviews by Shayan Arman - Human Reviews, Star Ratings, Last Tried";
   const description =
-    "AI Tool Reviews from Shayan Arman help you find the best AI tools for the job with human-tested, 5-star reviews, Last Tried dates, and frequent updates.";
+    "AI SEO Tool Reviews from Shayan Arman help you find the best search and AI tools for the job with human-tested notes, star ratings, and frequent updates.";
   const modifiedDate = getPathLastModified("/ai-tool-reviews") ?? REVIEW_DATE_ISO;
   const heroImagePath = "/images/news/text_scaling-for-everyone.png";
   const heroImageUrl = `${SITE_URL}${heroImagePath}`;
@@ -136,13 +136,13 @@ export default function AiToolReviewsPage() {
       "@type": "CollegeOrUniversity",
       name: "University of Waterloo",
     },
-    description: "Worked at Apple on Siri from 2017 to 2021 and founded Zero Inbox.",
+    description: "Worked at Apple on Siri from 2017 to 2021 and founded SEO Gangster.",
   };
 
   const articleStructuredData = {
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: "AI Tool Reviews by Shayan Arman",
+    headline: "AI SEO Tool Reviews by Shayan Arman",
     description,
     url: canonicalUrl,
     image: heroImageUrl,
@@ -167,7 +167,7 @@ export default function AiToolReviewsPage() {
         acceptedAnswer: {
           "@type": "Answer",
           text:
-            "Shayan Arman writes the AI tool reviews. He worked at Apple on Siri from 2017 to 2021 and reviews the best AI tools on the market.",
+            "Shayan Arman writes the AI SEO tool reviews. He worked at Apple on Siri from 2017 to 2021 and reviews the tools that actually help search teams execute.",
           dateModified: modifiedDate,
         },
       },
@@ -207,7 +207,7 @@ export default function AiToolReviewsPage() {
       {
         "@type": "ListItem",
         position: 2,
-        name: "AI Tool Reviews",
+        name: "AI SEO Tool Reviews",
         item: canonicalUrl,
       },
     ],
@@ -222,7 +222,7 @@ export default function AiToolReviewsPage() {
         <meta
           key="keywords"
           name="keywords"
-          content="ai tool reviews, best ai tools, human ai reviews, star ratings, last tried, Shayan Arman"
+          content="ai seo tool reviews, seo tool reviews, human ai reviews, star ratings, last tried, Shayan Arman"
         />
         <meta key="og:title" property="og:title" content={title} />
         <meta key="og:description" property="og:description" content={description} />
@@ -252,17 +252,17 @@ export default function AiToolReviewsPage() {
 
       <Box className={classes.container}>
         <Text className={classes.meta}>Published {REVIEW_DATE_LABEL}</Text>
-        <h1 className={classes.title}>AI Tool Reviews</h1>
+        <h1 className={classes.title}>AI SEO Tool Reviews</h1>
         <EditorialHeroMedia
           src={heroImagePath}
-          alt="AI Tool Reviews"
-          fallbackText="AI Tool Reviews"
+          alt="AI SEO Tool Reviews"
+          fallbackText="AI SEO Tool Reviews"
         />
 
         <Text className={classes.lead}>
-          <strong>AI Tool Reviews</strong> is a new review system from <strong>Shayan Arman</strong>, who worked at
-          Apple on Siri from 2017 to 2021. He will review the best AI tools on the market with direct, human testing
-          instead of recycled directory copy.
+          <strong>AI SEO Tool Reviews</strong> is a review system from <strong>Shayan Arman</strong>, who worked at
+          Apple on Siri from 2017 to 2021. The focus is the tools that actually help teams ship pages, publish updates,
+          and run better search workflows.
         </Text>
 
         <Text className={classes.lead}>
@@ -271,8 +271,8 @@ export default function AiToolReviewsPage() {
         </Text>
 
         <Text className={classes.lead}>
-          The goal is simple: make it easier to tell which AI tools are actually useful, which ones are improving, and
-          which ones are still not ready.
+          The goal is simple: make it easier to tell which SEO and AI tools create real output, which ones are
+          improving, and which ones still waste time.
         </Text>
 
         <h2 className={classes.sectionTitle}>What each review includes</h2>
@@ -309,7 +309,7 @@ export default function AiToolReviewsPage() {
           <li>1 star means the tool is not recommended in its current state.</li>
         </ul>
 
-        <h2 className={classes.sectionTitle}>How Shayan reviews AI tools</h2>
+        <h2 className={classes.sectionTitle}>How Shayan reviews SEO tools</h2>
         <Text className={classes.sectionNote}>
           Read more about{" "}
           <a className={classes.link} href="https://www.linkedin.com/in/shayan-arman/" target="_blank" rel="noreferrer">
@@ -327,8 +327,8 @@ export default function AiToolReviewsPage() {
         <div className={classes.links}>
           <Link href="/tools" className={classes.link}>Browse all tools</Link>
           <Link href="/story" className={classes.link}>Read Shayan&apos;s story</Link>
-          <Link href="/about" className={classes.link}>About Zero Inbox</Link>
-          <Link href="/ai-email-organizer" className={classes.link}>AI Email Organizer</Link>
+          <Link href="/about" className={classes.link}>About SEO Gangster</Link>
+          <Link href="/tools/google-search-console" className={classes.link}>Google Search Console review</Link>
           <Link href="/news" className={classes.link}>Product News</Link>
         </div>
       </Box>

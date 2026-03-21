@@ -1,6 +1,7 @@
 import { createStyles, Box, Text, Button, Flex } from "@mantine/core";
-import { FiUserPlus, FiMail, FiZap } from "react-icons/fi";
+import { FiUserPlus, FiEdit3, FiZap } from "react-icons/fi";
 import { registerClickSignUpEventGoogle } from "../Analytics/GoogleAnalytics";
+import { SIGNUP_URL } from "@/lib/seo";
 
 interface Step {
   number: string;
@@ -13,20 +14,20 @@ const steps: Step[] = [
   {
     number: "1",
     icon: <FiUserPlus size={24} />,
-    title: "Create your account",
-    description: "Sign up and connect your Gmail securely. Google Security Partner — your data is always encrypted.",
+    title: "Join the signup list",
+    description: "Tell us about your site, market, and what you need to rank for.",
   },
   {
     number: "2",
-    icon: <FiMail size={24} />,
-    title: "Let Zero AI scan",
-    description: "Zero AI analyzes your inbox and categorizes every email. Spam, promotions, newsletters — all sorted instantly.",
+    icon: <FiEdit3 size={24} />,
+    title: "Point us at the site",
+    description: "We map the main pages, the content gaps, and the weekly freshness opportunities.",
   },
   {
     number: "3",
     icon: <FiZap size={24} />,
-    title: "Clean & organize",
-    description: "Review what Zero found and clean with one click. Unsubscribe, delete and organize — done.",
+    title: "Ship pages and updates",
+    description: "AI SEO agents start producing pages, refreshes, and technical follow-through instead of letting the backlog grow.",
   },
 ];
 
@@ -153,8 +154,8 @@ export default function StepsSection() {
   return (
     <Box className={classes.section}>
       <Box className={classes.inner}>
-        <Text className={classes.heading}>Get started in 3 easy steps.</Text>
-        <Text className={classes.subheading}>From sign-up to a clean inbox in under a minute.</Text>
+        <Text className={classes.heading}>Get started in 3 steps.</Text>
+        <Text className={classes.subheading}>From signup to active SEO workflows without building a giant team.</Text>
 
         <div className={classes.grid}>
           {steps.map((step) => (
@@ -172,14 +173,13 @@ export default function StepsSection() {
         <Flex justify="center" mt={48}>
           <Button
             component="a"
-            href="https://app.zeroinbox.ai"
-            target="_blank"
+            href={SIGNUP_URL}
             size="xl"
             radius="xl"
             onClick={() => registerClickSignUpEventGoogle()}
             className={classes.ctaButton}
           >
-            Get Started Now
+            Join the Signup List
           </Button>
         </Flex>
       </Box>

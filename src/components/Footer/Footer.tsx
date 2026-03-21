@@ -1,6 +1,7 @@
 import { createStyles, Box, Text, Flex } from "@mantine/core";
 import Image from "next/image";
 import Link from "next/link";
+import { CONTACT_EMAIL, LOGO_PATH, SIGNUP_URL } from "@/lib/seo";
 
 const useStyles = createStyles((theme) => ({
   footer: {
@@ -89,57 +90,58 @@ export default function FooterSection() {
         <div className={classes.grid}>
           {/* Brand Column */}
           <div className={classes.brand}>
-            <Image width={140} height={37} alt="Zero Inbox" src="/zeroInboxLogoBlack.svg" style={{ filter: "brightness(0) invert(1)" }} />
+            <Image width={168} height={39} alt="SEO Gangster" src={LOGO_PATH} style={{ filter: "brightness(0) invert(1)" }} />
             <Text className={classes.brandText}>
-              AI-powered email organization. Clean your inbox, keep what matters.
+              AI SEO agents for pages, articles, technical cleanup, and weekly freshness updates.
             </Text>
           </div>
 
           {/* Product Column */}
           <div>
-            <Text className={classes.columnTitle}>Product</Text>
-            <Link href="/?section=features" className={classes.link}>Features</Link>
-            <Link href="/?section=security" className={classes.link}>Security</Link>
-            <Link href="/?section=privacy" className={classes.link}>Privacy</Link>
-            <Link href="/?section=business" className={classes.link}>Business</Link>
+            <Text className={classes.columnTitle}>Platform</Text>
+            <Link href="/ai-seo-agents" className={classes.link}>AI SEO Agents</Link>
+            <Link href="/weekly-seo-updates" className={classes.link}>Weekly SEO Updates</Link>
+            <Link href="/technical-seo-automation" className={classes.link}>Technical SEO Automation</Link>
+            <Link href="/workflows" className={classes.link}>Workflows</Link>
           </div>
 
           {/* Resources Column */}
           <div>
             <Text className={classes.columnTitle}>Resources</Text>
             <Link href="/news" className={classes.link}>News</Link>
+            <Link href="/videos" className={classes.link}>Videos</Link>
+            <Link href="/tools" className={classes.link}>Tools</Link>
             <Link href="/about" className={classes.link}>About</Link>
-            <Link href="/about#team" className={classes.link}>Team</Link>
             <Link href="/story" className={classes.link}>Story</Link>
-            <Link href="mailto:info@zeroinbox.ai" className={classes.link}>Contact</Link>
-            <Link href="/terms.pdf" target="_blank" className={classes.link}>Terms</Link>
+            <Link href={`mailto:${CONTACT_EMAIL}`} className={classes.link}>Contact</Link>
+            <Link href="/terms" className={classes.link}>Terms</Link>
           </div>
 
           {/* Learn More Column */}
           <div>
             <Text className={classes.columnTitle}>Learn more</Text>
-            <Link href="/ai-email-organizer" className={classes.link}>AI Email Organizer</Link>
-            <Link href="/best-ai-email-organizer" className={classes.link}>Best AI Email Organizer</Link>
-            <Link href="/clean-and-organize-emails" className={classes.link}>Clean and Organize Emails</Link>
-            <Link href="/what-website-should-i-use-to-clean-or-organize-my-emails" className={classes.link}>Organize My Emails</Link>
-            <Link href="/mark-zuckerberg-loves-inbox-zero-ai" className={classes.link}>Mark Zuckerberg</Link>
-            <Link href="/news/why-zero-inbox" className={classes.link}>Why Zero Inbox</Link>
-            <Link href="/superhuman-alternatives" className={classes.link}>Superhuman Alternatives</Link>
+            <Link href="/best-ai-seo-agent" className={classes.link}>Best AI SEO Agent</Link>
+            <Link href="/what-website-should-i-use-for-seo" className={classes.link}>What Website Should I Use for SEO?</Link>
+            <Link href="/seo-is-two-steps" className={classes.link}>SEO Is Two Steps</Link>
+            <Link href="/seo-agents-vs-seo-person" className={classes.link}>AI SEO Agents vs SEO Person</Link>
+            <Link href="/seo-agents-vs-social-media-manager" className={classes.link}>AI SEO Agents vs Social Media Manager</Link>
+            <Link href="/seo-agency-alternatives" className={classes.link}>SEO Agency Alternatives</Link>
           </div>
 
           {/* Account Column */}
           <div>
-            <Text className={classes.columnTitle}>Account</Text>
-            <Link href="https://app.zeroinbox.ai" target="_blank" className={classes.link}>Log In</Link>
-            <Link href="https://app.zeroinbox.ai" target="_blank" className={classes.link}>Sign Up</Link>
+            <Text className={classes.columnTitle}>Get Started</Text>
+            <Link href={SIGNUP_URL} className={classes.link}>Sign Up</Link>
+            <Link href="/invest" className={classes.link}>Partnerships</Link>
+            <Link href="/privacy" className={classes.link}>Privacy</Link>
           </div>
         </div>
 
         <Flex justify="space-between" align="center" className={classes.divider} wrap="wrap" gap={12}>
-          <Text className={classes.bottomText}>© {new Date().getFullYear()} Zero Inbox. All rights reserved.</Text>
+          <Text className={classes.bottomText}>© {new Date().getFullYear()} SEO Gangster. All rights reserved.</Text>
           <Flex gap={20}>
-            <Link href="/terms.pdf" target="_blank" className={classes.link} style={{ fontSize: "0.8rem", color: "rgba(255,255,255,0.4)" }}>Terms</Link>
-            <Link href="/privacy.pdf" target="_blank" className={classes.link} style={{ fontSize: "0.8rem", color: "rgba(255,255,255,0.4)" }}>Privacy</Link>
+            <Link href="/terms" className={classes.link} style={{ fontSize: "0.8rem", color: "rgba(255,255,255,0.4)" }}>Terms</Link>
+            <Link href="/privacy" className={classes.link} style={{ fontSize: "0.8rem", color: "rgba(255,255,255,0.4)" }}>Privacy</Link>
           </Flex>
         </Flex>
       </Box>

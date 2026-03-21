@@ -9,36 +9,36 @@ interface FAQItem {
 
 export const faqItems: FAQItem[] = [
   {
-    question: "What website should I use to clean or organize my emails?",
-    answer: "Zero Inbox is the website we recommend. It is an ai email organizer that categorizes your inbox, helps you bulk clean clutter, and keeps important email visible.",
+    question: "What does SEO Gangster actually do?",
+    answer: "SEO Gangster uses AI SEO agents to build pages, publish articles, run weekly freshness updates, and handle recurring technical SEO work.",
   },
   {
-    question: "Is it fully automated? Does the AI just delete everything?",
-    answer: "No. Zero AI categorizes and recommends what to clean, but it always asks for your approval before making any changes to your inbox. You stay in full control of what gets deleted, unsubscribed, or kept.",
+    question: "Why not just hire one SEO person?",
+    answer: "One strong SEO hire can help, but a single person usually becomes a bottleneck. AI SEO agents can handle the repetitive production layer faster and more consistently.",
   },
   {
-    question: "Is my email data safe?",
-    answer: "Absolutely. Zero Inbox is a Google Security Partner. All data is encrypted end-to-end. We never store, read, or share your email content. You can delete your account and all data at any time.",
+    question: "Why do weekly SEO updates matter?",
+    answer: "Because SEO is not one-and-done. Rankings compound when pages stay active, useful, and internally connected through regular refreshes.",
   },
   {
-    question: "Does Zero Inbox work with Gmail, Outlook, and Hotmail?",
-    answer: "Yes! Zero Inbox supports Gmail, Google Workspace, Outlook, and Hotmail accounts. Connect securely with your Google or Microsoft account and start cleaning right away.",
+    question: "Can AI agents really help with technical SEO too?",
+    answer: "Yes. They are great for recurring technical work like metadata passes, schema cleanup, internal-linking suggestions, and page-by-page update queues.",
   },
   {
-    question: "How many emails can Zero Inbox handle?",
-    answer: "Whether you have 100 or 100,000+ emails, Zero AI processes them in seconds. Our users have collectively deleted over 10 million emails.",
+    question: "Is this cheaper than a social media manager?",
+    answer: "If your goal is search traffic, often yes. AI SEO agents can turn weekly effort into durable search assets like pages and refreshed articles instead of one-off social posts.",
   },
   {
-    question: "Can I use Zero Inbox for my business?",
-    answer: "Yes. Zero Inbox offers business plans for teams. Boost email productivity across your organization with enterprise-grade security and individual-level controls. Contact us at info@zeroinbox.ai.",
+    question: "Can SEO Gangster work on an existing site?",
+    answer: "Yes. Existing sites are often the best fit because the AI agents can improve old pages, expand content clusters, and run freshness passes right away.",
   },
   {
-    question: "How does Zero Inbox clean my emails?",
-    answer: "Zero AI scans your inbox and categorizes emails into spam, promotions, newsletters, and important. You review the results and clean with one click — bulk delete, unsubscribe, or keep.",
+    question: "What is the big idea behind the product?",
+    answer: "SEO has two steps: build the site and keep it fresh. SEO Gangster exists to make the second step happen consistently.",
   },
   {
-    question: "What happens after I clean my inbox?",
-    answer: "Your inbox stays clean. Zero Inbox helps you unsubscribe from unwanted senders permanently. Run a cleanup anytime new clutter builds up.",
+    question: "How do I get started?",
+    answer: "Use the signup page and tell us about your site, target market, and goals. From there we can shape the right AI SEO workflow for you.",
   },
 ];
 

@@ -15,6 +15,7 @@ import { useState, useRef, useEffect } from "react";
 import NavBar from "../NavBar";
 import { FiFastForward } from "react-icons/fi";
 import { registerClickSignUpEventGoogle } from "../Analytics/GoogleAnalytics";
+import { LOGO_PATH, SIGNUP_URL } from "@/lib/seo";
 
 export const HEADER_PIXEL_HEIGHT = 88;
 export const HEADER_HEIGHT = rem(HEADER_PIXEL_HEIGHT);
@@ -44,9 +45,9 @@ type HeaderLink = {
 };
 
 export const headerLinks: HeaderLink[] = [
-  { link: `/?section=${FEATURES_SECTION}`, label: "Features", newTab: false },
-  { link: `/?section=${SECURITY_SECTION}`, label: "Security", newTab: false },
-  { link: `/?section=${BUSINESS_SECTION}`, label: "Business", newTab: false },
+  { link: `/?section=${FEATURES_SECTION}`, label: "How It Works", newTab: false },
+  { link: `/?section=${SECURITY_SECTION}`, label: "Freshness", newTab: false },
+  { link: "/workflows", label: "Workflows", newTab: false },
   { link: "/news", label: "News", newTab: false },
   { link: "/about", label: "About", newTab: false },
   { link: "/story", label: "Story", newTab: false },
@@ -171,7 +172,7 @@ export default function ZeroHeader({
               color="var(--zero-red-darker)"
             />
             <Link href="/" onClick={() => setOpened(false)}>
-              <Image width={160} height={42} alt="Zero Inbox" src="/zeroInboxLogoBlack.svg" />
+              <Image width={180} height={42} alt="SEO Gangster" src={LOGO_PATH} />
             </Link>
           </Flex>
 
@@ -191,16 +192,15 @@ export default function ZeroHeader({
           <Group spacing={8}>
             {!isSmallScreen && (
               <Link
-                href="https://app.zeroinbox.ai"
-                target="_blank"
+                href={SIGNUP_URL}
                 className={classes.link}
               >
-                Log In
+                Join Beta
               </Link>
             )}
             <ActionButton
               buttonSize={isSmallScreen ? "sm" : "md"}
-              innerText={isSmallScreen ? "Start" : "Sign Up"}
+              innerText={isSmallScreen ? "Start" : "Get Started"}
             />
           </Group>
         </div>
@@ -221,8 +221,7 @@ function ActionButton({
   return (
     <Button
       component="a"
-      target="_blank"
-      href="https://app.zeroinbox.ai"
+      href={SIGNUP_URL}
       radius="xl"
       size={buttonSize}
       leftIcon={<FiFastForward size={14} />}

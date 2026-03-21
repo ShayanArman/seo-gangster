@@ -1,6 +1,7 @@
 import { keyframes } from "@emotion/react";
 import { createStyles, Box, Text, Button, Flex } from "@mantine/core";
 import { registerClickSignUpEventGoogle } from "../Analytics/GoogleAnalytics";
+import { SIGNUP_URL } from "@/lib/seo";
 
 const pulse = keyframes`
   0% {
@@ -103,15 +104,14 @@ export default function CTABanner() {
   return (
     <Box className={classes.section}>
       <Box className={classes.inner}>
-        <Text className={classes.heading}>Ready to reach inbox zero?</Text>
+        <Text className={classes.heading}>Ready to stop letting your site go stale?</Text>
         <Text className={classes.subtext}>
-          Join thousands of people from Australia, Germany, all the way to the United States who have organized their emails and reclaimed their inbox with Zero Inbox.
+          Join SEO Gangster and let AI SEO agents handle the pages, articles, and weekly updates that search growth really needs.
         </Text>
         <Flex justify="center">
           <Button
             component="a"
-            href="https://app.zeroinbox.ai"
-            target="_blank"
+            href={SIGNUP_URL}
             size="xl"
             radius="xl"
             leftIcon={
@@ -123,7 +123,7 @@ export default function CTABanner() {
             onClick={() => registerClickSignUpEventGoogle()}
             className={classes.ctaButton}
           >
-            Get Started
+            Join the Signup List
           </Button>
         </Flex>
       </Box>

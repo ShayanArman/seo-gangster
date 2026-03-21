@@ -161,11 +161,11 @@ export default function NewsSection({ articles }: { articles: NewsArticle[] }) {
     <Box className={classes.container}>
       <h1 className={classes.heading}>News</h1>
       <div className={classes.intentLinks}>
-        <Link href="/ai-email-organizer" className={classes.intentLink}>AI Email Organizer</Link>
+        <Link href="/ai-seo-agents" className={classes.intentLink}>AI SEO Agents</Link>
         <Link href="/videos" className={classes.intentLink}>Videos</Link>
-        <Link href="/best-ai-email-organizer" className={classes.intentLink}>Best AI Email Organizer</Link>
-        <Link href="/clean-and-organize-emails" className={classes.intentLink}>How to Clean and Organize Emails</Link>
-        <Link href="/what-website-should-i-use-to-clean-or-organize-my-emails" className={classes.intentLink}>
+        <Link href="/best-ai-seo-agent" className={classes.intentLink}>Best AI SEO Agent</Link>
+        <Link href="/weekly-seo-updates" className={classes.intentLink}>Weekly SEO Updates</Link>
+        <Link href="/what-website-should-i-use-for-seo" className={classes.intentLink}>
           Exact Match Answer
         </Link>
       </div>

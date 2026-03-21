@@ -10,33 +10,33 @@ interface UserType {
 const userTypes: UserType[] = [
   {
     icon: <FiBriefcase size={24} />,
-    title: "Business Professionals",
-    description: "Reclaim hours lost to inbox clutter. Stay on top of critical emails and auto-clear the rest.",
+    title: "Founders",
+    description: "Launch the site, keep pages fresh, and stop letting search become a someday project.",
   },
   {
     icon: <FiUser size={24} />,
-    title: "Freelancers & Creators",
-    description: "Focus on your craft, not your inbox. Let Zero AI sort client emails from promotional noise.",
+    title: "Freelancers & Consultants",
+    description: "Use AI SEO agents to ship client pages and freshness updates without hiring a full team.",
   },
   {
     icon: <FiBook size={24} />,
-    title: "Students & Academics",
-    description: "Keep university emails front and center. Clear years of built-up clutter in seconds.",
+    title: "Content Sites",
+    description: "Turn stale articles into active search assets with regular refreshes and internal-link passes.",
   },
   {
     icon: <FiHeadphones size={24} />,
-    title: "Remote Workers",
-    description: "Multiple email accounts? Zero Inbox handles them all. Stay organized across every inbox.",
+    title: "Local Service Businesses",
+    description: "Create city pages, service pages, and supporting articles without the usual content bottleneck.",
   },
   {
     icon: <FiHeart size={24} />,
-    title: "Anyone Overwhelmed",
-    description: "Whether you have 100 or 100,000 unread emails, Zero Inbox will clean it up — fast.",
+    title: "Lean Marketing Teams",
+    description: "Get more search output than a single overloaded hire can usually deliver alone.",
   },
   {
     icon: <FiUsers size={24} />,
-    title: "Teams & Companies",
-    description: "Boost your team's email productivity. Enterprise-grade security, individual-level control.",
+    title: "Agencies",
+    description: "Use agent workflows to expand production capacity without turning every update into a meeting.",
   },
 ];
 
@@ -133,7 +133,7 @@ export default function UserTypes() {
     <Box className={classes.section}>
       <Box className={classes.inner}>
         <Text className={classes.heading}>
-          Zero Inbox is for everyone,{"\n"}not just power users.
+          SEO Gangster is for people who know{"\n"}search needs ongoing work.
         </Text>
         <div className={classes.grid}>
           {userTypes.map((type) => (

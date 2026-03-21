@@ -7,41 +7,41 @@ type UserStory = {
   testimonial: string;
   image: string;
   countryImage: string;
-  cleanedCount: number;
+  shippedCount: number;
 };
 
 const userStories: UserStory[] = [
   {
     fullName: "Lisa",
     city: "Victoria, BC",
-    testimonial: "Holy crap!!!",
+    testimonial: "We finally had fresh pages going live every single week.",
     image: "/images/people/icons8-hello-kitty-100.png",
     countryImage: "/images/countries/icons8-canada-48.png",
-    cleanedCount: 30130,
+    shippedCount: 118,
   },
   {
     fullName: "Shashank",
     city: "Austin, Texas",
-    testimonial: "Shayan was super helpful setting us up!",
+    testimonial: "The agents kept our service pages moving faster than any freelancer we tried.",
     image: "/images/people/icons8-futurama-bender-100.png",
     countryImage: "/images/countries/icons8-usa-48.png",
-    cleanedCount: 55383,
+    shippedCount: 164,
   },
   {
     fullName: "Jan",
     city: "Bern, Switzerland",
-    testimonial: "I like that it asks for my approval. Honestly pretty easy!",
+    testimonial: "Freshness updates stopped being a backlog and became part of the rhythm.",
     image: "/images/people/icons8-homer-simpson-100.png",
     countryImage: "/images/countries/icons8-switzerland-48.png",
-    cleanedCount: 62787,
+    shippedCount: 92,
   },
   {
     fullName: "Marcus",
     city: "San Francisco, CA",
-    testimonial: "Okay ya. No more emails hah.",
+    testimonial: "We got the site up, then the weekly SEO pass kept compounding from there.",
     image: "/images/people/icons8-theodore-peterson-100.png",
     countryImage: "/images/countries/icons8-usa-48.png",
-    cleanedCount: 21773,
+    shippedCount: 137,
   },
 ];
 
@@ -98,7 +98,7 @@ export default function UserCards() {
   return (
     <Box className={classes.wrapper}>
       <Box className={classes.container}>
-        <Text className={classes.heading}>Trusted by 15,000 creators &amp; businesses</Text>
+        <Text className={classes.heading}>Used by teams that need SEO to keep moving</Text>
         <SimpleGrid
         cols={4}
         spacing="lg"
@@ -136,7 +136,7 @@ export default function UserCards() {
               &quot;{user.testimonial}&quot;
             </Text>
             <Text className={classes.count}>
-              {user.cleanedCount.toLocaleString()} emails handled
+              {user.shippedCount.toLocaleString()} updates shipped
             </Text>
           </Card>
         ))}

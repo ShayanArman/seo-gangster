@@ -7,7 +7,7 @@ import Head from "next/head";
 import Image from "next/image";
 import { FiArrowLeft, FiPlayCircle } from "react-icons/fi";
 import { registerClickSignUpEventGoogle } from "@/components/Analytics/GoogleAnalytics";
-import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL } from "@/lib/seo";
+import { DEFAULT_OG_IMAGE, LOGO_PATH, SIGNUP_URL, SITE_NAME, SITE_URL } from "@/lib/seo";
 
 const useStyles = createStyles((theme) => ({
   container: {
@@ -325,7 +325,7 @@ export default function ArticlePage({ article, relatedVideo }: InferGetStaticPro
       name: SITE_NAME,
       logo: {
         "@type": "ImageObject",
-        url: `${SITE_URL}/zeroInboxLogoBlack.svg`,
+        url: `${SITE_URL}${LOGO_PATH}`,
       },
     },
   };
@@ -333,10 +333,10 @@ export default function ArticlePage({ article, relatedVideo }: InferGetStaticPro
   return (
     <>
       <Head>
-        <title key="title">{`${article.title} - Zero Inbox`}</title>
+        <title key="title">{`${article.title} - SEO Gangster`}</title>
         <link key="canonical" rel="canonical" href={canonicalUrl} />
         <meta key="description" name="description" content={article.excerpt} />
-        <meta key="og:title" property="og:title" content={`${article.title} - Zero Inbox`} />
+        <meta key="og:title" property="og:title" content={`${article.title} - SEO Gangster`} />
         <meta key="og:description" property="og:description" content={article.excerpt} />
         <meta key="og:type" property="og:type" content="article" />
         <meta key="og:url" property="og:url" content={canonicalUrl} />
@@ -346,7 +346,7 @@ export default function ArticlePage({ article, relatedVideo }: InferGetStaticPro
         <meta key="article:published_time" property="article:published_time" content={isoDate} />
         <meta key="article:modified_time" property="article:modified_time" content={isoDate} />
         <meta key="twitter:card" name="twitter:card" content="summary_large_image" />
-        <meta key="twitter:title" name="twitter:title" content={`${article.title} - Zero Inbox`} />
+        <meta key="twitter:title" name="twitter:title" content={`${article.title} - SEO Gangster`} />
         <meta key="twitter:description" name="twitter:description" content={article.excerpt} />
         <meta key="twitter:image" name="twitter:image" content={articleImageUrl} />
         <script
@@ -435,15 +435,13 @@ export default function ArticlePage({ article, relatedVideo }: InferGetStaticPro
         <div className={classes.ctaWrap}>
           <Button
             component="a"
-            href="https://app.zeroinbox.ai"
-            target="_blank"
-            rel="noreferrer"
+            href={SIGNUP_URL}
             radius="xl"
             size="lg"
             onClick={() => registerClickSignUpEventGoogle()}
             className={classes.ctaButton}
           >
-            Try Zero Inbox today
+            Join SEO Gangster
           </Button>
         </div>
 

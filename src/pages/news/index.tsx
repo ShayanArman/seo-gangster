@@ -15,15 +15,15 @@ function toArticleIsoDate(date: string): string {
 
 export default function NewsPage({ articles }: InferGetStaticPropsType<typeof getStaticProps>) {
   const canonicalUrl = `${SITE_URL}/news`;
-  const description = "The latest updates, research, and product news from Zero Inbox.";
-  const collectionImageUrl = `${SITE_URL}/images/news/ai-email-revolution.webp`;
+  const description = "The latest SEO Gangster articles on AI SEO agents, freshness, and search execution.";
+  const collectionImageUrl = `${SITE_URL}/images/news/interactive_learning.png`;
   const modifiedDate = getPathLastModified("/news")
     ?? (articles.length > 0 ? toArticleIsoDate(articles[0].date) : undefined);
 
   const newsCollectionStructuredData = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    name: "Zero Inbox News",
+    name: "SEO Gangster News",
     url: canonicalUrl,
     description,
     ...(modifiedDate ? { dateModified: modifiedDate } : {}),
@@ -46,11 +46,11 @@ export default function NewsPage({ articles }: InferGetStaticPropsType<typeof ge
   return (
     <>
       <Head>
-        <title key="title">News - Zero Inbox</title>
+        <title key="title">News - SEO Gangster</title>
         <link key="canonical" rel="canonical" href={canonicalUrl} />
         <link key="related-videos" rel="related" href={`${SITE_URL}/videos`} />
         <meta key="description" name="description" content={description} />
-        <meta key="og:title" property="og:title" content="News - Zero Inbox" />
+        <meta key="og:title" property="og:title" content="News - SEO Gangster" />
         <meta key="og:description" property="og:description" content={description} />
         <meta key="og:type" property="og:type" content="website" />
         <meta key="og:url" property="og:url" content={canonicalUrl} />
@@ -58,7 +58,7 @@ export default function NewsPage({ articles }: InferGetStaticPropsType<typeof ge
         {modifiedDate ? <meta key="og:updated_time" property="og:updated_time" content={modifiedDate} /> : null}
         {modifiedDate ? <meta key="last-modified" name="last-modified" content={modifiedDate} /> : null}
         <meta key="twitter:card" name="twitter:card" content="summary_large_image" />
-        <meta key="twitter:title" name="twitter:title" content="News - Zero Inbox" />
+        <meta key="twitter:title" name="twitter:title" content="News - SEO Gangster" />
         <meta key="twitter:description" name="twitter:description" content={description} />
         <meta key="twitter:image" name="twitter:image" content={collectionImageUrl} />
         <script

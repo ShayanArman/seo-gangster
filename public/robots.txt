@@ -31,4 +31,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://www.zeroinbox.ai/sitemap.xml
+Sitemap: https://seogangster.ai/sitemap.xml

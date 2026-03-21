@@ -103,13 +103,11 @@ export default function Story() {
       <Flex direction="column" className={classes.section} gap={10}>
         <Text className={classes.meta}>Published {publishedDate}</Text>
         <h1 className={classes.title}>
-          The Story Behind Zero Inbox
+          The Story Behind SEO Gangster
         </h1>
         <p className={classes.description}>
-          After leaving Siri at Apple, Shayan Arman started zeroinbox.ai with one core realization: email is still one of the
-          biggest parts of our day, but there was no true AI-first designed Email solution focused on organization, cleanup, and
-          user control. The vision was clear: build an AI Email Organizer and AI Email Cleaner that helps real people reach inbox
-          zero with confidence.
+          After leaving Siri at Apple, Shayan Arman kept seeing the same thing in online business: teams would launch a site,
+          maybe publish a few articles, and then stall. Search did not need more theory. It needed a faster way to keep shipping.
         </p>
       </Flex>
 
@@ -118,10 +116,9 @@ export default function Story() {
           Why We Started
         </h2>
         <p className={classes.description}>
-          We saw the same problem everywhere: too many emails, too much noise, not enough signal. Most tools made inbox work
-          faster, but did not redesign the workflow from an AI-first perspective. Zero Inbox was built to rethink how Email should
-          work, so cleanup and organization happen in minutes instead of becoming a daily burden. That is why we call it an AI
-          Email Organizer and AI Email Cleaner, not just another inbox tool.
+          We saw the same failure pattern everywhere: businesses knew they needed SEO, but the work after launch was too slow.
+          Pages did not get refreshed, technical fixes sat in docs, and the site stopped compounding. SEO Gangster was built to
+          rethink that workflow with AI agents so the site can keep moving.
         </p>
       </Flex>
 
@@ -130,8 +127,8 @@ export default function Story() {
           Founder
         </h2>
         <p className={classes.description}>
-          Shayan finished Waterloo Computer Engineering, worked at Apple on Siri from 2017 to 2021, and then started Zero Inbox
-          to help the world manage email with AI first. Learn more at{" "}
+          Shayan finished Waterloo Computer Engineering, worked at Apple on Siri from 2017 to 2021, and then started SEO Gangster
+          to help businesses do SEO with AI first. Learn more at{" "}
           <PeopleLink link="https://shayanarman.com/" content="shayanarman.com" />
           {" "}and see all links at{" "}
           <PeopleLink link="https://shayanarman.com/links" content="shayanarman.com/links" />.

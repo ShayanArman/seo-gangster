@@ -3,8 +3,8 @@ import Link from "next/link";
 import { Box, Paper, Text, createStyles } from "@mantine/core";
 import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL, getPathLastModified } from "@/lib/seo";
 
-const PUBLISH_DATE_LABEL = "March 10, 2026";
-const PUBLISH_DATE_ISO = "2026-03-10T00:00:00-07:00";
+const PUBLISH_DATE_LABEL = "March 21, 2026";
+const PUBLISH_DATE_ISO = "2026-03-21T00:00:00-07:00";
 
 const useStyles = createStyles((theme) => ({
   container: {
@@ -109,16 +109,16 @@ const useStyles = createStyles((theme) => ({
 export default function ToolsIndexPage() {
   const { classes } = useStyles();
   const canonicalUrl = `${SITE_URL}/tools`;
-  const title = "AI Tools - Human-Tested Reviews by Shayan Arman";
+  const title = "SEO Tools - Human-Tested Reviews by Shayan Arman";
   const description =
-    "Browse AI tool reviews from Shayan Arman to find the best AI tools for the job with human-tested writeups, ratings, and frequent updates.";
+    "Browse SEO and AI tool reviews from Shayan Arman to find the best tools for shipping pages, tracking performance, and keeping sites fresh.";
   const modifiedDate = getPathLastModified("/tools") ?? PUBLISH_DATE_ISO;
 
   const collectionStructuredData = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    name: "AI Tools",
-    headline: "AI Tools",
+    name: "SEO Tools",
+    headline: "SEO Tools",
     description,
     url: canonicalUrl,
     datePublished: PUBLISH_DATE_ISO,
@@ -129,8 +129,8 @@ export default function ToolsIndexPage() {
         {
           "@type": "ListItem",
           position: 1,
-          url: `${SITE_URL}/tools/superhuman`,
-          name: "Superhuman Review",
+          url: `${SITE_URL}/tools/google-search-console`,
+          name: "Google Search Console Review",
         },
       ],
     },
@@ -172,7 +172,7 @@ export default function ToolsIndexPage() {
         <title key="title">{title}</title>
         <link key="canonical" rel="canonical" href={canonicalUrl} />
         <meta key="description" name="description" content={description} />
-        <meta key="keywords" name="keywords" content="ai tools, ai tool reviews, superhuman review, human-tested ai tools" />
+        <meta key="keywords" name="keywords" content="seo tools, ai seo tools, google search console review, human-tested tools" />
         <meta key="og:title" property="og:title" content={title} />
         <meta key="og:description" property="og:description" content={description} />
         <meta key="og:type" property="og:type" content="article" />
@@ -199,24 +199,24 @@ export default function ToolsIndexPage() {
         <h1 className={classes.title}>Tools</h1>
 
         <Text className={classes.lead}>
-          Tools is the directory for AI Tool Reviews from Shayan Arman, helping you find the best AI tools for the job
-          with human-tested reviews, clear ratings, and frequent updates.
+          Tools is the directory for SEO and AI tool reviews from Shayan Arman, helping you find the products that
+          actually improve search execution instead of just looking clever in screenshots.
         </Text>
 
         <h2 className={classes.sectionTitle}>Tools</h2>
         <Paper className={classes.toolCard} shadow="none">
           <Text className={classes.toolName}>
-            <Link href="/tools/superhuman" className={classes.link}>Superhuman</Link>
+            <Link href="/tools/google-search-console" className={classes.link}>Google Search Console</Link>
           </Text>
-          <Text className={classes.toolMeta}>Rating: 3.5 / 5 stars</Text>
+          <Text className={classes.toolMeta}>Rating: 4.5 / 5 stars</Text>
           <Text className={classes.toolText}>
-            Superhuman is a premium email client built for fast keyboard-driven inbox triage. It feels polished and
-            quick, but the value depends on whether you want speed-first email or broader AI organization and cleanup.
+            Google Search Console is still one of the most important inputs in any SEO workflow because it shows what is
+            already getting impressions, where pages are slipping, and what deserves a freshness pass next.
           </Text>
         </Paper>
 
         <div className={classes.links}>
-          <Link href="/tools/superhuman" className={classes.link}>Read the Superhuman review</Link>
+          <Link href="/tools/google-search-console" className={classes.link}>Read the Google Search Console review</Link>
           <Link href="/ai-tool-reviews" className={classes.link}>Back to AI Tool Reviews</Link>
         </div>
       </Box>

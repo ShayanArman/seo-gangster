@@ -2,8 +2,8 @@ import { Flex } from "@mantine/core";
 import Link from "next/link";
 
 export default function NewsBar({ isSmallScreen }: { isSmallScreen: boolean }) {
-  const badgeText = "Zero Inbox v3.0.3";
-  const ctaText = "March 10th, 2026";
+  const badgeText = "SEO Gangster beta";
+  const ctaText = "AI SEO agents for weekly freshness";
 
   return (
     <Flex
@@ -62,7 +62,7 @@ export default function NewsBar({ isSmallScreen }: { isSmallScreen: boolean }) {
           </Flex>
 
           <Link
-            href="https://app.zeroinbox.ai"
+            href="/signup"
             style={{
               display: "inline-flex",
               alignItems: "center",

@@ -32,7 +32,7 @@ function buildRss() {
   <channel>
     <title>${SITE_NAME} News</title>
     <link>${SITE_URL}/news</link>
-    <description>Product updates and research from ${SITE_NAME}</description>
+    <description>AI SEO strategy, freshness, and publishing updates from ${SITE_NAME}</description>
     ${items}
   </channel>
 </rss>`;

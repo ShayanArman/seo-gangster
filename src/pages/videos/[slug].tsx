@@ -4,7 +4,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { FiArrowLeft, FiPlayCircle } from "react-icons/fi";
 import { registerClickSignUpEventGoogle } from "@/components/Analytics/GoogleAnalytics";
-import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL } from "@/lib/seo";
+import { DEFAULT_OG_IMAGE, SIGNUP_URL, SITE_NAME, SITE_URL } from "@/lib/seo";
 import { getAllVideos, getVideoBySlug, VideoEntry } from "@/lib/videos";
 
 const useStyles = createStyles((theme) => ({
@@ -288,10 +288,10 @@ export default function VideoPage({ video }: InferGetStaticPropsType<typeof getS
   return (
     <>
       <Head>
-        <title key="title">{`${video.title} | Zero Inbox Video`}</title>
+        <title key="title">{`${video.title} | SEO Gangster Video`}</title>
         <link key="canonical" rel="canonical" href={canonicalUrl} />
         <meta key="description" name="description" content={video.excerpt} />
-        <meta key="og:title" property="og:title" content={`${video.title} | Zero Inbox Video`} />
+        <meta key="og:title" property="og:title" content={`${video.title} | SEO Gangster Video`} />
         <meta key="og:description" property="og:description" content={video.excerpt} />
         <meta key="og:type" property="og:type" content="video.other" />
         <meta key="og:url" property="og:url" content={canonicalUrl} />
@@ -303,7 +303,7 @@ export default function VideoPage({ video }: InferGetStaticPropsType<typeof getS
         <meta key="og:video:height" property="og:video:height" content="720" />
         <meta key="last-modified" name="last-modified" content={isoDate} />
         <meta key="twitter:card" name="twitter:card" content="summary_large_image" />
-        <meta key="twitter:title" name="twitter:title" content={`${video.title} | Zero Inbox Video`} />
+        <meta key="twitter:title" name="twitter:title" content={`${video.title} | SEO Gangster Video`} />
         <meta key="twitter:description" name="twitter:description" content={video.excerpt} />
         <meta key="twitter:image" name="twitter:image" content={pageImageUrl} />
         <script
@@ -338,15 +338,13 @@ export default function VideoPage({ video }: InferGetStaticPropsType<typeof getS
             <div className={classes.actions}>
               <Button
                 component="a"
-                href="https://app.zeroinbox.ai"
-                target="_blank"
-                rel="noreferrer"
+                href={SIGNUP_URL}
                 radius="xl"
                 size="lg"
                 onClick={() => registerClickSignUpEventGoogle()}
                 className={classes.primaryButton}
               >
-                Try Zero Inbox
+                Join SEO Gangster
               </Button>
               <Button
                 component="a"
@@ -370,11 +368,11 @@ export default function VideoPage({ video }: InferGetStaticPropsType<typeof getS
               This page puts the video first, so you can watch immediately and get the point
               without digging through a longer article first.
             </Text>
-            <Text className={classes.sidebarLabel}>What Zero Inbox stands for</Text>
+            <Text className={classes.sidebarLabel}>What SEO Gangster stands for</Text>
             <ul className={classes.sidebarList}>
-              <li>The Official AI Email Organizer.</li>
-              <li>The Safest AI Email Cleaner.</li>
-              <li>Asks for Permission everytime.</li>
+              <li>Build the site and keep it fresh.</li>
+              <li>Use AI agents for the repetitive SEO work.</li>
+              <li>Keep weekly execution cheap enough to sustain.</li>
             </ul>
           </div>
         </div>

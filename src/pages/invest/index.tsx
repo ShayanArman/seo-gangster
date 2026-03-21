@@ -1,5 +1,6 @@
 import { Button, createStyles, Flex, Text } from "@mantine/core";
 import { FaBandcamp, FaDocker } from "react-icons/fa";
+import { SIGNUP_URL } from "@/lib/seo";
 
 const useStyles = createStyles((theme) => ({
   container: {
@@ -44,47 +45,42 @@ export default function Invest() {
     <Flex direction="column" align={"center"} className={classes.container} gap={30}>
       <Flex direction="column" align="center" className={classes.section} gap={10}>
         <h1 className={classes.title}>
-          Join Us
+          Work With SEO Gangster
         </h1>
         <Button 
           mt={15}
           radius="lg" 
           component="a"
-          href="https://buy.stripe.com/6oU3cv9CF9OL5EH62z7kc06"
+          href={SIGNUP_URL}
           size={ "xl"}
           color="dark"
-          target="_blank"
           variant="outline"
           leftIcon={<FaBandcamp />}
         >
-          Click Here
+          Join the signup list
         </Button>
       </Flex>
 
       <Flex direction="column" align="center" className={classes.section} gap={10}>
         <h1 className={classes.title}>
-          AI Workflows
+          Why partner with us
         </h1>
         <Text className={classes.description}>
-          The goal of AI Workflows is to redesign work. We believe that mundane tasks in office work can be automated.
-          The current industry approach are AI Agents - that can completely automate work, such as emailing clients,
-          automating away Junior Accountants. We think a better approach is Workflows. Where competent individuals use Workflows
-          to aid them in their day to day tasks. For example an accountant quickly looking through a Customers emails for receipts.
-          Or a Real Estate Agent creating Listing websites with one Click. Were excited for you to join us on this Journey!
-          - Shayan Arman, CEO of Zero Inbox AI Workflows LTD.
+          SEO Gangster is built for operators who want AI SEO agents doing real execution work: building pages, refreshing
+          articles, and handling the technical follow-through that usually gets delayed. If that sounds like your kind of system,
+          this is where to start.
         </Text>
         <Button 
           mt={15}
           radius="lg" 
           component="a"
-          href="https://app.zeroinbox.ai"
+          href={SIGNUP_URL}
           size={ "xl"}
           color="dark"
-          target="_blank"
           variant="outline"
           leftIcon={<FaDocker />}
         >
-          Click Here
+          Get started
         </Button>
       </Flex>
 
@@ -93,7 +89,7 @@ export default function Invest() {
           Advisory
         </h1>
         <p className={classes.description}>
-          We are advised by <span><PeopleLink link="https://www.linkedin.com/in/wmyork/" content="William York" /></span>. MIT, Apple;
+          We care about operators who know that search growth needs both creativity and discipline. If that sounds like you, reach out.
         </p>
       </Flex>
 
@@ -102,7 +98,7 @@ export default function Invest() {
           Founder Bio
         </h1>
         <p className={classes.description}>
-          <span><PeopleLink link="https://www.linkedin.com/in/shayan-arman/" content="Shayan Arman" /></span> graduated from Waterloo with an Honours Degree in Computer Engineer. He went on to work at Apple Inc in 2017, launching multiple Siri products. From there he gained worldwide experience traveling to over 35 countries. And starting ZeroInbox.ai, the worlds first AI First Email Organizer.
+          <span><PeopleLink link="https://www.linkedin.com/in/shayan-arman/" content="Shayan Arman" /></span> graduated from Waterloo Computer Engineering and worked at Apple on Siri from 2017 to 2021 before starting SEO Gangster to turn AI into a real SEO execution system.
         </p>
       </Flex>
     </Flex>

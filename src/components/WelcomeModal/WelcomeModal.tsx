@@ -1,4 +1,5 @@
 import { Modal, Text, Button, Flex, createStyles } from "@mantine/core";
+import { SIGNUP_URL } from "@/lib/seo";
 
 const useStyles = createStyles((theme) => ({
   modalContainer: {
@@ -146,24 +147,23 @@ export default function AnnouncementModal({
         <Flex direction="column" align="center" justify="center">
           <Flex direction="column" mt={15}>
             <Text className={classes.content} weight={700}>
-              New Product - Supercharge your Sales.
+              New Product - AI SEO agents for weekly growth.
             </Text>
             <Text className={classes.content} italic={true} weight={500}>
-              With ZeroInbox.ai AI Workflows
+              With SEO Gangster
             </Text>
           </Flex>
           <Button
             mt={10}
             style={{outline: 'none'}}
             component="a"
-            href="https://app.zeroinbox.ai"
-            target="_blank"
+            href={SIGNUP_URL}
             variant="outline"
             color={"dark"}
             radius="xl"
             size="xl"
           >
-            Check it out
+            Join the Signup List
           </Button>
         </Flex>
       </Modal>

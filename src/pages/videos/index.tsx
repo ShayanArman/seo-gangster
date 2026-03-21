@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { FiArrowRight, FiPlayCircle } from "react-icons/fi";
 import { registerClickSignUpEventGoogle } from "@/components/Analytics/GoogleAnalytics";
-import { SITE_NAME, SITE_URL, getPathLastModified } from "@/lib/seo";
+import { SIGNUP_URL, SITE_NAME, SITE_URL, getPathLastModified } from "@/lib/seo";
 import { getAllVideos, VideoEntry } from "@/lib/videos";
 
 const useStyles = createStyles((theme) => ({
@@ -220,7 +220,7 @@ export default function VideosPage({ videos }: InferGetStaticPropsType<typeof ge
   const { classes } = useStyles();
   const canonicalUrl = `${SITE_URL}/videos`;
   const description =
-    "Watch Zero Inbox videos about inbox zero, AI email organizer workflows, and how to clean and organize emails faster.";
+    "Watch SEO Gangster videos about AI SEO agents, weekly updates, and practical search execution.";
   const modifiedDate =
     videos.length > 0
       ? new Date(`${videos[0].date}T00:00:00Z`).toISOString()
@@ -229,7 +229,7 @@ export default function VideosPage({ videos }: InferGetStaticPropsType<typeof ge
   const collectionStructuredData = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    name: "Zero Inbox Videos",
+    name: "SEO Gangster Videos",
     url: canonicalUrl,
     description,
     ...(modifiedDate ? { dateModified: modifiedDate } : {}),
@@ -252,10 +252,10 @@ export default function VideosPage({ videos }: InferGetStaticPropsType<typeof ge
   return (
     <>
       <Head>
-        <title key="title">Videos - Zero Inbox</title>
+        <title key="title">Videos - SEO Gangster</title>
         <link key="canonical" rel="canonical" href={canonicalUrl} />
         <meta key="description" name="description" content={description} />
-        <meta key="og:title" property="og:title" content="Videos - Zero Inbox" />
+        <meta key="og:title" property="og:title" content="Videos - SEO Gangster" />
         <meta key="og:description" property="og:description" content={description} />
         <meta key="og:type" property="og:type" content="website" />
         <meta key="og:url" property="og:url" content={canonicalUrl} />
@@ -264,7 +264,7 @@ export default function VideosPage({ videos }: InferGetStaticPropsType<typeof ge
         ) : null}
         {modifiedDate ? <meta key="last-modified" name="last-modified" content={modifiedDate} /> : null}
         <meta key="twitter:card" name="twitter:card" content="summary_large_image" />
-        <meta key="twitter:title" name="twitter:title" content="Videos - Zero Inbox" />
+        <meta key="twitter:title" name="twitter:title" content="Videos - SEO Gangster" />
         <meta key="twitter:description" name="twitter:description" content={description} />
         <script
           key="ld-video-collection"
@@ -276,37 +276,33 @@ export default function VideosPage({ videos }: InferGetStaticPropsType<typeof ge
       <Box className={classes.container}>
         <div className={classes.hero}>
           <div>
-            <h1 className={classes.title}>Watch Zero Inbox videos</h1>
+            <h1 className={classes.title}>Watch SEO Gangster videos</h1>
             <Text className={classes.subtitle}>
-              Email never really ends. These watch pages make the videos easy to find, easy to
-              watch, and easier for Google to understand as their own destination.
+              SEO never really stays done. These watch pages cover AI SEO agents, weekly updates,
+              and the search work that keeps a site moving.
             </Text>
 
             <div className={classes.actions}>
               <Button
                 component="a"
-                href="https://app.zeroinbox.ai"
-                target="_blank"
-                rel="noreferrer"
+                href={SIGNUP_URL}
                 radius="xl"
                 size="lg"
                 onClick={() => registerClickSignUpEventGoogle()}
                 className={classes.primaryButton}
               >
-                Try Zero Inbox
+                Join SEO Gangster
               </Button>
               <Button
                 component="a"
-                href="https://www.youtube.com/@zeroinbox"
-                target="_blank"
-                rel="noreferrer"
+                href="/news"
                 radius="xl"
                 size="lg"
                 variant="outline"
                 className={classes.secondaryButton}
                 leftIcon={<FiPlayCircle size={18} />}
               >
-                Open YouTube channel
+                Read the written guides
               </Button>
             </div>
           </div>
@@ -319,8 +315,7 @@ export default function VideosPage({ videos }: InferGetStaticPropsType<typeof ge
             </Text>
             <Text className={classes.noteTitle}>What the videos are about</Text>
             <Text className={classes.noteText}>
-              AI email organizing, inbox zero habits, and the daily need to clean and organize
-              emails safely without giving up control.
+              AI SEO agents, freshness updates, and the systems that keep search execution moving.
             </Text>
           </div>
         </div>

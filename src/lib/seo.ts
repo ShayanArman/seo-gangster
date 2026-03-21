@@ -1,8 +1,15 @@
-export const SITE_NAME = "Zero Inbox";
-export const SITE_URL = "https://www.zeroinbox.ai";
-export const DEFAULT_OG_IMAGE = `${SITE_URL}/images/features-1200px.png`;
+export const SITE_NAME = "SEO Gangster";
+export const SITE_URL = "https://seogangster.ai";
+export const SITE_TAGLINE = "AI SEO agents for pages, articles, and weekly freshness.";
+export const SIGNUP_PATH = "/signup";
+export const SIGNUP_URL = `${SITE_URL}${SIGNUP_PATH}`;
+export const CONTACT_EMAIL = "hello@seogangster.ai";
+export const JOBS_EMAIL = "jobs@seogangster.ai";
+export const LOGO_PATH = "/seogangster-logo.svg";
+export const MARK_PATH = "/seogangster-mark.svg";
+export const DEFAULT_OG_IMAGE = `${SITE_URL}/images/news/interactive_learning.png`;
 export const DEFAULT_KEYWORDS =
-  "ai email organizer, inbox zero, email cleaner, email management, unsubscribe tool, productivity";
+  "ai seo agents, seo automation, weekly seo updates, technical seo automation, seo freshness";
 
 export interface SeoMeta {
   title: string;
@@ -12,191 +19,197 @@ export interface SeoMeta {
 }
 
 const DEFAULT_META: SeoMeta = {
-  title: "Zero Inbox - AI Email Organizer. Clean your inbox, organize your emails.",
+  title: "SEO Gangster - AI SEO agents that build, refresh, and rank",
   description:
-    "Zero Inbox is the AI email organizer that deletes spam, unsubscribes from noise, and organizes what is left in seconds.",
+    "SEO Gangster uses AI SEO agents to build pages, publish articles, and keep sites fresh with weekly updates that compound rankings.",
   keywords: DEFAULT_KEYWORDS,
   ogType: "website",
 };
 
 const PATH_META: Record<string, Partial<SeoMeta>> = {
   "/": {
-    title: "Zero Inbox - AI Email Organizer. Clean your inbox, organize your emails.",
+    title: "SEO Gangster - AI SEO agents that build, refresh, and rank",
     description:
-      "Zero Inbox is an ai email organizer that helps you clean your inbox, bulk-delete clutter, and stay focused on important email.",
+      "Build the site, ship the articles, and keep publishing freshness updates with AI SEO agents from SEO Gangster.",
+  },
+  "/signup": {
+    title: "Sign Up - SEO Gangster",
+    description:
+      "Join SEO Gangster to start using AI SEO agents for weekly updates, technical SEO work, and page creation.",
   },
   "/about": {
-    title: "About Zero Inbox - AI Email Organizer Team and Mission",
+    title: "About SEO Gangster - AI SEO systems built for ongoing rankings",
     description:
-      "Learn about Zero Inbox, the ai email organizer built to reduce email overload and keep teams productive.",
+      "Learn why SEO Gangster exists and why SEO needs weekly execution, not one-and-done publishing.",
   },
   "/story": {
-    title: "The Story of Zero Inbox - AI-First Email by Shayan Arman",
+    title: "The Story of SEO Gangster - Search growth with AI agents",
     description:
-      "Read how Shayan Arman started Zero Inbox after Siri at Apple to build an AI-first designed email solution for modern inbox overload.",
+      "Read how Shayan Arman went from Siri at Apple to building SEO Gangster for AI-driven search growth.",
   },
-  "/ai-email-organizer": {
-    title: "AI Email Organizer - Zero Inbox",
+  "/ai-seo-agents": {
+    title: "AI SEO Agents - SEO Gangster",
     description:
-      "Zero Inbox is an ai email organizer for Gmail, Outlook, and Hotmail inbox cleanup, unsubscribe management, and faster email organization.",
+      "SEO Gangster uses AI SEO agents to research, write, publish, and refresh pages faster than manual SEO teams.",
+  },
+  "/best-ai-seo-agent": {
+    title: "Best AI SEO Agent - SEO Gangster",
+    description:
+      "Looking for the best AI SEO agent? SEO Gangster is built for page creation, freshness updates, and technical execution.",
+  },
+  "/weekly-seo-updates": {
+    title: "Weekly SEO Updates - SEO Gangster",
+    description:
+      "SEO is not one publish button. Weekly SEO updates keep content fresh, rankings alive, and internal links improving over time.",
+  },
+  "/what-website-should-i-use-for-seo": {
+    title: "What Website Should I Use for SEO? - SEO Gangster",
+    description:
+      "If you want a site built around AI SEO agents, content publishing, and freshness, use SEO Gangster.",
+  },
+  "/seo-is-two-steps": {
+    title: "SEO Is Two Steps - Build and Refresh | SEO Gangster",
+    description:
+      "SEO is two steps: create the site and articles, then keep making weekly freshness updates. SEO Gangster handles both.",
+  },
+  "/seo-agents-vs-seo-person": {
+    title: "AI SEO Agents vs Hiring an SEO Person - SEO Gangster",
+    description:
+      "Compare AI SEO agents versus hiring one SEO person for execution speed, freshness, cost, and up-to-date search knowledge.",
+  },
+  "/seo-agents-vs-social-media-manager": {
+    title: "AI SEO Agents vs Social Media Manager - SEO Gangster",
+    description:
+      "If your goal is search traffic, AI SEO agents can often ship weekly SEO updates faster and cheaper than a social media manager.",
+  },
+  "/seo-agency-alternatives": {
+    title: "SEO Agency Alternatives - SEO Gangster",
+    description:
+      "Compare SEO agency alternatives and see why AI SEO agents give founders a faster, leaner way to publish and refresh search pages.",
+  },
+  "/technical-seo-automation": {
+    title: "Technical SEO Automation - SEO Gangster",
+    description:
+      "Automate schema checks, internal links, on-page fixes, and technical SEO follow-through with SEO Gangster.",
   },
   "/ai-tool-reviews": {
-    title: "AI Tool Reviews by Shayan Arman - Human Reviews, Star Ratings, Last Tried",
+    title: "AI SEO Tool Reviews by Shayan Arman - SEO Gangster",
     description:
-      "AI Tool Reviews from Shayan Arman help you find the best AI tools for the job with human-tested, 5-star reviews, Last Tried dates, and frequent updates.",
+      "Human-tested reviews of SEO and AI tools from Shayan Arman, focused on what actually helps teams rank.",
   },
   "/tools": {
-    title: "AI Tools - Human-Tested Reviews by Shayan Arman",
+    title: "SEO Tools - Reviewed by SEO Gangster",
     description:
-      "Browse AI tools reviewed by Shayan Arman with human-tested notes, ratings, and direct links to each tool review.",
+      "Browse SEO Gangster's AI and SEO tool reviews, with clear verdicts and practical notes for real operators.",
   },
-  "/tools/superhuman": {
-    title: "Superhuman Review - 3.5 / 5 Stars",
+  "/tools/google-search-console": {
+    title: "Google Search Console Review - SEO Gangster",
     description:
-      "Read the human-tested Superhuman review from Shayan Arman with a 3.5 / 5 star rating and a concise verdict.",
-  },
-  "/best-ai-email-organizer": {
-    title: "Best AI Email Organizer - Official AI Email Organizer | Zero Inbox",
-    description:
-      "Best AI Email Organizer: Zero Inbox is the Official AI Email Organizer and the Safest AI Email Cleaner for people who need inbox zero.",
-  },
-  "/clean-and-organize-emails": {
-    title: "How to Clean and Organize Emails Fast - Zero Inbox",
-    description:
-      "Learn how to clean and organize email quickly with Zero Inbox, an ai email organizer built for bulk actions.",
-  },
-  "/what-website-should-i-use-to-clean-or-organize-my-emails": {
-    title: "What Website Should I Use to Clean or Organize My Emails? - Zero Inbox",
-    description:
-      "What website should I use to clean or organize my emails? Use Zero Inbox, the Official AI Email Organizer and the Safest AI Email Cleaner.",
-  },
-  "/mark-zuckerberg-loves-inbox-zero-ai": {
-    title: "Mark Zuckerberg Practices Inbox Zero - Steve Jobs Too | Zero Inbox",
-    description:
-      "Why email is a huge mental load problem, and how the same logic behind simplified daily decisions points toward inbox zero.",
-  },
-  "/sanebox-alternatives": {
-    title: "SaneBox Alternatives - Official AI Email Organizer | Zero Inbox",
-    description:
-      "Compare SaneBox alternatives and choose Zero Inbox, the Official AI Email Organizer and Safest AI Email Cleaner.",
-  },
-  "/sanebox-vs-superhuman": {
-    title: "SaneBox vs Superhuman - Comparison | Zero Inbox",
-    description:
-      "SaneBox vs Superhuman comparison for workflow, speed, and inbox cleanup strategy, plus a safer AI Email Cleaner option.",
-  },
-  "/superhuman-alternatives": {
-    title: "Superhuman Alternatives - Official AI Email Organizer | Zero Inbox",
-    description:
-      "Compare Superhuman alternatives and choose Zero Inbox, the Official AI Email Organizer and Safest AI Email Cleaner.",
-  },
-  "/fyxer-alternatives": {
-    title: "Fyxer Alternatives - Official AI Email Organizer | Zero Inbox",
-    description:
-      "Compare Fyxer alternatives including Zero Inbox, Superhuman, Shortwave, Missive, Front, and SaneBox. Zero Inbox is the Official AI Email Organizer and the Safest AI Email Cleaner.",
-  },
-  "/fyxer-ai-vs-zero-inbox-ai": {
-    title: "Fyxer AI vs Zero Inbox AI - Comparison | Zero Inbox",
-    description:
-      "Fyxer AI vs Zero Inbox AI comparison for workflow, inbox cleanup control, and safer AI Email Cleaner execution.",
-  },
-  "/fyxer-ai-vs-superhuman": {
-    title: "Fyxer AI vs Superhuman - Comparison | Zero Inbox",
-    description:
-      "Fyxer AI vs Superhuman comparison for email workflow speed, AI assistance, and safer cleanup control.",
+      "A practical review of Google Search Console and why it matters inside an AI-first SEO workflow.",
   },
   "/invest": {
-    title: "Zero Inbox Invest - AI Workflows and Email Automation",
+    title: "Partner With SEO Gangster",
     description:
-      "Explore Zero Inbox invest and workflow initiatives focused on practical AI automation for email and business operations.",
+      "Partner with SEO Gangster on AI SEO systems, rollout strategy, and hands-on search execution.",
   },
   "/news": {
-    title: "Zero Inbox News - AI Email Organizer Updates",
+    title: "SEO Gangster News - AI SEO strategy and freshness updates",
     description:
-      "Read Zero Inbox updates, product news, and research on inbox zero, privacy, and AI email management.",
+      "Read SEO Gangster articles on AI SEO agents, freshness, technical SEO, and publishing systems that keep rankings moving.",
   },
   "/videos": {
-    title: "Zero Inbox Videos - AI Email Organizer Watch Pages",
+    title: "SEO Gangster Videos - Watch AI SEO workflows",
     description:
-      "Watch Zero Inbox videos about inbox zero, AI email organizer workflows, and how to clean and organize emails faster.",
+      "Watch SEO Gangster videos about AI SEO agents, weekly updates, and practical search execution.",
   },
   "/dynamodb": {
-    title: "DynamoDB, but elegant. | @zeroinbox/dynamo",
+    title: "SEO Ops, but scripted. | @seogangster/ops",
     description:
-      "@zeroinbox/dynamo is a TypeScript DynamoDB ORM from Zero Inbox for strongly typed models and cleaner DynamoDB workflows.",
+      "@seogangster/ops is the SEO Gangster package idea for search teams that want clean, repeatable automation.",
+  },
+  "/terms": {
+    title: "Terms - SEO Gangster",
+    description: "Terms for using SEO Gangster and joining the signup list.",
+  },
+  "/privacy": {
+    title: "Privacy - SEO Gangster",
+    description: "Privacy details for SEO Gangster signup and site usage.",
   },
   "/workflows": {
-    title: "Zero Inbox Workflows - AI Workflow Automation",
+    title: "SEO Gangster Workflows - AI SEO execution systems",
     description:
-      "Discover Zero Inbox workflows for email management, sales, and accounting automation.",
+      "See the AI SEO workflows SEO Gangster uses for freshness, internal linking, page briefs, and technical cleanup.",
   },
-  "/workflows/accounting": {
-    title: "Accounting Workflows - Zero Inbox",
+  "/workflows/content-refresh": {
+    title: "Content Refresh Workflows - SEO Gangster",
     description:
-      "AI workflow automation for accounting operations from Zero Inbox.",
+      "AI workflows for weekly content refreshes, page updates, and search freshness.",
   },
-  "/workflows/email-management": {
-    title: "Email Management Workflows - Zero Inbox",
+  "/workflows/technical-seo": {
+    title: "Technical SEO Workflows - SEO Gangster",
     description:
-      "Email management workflows and automation tools from Zero Inbox.",
+      "Schema, internal linking, title checks, and technical SEO follow-through handled with AI workflows.",
   },
-  "/workflows/sales": {
-    title: "Sales Workflows - Zero Inbox",
+  "/workflows/local-pages": {
+    title: "Local SEO Page Workflows - SEO Gangster",
     description:
-      "Sales workflow automation tools from Zero Inbox.",
+      "Launch and maintain local landing pages faster with AI-assisted SEO workflows.",
   },
-  "/workflows/workflow/contacts-sync": {
-    title: "Contacts Sync Workflow - Zero Inbox",
+  "/workflows/workflow/freshness-pass": {
+    title: "Freshness Pass Workflow - SEO Gangster",
     description:
-      "Sync contacts with AI-assisted workflow automation from Zero Inbox.",
+      "Run a fast freshness pass on existing pages with AI-assisted SEO execution from SEO Gangster.",
   },
-  "/workflows/workflow/email-cleaner": {
-    title: "Email Cleaner Workflow - Zero Inbox",
+  "/workflows/workflow/internal-linking": {
+    title: "Internal Linking Workflow - SEO Gangster",
     description:
-      "Use Zero Inbox email cleaner workflows to reduce inbox clutter quickly.",
+      "Use AI to find internal linking opportunities and keep site structure improving over time.",
   },
-  "/workflows/workflow/sequencer": {
-    title: "Sales Sequencer Workflow - Zero Inbox",
+  "/workflows/workflow/page-briefs": {
+    title: "Page Brief Workflow - SEO Gangster",
     description:
-      "Automate outreach flow with the sales sequencer workflow from Zero Inbox.",
+      "Generate page briefs and article structures with AI SEO agents from SEO Gangster.",
   },
-  "/workflows/workflow/transaction-summary": {
-    title: "Transaction Summary Workflow - Zero Inbox",
+  "/workflows/workflow/schema-audit": {
+    title: "Schema Audit Workflow - SEO Gangster",
     description:
-      "Generate accounting transaction summaries with Zero Inbox AI workflows.",
+      "Review and ship schema improvements with a technical SEO workflow from SEO Gangster.",
   },
 };
 
+const MARCH_21 = "2026-03-21T00:00:00-07:00";
+
 const PATH_LAST_MODIFIED: Record<string, string> = {
-  "/": "2026-03-03T00:11:55-08:00",
-  "/about": "2026-02-27T10:49:51-08:00",
-  "/story": "2026-02-27T10:50:24-08:00",
-  "/ai-email-organizer": "2026-03-05T14:36:43-08:00",
-  "/ai-tool-reviews": "2026-03-10T00:00:00-07:00",
-  "/tools": "2026-03-10T00:00:00-07:00",
-  "/tools/superhuman": "2026-03-10T00:00:00-07:00",
-  "/best-ai-email-organizer": "2026-03-16T21:30:03-07:00",
-  "/clean-and-organize-emails": "2026-02-24T14:16:45-08:00",
-  "/what-website-should-i-use-to-clean-or-organize-my-emails": "2026-03-16T21:34:23-07:00",
-  "/mark-zuckerberg-loves-inbox-zero-ai": "2026-03-15T00:00:00-07:00",
-  "/sanebox-alternatives": "2026-02-27T10:27:58-08:00",
-  "/sanebox-vs-superhuman": "2026-02-27T10:27:58-08:00",
-  "/superhuman-alternatives": "2026-03-11T00:00:00-07:00",
-  "/fyxer-alternatives": "2026-03-19T00:00:00-07:00",
-  "/fyxer-ai-vs-zero-inbox-ai": "2026-02-27T10:34:40-08:00",
-  "/fyxer-ai-vs-superhuman": "2026-02-27T10:37:07-08:00",
-  "/invest": "2026-02-24T00:41:59-08:00",
-  "/news": "2026-03-21T00:00:00-07:00",
-  "/videos": "2026-03-16T00:00:00-07:00",
-  "/dynamodb": "2026-03-02T23:51:39-08:00",
-  "/workflows": "2025-08-23T08:33:12-07:00",
-  "/workflows/accounting": "2025-08-23T08:33:12-07:00",
-  "/workflows/email-management": "2025-08-23T08:33:12-07:00",
-  "/workflows/sales": "2025-08-23T08:33:12-07:00",
-  "/workflows/workflow/contacts-sync": "2025-08-23T08:33:12-07:00",
-  "/workflows/workflow/email-cleaner": "2025-08-23T08:33:12-07:00",
-  "/workflows/workflow/sequencer": "2025-08-23T08:33:12-07:00",
-  "/workflows/workflow/transaction-summary": "2025-08-23T08:33:12-07:00",
+  "/": MARCH_21,
+  "/signup": MARCH_21,
+  "/about": MARCH_21,
+  "/story": MARCH_21,
+  "/ai-seo-agents": MARCH_21,
+  "/best-ai-seo-agent": MARCH_21,
+  "/weekly-seo-updates": MARCH_21,
+  "/what-website-should-i-use-for-seo": MARCH_21,
+  "/seo-is-two-steps": MARCH_21,
+  "/seo-agents-vs-seo-person": MARCH_21,
+  "/seo-agents-vs-social-media-manager": MARCH_21,
+  "/seo-agency-alternatives": MARCH_21,
+  "/technical-seo-automation": MARCH_21,
+  "/ai-tool-reviews": MARCH_21,
+  "/tools": MARCH_21,
+  "/tools/google-search-console": MARCH_21,
+  "/invest": MARCH_21,
+  "/news": MARCH_21,
+  "/videos": MARCH_21,
+  "/dynamodb": MARCH_21,
+  "/terms": MARCH_21,
+  "/privacy": MARCH_21,
+  "/workflows": MARCH_21,
+  "/workflows/content-refresh": MARCH_21,
+  "/workflows/technical-seo": MARCH_21,
+  "/workflows/local-pages": MARCH_21,
+  "/workflows/workflow/freshness-pass": MARCH_21,
+  "/workflows/workflow/internal-linking": MARCH_21,
+  "/workflows/workflow/page-briefs": MARCH_21,
+  "/workflows/workflow/schema-audit": MARCH_21,
 };
 
 export function normalizePath(inputPath: string): string {

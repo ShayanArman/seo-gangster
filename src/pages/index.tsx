@@ -1,7 +1,7 @@
 import { FEATURES_SECTION, UNSUBSCRIBE_SECTION, SECURITY_SECTION, PRIVACY_SECTION, BUSINESS_SECTION, mainPageSections } from "@/components/ZeroHeader/ZeroHeader";
 import { HEADER_PIXEL_HEIGHT } from "@/components/ZeroHeader/ZeroHeader";
 import useIsMobile from "@/hooks/useIsMobile";
-import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL, getPathLastModified } from "@/lib/seo";
+import { DEFAULT_OG_IMAGE, SIGNUP_URL, SITE_NAME, SITE_URL, getPathLastModified } from "@/lib/seo";
 import FeatureSection from "@/components/FeatureSection";
 import StepsSection from "@/components/StepsSection";
 import NewsBar from "@/components/NewsBar/NewsBar";
@@ -34,12 +34,12 @@ export default function Home() {
     url: SITE_URL,
     image: DEFAULT_OG_IMAGE,
     description:
-      "Zero Inbox is an ai email organizer that helps users clean email, unsubscribe from noise, and keep important messages.",
+      "SEO Gangster uses AI SEO agents to create pages, publish articles, and keep sites fresh with weekly updates.",
     featureList: [
-      "AI email categorization",
-      "Bulk inbox cleanup",
-      "One-click unsubscribe",
-      "Inbox organization",
+      "AI SEO page creation",
+      "Weekly freshness updates",
+      "Technical SEO automation",
+      "Internal linking improvements",
     ],
     publisher: {
       "@type": "Organization",
@@ -104,22 +104,22 @@ export default function Home() {
       {/* ── Feature: Delete Spam ── */}
       <FeatureSection
         id={FEATURES_SECTION}
-        title="Delete spam fast with Zero Inbox."
-        description="You've got too much going on to clean emails."
+        title="Build landing pages fast."
+        description="SEO starts with the site and the articles. AI agents make that first step faster."
         checks={[
-          "AI-powered email organization in seconds.",
-          "Bulk delete thousands of emails with one click.",
-          "Smart filters keep what matters to you.",
+          "Create core service pages around what you actually sell.",
+          "Publish supporting articles without waiting on a huge content calendar.",
+          "Move from idea to live page in days, not quarters.",
         ]}
-        ctaText="Start Cleaning"
-        ctaHref="https://app.zeroinbox.ai"
+        ctaText="Start Building"
+        ctaHref={SIGNUP_URL}
         image={
           <Image
             style={{ borderRadius: "24px", boxShadow: "7px 7px 10px 0px var(--shadow-color)" }}
-            width={200}
-            height={400}
-            alt="Zero Inbox features"
-            src="/images/features-1200px.png"
+            width={320}
+            height={320}
+            alt="SEO Gangster page creation"
+            src="/images/news/interactive_learning.png"
           />
         }
         bgColor="#f6f7f5"
@@ -131,22 +131,22 @@ export default function Home() {
       {/* ── Feature: Unsubscribe ── */}
       <FeatureSection
         id={UNSUBSCRIBE_SECTION}
-        title="Unsubscribe is here."
-        description="Unsubscribe seamlessly from newsletters and promotions. With the press of a button, clean your inbox and stay at zero."
+        title="Freshness is the second half of SEO."
+        description="The site is only step one. Weekly updates are what keep pages relevant and rankings alive."
         checks={[
-          "One-click unsubscribe from any sender.",
-          "Permanently block unwanted newsletters.",
-          "Track every unsubscribe action.",
+          "Refresh older pages every week instead of letting them decay.",
+          "Expand content clusters as new opportunities show up.",
+          "Treat SEO like an operating system, not a launch event.",
         ]}
-        ctaText="Try Unsubscribe"
-        ctaHref="https://app.zeroinbox.ai"
+        ctaText="Run Weekly Updates"
+        ctaHref={SIGNUP_URL}
         image={
           <Image
             style={{ borderRadius: "24px", boxShadow: "7px 7px 10px 0px var(--shadow-color)" }}
-            width={200}
-            height={400}
-            alt="Unsubscribe feature"
-            src="/images/unsubscribe-1200px.png"
+            width={320}
+            height={320}
+            alt="SEO freshness updates"
+            src="/images/news/text_scaling-for-everyone.png"
           />
         }
         bgColor="#f6f7f5"
@@ -159,22 +159,22 @@ export default function Home() {
       {/* ── Feature: Security ── */}
       <FeatureSection
         id={SECURITY_SECTION}
-        title="Secure from the ground up."
-        description="Google Security Partner. End-to-end encryption at every step. Your emails are never stored or shared."
+        title="Technical SEO should not sit in a spreadsheet."
+        description="Schema issues, internal links, stale metadata, and weak sections should keep getting fixed."
         checks={[
-          "Google Security Partner certified.",
-          "End-to-end encryption for all data.",
-          "No email content is ever stored on our servers.",
+          "Run recurring technical passes across your important pages.",
+          "Tighten internal links as the site grows.",
+          "Keep titles, metadata, and structure from drifting out of shape.",
         ]}
-        ctaText="Learn More"
-        ctaHref="https://app.zeroinbox.ai"
+        ctaText="Automate the Technical Pass"
+        ctaHref={SIGNUP_URL}
         image={
           <Image
             style={{ borderRadius: "24px" }}
-            width={619}
-            height={580}
-            alt="Security"
-            src="/images/security-1200px.png"
+            width={520}
+            height={520}
+            alt="Technical SEO automation"
+            src="/images/news/model_view_control.png"
           />
         }
         bgColor="#d2e823"
@@ -186,28 +186,26 @@ export default function Home() {
       {/* ── Feature: Privacy ── */}
       <FeatureSection
         id={PRIVACY_SECTION}
-        title="You're in control."
+        title="Up-to-date knowledge beats stale SEO playbooks."
         description={
           <>
-            Inbox Zero AI{" "}
-            <strong>always</strong>{" "}
-            asks for your permission before deleting or moving emails. You remain in complete control.
+            AI SEO agents can work from the latest available knowledge and keep applying it to your site every week.
           </>
         }
         checks={[
-          "Delete your account and data instantly.",
-          "No third-party data sharing. Ever.",
-          "Full transparency over what we access.",
+          "Move faster than a single overloaded SEO generalist.",
+          "Use systems for the repetitive work and judgment for the real decisions.",
+          "Keep shipping instead of waiting for the perfect quarterly plan.",
         ]}
-        ctaText="Privacy Info"
-        ctaHref="https://app.zeroinbox.ai"
+        ctaText="See Why This Works"
+        ctaHref={SIGNUP_URL}
         image={
           <Image
             style={{ borderRadius: "24px", boxShadow: "7px 7px 10px 0px var(--shadow-color)" }}
-            width={200}
-            height={400}
-            alt="Privacy controls"
-            src="/images/privacy-1200px.png"
+            width={320}
+            height={320}
+            alt="Current SEO knowledge"
+            src="/images/news/stacking_logic.png"
           />
         }
         bgColor="var(--zi-lilac)"
@@ -223,22 +221,22 @@ export default function Home() {
       {/* ── Feature: Business ── */}
       <FeatureSection
         id={BUSINESS_SECTION}
-        title="Zero Inbox for Business."
-        description="Be more productive. The average employee spends an hour a day on email. Let Zero AI handle the clutter so your team can focus."
+        title="Cheaper than building a bloated marketing org."
+        description="If the goal is search growth, it is often better to fund pages and freshness than hire around endless manual process."
         checks={[
-          "Enterprise-grade security and compliance.",
-          "Per-user controls and admin dashboard.",
-          "Boost team email productivity instantly.",
+          "More weekly output than a single SEO hire can usually sustain.",
+          "A better search asset than renting attention on social forever.",
+          "Built for founders, agencies, and lean teams that need real execution.",
         ]}
-        ctaText="Contact Us"
-        ctaHref="mailto:info@zeroinbox.ai?subject=Zero Inbox for Business"
+        ctaText="Talk to SEO Gangster"
+        ctaHref={SIGNUP_URL}
         image={
           <Image
             style={{ borderRadius: "24px", boxShadow: "7px 7px 10px 0px var(--shadow-color)" }}
-            width={200}
-            height={400}
-            alt="Business features"
-            src="/images/business-1200px.png"
+            width={320}
+            height={320}
+            alt="SEO growth engine"
+            src="/images/news/aurora_orange_pink_blue.png"
           />
         }
         bgColor="var(--zi-deep-blue)"

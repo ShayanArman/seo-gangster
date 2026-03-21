@@ -2,6 +2,7 @@ import { createStyles, Flex, Text, NavLink } from "@mantine/core";
 import Link from "next/link";
 import { HEADER_HEIGHT, headerLinks } from "../ZeroHeader/ZeroHeader";
 import { useRouter } from "next/router";
+import { SIGNUP_URL } from "@/lib/seo";
 
 const useStyles = createStyles((theme) => ({
   container: {
@@ -74,20 +75,19 @@ export default function NavBar({ opened, closeNavBar }: { opened: boolean; close
           </Link>
         ))}
 
-        {/* App links */}
-        <Link href="https://app.zeroinbox.ai" target="_blank" passHref>
+        <Link href={SIGNUP_URL} passHref>
           <NavLink
             component="a"
-            label="Log In"
+            label="Join Beta"
             classNames={{ root: classes.rootNav, label: classes.label }}
             onClick={() => closeNavBar()}
             variant="filled"
           />
         </Link>
-        <Link href="https://app.zeroinbox.ai" target="_blank" passHref>
+        <Link href={SIGNUP_URL} passHref>
           <NavLink
             component="a"
-            label="Sign Up"
+            label="Get Started"
             classNames={{ root: classes.rootNav, label: classes.label }}
             onClick={() => closeNavBar()}
             variant="filled"

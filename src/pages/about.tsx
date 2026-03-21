@@ -1,5 +1,5 @@
 import { createStyles, Flex, Text } from "@mantine/core";
-import { getPathLastModified } from "@/lib/seo";
+import { JOBS_EMAIL, getPathLastModified } from "@/lib/seo";
 
 const useStyles = createStyles((theme) => ({
   container: {
@@ -56,13 +56,13 @@ export default function About() {
       <Flex direction="column" className={classes.section} gap={10}>
         <Text className={classes.meta}>Published {publishedDate}</Text>
         <h1 className={classes.title}>
-          The Future of Email
+          The Future of SEO
         </h1>
         <p className={classes.description}>
-          The goal of ZeroInbox.ai is to redesign Email. Information overload, caused by too many emails, has become unmanageable.
-          But it doesn&apos;t have to be this way. Using AI, we can organize our emails as they come in. Zero Inbox is an AI
-          Email Organizer and AI Email Cleaner built to make inbox zero practical every day.
-          Learning from user behavior, email can become creative and fun rather than a chore.
+          The goal of SEO Gangster is to redesign how SEO work gets done. Most sites do not fail because the strategy is
+          impossible. They fail because the execution slows down after launch. Pages do not get built fast enough, articles
+          stall, and freshness updates keep getting pushed back.
+          Using AI SEO agents, that work can keep moving every single week instead of living in a backlog.
         </p>
       </Flex>
 
@@ -71,16 +71,16 @@ export default function About() {
           Team
         </h2>
         <p className={classes.description}>
-          Our team is led by <span><PeopleLink link="https://www.linkedin.com/in/eshabhatti/" content="Esha Bhatti" /></span>, a Google Women Techmaker and uWaterloo alum. Our CTO is <span><PeopleLink link="https://www.linkedin.com/in/shayan-arman-005006280/" content="Shayan Arman" /></span>, a Silicon Valley Engineer formerly at Apple. And <span><PeopleLink link="https://www.linkedin.com/in/connor-tp-robertson/" content="Connor Robertson" /></span>, a Senior Software Architect with a degree from the University of British Columbia. Both Esha and Shayan live in beautiful Vancouver British Columbia, Canada.
+          SEO Gangster is led by <span><PeopleLink link="https://www.linkedin.com/in/shayan-arman/" content="Shayan Arman" /></span>, a Waterloo Computer Engineering graduate who worked on Siri at Apple from 2017 to 2021. The business is built around practical AI execution, not vague SEO theory.
         </p>
       </Flex>
 
       <Flex direction="column" className={classes.section} gap={10}>
         <h2 className={classes.title}>
-          Advisory
+          What We Believe
         </h2>
         <p className={classes.description}>
-          We are advised by <span><PeopleLink link="https://www.linkedin.com/in/catherinedahl/" content="Catherine Dahl" /></span>. Founder of Beanworks - sold for over $100M.
+          SEO is two steps: create the site and content, then keep it fresh. The second step is where most teams lose momentum. SEO Gangster exists to make that second step happen.
         </p>
       </Flex>
 
@@ -89,7 +89,7 @@ export default function About() {
           Join Us
         </h2>
         <p className={classes.description}>
-          We are currently recruiting Engineers both in AI and Software Engineering. Drop us a line with your CV <span><PeopleLink link="mailto:jobs@zeroinbox.ai?subject=Roles - Zero Inbox: AI Email Organizer" content="here" /></span>.
+          We are recruiting engineers who care about AI systems, search, and shipping. Drop us a line with your CV <span><PeopleLink link={`mailto:${JOBS_EMAIL}?subject=Roles - SEO Gangster`} content="here" /></span>.
         </p>
       </Flex>
     </Flex>

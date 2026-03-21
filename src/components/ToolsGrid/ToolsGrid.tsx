@@ -10,18 +10,18 @@ interface Tool {
 const tools: Tool[] = [
   {
     icon: <FiLink size={28} />,
-    title: "Smart Unsubscribe",
-    description: "One-click unsubscribe from newsletters and promotions. Stay unsubscribed permanently.",
+    title: "Internal Link Builder",
+    description: "Surface linking opportunities between pages so authority flows through the site instead of getting stranded.",
   },
   {
     icon: <FiShield size={28} />,
-    title: "Privacy Controls",
-    description: "Complete control over your data. Delete your account and all data with a single click.",
+    title: "Technical SEO Passes",
+    description: "Run recurring checks for schema gaps, metadata issues, and on-page fixes that are easy to miss manually.",
   },
   {
     icon: <FiBarChart2 size={28} />,
-    title: "Inbox Insights",
-    description: "See how many emails were cleaned, what categories they fell into, and track your inbox health.",
+    title: "Freshness Engine",
+    description: "Keep pages active with weekly update suggestions and shipping rhythms that compound in search.",
   },
 ];
 
@@ -121,9 +121,9 @@ export default function ToolsGrid() {
   return (
     <Box className={classes.section}>
       <Box className={classes.inner}>
-        <Text className={classes.heading}>More tools. Smarter inbox.</Text>
+        <Text className={classes.heading}>More systems. Smarter SEO.</Text>
         <Text className={classes.subheading}>
-          Everything you need to take control of your email, all built into one powerful platform.
+          Everything you need to build pages, maintain freshness, and keep SEO execution from stalling.
         </Text>
         <div className={classes.grid}>
           {tools.map((tool) => (
