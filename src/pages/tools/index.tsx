@@ -123,17 +123,23 @@ export default function ToolsIndexPage() {
     url: canonicalUrl,
     datePublished: PUBLISH_DATE_ISO,
     dateModified: modifiedDate,
-    mainEntity: {
-      "@type": "ItemList",
-      itemListElement: [
-        {
-          "@type": "ListItem",
-          position: 1,
-          url: `${SITE_URL}/tools/google-search-console`,
-          name: "Google Search Console Review",
+        mainEntity: {
+          "@type": "ItemList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              url: `${SITE_URL}/tools/google-search-console`,
+              name: "Google Search Console Review",
+            },
+            {
+              "@type": "ListItem",
+              position: 2,
+              url: `${SITE_URL}/seo-ops`,
+              name: "SEO Ops",
+            },
+          ],
         },
-      ],
-    },
     author: {
       "@type": "Person",
       name: "Shayan Arman",
@@ -215,8 +221,20 @@ export default function ToolsIndexPage() {
           </Text>
         </Paper>
 
+        <Paper className={classes.toolCard} shadow="none" mt="md">
+          <Text className={classes.toolName}>
+            <Link href="/seo-ops" className={classes.link}>SEO Ops</Link>
+          </Text>
+          <Text className={classes.toolMeta}>System: Repeatable SEO execution</Text>
+          <Text className={classes.toolText}>
+            SEO Ops is the SEO Gangster way of thinking about freshness passes, page briefs, schema audits, and
+            internal linking as one repeatable system instead of a pile of one-off tasks.
+          </Text>
+        </Paper>
+
         <div className={classes.links}>
           <Link href="/tools/google-search-console" className={classes.link}>Read the Google Search Console review</Link>
+          <Link href="/seo-ops" className={classes.link}>See the SEO Ops page</Link>
           <Link href="/ai-tool-reviews" className={classes.link}>Back to AI Tool Reviews</Link>
         </div>
       </Box>

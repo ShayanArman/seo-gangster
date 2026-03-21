@@ -230,7 +230,7 @@ export default function AnnouncementModal({
 //         <Button
 //           mt={10}
 //           component="a"
-//           href="https://app.zeroinbox.ai"
+//           href="https://seogangster.ai/signup"
 //           target="_blank"
 //           variant="outline"
 //           color={"dark"}

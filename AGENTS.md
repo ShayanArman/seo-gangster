@@ -1,10 +1,10 @@
 # AGENTS.md
 
 ## Marketing Philosophy
-Go read Philosophy.md, we are looking to sell the need not the product. Email Cleaning and Organizing with ai is like flossing. You need to do it everyday because email does not end.
-You are always going to more shops, using things online, email will always be there. What we can do is use ai to help us manage it.
+Go read Philosophy.md. We are looking to sell the need, not the product. SEO is not a one-time launch. It is two steps: create the site and articles, then keep the site fresh every week.
+The need is ongoing execution. Most teams know they should publish, update, link, and tighten technical details. They do not do it consistently enough. That is where AI agents help.
 
-in general dont actually say Sell the need, not the product make it Why you need SEO Gangster or highlight their biggest pain point. go read /content/news/why-zero-inbox to understand.
+In general do not literally say "sell the need, not the product". Turn it into why they need SEO Gangster or highlight their biggest pain point. Go read `src/content/news/why-seo-gangster.md` and `src/content/news/seo-is-two-steps.md`.
 
 
 ## Important
@@ -15,16 +15,16 @@ This file is brand and messaging guidance only.
 ## Video Handling
 
 - Treat videos as their own destination, not just an embed inside an article.
-- For any Zero Inbox-owned video that should rank, create a dedicated watch page under `/videos/<slug>`.
+- For any SEO Gangster-owned video that should rank, create a dedicated watch page under `/videos/<slug>`.
 - Keep the video as the main content on the watch page, then support it with concise copy below.
 - Use user-facing copy on video pages. Do not explain SEO mechanics or Google indexing logic to visitors.
 - If a news/article page relates to a video, link the article to the matching watch page instead of relying on an inline embed.
-- Only create watch pages and `VideoObject` markup for Zero Inbox-owned videos, not third-party talks or references.
+- Only create watch pages and `VideoObject` markup for SEO Gangster-owned videos, not third-party talks or references.
 - Keep video copy aligned with the core positioning:
-  - The Official AI Email Organizer.
-  - The Safest AI Email Cleaner.
-  - Asks for Permission everytime.
-  - Does not auto-delete your emails like the other AI Email Cleaners.
+  - SEO is two steps: publish, then refresh.
+  - AI SEO agents are for execution, not just ideas.
+  - Weekly freshness matters more than one big launch.
+  - Agents can often beat slower, more expensive manual workflows.
 - When adding new videos, remember the supporting crawl/discovery work too:
   - add the video entry in `src/content/videos/`
   - ensure the `/videos` hub surfaces it
@@ -39,7 +39,7 @@ This file is brand and messaging guidance only.
   - `/tools-sitemap.xml`
   - `/news-sitemap.xml`
   - `/video-sitemap.xml`
-- `public/robots.txt` should only advertise the main sitemap entrypoint: `https://www.zeroinbox.ai/sitemap.xml`
+- `public/robots.txt` should only advertise the main sitemap entrypoint: `https://www.seogangster.ai/sitemap.xml`
 - Static route groups live in `src/lib/sitemaps.ts`:
   - `PAGES_STATIC_ROUTES`
   - `TOOLS_STATIC_ROUTES`
@@ -61,23 +61,23 @@ This file is brand and messaging guidance only.
 
 ## Core SEO Words
 
-AI, Email, Organizer, Cleaner, inbox zero
+AI, SEO, agents, freshness, technical SEO
 
 
 ## SEO Intent Phrases
 
-- Help me organize my emails
-- Clean and organize emails
-- AI Email Organizer
-- AI Email Cleaner
+- AI SEO agents
+- weekly SEO updates
+- technical SEO automation
+- SEO is two steps
+- AI agents running your SEO
 
 ## Positioning To Preserve
 
-- The Official AI Email Organizer.
-- The Safest AI Email Cleaner.
-- Asks for Permission everytime.
-- Does not auto-delete your emails like the other AI Email Cleaners.
-- Google Security Cleared.
+- SEO is two steps: build the site, then keep it fresh.
+- Weekly updates are part of the product, not an afterthought.
+- AI agents are often better than a single SEO hire for repetitive execution because they can keep shipping without waiting.
+- The real bottleneck is follow-through, not strategy decks.
 
 ## Credibility
 
@@ -87,7 +87,7 @@ AI, Email, Organizer, Cleaner, inbox zero
 
 ## Story
 
-Shayan finished Waterloo Computer Engineering, worked at Apple on Siri (2017 to 2021), then started Zero Inbox to help the world use AI first to manage emails.
+Shayan finished Waterloo Computer Engineering, worked at Apple on Siri (2017 to 2021), then started SEO Gangster to help businesses use AI agents to build pages, ship articles, and run weekly SEO updates.
 
 ## Writing Notes
 

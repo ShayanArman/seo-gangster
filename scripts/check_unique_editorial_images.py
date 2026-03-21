@@ -10,18 +10,18 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 
-FOOTER_EDITORIAL_ITEMS = [
-    ("src/pages/ai-email-organizer.tsx", "heroImagePath"),
-    ("src/pages/best-ai-email-organizer.tsx", "heroImagePath"),
-    ("src/pages/clean-and-organize-emails.tsx", "heroImagePath"),
-    ("src/pages/what-website-should-i-use-to-clean-or-organize-my-emails.tsx", "heroImagePath"),
-    ("src/pages/mark-zuckerberg-loves-inbox-zero-ai.tsx", "heroImagePath"),
-    ("src/content/news/why-zero-inbox.md", "thumbnail"),
-    ("src/pages/superhuman-alternatives.tsx", "heroImagePath"),
+EDITORIAL_ITEMS = [
+    ("src/content/news/ai-seo-agents.md", "thumbnail"),
+    ("src/content/news/what-website-should-i-use-for-seo.md", "thumbnail"),
+    ("src/content/news/seo-is-two-steps.md", "thumbnail"),
+    ("src/content/news/why-freshness-beats-stale-sites.md", "thumbnail"),
+    ("src/content/news/ai-agents-running-your-seo.md", "thumbnail"),
+    ("src/content/news/why-seo-gangster.md", "thumbnail"),
+    ("src/content/videos/weekly-seo-updates.md", "posterImage"),
 ]
 
-HERO_RE = re.compile(r'heroImagePath\s*=\s*"([^"]+)"')
 THUMBNAIL_RE = re.compile(r'^thumbnail:\s*"([^"]+)"', re.MULTILINE)
+POSTER_IMAGE_RE = re.compile(r'^posterImage:\s*"([^"]+)"', re.MULTILINE)
 
 
 def read_match(path: Path, pattern: re.Pattern[str], label: str) -> str:
@@ -36,9 +36,9 @@ def main() -> int:
     failures: list[str] = []
     usage: dict[str, list[str]] = defaultdict(list)
 
-    for rel_path, label in FOOTER_EDITORIAL_ITEMS:
+    for rel_path, label in EDITORIAL_ITEMS:
         path = ROOT / rel_path
-        pattern = HERO_RE if label == "heroImagePath" else THUMBNAIL_RE
+        pattern = THUMBNAIL_RE if label == "thumbnail" else POSTER_IMAGE_RE
 
         try:
             image_path = read_match(path, pattern, label)
@@ -66,8 +66,8 @@ def main() -> int:
         return 1
 
     print(
-        "Footer editorial image check passed: "
-        f"{len(FOOTER_EDITORIAL_ITEMS)} footer-linked editorial pages use unique images."
+        "Editorial image check passed: "
+        f"{len(EDITORIAL_ITEMS)} surfaced editorial entries use unique images."
     )
     return 0
 

@@ -15,6 +15,7 @@ const nextConfig = {
       { source: "/fyxer-ai-vs-zero-inbox-ai", destination: "/seo-agents-vs-seo-person", permanent: true },
       { source: "/fyxer-ai-vs-superhuman", destination: "/seo-agents-vs-social-media-manager", permanent: true },
       { source: "/tools/superhuman", destination: "/tools/google-search-console", permanent: true },
+      { source: "/dynamodb", destination: "/seo-ops", permanent: true },
       { source: "/workflows/email-management", destination: "/workflows/content-refresh", permanent: true },
       { source: "/workflows/accounting", destination: "/workflows/technical-seo", permanent: true },
       { source: "/workflows/sales", destination: "/workflows/local-pages", permanent: true },

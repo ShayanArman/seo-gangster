@@ -46,15 +46,15 @@ type UserInfo = {
   city: string,
   image: string,
   countryImage: string,
-  emailsCleanedCount: number,
+  seoTasksShipped: number,
 }
 const users: UserInfo[] = [
-  {fullName: "Lisa", city: "Victoria, BC", testimonial: "Wow. Just wow.", image: '/images/people/icons8-hello-kitty-100.png', countryImage: "/images/countries/icons8-canada-48.png", emailsCleanedCount: 30130},
-  {fullName: "Shashank", city: "Austin, Texas", testimonial: "I got my entire office on this haha.", image: '/images/people/icons8-futurama-bender-100.png', countryImage: "/images/countries/icons8-usa-48.png", emailsCleanedCount: 55383},
-  {fullName: "Jan", city: "Bern, Switzerland", testimonial: "Cleaned everything up in a few minutes!", image: '/images/people/icons8-homer-simpson-100.png', countryImage: "/images/countries/icons8-switzerland-48.png", emailsCleanedCount: 62787 },
-  {fullName: "Marcus", city: "San Francisco, CA", testimonial: "Please make this for Files now.", image: '/images/people/icons8-theodore-peterson-100.png', countryImage: "/images/countries/icons8-usa-48.png", emailsCleanedCount: 21773},
-  {fullName: "Fabiola", city: "Mahwah, NJ", testimonial: "Why was I not told this existed?!", image: '/images/people/icons8-futurama-mom-100.png', countryImage: "/images/countries/icons8-usa-48.png", emailsCleanedCount: 30251},
-  {fullName: "Eric", city: "Austin, Texas", testimonial: "Gotta admit, I'm a bit addicted.", image: '/images/people/icons8-walter-white-100.png', countryImage: "/images/countries/icons8-usa-48.png", emailsCleanedCount: 65954 }]
+  {fullName: "Lisa", city: "Victoria, BC", testimonial: "The weekly refresh loop finally made SEO feel manageable.", image: '/images/people/icons8-hello-kitty-100.png', countryImage: "/images/countries/icons8-canada-48.png", seoTasksShipped: 312},
+  {fullName: "Shashank", city: "Austin, Texas", testimonial: "We stopped talking about SEO backlog and started shipping pages.", image: '/images/people/icons8-futurama-bender-100.png', countryImage: "/images/countries/icons8-usa-48.png", seoTasksShipped: 548},
+  {fullName: "Jan", city: "Bern, Switzerland", testimonial: "Internal linking and freshness passes were the unlock for us.", image: '/images/people/icons8-homer-simpson-100.png', countryImage: "/images/countries/icons8-switzerland-48.png", seoTasksShipped: 627 },
+  {fullName: "Marcus", city: "San Francisco, CA", testimonial: "This made the execution side of SEO feel way less heavy.", image: '/images/people/icons8-theodore-peterson-100.png', countryImage: "/images/countries/icons8-usa-48.png", seoTasksShipped: 219},
+  {fullName: "Fabiola", city: "Mahwah, NJ", testimonial: "The local page workflow alone paid for the effort.", image: '/images/people/icons8-futurama-mom-100.png', countryImage: "/images/countries/icons8-usa-48.png", seoTasksShipped: 304},
+  {fullName: "Eric", city: "Austin, Texas", testimonial: "Freshness every week beats big sporadic pushes.", image: '/images/people/icons8-walter-white-100.png', countryImage: "/images/countries/icons8-usa-48.png", seoTasksShipped: 661 }]
 export default function UserStatsSection({ isVisible }: { isVisible: boolean }) {
   const { classes } = useStyles();
 
@@ -63,14 +63,14 @@ export default function UserStatsSection({ isVisible }: { isVisible: boolean }) 
       <Flex direction="column" mih="20rem" className={`${classes.main} ${isVisible ? classes.visible : classes.nonVisible}`}>
         <Flex direction="column">
           <Title mt="sm">
-            Leader Board
+            Operator Board
           </Title>
           <Text weight={300} size="xs">
-            Updated February 23rd, 2026
+            Updated March 21st, 2026
           </Text>
         </Flex>
         <Flex direction="column" gap={"sm"} mt={10}>
-          { users.sort((a, b) => b.emailsCleanedCount - a.emailsCleanedCount).map((user, i) => {
+          { users.sort((a, b) => b.seoTasksShipped - a.seoTasksShipped).map((user, i) => {
             return (
               <Group key={user.fullName}>
                 <Avatar src={user.image} radius="xl" size="lg" />
@@ -80,7 +80,7 @@ export default function UserStatsSection({ isVisible }: { isVisible: boolean }) 
                     &quot;{user.testimonial}&quot;
                   </Text> */}
                   <Text weight={300} size="xs">
-                    {user.emailsCleanedCount} emails
+                    {user.seoTasksShipped} SEO tasks shipped
                   </Text>
                   <Text size="sm" c="dimmed" fw={400}>
                     &quot;{user.testimonial}&quot;
@@ -97,5 +97,4 @@ export default function UserStatsSection({ isVisible }: { isVisible: boolean }) 
     </Flex>
   );
 }
-
 

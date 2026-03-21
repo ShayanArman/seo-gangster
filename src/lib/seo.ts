@@ -122,7 +122,7 @@ const PATH_META: Record<string, Partial<SeoMeta>> = {
     description:
       "Watch SEO Gangster videos about AI SEO agents, weekly updates, and practical search execution.",
   },
-  "/dynamodb": {
+  "/seo-ops": {
     title: "SEO Ops, but scripted. | @seogangster/ops",
     description:
       "@seogangster/ops is the SEO Gangster package idea for search teams that want clean, repeatable automation.",
@@ -199,7 +199,7 @@ const PATH_LAST_MODIFIED: Record<string, string> = {
   "/invest": MARCH_21,
   "/news": MARCH_21,
   "/videos": MARCH_21,
-  "/dynamodb": MARCH_21,
+  "/seo-ops": MARCH_21,
   "/terms": MARCH_21,
   "/privacy": MARCH_21,
   "/workflows": MARCH_21,

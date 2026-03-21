@@ -95,7 +95,7 @@ export const PAGES_STATIC_ROUTES: StaticRoute[] = [
     priority: "0.8",
   },
   {
-    route: "/dynamodb",
+    route: "/seo-ops",
     changefreq: "monthly",
     priority: "0.7",
   },

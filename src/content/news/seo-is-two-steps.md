@@ -5,7 +5,7 @@ date: "2026-03-19"
 category: "Strategy"
 excerpt: "SEO only compounds when teams handle both halves: publishing the initial pages and running the freshness work that follows."
 slug: "seo-is-two-steps"
-thumbnail: "/images/news/inbox-zero.webp"
+thumbnail: "/images/news/seo-is-two-steps.webp"
 imageFallbackText: "SEO Is Two Steps"
 ---
 

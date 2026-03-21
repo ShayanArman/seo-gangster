@@ -5,7 +5,7 @@ date: "2026-03-20"
 category: "AI SEO"
 excerpt: "AI agents are changing SEO by taking over the repetitive execution layer: briefs, drafts, refreshes, internal links, and technical follow-through."
 slug: "ai-agents-running-your-seo"
-thumbnail: "/images/news/ai-email-revolution.webp"
+thumbnail: "/images/news/ai-agents-running-your-seo.webp"
 imageFallbackText: "AI Agents Running Your SEO"
 ---
 

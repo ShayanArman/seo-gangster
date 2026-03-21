@@ -1,16 +1,19 @@
 Now:
+- wire the real backend behind `/signup`
+- add more case studies and proof pages for SEO Gangster
+- request indexing for the newest high-intent routes in Search Console
 
 Later:
-- (medium) write better copy
-- (hard, maybe) testimonials section like WhatsApp with pictures
+- (medium) expand the tools directory with more SEO reviews
+- (hard, maybe) add stronger proof sections with rankings screenshots and before/after freshness examples
 
 Done:
 - make pitch deck notes and send back to Enrico
 - (hard) iPhone images of app working sections
-- (easy) make info@zeroinbox.ai, jobs@zeroinbox.ai email addresses
+- (easy) make hello@seogangster.ai, jobs@seogangster.ai email addresses
 - (easy) update privacy document and data faq document to be up to date.
 - (hard) About page with employees
-- (hard) Duplicate Header components of zeroinbox.ai to blog.zeroinbox.ai
+- (hard) Duplicate Header components of the main site to the blog
 - (later) fix footer to always be at bottom of page
 - make NavLink NextLink. not reload page
 - contact us link on business section open up mail app
@@ -25,18 +28,9 @@ Done:
 
 
 Sections:
-- Features initial
-------------------
-Black
-- Unsubscribe
-------------------
-- a: Security
-    End to end encryption, Google Security Cleared,
-- b: Privacy
-    Delete everything after you're finished. Link to your gmail,
-    all of your emails are stored as is.
-- c: Business
-    Zero Inbox for Business. Communicate, quickly. Employee chat, with Zero AI
-    email Manager to help you manage your emails. The average employee spends an hour a day
-    email. Let Zero AI handle it.
-
+- homepage proof
+  ranking lifts, weekly freshness examples, new pages shipped
+- workflows
+  page briefs, freshness passes, internal linking, schema audits
+- tools
+  search console, crawler tooling, technical SEO checklists

@@ -5,7 +5,7 @@ date: "2026-03-17"
 category: "Freshness"
 excerpt: "Freshness beats stale sites because search rewards pages that stay active, useful, and connected over time."
 slug: "why-freshness-beats-stale-sites"
-thumbnail: "/images/news/inbox-zero-productivity.webp"
+thumbnail: "/images/news/freshness-compounds.webp"
 imageFallbackText: "Why Freshness Beats Stale Sites"
 ---
 

@@ -1,225 +1,141 @@
-# Zero Inbox SEO Post Creation Playbook
+# SEO Gangster SEO Creation Playbook
 
-This file documents the exact pattern used to create SEO comparison posts/pages in this repo and keep them aligned with Google Search Console structured data requirements.
+This file documents the current pattern for creating SEO Gangster landing pages, news posts, workflow pages, and videos without drifting back to the retired email-era structure.
 
 ## Goal
 
-Create high-intent SEO landing pages (for example `X Alternatives`, `X vs Y`) that:
+Create SEO content that:
 
-1. Match Zero Inbox brand positioning from `AGENTS.md`.
-2. Include complete metadata and structured data.
-3. Are discoverable by crawlers via sitemap and internal links.
-4. Avoid Search Console Q&A schema validation issues.
+1. Matches SEO Gangster positioning from `AGENTS.md`.
+2. Focuses on AI SEO agents, weekly freshness, and execution.
+3. Keeps metadata, sitemap coverage, and structured data consistent.
+4. Preserves redirects when replacing an older route.
 
-## Project Structure
+## Current Architecture
 
-- `src/pages/sitemap.xml.ts` is the actual Next.js route that serves `/sitemap.xml`.
-- `src/lib/sitemaps.ts` is the shared sitemap helper/config file. `src/pages/sitemap.xml.ts` imports it.
-- Static sitemap route groups such as `PAGES_STATIC_ROUTES`, `TOOLS_STATIC_ROUTES`, and `NEWS_STATIC_ROUTES` live in `src/lib/sitemaps.ts`.
-- Child sitemap pages such as `src/pages/news-sitemap.xml.ts` use shared helpers from `src/lib/sitemaps.ts` and add dynamic content URLs.
-- For static SEO landing pages, update `src/lib/sitemaps.ts` so the page is included in sitemap coverage.
-- For markdown-driven news posts in `src/content/news/`, no manual sitemap route entry is needed because `news-sitemap.xml.ts` pulls articles dynamically through `getAllNews()`.
+- Top-level landing pages are driven by `src/components/SeoLandingPage.tsx`.
+- Their copy lives in `src/lib/marketingPages.ts`.
+- Each route wrapper in `src/pages/` is now usually tiny and just loads a config entry.
+- Workflow pages are driven by `src/components/WorkflowLandingPage.tsx`.
+- Workflow copy lives in `src/lib/workflowPages.ts`.
+- Editorial articles live in `src/content/news/`.
+- Video destinations live in `src/content/videos/`.
+- Shared metadata lives in `src/lib/seo.ts`.
+- Static sitemap route groups live in `src/lib/sitemaps.ts`.
+- Legacy route migrations live in `next.config.js` as permanent redirects.
 
-## Inputs To Collect Before Writing
+## Content Types
 
-1. Page pair (example: `SaneBox Alternatives`, `SaneBox vs Superhuman`).
-2. Target slugs (example: `/sanebox-alternatives`, `/sanebox-vs-superhuman`).
-3. Brand copy constraints from `AGENTS.md`:
-   - "Official AI Email Organizer"
-   - "Safest AI Email Cleaner"
-   - "asks for Permission everytime"
-   - "does not auto-delete your emails like the other AI Email Cleaners"
+### 1. Marketing landing pages
 
-## Required SEO Page Pattern
+Use this path when you are creating a static page like:
 
-Each comparison page should follow the same structure used in:
+- `AI SEO Agents`
+- `Best AI SEO Agent`
+- `Weekly SEO Updates`
+- `SEO Is Two Steps`
+- `AI SEO Agents vs SEO Person`
 
-- `src/pages/sanebox-alternatives.tsx`
-- `src/pages/sanebox-vs-superhuman.tsx`
-- `src/pages/fyxer-alternatives.tsx`
-- `src/pages/fyxer-ai-vs-zero-inbox-ai.tsx`
+Typical workflow:
 
-Page structure:
+1. Add or update the page content in `src/lib/marketingPages.ts`.
+2. Add the route wrapper in `src/pages/` if it does not already exist.
+3. Add metadata and last-modified entries in `src/lib/seo.ts`.
+4. Add the route to `PAGES_STATIC_ROUTES` in `src/lib/sitemaps.ts`.
+5. Add related internal links when the page introduces a new cluster.
 
-1. `Head` metadata:
-   - `title`
-   - `canonical`
-   - `description`
-   - `keywords`
-   - Open Graph tags
-   - Twitter tags
-2. On-page copy:
-   - Clear `h1` for query intent
-   - Intro with brand differentiation
-   - Comparison sections (`Key differences`, `Where Zero Inbox fits`, etc.)
-   - CTA button to `https://app.zeroinbox.ai`
-   - Internal links to related SEO pages
-3. Structured data:
-   - `QAPage` JSON-LD
-   - `BreadcrumbList` JSON-LD
+### 2. Workflow pages
 
-## Meta Description Guidance
+Use this path when the page is really a repeatable operating procedure:
 
-Write page descriptions for humans first. Follow Google Search Central guidance:
+- freshness passes
+- internal linking
+- page briefs
+- schema audits
+- local SEO page production
 
-- Make the description unique to the specific page.
-- Summarize the actual page content instead of writing a generic brand line.
-- Include the concrete entities or options a searcher expects to see on the page.
-- Add the Zero Inbox differentiator after the specific page summary when it helps clickthrough.
-- Treat the meta description like a snippet pitch, not a ranking hack.
+Typical workflow:
 
-Good example from `fyxer-alternatives`:
+1. Add or update the workflow entry in `src/lib/workflowPages.ts`.
+2. Add the wrapper page in `src/pages/workflows/` or `src/pages/workflows/workflow/`.
+3. Add metadata and last-modified entries in `src/lib/seo.ts`.
+4. Add the route to `PAGES_STATIC_ROUTES` in `src/lib/sitemaps.ts`.
 
-`Compare Fyxer alternatives including Zero Inbox, Superhuman, Shortwave, Missive, Front, and SaneBox. Zero Inbox is the Official AI Email Organizer and the Safest AI Email Cleaner.`
+### 3. News articles
 
-Why this works:
+Use markdown in `src/content/news/` when the content should read like an editorial article.
 
-- It is specific to the page.
-- It names real alternatives users expect on that URL.
-- It still gives Zero Inbox a strong differentiator in the second sentence.
-- It matches Google's guidance that good meta descriptions should be descriptive, page-specific, and useful for snippets/clickthrough.
+Required frontmatter:
 
-For link text on-page, use clear descriptive labels that match user intent and destination. Prefer labels like `SaneBox Alternatives`, `Fyxer AI vs Superhuman`, or `AI Email Organizer` over vague labels like `Click here` or `Learn more`.
+- `title`
+- `subtitle`
+- `date`
+- `category`
+- `excerpt`
+- `slug`
+- `thumbnail`
+- `imageFallbackText`
 
-Google sources:
+News URLs are pulled into the sitemap dynamically, so no manual `NEWS_STATIC_ROUTES` entry is needed for each article.
 
-- [Google Search Central: Control your snippets in search results](https://developers.google.com/search/docs/appearance/snippet)
-- [Google Search Central blog: Improve snippets with a meta description makeover](https://developers.google.com/search/blog/2007/09/improve-snippets-with-meta-description)
+### 4. Video pages
 
-## Google Search Console QAPage Compliance Checklist
+Use markdown in `src/content/videos/` for SEO Gangster-owned videos.
 
-The previous Search Console issues were around missing Q&A fields. Use this full field set on every `QAPage`:
+Required frontmatter:
 
-`mainEntity` (`Question`) must include:
+- `title`
+- `subtitle`
+- `date`
+- `category`
+- `excerpt`
+- `slug`
+- `posterImage`
+- `youtubeUrl`
+- `relatedUrl`
+- `relatedLabel`
 
-- `@type: "Question"`
-- `name`
-- `text`
-- `url`
-- `datePublished`
-- `author`
-- `answerCount`
+If a video supports an article, cross-link both directions.
 
-`mainEntity.acceptedAnswer` (`Answer`) must include:
+## Copy Rules
 
-- `@type: "Answer"`
-- `text`
-- `url`
-- `datePublished`
-- `author`
-- `upvoteCount`
+- Keep the central idea intact: SEO is two steps, and freshness is the second step.
+- Favor execution language over vague strategy language.
+- Make the pain concrete: teams stop shipping, pages decay, clusters stall, technical cleanup gets postponed.
+- When comparing against manual hiring, emphasize speed, consistency, and up-to-date search execution.
+- Keep CTA language pointed at `https://seogangster.ai/signup`.
+- Prefer precise SEO phrases like `AI SEO agents`, `weekly SEO updates`, `technical SEO automation`, and `local SEO pages`.
 
-Recommended constants in each page:
+## Redirect and Rename Rules
 
-- `publishDate` (ISO date string)
-- `organizationAuthor`:
-  - `@type: "Organization"`
-  - `name: SITE_NAME`
-  - `url: SITE_URL`
+When replacing an older page:
 
-## Exact File Update Order
+1. Create the new destination route first.
+2. Add a permanent redirect in `next.config.js`.
+3. Delete the stale old route file once the replacement exists.
+4. Remove old-brand references from internal docs, scripts, and helper files.
 
-When creating a new SEO page or page pair, update files in this order:
+Do not keep duplicate old and new route files around if the redirect is already handling the migration.
 
-1. Create new page files in `src/pages/`.
-2. Add route metadata entries in `src/lib/seo.ts` (`PATH_META`).
-3. Add route last-modified entries in `src/lib/seo.ts` (`PATH_LAST_MODIFIED`).
-4. Add routes to the correct static route group in `src/lib/sitemaps.ts`.
-5. Add internal links from existing authority pages (currently `src/pages/ai-email-organizer.tsx`).
-6. Run lint/verification and confirm schema fields are present.
+## Metadata and Schema
 
-Reason for this order:
+- `SeoLandingPage.tsx` already emits `Article`, `QAPage`, and `BreadcrumbList` JSON-LD.
+- `WorkflowLandingPage.tsx` handles basic page metadata for workflow routes.
+- Markdown news and video pages inherit their structured data from the dynamic page templates.
+- Every new static route still needs entries in `src/lib/seo.ts` for title/description and last modified date.
 
-1. Page files define the actual indexable content and schema.
-2. `seo.ts` keeps shared title/description behavior consistent across layout/system usage.
-3. `PATH_LAST_MODIFIED` is required for sitemap last-modified values on static routes.
-4. `sitemaps.ts` plus the sitemap page routes ensure crawl discoverability.
-5. Internal links improve crawl paths and topical clustering.
-6. Verification catches regressions before deploy.
+## Validation Commands
 
-## What Was Changed In This Session And Why
-
-### 1) Created new comparison pages
-
-- `src/pages/sanebox-alternatives.tsx`
-- `src/pages/sanebox-vs-superhuman.tsx`
-- `src/pages/fyxer-alternatives.tsx`
-- `src/pages/fyxer-ai-vs-zero-inbox-ai.tsx`
-
-Why:
-
-- Add new SEO surfaces for comparison and alternatives intents.
-- Include complete QAPage + BreadcrumbList JSON-LD.
-- Encode AGENTS brand language in visible and structured copy.
-
-### 2) Updated global SEO metadata map
-
-- `src/lib/seo.ts`
-
-Why:
-
-- Register new routes in `PATH_META` so default metadata resolution returns the intended titles/descriptions.
-
-### 3) Updated XML sitemap route list
-
-- `src/lib/sitemaps.ts`
-
-Why:
-
-- Include new static routes so search engines can discover/crawl them quickly.
-
-### 4) Added internal links from an existing SEO hub page
-
-- `src/pages/ai-email-organizer.tsx`
-
-Why:
-
-- Strengthen internal linking and crawl graph to new comparison pages.
-
-## Reusable "Comparison Pair" Workflow
-
-For each pair request (`A Alternatives`, `A vs B`):
-
-1. Create `src/pages/a-alternatives.tsx`.
-2. Create `src/pages/a-vs-b.tsx` (or exact requested slug).
-3. Include full metadata + QAPage + BreadcrumbList in both.
-4. Add both routes to `src/lib/seo.ts` in `PATH_META`.
-5. Add both routes to `src/lib/seo.ts` in `PATH_LAST_MODIFIED`.
-6. Add both routes to `src/lib/sitemaps.ts`.
-7. Add both to internal links in `ai-email-organizer.tsx`.
-8. Run:
-   - `yarn lint`
-   - `rg` checks for required schema fields
-9. Deploy and validate in Search Console.
-
-## Validation Commands Used
-
-Use these command patterns after edits:
+Run these after meaningful SEO page work:
 
 1. `yarn lint`
-2. `rg -n "answerCount|upvoteCount|datePublished|author|text: questionText|acceptedAnswer" src/pages/<new-page>.tsx`
-3. `git diff -- <changed-files>`
+2. `python3 scripts/check_unique_editorial_images.py`
+3. `rg -n "seogangster|AI SEO agents|weekly SEO updates" src/content src/pages`
 4. `git status --short`
 
-## Post-Deploy Search Console Steps
+## Search Console Follow-up
 
-1. Open Google Search Console for `zeroinbox.ai`.
-2. Use URL Inspection for each new page URL.
-3. Request indexing.
-4. If Q&A report had issues previously, click `Validate Fix` after deployment.
-5. Monitor both `error` and `warning` sections for regressions.
-
-## Copy Rules To Preserve
-
-From current project guidance:
-
-1. Keep target terms represented naturally: `AI`, `Email`, `Organizer`, `Cleaner`, `inbox zero`.
-2. Keep brand differentiation language consistent.
-3. Preserve requested phrasing from `AGENTS.md` where explicitly required.
-
-## Do Not Forget
-
-1. Never ship a `QAPage` missing the fields listed above.
-2. Never create a new SEO page without adding sitemap and metadata entries.
-3. Always include internal links to new pages from at least one existing SEO page.
-4. Run lint before handing off.
+1. Open Google Search Console for `seogangster.ai`.
+2. Request indexing for new or heavily changed URLs.
+3. Confirm the relevant sitemap is surfacing the new routes.
+4. If you added a new content cluster, check that internal links and sitemap coverage both exist.

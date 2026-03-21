@@ -1,6 +1,7 @@
 import Head from "next/head";
+import Link from "next/link";
 import { Box, Container, Text, createStyles } from "@mantine/core";
-import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL, getPathLastModified } from "@/lib/seo";
+import { SITE_NAME, SITE_URL, getPathLastModified } from "@/lib/seo";
 
 const useStyles = createStyles((theme) => ({
   page: {
@@ -67,7 +68,7 @@ const useStyles = createStyles((theme) => ({
     color: "rgba(255, 255, 255, 0.72)",
     fontSize: "1.05rem",
     lineHeight: 1.7,
-    maxWidth: 700,
+    maxWidth: 720,
     marginLeft: "auto",
     marginRight: "auto",
   },
@@ -80,7 +81,7 @@ const useStyles = createStyles((theme) => ({
 
   terminal: {
     width: "100%",
-    maxWidth: 690,
+    maxWidth: 720,
     border: "1px solid rgba(255, 255, 255, 0.17)",
     borderRadius: 16,
     background:
@@ -166,30 +167,27 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-export default function DynamoDbPage() {
+export default function SeoOpsPage() {
   const { classes } = useStyles();
-  const canonicalUrl = `${SITE_URL}/dynamodb`;
-  const modifiedDate = getPathLastModified("/dynamodb");
-  const title = "DynamoDB, but elegant. | @zeroinbox/dynamo";
+  const canonicalUrl = `${SITE_URL}/seo-ops`;
+  const modifiedDate = getPathLastModified("/seo-ops");
+  const title = `SEO Ops, but scripted. | ${SITE_NAME}`;
   const description =
-    "@zeroinbox/dynamo is the TypeScript DynamoDB ORM from Zero Inbox. Install it with npm i @zeroinbox/dynamo.";
+    "SEO Gangster turns page briefs, freshness passes, internal linking, and schema audits into repeatable SEO ops.";
+  const ogImage = `${SITE_URL}/images/news/seo-ops-command-center.webp`;
 
-  const softwareStructuredData = {
+  const webPageStructuredData = {
     "@context": "https://schema.org",
-    "@type": "SoftwareSourceCode",
-    name: "@zeroinbox/dynamo",
-    codeSampleType: "full",
-    programmingLanguage: "TypeScript",
-    runtimePlatform: "Node.js",
-    codeRepository: "https://www.npmjs.com/package/@zeroinbox/dynamo",
-    url: canonicalUrl,
+    "@type": "WebPage",
+    name: title,
     description,
+    url: canonicalUrl,
+    ...(modifiedDate ? { dateModified: modifiedDate } : {}),
     publisher: {
       "@type": "Organization",
       name: SITE_NAME,
       url: SITE_URL,
     },
-    ...(modifiedDate ? { dateModified: modifiedDate } : {}),
   };
 
   return (
@@ -202,15 +200,15 @@ export default function DynamoDbPage() {
         <meta property="og:description" content={description} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={canonicalUrl} />
-        <meta property="og:image" content={DEFAULT_OG_IMAGE} />
+        <meta property="og:image" content={ogImage} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
-        <meta name="twitter:image" content={DEFAULT_OG_IMAGE} />
+        <meta name="twitter:image" content={ogImage} />
         <meta name="theme-color" content="#000000" />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareStructuredData) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageStructuredData) }}
         />
       </Head>
 
@@ -219,32 +217,27 @@ export default function DynamoDbPage() {
         <div className={classes.grid} />
 
         <Container className={classes.content} size={1080}>
-          <Text className={classes.eyebrow}>Zero Inbox presents</Text>
-          <h1 className={classes.title}>TypeScript DynamoDB ORM</h1>
+          <Text className={classes.eyebrow}>SEO Gangster Labs</Text>
+          <h1 className={classes.title}>SEO Ops, but scripted.</h1>
           <Text className={classes.subtitle}>
-            Precision modeling, fast queries, clean types. Built for teams that want DynamoDB without
-            the boilerplate.
+            Freshness passes, page briefs, internal linking, and schema audits should run like an
+            operating system, not like a pile of forgotten tasks.
           </Text>
 
           <Box className={classes.terminalWrap}>
             <div className={classes.terminal}>
               <div className={classes.line}>
-                <span className={classes.prompt}>~/</span>
-                <span className={classes.command}>npm i @zeroinbox/dynamo</span>
+                <span className={classes.prompt}>~/seo</span>
+                <span className={classes.command}>ship pages -&gt; refresh weekly -&gt; repeat</span>
                 <span className={classes.cursor} aria-hidden="true" />
               </div>
-              <a
-                href="https://www.npmjs.com/package/@zeroinbox/dynamo"
-                target="_blank"
-                rel="noreferrer"
-                className={classes.link}
-              >
-                npmjs.com/package/@zeroinbox/dynamo
-              </a>
+              <Link href="/signup" className={classes.link}>
+                Join the SEO Gangster signup
+              </Link>
             </div>
           </Box>
 
-          <Text className={classes.footer}>DynamoDB ORM by Zero Inbox</Text>
+          <Text className={classes.footer}>SEO systems by SEO Gangster</Text>
         </Container>
       </Box>
     </>
