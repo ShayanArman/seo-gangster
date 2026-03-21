@@ -2,7 +2,7 @@ import { Flex } from "@mantine/core";
 import Link from "next/link";
 
 export default function NewsBar({ isSmallScreen }: { isSmallScreen: boolean }) {
-  const badgeText = "SEO Gangster beta";
+  const badgeText = "Now taking early teams";
   const ctaText = "AI SEO agents for weekly freshness";
 
   return (
@@ -10,8 +10,8 @@ export default function NewsBar({ isSmallScreen }: { isSmallScreen: boolean }) {
       justify="center"
       style={{
         width: "100%",
-        backgroundColor: "#f6f7f5",
-        padding: isSmallScreen ? "0.65rem 0.5rem 0" : "0.7rem 1.25rem 0",
+        backgroundColor: "#ffffff",
+        padding: isSmallScreen ? "0.25rem 0.5rem 1rem" : "0.35rem 1.25rem 1.4rem",
       }}
     >
       <Flex
@@ -29,20 +29,20 @@ export default function NewsBar({ isSmallScreen }: { isSmallScreen: boolean }) {
             width: "fit-content",
             maxWidth: "100%",
             gap: isSmallScreen ? "0.35rem" : "0.48rem",
-            border: "1px solid var(--zero-red-light, #f4d0dc)",
-            borderRadius: isSmallScreen ? "14px" : "14px",
-            backgroundColor: "#fff7fb",
-            boxShadow: "0 2px 6px rgba(230, 94, 140, 0.14)",
-            padding: isSmallScreen ? "0.24rem 0.28rem" : "0.26rem 0.38rem",
+            border: "1px solid rgba(17, 17, 17, 0.1)",
+            borderRadius: 16,
+            backgroundColor: "#fcfcfb",
+            boxShadow: "0 8px 24px rgba(17, 17, 17, 0.06)",
+            padding: isSmallScreen ? "0.26rem 0.3rem" : "0.32rem 0.42rem",
           }}
         >
           <Flex
             align="center"
             justify="center"
-            style={{
-              width: "auto",
-              gap: isSmallScreen ? "0.35rem" : "0.42rem",
-              background: "linear-gradient(135deg, #f33f96 0%, #e12381 100%)",
+              style={{
+                width: "auto",
+                gap: isSmallScreen ? "0.35rem" : "0.42rem",
+              background: "#111111",
               color: "#ffffff",
               fontWeight: 700,
               fontSize: isSmallScreen ? "0.78rem" : "0.84rem",
@@ -68,7 +68,7 @@ export default function NewsBar({ isSmallScreen }: { isSmallScreen: boolean }) {
               alignItems: "center",
               justifyContent: "center",
               gap: "0.28rem",
-              color: "var(--zero-red-darker, #ff3277)",
+              color: "#111111",
               fontWeight: 600,
               fontSize: isSmallScreen ? "0.8rem" : "0.84rem",
               textDecoration: "none",

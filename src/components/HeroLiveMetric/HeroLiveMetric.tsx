@@ -23,10 +23,11 @@ const useStyles = createStyles((theme) => ({
     alignItems: "center",
     gap: 14,
     width: "fit-content",
-    padding: "0.8rem 1rem",
-    borderRadius: 18,
-    border: "1px solid rgba(255, 255, 255, 0.28)",
-    backgroundColor: "rgba(15, 38, 95, 0.28)",
+    padding: "1rem 1.1rem",
+    borderRadius: 20,
+    border: "1px solid rgba(17, 17, 17, 0.12)",
+    backgroundColor: "#ffffff",
+    boxShadow: "0 18px 36px rgba(17, 17, 17, 0.08)",
 
     [theme.fn.smallerThan("sm")]: {
       width: "100%",
@@ -62,7 +63,7 @@ const useStyles = createStyles((theme) => ({
     position: "absolute",
     inset: 0,
     borderRadius: "50%",
-    backgroundColor: "#52d86a",
+    backgroundColor: "rgba(17, 17, 17, 0.25)",
     animation: `${pulse} 1.8s ease-out infinite`,
   },
 
@@ -72,13 +73,13 @@ const useStyles = createStyles((theme) => ({
     width: 10,
     height: 10,
     borderRadius: "50%",
-    backgroundColor: "#52d86a",
+    backgroundColor: "#111111",
   },
 
   liveText: {
     display: "inline-flex",
     alignItems: "center",
-    color: "rgba(255, 255, 255, 0.95)",
+    color: "#111111",
     fontSize: "0.78rem",
     lineHeight: 1,
     letterSpacing: "0.08em",
@@ -89,7 +90,7 @@ const useStyles = createStyles((theme) => ({
   timeText: {
     display: "inline-flex",
     alignItems: "center",
-    color: "rgba(255, 255, 255, 0.8)",
+    color: "rgba(17, 17, 17, 0.55)",
     fontSize: "0.78rem",
     lineHeight: 1,
     letterSpacing: "0.02em",
@@ -99,11 +100,11 @@ const useStyles = createStyles((theme) => ({
   divider: {
     width: 1,
     height: 30,
-    backgroundColor: "rgba(255, 255, 255, 0.25)",
+    backgroundColor: "rgba(17, 17, 17, 0.12)",
   },
 
   metricNumber: {
-    color: "white",
+    color: "#111111",
     lineHeight: 1,
     fontWeight: 700,
     fontSize: "1.25rem",
@@ -111,14 +112,14 @@ const useStyles = createStyles((theme) => ({
 
   metricLabel: {
     marginTop: 4,
-    color: "rgba(255, 255, 255, 0.86)",
+    color: "rgba(17, 17, 17, 0.72)",
     fontSize: "0.9rem",
     lineHeight: 1.2,
   },
 
   loggedInLabel: {
     marginTop: 4,
-    color: "rgba(255, 255, 255, 0.75)",
+    color: "rgba(17, 17, 17, 0.52)",
     fontSize: "0.82rem",
     lineHeight: 1.2,
     fontWeight: 600,
