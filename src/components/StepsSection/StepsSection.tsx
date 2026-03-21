@@ -35,7 +35,8 @@ const useStyles = createStyles((theme) => ({
   section: {
     width: "100%",
     padding: "6rem 2rem",
-    backgroundColor: "#f6f7f5",
+    backgroundColor: "#ffffff",
+    borderTop: "1px solid rgba(17, 17, 17, 0.08)",
 
     [theme.fn.smallerThan("md")]: {
       padding: "4rem 1.5rem",
@@ -45,16 +46,24 @@ const useStyles = createStyles((theme) => ({
   inner: {
     maxWidth: 1100,
     margin: "0 auto",
-    textAlign: "center" as const,
+  },
+
+  eyebrow: {
+    fontSize: "0.76rem",
+    fontWeight: 700,
+    letterSpacing: "0.12em",
+    textTransform: "uppercase" as const,
+    color: "rgba(17, 17, 17, 0.45)",
+    marginBottom: 12,
   },
 
   heading: {
     fontFamily: "var(--font-heading)",
     fontWeight: 800,
     fontSize: "2.6rem",
-    color: "var(--zi-deep-blue)",
+    color: "#111111",
     lineHeight: 1.15,
-    letterSpacing: "-1px",
+    letterSpacing: "-0.04em",
     marginBottom: 12,
 
     [theme.fn.smallerThan("md")]: {
@@ -63,10 +72,11 @@ const useStyles = createStyles((theme) => ({
   },
 
   subheading: {
-    color: "#666",
+    color: "rgba(17, 17, 17, 0.6)",
     fontSize: "1.1rem",
     marginBottom: 48,
     lineHeight: 1.6,
+    maxWidth: 620,
   },
 
   grid: {
@@ -81,10 +91,12 @@ const useStyles = createStyles((theme) => ({
   },
 
   card: {
-    backgroundColor: "white",
-    borderRadius: 20,
+    backgroundColor: "#fcfcfb",
+    borderRadius: 24,
+    border: "1px solid rgba(17, 17, 17, 0.1)",
     padding: "28px 28px 32px",
     textAlign: "left" as const,
+    boxShadow: "0 16px 34px rgba(17, 17, 17, 0.05)",
   },
 
   cardHeader: {
@@ -98,22 +110,22 @@ const useStyles = createStyles((theme) => ({
     width: 48,
     height: 48,
     borderRadius: "50%",
-    backgroundColor: "#d2e823",
+    backgroundColor: "#111111",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     fontFamily: "var(--font-heading)",
     fontWeight: 800,
     fontSize: "1.1rem",
-    color: "var(--zi-deep-blue)",
+    color: "#ffffff",
   },
 
   iconCircle: {
     width: 48,
     height: 48,
     borderRadius: "50%",
-    backgroundColor: "var(--zi-deep-blue)",
-    color: "white",
+    backgroundColor: "#efefec",
+    color: "#111111",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
@@ -123,27 +135,27 @@ const useStyles = createStyles((theme) => ({
     fontFamily: "var(--font-heading)",
     fontWeight: 700,
     fontSize: "1.2rem",
-    color: "var(--zi-deep-blue)",
+    color: "#111111",
     marginBottom: 8,
   },
 
   stepDescription: {
-    color: "#666",
+    color: "rgba(17, 17, 17, 0.66)",
     fontSize: "0.95rem",
     lineHeight: 1.6,
   },
 
   ctaButton: {
-    border: "none",
+    border: "1px solid #111111",
     fontWeight: 700,
     fontSize: "1.1rem",
-    backgroundColor: "var(--zero-red-darker)",
+    backgroundColor: "#111111",
     transition: "all var(--transition-smooth)",
 
     "&:hover": {
-      backgroundColor: "#d4205a",
+      backgroundColor: "#000000",
       transform: "translateY(-2px)",
-      boxShadow: "0 8px 24px rgba(255,50,119,0.3)",
+      boxShadow: "0 10px 24px rgba(17, 17, 17, 0.14)",
     },
   },
 }));
@@ -154,6 +166,7 @@ export default function StepsSection() {
   return (
     <Box className={classes.section}>
       <Box className={classes.inner}>
+        <Text className={classes.eyebrow}>How it works</Text>
         <Text className={classes.heading}>Get started in 3 steps.</Text>
         <Text className={classes.subheading}>From signup to active SEO workflows without building a giant team.</Text>
 

@@ -90,7 +90,13 @@ export default function FooterSection() {
         <div className={classes.grid}>
           {/* Brand Column */}
           <div className={classes.brand}>
-            <Image width={168} height={39} alt="SEO Gangster" src={LOGO_PATH} style={{ filter: "brightness(0) invert(1)" }} />
+            <Image
+              width={168}
+              height={39}
+              alt="SEO Gangster"
+              src={LOGO_PATH}
+              style={{ filter: "brightness(0) invert(1) grayscale(1) contrast(1.2)" }}
+            />
             <Text className={classes.brandText}>
               AI SEO agents for pages, articles, technical cleanup, and weekly freshness updates.
             </Text>

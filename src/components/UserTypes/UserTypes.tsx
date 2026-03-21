@@ -44,7 +44,8 @@ const useStyles = createStyles((theme) => ({
   section: {
     width: "100%",
     padding: "6rem 2rem",
-    backgroundColor: "var(--zi-lilac)",
+    backgroundColor: "#f7f7f5",
+    borderTop: "1px solid rgba(17, 17, 17, 0.08)",
 
     [theme.fn.smallerThan("md")]: {
       padding: "4rem 1.5rem",
@@ -56,20 +57,39 @@ const useStyles = createStyles((theme) => ({
     margin: "0 auto",
   },
 
+  eyebrow: {
+    fontSize: "0.76rem",
+    fontWeight: 700,
+    letterSpacing: "0.12em",
+    textTransform: "uppercase" as const,
+    color: "rgba(17, 17, 17, 0.45)",
+    marginBottom: 12,
+    textAlign: "center" as const,
+  },
+
   heading: {
     fontFamily: "var(--font-heading)",
     fontWeight: 800,
     fontSize: "2.6rem",
-    color: "var(--zi-deep-blue)",
+    color: "#111111",
     lineHeight: 1.15,
-    letterSpacing: "-1px",
-    marginBottom: 48,
+    letterSpacing: "-0.04em",
+    marginBottom: 18,
     textAlign: "center" as const,
 
     [theme.fn.smallerThan("md")]: {
       fontSize: "2rem",
       marginBottom: 32,
     },
+  },
+
+  subheading: {
+    maxWidth: 720,
+    margin: "0 auto 40px",
+    textAlign: "center" as const,
+    color: "rgba(17, 17, 17, 0.62)",
+    fontSize: "1.02rem",
+    lineHeight: 1.7,
   },
 
   grid: {
@@ -87,24 +107,24 @@ const useStyles = createStyles((theme) => ({
   },
 
   card: {
-    backgroundColor: "rgba(255,255,255,0.7)",
-    backdropFilter: "blur(8px)",
-    borderRadius: "var(--radius-lg)",
+    backgroundColor: "#ffffff",
+    border: "1px solid rgba(17, 17, 17, 0.1)",
+    borderRadius: 24,
     padding: 28,
     transition: "transform var(--transition-smooth), box-shadow var(--transition-smooth)",
 
     "&:hover": {
       transform: "translateY(-3px)",
-      boxShadow: "0 8px 24px rgba(0,0,0,0.08)",
+      boxShadow: "0 18px 36px rgba(17, 17, 17, 0.06)",
     },
   },
 
   cardIcon: {
     width: 48,
     height: 48,
-    borderRadius: "var(--radius-md)",
-    backgroundColor: "var(--zi-deep-blue)",
-    color: "white",
+    borderRadius: 16,
+    backgroundColor: "#111111",
+    color: "#ffffff",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
@@ -115,12 +135,12 @@ const useStyles = createStyles((theme) => ({
     fontFamily: "var(--font-heading)",
     fontWeight: 700,
     fontSize: "1.15rem",
-    color: "var(--zi-deep-blue)",
+    color: "#111111",
     marginBottom: 6,
   },
 
   cardDescription: {
-    color: "#555",
+    color: "rgba(17, 17, 17, 0.66)",
     fontSize: "0.92rem",
     lineHeight: 1.55,
   },
@@ -132,8 +152,12 @@ export default function UserTypes() {
   return (
     <Box className={classes.section}>
       <Box className={classes.inner}>
+        <Text className={classes.eyebrow}>Who it is for</Text>
         <Text className={classes.heading}>
-          SEO Gangster is for people who know{"\n"}search needs ongoing work.
+          SEO Gangster is for teams with more backlog than bandwidth.
+        </Text>
+        <Text className={classes.subheading}>
+          Founders, agencies, lean marketing teams, and local businesses all run into the same problem: they know what should ship, but they do not have a clean system for shipping it every week.
         </Text>
         <div className={classes.grid}>
           {userTypes.map((type) => (

@@ -10,7 +10,9 @@ const useStyles = createStyles((theme) => ({
     top: HEADER_HEIGHT,
     left: 0,
     zIndex: 8000,
-    backgroundColor: "var(--landing-blur)",
+    backgroundColor: "rgba(255,255,255,0.96)",
+    border: "1px solid rgba(17, 17, 17, 0.08)",
+    boxShadow: "0 18px 40px rgba(17, 17, 17, 0.08)",
     backdropFilter: "blur(16px)",
     padding: "20px",
 
@@ -44,6 +46,7 @@ const useStyles = createStyles((theme) => ({
   label: {
     fontWeight: 500,
     fontSize: "1.5rem",
+    color: "#111111",
   },
 }));
 
@@ -63,7 +66,7 @@ export default function NavBar({ opened, closeNavBar }: { opened: boolean; close
             <NavLink
               component="a"
               label={link.label}
-              style={link.link === router.asPath ? { backgroundColor: "var(--blue-light)" } : {}}
+              style={link.link === router.asPath ? { backgroundColor: "rgba(17,17,17,0.06)" } : {}}
               classNames={{
                 root: classes.rootNav,
                 label: classes.label,
@@ -78,7 +81,7 @@ export default function NavBar({ opened, closeNavBar }: { opened: boolean; close
         <Link href={SIGNUP_URL} passHref>
           <NavLink
             component="a"
-            label="Join Beta"
+            label="Sign Up"
             classNames={{ root: classes.rootNav, label: classes.label }}
             onClick={() => closeNavBar()}
             variant="filled"

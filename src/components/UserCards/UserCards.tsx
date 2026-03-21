@@ -1,46 +1,35 @@
-import { createStyles, Box, Text, Card, Group, SimpleGrid } from "@mantine/core";
-import Image from "next/image";
+import { createStyles, Box, Text, Card, SimpleGrid } from "@mantine/core";
 
 type UserStory = {
-  fullName: string;
-  city: string;
+  companyType: string;
+  focus: string;
   testimonial: string;
-  image: string;
-  countryImage: string;
   shippedCount: number;
 };
 
 const userStories: UserStory[] = [
   {
-    fullName: "Lisa",
-    city: "Victoria, BC",
+    companyType: "Local services",
+    focus: "City pages and service pages",
     testimonial: "We finally had fresh pages going live every single week.",
-    image: "/images/people/icons8-hello-kitty-100.png",
-    countryImage: "/images/countries/icons8-canada-48.png",
     shippedCount: 118,
   },
   {
-    fullName: "Shashank",
-    city: "Austin, Texas",
+    companyType: "B2B team",
+    focus: "Commercial pages and comparisons",
     testimonial: "The agents kept our service pages moving faster than any freelancer we tried.",
-    image: "/images/people/icons8-futurama-bender-100.png",
-    countryImage: "/images/countries/icons8-usa-48.png",
     shippedCount: 164,
   },
   {
-    fullName: "Jan",
-    city: "Bern, Switzerland",
+    companyType: "Content site",
+    focus: "Article refreshes and internal links",
     testimonial: "Freshness updates stopped being a backlog and became part of the rhythm.",
-    image: "/images/people/icons8-homer-simpson-100.png",
-    countryImage: "/images/countries/icons8-switzerland-48.png",
     shippedCount: 92,
   },
   {
-    fullName: "Marcus",
-    city: "San Francisco, CA",
+    companyType: "Agency",
+    focus: "Repeatable client SEO execution",
     testimonial: "We got the site up, then the weekly SEO pass kept compounding from there.",
-    image: "/images/people/icons8-theodore-peterson-100.png",
-    countryImage: "/images/countries/icons8-usa-48.png",
     shippedCount: 137,
   },
 ];
@@ -48,46 +37,87 @@ const userStories: UserStory[] = [
 const useStyles = createStyles((theme) => ({
   wrapper: {
     width: "100%",
-    backgroundColor: "#f6f7f5",
-    padding: "2rem 0 0",
+    backgroundColor: "#ffffff",
+    padding: "1.2rem 0 0",
+    borderTop: "1px solid rgba(17, 17, 17, 0.08)",
   },
 
   container: {
     width: "100%",
     maxWidth: 1200,
     margin: "0 auto",
-    padding: "0 2rem 1rem",
+    padding: "0 2rem 1.5rem",
 
     [theme.fn.smallerThan("md")]: {
       padding: "0 1rem",
     },
   },
 
+  eyebrow: {
+    fontSize: "0.76rem",
+    fontWeight: 700,
+    letterSpacing: "0.12em",
+    textTransform: "uppercase" as const,
+    color: "rgba(17, 17, 17, 0.45)",
+    textAlign: "center" as const,
+    marginBottom: "0.9rem",
+  },
+
   heading: {
     fontFamily: "var(--font-heading)",
     fontWeight: 800,
-    color: "var(--zi-deep-blue)",
-    fontSize: "2rem",
+    color: "#111111",
+    fontSize: "2.4rem",
     textAlign: "center" as const,
-    marginBottom: "1.1rem",
+    marginBottom: "0.9rem",
 
     [theme.fn.smallerThan("md")]: {
-      fontSize: "1.5rem",
+      fontSize: "1.9rem",
     },
   },
 
+  subheading: {
+    maxWidth: 720,
+    margin: "0 auto 2rem",
+    textAlign: "center" as const,
+    color: "rgba(17, 17, 17, 0.6)",
+    fontSize: "1.02rem",
+    lineHeight: 1.7,
+  },
+
   card: {
-    borderRadius: 20,
-    border: "1px solid rgba(30, 35, 48, 0.08)",
-    backgroundColor: "white",
-    boxShadow: "0 8px 20px rgba(20, 33, 16, 0.06)",
+    borderRadius: 24,
+    border: "1px solid rgba(17, 17, 17, 0.1)",
+    backgroundColor: "#fcfcfb",
+    boxShadow: "0 16px 34px rgba(17, 17, 17, 0.05)",
     minHeight: "100%",
   },
 
-  count: {
-    color: "var(--zi-electric-blue)",
+  cardEyebrow: {
+    fontSize: "0.72rem",
     fontWeight: 700,
-    marginTop: "0.8rem",
+    letterSpacing: "0.12em",
+    textTransform: "uppercase" as const,
+    color: "rgba(17, 17, 17, 0.46)",
+    marginBottom: "0.75rem",
+  },
+
+  focus: {
+    color: "#111111",
+    fontWeight: 700,
+    fontSize: "1rem",
+    marginBottom: "0.7rem",
+  },
+
+  quote: {
+    lineHeight: 1.7,
+    color: "rgba(17, 17, 17, 0.72)",
+  },
+
+  count: {
+    color: "#111111",
+    fontWeight: 700,
+    marginTop: "1rem",
     fontSize: "0.95rem",
   },
 }));
@@ -98,49 +128,29 @@ export default function UserCards() {
   return (
     <Box className={classes.wrapper}>
       <Box className={classes.container}>
-        <Text className={classes.heading}>Used by teams that need SEO to keep moving</Text>
+        <Text className={classes.eyebrow}>Proof of motion</Text>
+        <Text className={classes.heading}>Used by teams that treat SEO like operations.</Text>
+        <Text className={classes.subheading}>
+          The promise is not flashy. It is steady output: better pages, better refreshes, and fewer weeks where search work quietly stops.
+        </Text>
+
         <SimpleGrid
-        cols={4}
-        spacing="lg"
-        breakpoints={[
-          { maxWidth: "lg", cols: 2 },
-          { maxWidth: "xs", cols: 1 },
-        ]}
-      >
-        {userStories.map((user) => (
-          <Card key={user.fullName} className={classes.card} padding="lg">
-            <Group align="center" spacing={10}>
-              <Image
-                width={56}
-                height={56}
-                alt={user.fullName}
-                src={user.image}
-                style={{ borderRadius: "999px" }}
-              />
-              <Box>
-                <Group spacing={5}>
-                  <Text fw={700}>{user.fullName}</Text>
-                  <Image
-                    width={14}
-                    height={14}
-                    alt={`${user.city} flag`}
-                    src={user.countryImage}
-                  />
-                </Group>
-                <Text size="sm" c="dimmed">
-                  {user.city}
-                </Text>
-              </Box>
-            </Group>
-            <Text mt={12} style={{ lineHeight: 1.6 }}>
-              &quot;{user.testimonial}&quot;
-            </Text>
-            <Text className={classes.count}>
-              {user.shippedCount.toLocaleString()} updates shipped
-            </Text>
-          </Card>
-        ))}
-      </SimpleGrid>
+          cols={4}
+          spacing="lg"
+          breakpoints={[
+            { maxWidth: "lg", cols: 2 },
+            { maxWidth: "xs", cols: 1 },
+          ]}
+        >
+          {userStories.map((user) => (
+            <Card key={user.companyType} className={classes.card} padding="lg">
+              <Text className={classes.cardEyebrow}>{user.companyType}</Text>
+              <Text className={classes.focus}>{user.focus}</Text>
+              <Text className={classes.quote}>&quot;{user.testimonial}&quot;</Text>
+              <Text className={classes.count}>{user.shippedCount.toLocaleString()} updates shipped</Text>
+            </Card>
+          ))}
+        </SimpleGrid>
       </Box>
     </Box>
   );

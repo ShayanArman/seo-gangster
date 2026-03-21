@@ -20,7 +20,8 @@ interface FeatureSectionProps {
 const useStyles = createStyles((theme) => ({
   section: {
     width: "100%",
-    padding: "6rem 2rem",
+    padding: "7rem 2rem",
+    borderTop: "1px solid rgba(17, 17, 17, 0.08)",
 
     [theme.fn.smallerThan("md")]: {
       padding: "4rem 1.5rem",
@@ -32,7 +33,7 @@ const useStyles = createStyles((theme) => ({
     margin: "0 auto",
     display: "flex",
     alignItems: "center",
-    gap: 60,
+    gap: 72,
 
     [theme.fn.smallerThan("md")]: {
       flexDirection: "column !important" as any,
@@ -50,20 +51,31 @@ const useStyles = createStyles((theme) => ({
     minWidth: 0,
     display: "flex",
     justifyContent: "center",
+  },
+
+  mediaFrame: {
+    width: "100%",
+    maxWidth: 520,
+    padding: 20,
+    borderRadius: 32,
+    border: "1px solid rgba(17, 17, 17, 0.1)",
+    backgroundColor: "rgba(255, 255, 255, 0.88)",
+    boxShadow: "0 24px 52px rgba(17, 17, 17, 0.08)",
 
     "& img": {
       maxWidth: "100%",
       height: "auto",
+      display: "block",
     },
   },
 
   title: {
     fontFamily: "var(--font-heading)",
     fontWeight: 800,
-    fontSize: "2.6rem",
-    lineHeight: 1.15,
-    letterSpacing: "-1px",
-    marginBottom: 16,
+    fontSize: "clamp(2.2rem, 5vw, 3.4rem)",
+    lineHeight: 1.05,
+    letterSpacing: "-0.04em",
+    marginBottom: 18,
 
     [theme.fn.smallerThan("md")]: {
       fontSize: "2rem",
@@ -71,10 +83,10 @@ const useStyles = createStyles((theme) => ({
   },
 
   description: {
-    fontSize: "1.1rem",
-    lineHeight: 1.6,
-    opacity: 0.85,
-    marginBottom: 24,
+    fontSize: "1.08rem",
+    lineHeight: 1.8,
+    opacity: 1,
+    marginBottom: 28,
   },
 
   checkList: {
@@ -87,9 +99,9 @@ const useStyles = createStyles((theme) => ({
     display: "flex",
     alignItems: "flex-start",
     gap: 12,
-    marginBottom: 14,
-    fontSize: "1.05rem",
-    lineHeight: 1.5,
+    marginBottom: 16,
+    fontSize: "1rem",
+    lineHeight: 1.6,
   },
 
   checkIcon: {
@@ -100,18 +112,17 @@ const useStyles = createStyles((theme) => ({
     alignItems: "center",
     justifyContent: "center",
     flexShrink: 0,
-    fontWeight: 700,
+    fontWeight: 800,
     fontSize: "0.75rem",
     marginTop: 2,
   },
 
   ctaButton: {
-    border: "none",
-    fontWeight: 600,
+    fontWeight: 700,
     transition: "all var(--transition-smooth)",
 
     "&:hover": {
-      transform: "translateX(4px)",
+      transform: "translateY(-2px)",
     },
   },
 }));
@@ -157,7 +168,6 @@ export default function FeatureSection({
       <Button
         component="a"
         href={ctaHref}
-        target="_blank"
         size="lg"
         radius="xl"
         rightIcon={<FiArrowRight />}
@@ -165,10 +175,11 @@ export default function FeatureSection({
         className={classes.ctaButton}
         styles={() => ({
           root: {
-            backgroundColor: textColor === "white" ? "white" : "var(--zero-red-darker)",
-            color: textColor === "white" ? bgColor : "white",
+            border: `1px solid ${textColor === "white" ? "#ffffff" : "#111111"}`,
+            backgroundColor: textColor === "white" ? "#ffffff" : "#111111",
+            color: textColor === "white" ? "#111111" : "#ffffff",
             "&:hover": {
-              backgroundColor: textColor === "white" ? "rgba(255,255,255,0.9)" : "#d4205a",
+              backgroundColor: textColor === "white" ? "#f3f3f1" : "#000000",
             },
           },
         })}
@@ -180,7 +191,7 @@ export default function FeatureSection({
 
   const imageBlock = (
     <Box className={classes.imageSide}>
-      {image}
+      <div className={classes.mediaFrame}>{image}</div>
     </Box>
   );
 

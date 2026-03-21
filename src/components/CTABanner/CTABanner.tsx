@@ -22,7 +22,8 @@ const useStyles = createStyles((theme) => ({
   section: {
     width: "100%",
     padding: "5rem 2rem",
-    background: "linear-gradient(135deg, var(--zi-deep-blue) 0%, #1a2d6d 60%, #2a1a4d 100%)",
+    background: "#ffffff",
+    borderTop: "1px solid rgba(17, 17, 17, 0.08)",
 
     [theme.fn.smallerThan("md")]: {
       padding: "4rem 1.5rem",
@@ -33,6 +34,10 @@ const useStyles = createStyles((theme) => ({
     maxWidth: 700,
     margin: "0 auto",
     textAlign: "center" as const,
+    borderRadius: 36,
+    backgroundColor: "#111111",
+    padding: "3.2rem 2rem",
+    boxShadow: "0 28px 60px rgba(17, 17, 17, 0.16)",
   },
 
   heading: {
@@ -57,16 +62,17 @@ const useStyles = createStyles((theme) => ({
   },
 
   ctaButton: {
-    border: "none",
+    border: "1px solid #ffffff",
     fontWeight: 700,
     fontSize: "1.1rem",
-    backgroundColor: "var(--zero-red-darker)",
+    backgroundColor: "#ffffff",
+    color: "#111111",
     transition: "all var(--transition-smooth)",
 
     "&:hover": {
-      backgroundColor: "#d4205a",
+      backgroundColor: "#efefec",
       transform: "translateY(-2px)",
-      boxShadow: "0 8px 24px rgba(255,50,119,0.35)",
+      boxShadow: "0 8px 24px rgba(255,255,255,0.14)",
     },
   },
 
@@ -84,7 +90,7 @@ const useStyles = createStyles((theme) => ({
     position: "absolute",
     inset: 0,
     borderRadius: "50%",
-    backgroundColor: "#52d86a",
+    backgroundColor: "rgba(255, 255, 255, 0.4)",
     animation: `${pulse} 1.8s ease-out infinite`,
   },
 
@@ -94,7 +100,7 @@ const useStyles = createStyles((theme) => ({
     width: 10,
     height: 10,
     borderRadius: "50%",
-    backgroundColor: "#52d86a",
+    backgroundColor: "#111111",
   },
 }));
 

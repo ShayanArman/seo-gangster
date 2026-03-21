@@ -29,7 +29,8 @@ const useStyles = createStyles((theme) => ({
   section: {
     width: "100%",
     padding: "6rem 2rem",
-    backgroundColor: "var(--zi-cream)",
+    backgroundColor: "#ffffff",
+    borderTop: "1px solid rgba(17, 17, 17, 0.08)",
 
     [theme.fn.smallerThan("md")]: {
       padding: "4rem 1.5rem",
@@ -41,15 +42,23 @@ const useStyles = createStyles((theme) => ({
     margin: "0 auto",
   },
 
+  eyebrow: {
+    fontSize: "0.76rem",
+    fontWeight: 700,
+    letterSpacing: "0.12em",
+    textTransform: "uppercase" as const,
+    color: "rgba(17, 17, 17, 0.45)",
+    marginBottom: 12,
+  },
+
   heading: {
     fontFamily: "var(--font-heading)",
     fontWeight: 800,
     fontSize: "2.6rem",
-    color: "var(--zi-deep-blue)",
+    color: "#111111",
     lineHeight: 1.15,
-    letterSpacing: "-1px",
+    letterSpacing: "-0.04em",
     marginBottom: 12,
-    textAlign: "center" as const,
 
     [theme.fn.smallerThan("md")]: {
       fontSize: "2rem",
@@ -57,11 +66,10 @@ const useStyles = createStyles((theme) => ({
   },
 
   subheading: {
-    color: "#555",
+    color: "rgba(17, 17, 17, 0.62)",
     fontSize: "1.15rem",
-    textAlign: "center" as const,
     maxWidth: 560,
-    margin: "0 auto 48px",
+    margin: "0 0 48px",
     lineHeight: 1.6,
   },
 
@@ -76,24 +84,25 @@ const useStyles = createStyles((theme) => ({
   },
 
   card: {
-    backgroundColor: "white",
-    borderRadius: "var(--radius-lg)",
+    backgroundColor: "#fcfcfb",
+    borderRadius: 28,
+    border: "1px solid rgba(17, 17, 17, 0.1)",
     padding: 32,
-    boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
+    boxShadow: "0 18px 36px rgba(17, 17, 17, 0.05)",
     transition: "transform var(--transition-smooth), box-shadow var(--transition-smooth)",
 
     "&:hover": {
       transform: "translateY(-4px)",
-      boxShadow: "0 8px 28px rgba(0,0,0,0.10)",
+      boxShadow: "0 22px 40px rgba(17, 17, 17, 0.08)",
     },
   },
 
   cardIcon: {
     width: 56,
     height: 56,
-    borderRadius: "var(--radius-md)",
-    backgroundColor: "var(--zi-lilac)",
-    color: "var(--zi-deep-blue)",
+    borderRadius: 18,
+    backgroundColor: "#111111",
+    color: "#ffffff",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
@@ -104,12 +113,12 @@ const useStyles = createStyles((theme) => ({
     fontFamily: "var(--font-heading)",
     fontWeight: 700,
     fontSize: "1.25rem",
-    color: "var(--zi-deep-blue)",
+    color: "#111111",
     marginBottom: 8,
   },
 
   cardDescription: {
-    color: "#666",
+    color: "rgba(17, 17, 17, 0.66)",
     fontSize: "0.95rem",
     lineHeight: 1.6,
   },
@@ -121,9 +130,10 @@ export default function ToolsGrid() {
   return (
     <Box className={classes.section}>
       <Box className={classes.inner}>
-        <Text className={classes.heading}>More systems. Smarter SEO.</Text>
+        <Text className={classes.eyebrow}>System</Text>
+        <Text className={classes.heading}>What the system keeps handling.</Text>
         <Text className={classes.subheading}>
-          Everything you need to build pages, maintain freshness, and keep SEO execution from stalling.
+          The point is not one magical feature. It is a set of repeatable workflows that keep search work moving without constant intervention.
         </Text>
         <div className={classes.grid}>
           {tools.map((tool) => (

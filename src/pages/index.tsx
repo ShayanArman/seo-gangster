@@ -24,6 +24,12 @@ export default function Home() {
   const isSmallScreen = useIsMobile();
   const router = useRouter();
   const modifiedDate = getPathLastModified("/");
+  const editorialImageStyle = {
+    borderRadius: "28px",
+    border: "1px solid rgba(17, 17, 17, 0.08)",
+    boxShadow: "0 20px 44px rgba(17, 17, 17, 0.08)",
+    backgroundColor: "#ffffff",
+  } as const;
 
   const softwareApplicationStructuredData = {
     "@context": "https://schema.org",
@@ -115,16 +121,16 @@ export default function Home() {
         ctaHref={SIGNUP_URL}
         image={
           <Image
-            style={{ borderRadius: "24px", boxShadow: "7px 7px 10px 0px var(--shadow-color)" }}
+            style={editorialImageStyle}
             width={320}
             height={320}
             alt="SEO Gangster page creation"
             src="/images/news/interactive_learning.png"
           />
         }
-        bgColor="#f6f7f5"
-        textColor="var(--zi-deep-blue)"
-        checkColor="#007aff"
+        bgColor="#ffffff"
+        textColor="#111111"
+        checkColor="#111111"
         isSmallScreen={isSmallScreen}
       />
 
@@ -142,16 +148,16 @@ export default function Home() {
         ctaHref={SIGNUP_URL}
         image={
           <Image
-            style={{ borderRadius: "24px", boxShadow: "7px 7px 10px 0px var(--shadow-color)" }}
+            style={editorialImageStyle}
             width={320}
             height={320}
             alt="SEO freshness updates"
             src="/images/news/text_scaling-for-everyone.png"
           />
         }
-        bgColor="#f6f7f5"
-        textColor="var(--zi-deep-blue)"
-        checkColor="#007aff"
+        bgColor="#f7f7f5"
+        textColor="#111111"
+        checkColor="#111111"
         imageFirst={!isSmallScreen}
         isSmallScreen={isSmallScreen}
       />
@@ -170,16 +176,16 @@ export default function Home() {
         ctaHref={SIGNUP_URL}
         image={
           <Image
-            style={{ borderRadius: "24px" }}
+            style={editorialImageStyle}
             width={520}
             height={520}
             alt="Technical SEO automation"
             src="/images/news/model_view_control.png"
           />
         }
-        bgColor="#d2e823"
-        textColor="var(--zi-deep-blue)"
-        checkColor="var(--zi-deep-blue)"
+        bgColor="#111111"
+        textColor="white"
+        checkColor="#ffffff"
         isSmallScreen={isSmallScreen}
       />
 
@@ -201,16 +207,16 @@ export default function Home() {
         ctaHref={SIGNUP_URL}
         image={
           <Image
-            style={{ borderRadius: "24px", boxShadow: "7px 7px 10px 0px var(--shadow-color)" }}
+            style={editorialImageStyle}
             width={320}
             height={320}
             alt="Current SEO knowledge"
             src="/images/news/stacking_logic.png"
           />
         }
-        bgColor="var(--zi-lilac)"
-        textColor="var(--zi-deep-blue)"
-        checkColor="var(--zi-electric-blue)"
+        bgColor="#ffffff"
+        textColor="#111111"
+        checkColor="#111111"
         imageFirst={!isSmallScreen}
         isSmallScreen={isSmallScreen}
       />
@@ -232,16 +238,16 @@ export default function Home() {
         ctaHref={SIGNUP_URL}
         image={
           <Image
-            style={{ borderRadius: "24px", boxShadow: "7px 7px 10px 0px var(--shadow-color)" }}
+            style={editorialImageStyle}
             width={320}
             height={320}
             alt="SEO growth engine"
             src="/images/news/aurora_orange_pink_blue.png"
           />
         }
-        bgColor="var(--zi-deep-blue)"
-        textColor="white"
-        checkColor="var(--zi-lime)"
+        bgColor="#f7f7f5"
+        textColor="#111111"
+        checkColor="#111111"
         isSmallScreen={isSmallScreen}
       />
 

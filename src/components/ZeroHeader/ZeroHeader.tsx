@@ -78,9 +78,10 @@ const useStyles = createStyles((theme) => ({
     maxWidth: 1200,
     height: 74,
     borderRadius: "var(--radius-pill)",
-    backgroundColor: "rgba(255,255,255,0.95)",
+    backgroundColor: "rgba(255,255,255,0.94)",
+    border: "1px solid rgba(17, 17, 17, 0.08)",
     backdropFilter: "blur(16px)",
-    boxShadow: "0 4px 24px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.04)",
+    boxShadow: "0 16px 38px rgba(17,17,17,0.08), 0 1px 3px rgba(0,0,0,0.04)",
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
@@ -112,8 +113,8 @@ const useStyles = createStyles((theme) => ({
     transition: "color var(--transition-fast), background-color var(--transition-fast)",
 
     "&:hover": {
-      color: "var(--zero-red-darker)",
-      backgroundColor: "rgba(255,50,119,0.06)",
+      color: "#111111",
+      backgroundColor: "rgba(17,17,17,0.05)",
     },
   },
 }));
@@ -169,10 +170,10 @@ export default function ZeroHeader({
               onClick={() => setOpened((prev) => !prev)}
               className={classes.burger}
               size="sm"
-              color="var(--zero-red-darker)"
+              color="#111111"
             />
             <Link href="/" onClick={() => setOpened(false)}>
-              <Image width={180} height={42} alt="SEO Gangster" src={LOGO_PATH} />
+              <Image width={180} height={42} alt="SEO Gangster" src={LOGO_PATH} style={{ filter: "grayscale(1) contrast(1.3)" }} />
             </Link>
           </Flex>
 
@@ -195,7 +196,7 @@ export default function ZeroHeader({
                 href={SIGNUP_URL}
                 className={classes.link}
               >
-                Join Beta
+                Sign Up
               </Link>
             )}
             <ActionButton
@@ -231,9 +232,9 @@ function ActionButton({
           border: "none",
           color: "white",
           fontWeight: 600,
-          backgroundColor: "var(--zero-red-darker)",
+          backgroundColor: "#111111",
           "&:hover": {
-            backgroundColor: "#d4205a",
+            backgroundColor: "#000000",
           },
         },
       })}

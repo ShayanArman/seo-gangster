@@ -47,6 +47,7 @@ const useStyles = createStyles((theme) => ({
     width: "100%",
     padding: "6rem 2rem",
     backgroundColor: "white",
+    borderTop: "1px solid rgba(17, 17, 17, 0.08)",
 
     [theme.fn.smallerThan("md")]: {
       padding: "4rem 1.5rem",
@@ -58,14 +59,24 @@ const useStyles = createStyles((theme) => ({
     margin: "0 auto",
   },
 
+  eyebrow: {
+    fontSize: "0.76rem",
+    fontWeight: 700,
+    letterSpacing: "0.12em",
+    textTransform: "uppercase" as const,
+    color: "rgba(17, 17, 17, 0.45)",
+    marginBottom: 12,
+    textAlign: "center" as const,
+  },
+
   heading: {
     fontFamily: "var(--font-heading)",
     fontWeight: 800,
     fontSize: "2.6rem",
-    color: "var(--zi-deep-blue)",
+    color: "#111111",
     lineHeight: 1.15,
-    letterSpacing: "-1px",
-    marginBottom: 48,
+    letterSpacing: "-0.04em",
+    marginBottom: 32,
     textAlign: "center" as const,
 
     [theme.fn.smallerThan("md")]: {
@@ -75,7 +86,7 @@ const useStyles = createStyles((theme) => ({
   },
 
   item: {
-    borderBottom: "1px solid #eee",
+    borderBottom: "1px solid rgba(17, 17, 17, 0.1)",
   },
 
   question: {
@@ -91,14 +102,14 @@ const useStyles = createStyles((theme) => ({
     fontFamily: "var(--font-heading)",
     fontWeight: 600,
     fontSize: "1.1rem",
-    color: "var(--zi-deep-blue)",
+    color: "#111111",
     textAlign: "left" as const,
   },
 
   chevron: {
     flexShrink: 0,
     transition: "transform var(--transition-smooth)",
-    color: "#999",
+    color: "rgba(17, 17, 17, 0.48)",
   },
 
   chevronOpen: {
@@ -111,7 +122,7 @@ const useStyles = createStyles((theme) => ({
   },
 
   answerText: {
-    color: "#666",
+    color: "rgba(17, 17, 17, 0.66)",
     fontSize: "1rem",
     lineHeight: 1.6,
     paddingBottom: 20,
@@ -150,7 +161,8 @@ export default function FAQSection() {
   return (
     <Box className={classes.section}>
       <Box className={classes.inner}>
-        <Text className={classes.heading}>Questions? Answered.</Text>
+        <Text className={classes.eyebrow}>FAQ</Text>
+        <Text className={classes.heading}>Common questions.</Text>
         {faqItems.map((faq, i) => (
           <AccordionItem key={i} item={faq} />
         ))}
