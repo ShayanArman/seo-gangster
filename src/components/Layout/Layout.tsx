@@ -9,8 +9,8 @@ import { ReactNode } from "react";
 import {
   CONTACT_EMAIL,
   DEFAULT_OG_IMAGE,
+  ICON_PATH,
   LOGO_PATH,
-  MARK_PATH,
   SITE_NAME,
   SITE_TAGLINE,
   SITE_URL,
@@ -85,7 +85,7 @@ export default function Layout({ children }: { children: ReactNode }) {
     <>
       <Head>
         <title key="title">{pageMeta.title}</title>
-        <link key="favicon" rel="icon" href={MARK_PATH} />
+        <link key="favicon" rel="icon" href={ICON_PATH} />
         <link key="canonical" rel="canonical" href={canonicalUrl} />
         <link key="rss" rel="alternate" type="application/rss+xml" title="SEO Gangster News" href={`${SITE_URL}/feed.xml`} />
         <link key="llms-txt" rel="alternate" type="text/plain" title="SEO Gangster LLMs.txt" href={`${SITE_URL}/llms.txt`} />

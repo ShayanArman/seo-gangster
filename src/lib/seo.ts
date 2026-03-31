@@ -6,7 +6,7 @@ export const SIGNUP_FORM_ENDPOINT = `https://formspree.io/f/mykbjank`;
 export const CONTACT_EMAIL = "hello@seogangster.ai";
 export const JOBS_EMAIL = "jobs@seogangster.ai";
 export const LOGO_PATH = "/images/logos/logo.svg";
-export const MARK_PATH = "/seogangster-mark.svg";
+export const ICON_PATH = "/images/logos/logo.ico";
 export const DEFAULT_OG_IMAGE = `${SITE_URL}/images/news/interactive_learning.png`;
 export const DEFAULT_KEYWORDS =
   "ai seo agents, seo automation, weekly seo updates, technical seo automation, seo freshness";
