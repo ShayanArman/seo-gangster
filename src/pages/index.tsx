@@ -1,20 +1,19 @@
 import { FEATURES_SECTION, UNSUBSCRIBE_SECTION, SECURITY_SECTION, PRIVACY_SECTION, BUSINESS_SECTION, mainPageSections } from "@/components/ZeroHeader/ZeroHeader";
-import { HEADER_PIXEL_HEIGHT } from "@/components/ZeroHeader/ZeroHeader";
-import useIsMobile from "@/hooks/useIsMobile";
 import { DEFAULT_OG_IMAGE, SIGNUP_PATH, SITE_NAME, SITE_URL, getPathLastModified } from "@/lib/seo";
+import { HEADER_PIXEL_HEIGHT } from "@/components/ZeroHeader/ZeroHeader";
+import SearchDemandSection from "@/components/SearchDemandSection";
+import PricingSection from "@/components/PricingSection";
+import SeoCostSection from "@/components/SeoCostSection";
 import FeatureSection from "@/components/FeatureSection";
 import StepsSection from "@/components/StepsSection";
-import NewsBar from "@/components/NewsBar/NewsBar";
 import { faqItems } from "@/components/FAQSection";
 import HeroSection from "@/components/HeroSection";
 import FAQSection from "@/components/FAQSection";
 import UserCards from "@/components/UserCards";
 import CTABanner from "@/components/CTABanner";
-import PricingSection from "@/components/PricingSection";
 import UserTypes from "@/components/UserTypes";
 import ToolsGrid from "@/components/ToolsGrid";
-import SearchDemandSection from "@/components/SearchDemandSection";
-import SeoCostSection from "@/components/SeoCostSection";
+import useIsMobile from "@/hooks/useIsMobile";
 import { useRouter } from "next/router";
 import { scroller } from "react-scroll";
 import { useEffect } from "react";
@@ -103,9 +102,6 @@ export default function Home() {
 
       {/* ── Hero ── */}
       <HeroSection isSmallScreen={isSmallScreen} />
-
-      {/* ── News Bar ── */}
-      <NewsBar isSmallScreen={isSmallScreen}/>
 
       {/* ── Search Demand ── */}
       <SearchDemandSection />

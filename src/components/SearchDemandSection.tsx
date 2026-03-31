@@ -2,6 +2,8 @@ import { Box, Button, Flex, Text, createStyles } from "@mantine/core";
 import { registerClickSignUpEventGoogle } from "./Analytics/GoogleAnalytics";
 import { SIGNUP_PATH } from "@/lib/seo";
 import { FaStar } from "react-icons/fa";
+import NewsBar from "./NewsBar/NewsBar";
+import useIsMobile from "@/hooks/useIsMobile";
 
 const useStyles = createStyles((theme) => ({
   section: {
@@ -128,12 +130,14 @@ const useStyles = createStyles((theme) => ({
 }));
 
 export default function SearchDemandSection() {
+  const isSmallScreen = useIsMobile();
   const { classes } = useStyles();
 
   return (
     <Box className={classes.section}>
       <Box className={classes.inner}>
-        <Text className={classes.eyebrow}>SEO For your Business</Text>
+        {/* ── News Bar ── */}
+        <Box className={classes.eyebrow}><NewsBar isSmallScreen={isSmallScreen}/></Box>
 
         <h2 className={classes.heading}>
           <span className={classes.highlight}>Turn ChatGPT and Google Into Your</span>

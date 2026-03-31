@@ -5,6 +5,7 @@ import { HEADER_PIXEL_HEIGHT } from "../ZeroHeader/ZeroHeader";
 import { registerClickSignUpEventGoogle } from "../Analytics/GoogleAnalytics";
 import HeroLiveMetric from "../HeroLiveMetric";
 import { SIGNUP_PATH } from "@/lib/seo";
+import NewsBar from "../NewsBar/NewsBar";
 
 const useStyles = createStyles((theme) => ({
   container: {
