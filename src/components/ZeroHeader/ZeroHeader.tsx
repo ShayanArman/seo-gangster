@@ -124,10 +124,12 @@ const useStyles = createStyles((theme) => ({
     alignItems: "center",
     textDecoration: "none",
     color: "#333",
-    transition: "color var(--transition-fast)",
+    borderRadius: "var(--radius-sm)",
+    transition: "color var(--transition-fast), background-color var(--transition-fast)",
 
     "&:hover": {
-      color: "#111111",
+      color: "var(--zero-red-darker)",
+      backgroundColor: "rgba(255,50,119,0.06)",
     },
   },
 
