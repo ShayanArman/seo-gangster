@@ -1,7 +1,7 @@
 import { Box, Button, Flex, Text, createStyles } from "@mantine/core";
-import { FaStar } from "react-icons/fa";
 import { registerClickSignUpEventGoogle } from "./Analytics/GoogleAnalytics";
-import { SIGNUP_URL } from "@/lib/seo";
+import { SIGNUP_PATH } from "@/lib/seo";
+import { FaStar } from "react-icons/fa";
 
 const useStyles = createStyles((theme) => ({
   section: {
@@ -149,7 +149,7 @@ export default function SearchDemandSection() {
         <div className={classes.actions}>
           <Button
             component="a"
-            href={SIGNUP_URL}
+            href={SIGNUP_PATH}
             onClick={() => registerClickSignUpEventGoogle()}
             className={classes.ctaButton}
           >

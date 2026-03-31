@@ -1,10 +1,10 @@
+import { registerClickSignUpEventGoogle } from "@/components/Analytics/GoogleAnalytics";
+import { SIGNUP_PATH, SITE_NAME, SITE_URL, getPathLastModified } from "@/lib/seo";
 import { createStyles, Box, Text, Button, Flex } from "@mantine/core";
+import EditorialHeroMedia from "@/components/EditorialHeroMedia";
+import { FiArrowRight } from "react-icons/fi";
 import Head from "next/head";
 import Link from "next/link";
-import { FiArrowRight } from "react-icons/fi";
-import EditorialHeroMedia from "@/components/EditorialHeroMedia";
-import { registerClickSignUpEventGoogle } from "@/components/Analytics/GoogleAnalytics";
-import { SIGNUP_URL, SITE_NAME, SITE_URL, getPathLastModified } from "@/lib/seo";
 
 export interface SeoLandingSection {
   title: string;
@@ -276,7 +276,7 @@ export default function SeoLandingPage(content: SeoLandingContent) {
         <div className={classes.ctaWrap}>
           <Button
             component="a"
-            href={SIGNUP_URL}
+            href={SIGNUP_PATH}
             radius="xl"
             size="lg"
             onClick={() => registerClickSignUpEventGoogle()}

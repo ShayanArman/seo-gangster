@@ -1,7 +1,7 @@
 import { createStyles, Box, Text, Flex } from "@mantine/core";
 import Image from "next/image";
 import Link from "next/link";
-import { CONTACT_EMAIL, LOGO_PATH, SIGNUP_URL } from "@/lib/seo";
+import { CONTACT_EMAIL, LOGO_PATH, SIGNUP_PATH } from "@/lib/seo";
 
 const useStyles = createStyles((theme) => ({
   footer: {
@@ -137,7 +137,7 @@ export default function FooterSection() {
           {/* Account Column */}
           <div>
             <Text className={classes.columnTitle}>Get Started</Text>
-            <Link href={SIGNUP_URL} className={classes.link}>Sign Up</Link>
+            <Link href={SIGNUP_PATH} className={classes.link}>Sign Up</Link>
             <Link href="/invest" className={classes.link}>Partnerships</Link>
             <Link href="/privacy" className={classes.link}>Privacy</Link>
           </div>

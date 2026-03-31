@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { FiArrowRight, FiPlayCircle } from "react-icons/fi";
 import { registerClickSignUpEventGoogle } from "@/components/Analytics/GoogleAnalytics";
-import { SIGNUP_URL, SITE_NAME, SITE_URL, getPathLastModified } from "@/lib/seo";
+import { SIGNUP_PATH, SITE_NAME, SITE_URL, getPathLastModified } from "@/lib/seo";
 import { getAllVideos, VideoEntry } from "@/lib/videos";
 
 const useStyles = createStyles((theme) => ({
@@ -285,7 +285,7 @@ export default function VideosPage({ videos }: InferGetStaticPropsType<typeof ge
             <div className={classes.actions}>
               <Button
                 component="a"
-                href={SIGNUP_URL}
+                href={SIGNUP_PATH}
                 radius="xl"
                 size="lg"
                 onClick={() => registerClickSignUpEventGoogle()}

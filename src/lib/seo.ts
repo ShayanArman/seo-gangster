@@ -2,7 +2,6 @@ export const SITE_NAME = "SEO Gangster";
 export const SITE_URL = "https://seogangster.ai";
 export const SITE_TAGLINE = "AI SEO agents for pages, articles, and weekly freshness.";
 export const SIGNUP_PATH = "/signup";
-export const SIGNUP_URL = `${SITE_URL}${SIGNUP_PATH}`;
 export const SIGNUP_FORM_ENDPOINT = `https://formspree.io/f/mykbjank`;
 export const CONTACT_EMAIL = "hello@seogangster.ai";
 export const JOBS_EMAIL = "jobs@seogangster.ai";
@@ -182,7 +181,7 @@ const MARCH_21 = "2026-03-21T00:00:00-07:00";
 const MARCH_31 = "2026-03-31T00:00:00-07:00";
 
 const PATH_LAST_MODIFIED: Record<string, string> = {
-  "/": MARCH_21,
+  "/": MARCH_31,
   "/signup": MARCH_31,
   "/about": MARCH_21,
   "/story": MARCH_21,

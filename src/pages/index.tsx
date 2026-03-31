@@ -1,7 +1,7 @@
 import { FEATURES_SECTION, UNSUBSCRIBE_SECTION, SECURITY_SECTION, PRIVACY_SECTION, BUSINESS_SECTION, mainPageSections } from "@/components/ZeroHeader/ZeroHeader";
 import { HEADER_PIXEL_HEIGHT } from "@/components/ZeroHeader/ZeroHeader";
 import useIsMobile from "@/hooks/useIsMobile";
-import { DEFAULT_OG_IMAGE, SIGNUP_URL, SITE_NAME, SITE_URL, getPathLastModified } from "@/lib/seo";
+import { DEFAULT_OG_IMAGE, SIGNUP_PATH, SITE_NAME, SITE_URL, getPathLastModified } from "@/lib/seo";
 import FeatureSection from "@/components/FeatureSection";
 import StepsSection from "@/components/StepsSection";
 import NewsBar from "@/components/NewsBar/NewsBar";
@@ -14,6 +14,7 @@ import PricingSection from "@/components/PricingSection";
 import UserTypes from "@/components/UserTypes";
 import ToolsGrid from "@/components/ToolsGrid";
 import SearchDemandSection from "@/components/SearchDemandSection";
+import SeoCostSection from "@/components/SeoCostSection";
 import { useRouter } from "next/router";
 import { scroller } from "react-scroll";
 import { useEffect } from "react";
@@ -109,6 +110,9 @@ export default function Home() {
       {/* ── Search Demand ── */}
       <SearchDemandSection />
 
+      {/* ── SEO Cost ── */}
+      <SeoCostSection />
+
       {/* ── User Cards ── */}
       <UserCards />
 
@@ -123,7 +127,7 @@ export default function Home() {
           "Move from idea to live page in days, not quarters.",
         ]}
         ctaText="Start Building"
-        ctaHref={SIGNUP_URL}
+        ctaHref={SIGNUP_PATH}
         image={
           <Image
             style={editorialImageStyle}
@@ -150,7 +154,7 @@ export default function Home() {
           "Treat SEO like an operating system, not a launch event.",
         ]}
         ctaText="Run Weekly Updates"
-        ctaHref={SIGNUP_URL}
+        ctaHref={SIGNUP_PATH}
         image={
           <Image
             style={editorialImageStyle}
@@ -178,7 +182,7 @@ export default function Home() {
           "Keep titles, metadata, and structure from drifting out of shape.",
         ]}
         ctaText="Automate the Technical Pass"
-        ctaHref={SIGNUP_URL}
+        ctaHref={SIGNUP_PATH}
         image={
           <Image
             style={editorialImageStyle}
@@ -209,7 +213,7 @@ export default function Home() {
           "Keep shipping instead of waiting for the perfect quarterly plan.",
         ]}
         ctaText="See Why This Works"
-        ctaHref={SIGNUP_URL}
+        ctaHref={SIGNUP_PATH}
         image={
           <Image
             style={editorialImageStyle}
@@ -240,7 +244,7 @@ export default function Home() {
           "Built for founders, agencies, and lean teams that need real execution.",
         ]}
         ctaText="Talk to SEO Gangster"
-        ctaHref={SIGNUP_URL}
+        ctaHref={SIGNUP_PATH}
         image={
           <Image
             style={editorialImageStyle}

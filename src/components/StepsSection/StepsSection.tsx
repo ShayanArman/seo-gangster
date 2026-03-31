@@ -1,7 +1,7 @@
 import { createStyles, Box, Text, Button, Flex } from "@mantine/core";
 import { FiUserPlus, FiEdit3, FiZap } from "react-icons/fi";
 import { registerClickSignUpEventGoogle } from "../Analytics/GoogleAnalytics";
-import { SIGNUP_URL } from "@/lib/seo";
+import { SIGNUP_PATH } from "@/lib/seo";
 
 interface Step {
   number: string;
@@ -186,7 +186,7 @@ export default function StepsSection() {
         <Flex justify="center" mt={48}>
           <Button
             component="a"
-            href={SIGNUP_URL}
+            href={SIGNUP_PATH}
             size="xl"
             radius="xl"
             onClick={() => registerClickSignUpEventGoogle()}

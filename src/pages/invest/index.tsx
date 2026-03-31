@@ -1,6 +1,6 @@
 import { Button, createStyles, Flex, Text } from "@mantine/core";
 import { FaBandcamp, FaDocker } from "react-icons/fa";
-import { SIGNUP_URL } from "@/lib/seo";
+import { SIGNUP_PATH } from "@/lib/seo";
 
 const useStyles = createStyles((theme) => ({
   container: {
@@ -51,7 +51,7 @@ export default function Invest() {
           mt={15}
           radius="lg" 
           component="a"
-          href={SIGNUP_URL}
+          href={SIGNUP_PATH}
           size={ "xl"}
           color="dark"
           variant="outline"
@@ -74,7 +74,7 @@ export default function Invest() {
           mt={15}
           radius="lg" 
           component="a"
-          href={SIGNUP_URL}
+          href={SIGNUP_PATH}
           size={ "xl"}
           color="dark"
           variant="outline"

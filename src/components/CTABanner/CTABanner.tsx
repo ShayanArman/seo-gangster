@@ -1,7 +1,7 @@
 import { keyframes } from "@emotion/react";
 import { createStyles, Box, Text, Button, Flex } from "@mantine/core";
 import { registerClickSignUpEventGoogle } from "../Analytics/GoogleAnalytics";
-import { SIGNUP_URL } from "@/lib/seo";
+import { SIGNUP_PATH } from "@/lib/seo";
 
 const pulse = keyframes`
   0% {
@@ -117,7 +117,7 @@ export default function CTABanner() {
         <Flex justify="center">
           <Button
             component="a"
-            href={SIGNUP_URL}
+            href={SIGNUP_PATH}
             size="xl"
             radius="xl"
             leftIcon={

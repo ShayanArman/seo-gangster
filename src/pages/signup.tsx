@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { Box, Button, Paper, Stack, Text, TextInput, Textarea, createStyles } from "@mantine/core";
-import { SIGNUP_FORM_ENDPOINT, SIGNUP_URL, SITE_NAME, getPathLastModified } from "@/lib/seo";
+import { SIGNUP_FORM_ENDPOINT, SIGNUP_PATH, SITE_NAME, getPathLastModified } from "@/lib/seo";
 
 const useStyles = createStyles((theme) => ({
   page: {
@@ -64,7 +64,7 @@ const useStyles = createStyles((theme) => ({
 
 export default function SignupPage() {
   const { classes } = useStyles();
-  const canonicalUrl = SIGNUP_URL;
+  const canonicalUrl = SIGNUP_PATH;
   const modifiedDate = getPathLastModified("/signup");
   const title = `Sign Up - ${SITE_NAME}`;
   const description = "Tell SEO Gangster about your site and your growth goals.";

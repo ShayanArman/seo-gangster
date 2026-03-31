@@ -7,7 +7,7 @@ import Head from "next/head";
 import Image from "next/image";
 import { FiArrowLeft, FiPlayCircle } from "react-icons/fi";
 import { registerClickSignUpEventGoogle } from "@/components/Analytics/GoogleAnalytics";
-import { DEFAULT_OG_IMAGE, LOGO_PATH, SIGNUP_URL, SITE_NAME, SITE_URL } from "@/lib/seo";
+import { DEFAULT_OG_IMAGE, LOGO_PATH, SIGNUP_PATH, SITE_NAME, SITE_URL } from "@/lib/seo";
 
 const useStyles = createStyles((theme) => ({
   container: {
@@ -435,7 +435,7 @@ export default function ArticlePage({ article, relatedVideo }: InferGetStaticPro
         <div className={classes.ctaWrap}>
           <Button
             component="a"
-            href={SIGNUP_URL}
+            href={SIGNUP_PATH}
             radius="xl"
             size="lg"
             onClick={() => registerClickSignUpEventGoogle()}

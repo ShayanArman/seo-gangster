@@ -1,6 +1,6 @@
 import { createStyles, Box, Text, Button } from "@mantine/core";
 import { registerClickSignUpEventGoogle } from "../Analytics/GoogleAnalytics";
-import { SIGNUP_URL } from "@/lib/seo";
+import { SIGNUP_PATH } from "@/lib/seo";
 
 const PACKAGE_FEATURES = [
   "Comprehensive SEO Strategy",
@@ -203,7 +203,7 @@ export default function PricingSection() {
 
             <Button
               component="a"
-              href={SIGNUP_URL}
+              href={SIGNUP_PATH}
               onClick={() => registerClickSignUpEventGoogle()}
               className={classes.button}
             >

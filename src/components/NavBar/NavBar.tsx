@@ -2,7 +2,7 @@ import { createStyles, Flex, Text, NavLink } from "@mantine/core";
 import Link from "next/link";
 import { HEADER_HEIGHT, headerLinks } from "../ZeroHeader/ZeroHeader";
 import { useRouter } from "next/router";
-import { SIGNUP_URL } from "@/lib/seo";
+import { SIGNUP_PATH } from "@/lib/seo";
 
 const useStyles = createStyles((theme) => ({
   container: {
@@ -78,7 +78,7 @@ export default function NavBar({ opened, closeNavBar }: { opened: boolean; close
           </Link>
         ))}
 
-        <Link href={SIGNUP_URL} passHref>
+        <Link href={SIGNUP_PATH} passHref>
           <NavLink
             component="a"
             label="Sign Up"
@@ -87,7 +87,7 @@ export default function NavBar({ opened, closeNavBar }: { opened: boolean; close
             variant="filled"
           />
         </Link>
-        <Link href={SIGNUP_URL} passHref>
+        <Link href={SIGNUP_PATH} passHref>
           <NavLink
             component="a"
             label="Get Started"

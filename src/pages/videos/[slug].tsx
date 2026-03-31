@@ -1,11 +1,11 @@
+import { registerClickSignUpEventGoogle } from "@/components/Analytics/GoogleAnalytics";
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
+import { DEFAULT_OG_IMAGE, SIGNUP_PATH, SITE_NAME, SITE_URL } from "@/lib/seo";
+import { getAllVideos, getVideoBySlug, VideoEntry } from "@/lib/videos";
 import { createStyles, Box, Text, Button, Flex } from "@mantine/core";
+import { FiArrowLeft, FiPlayCircle } from "react-icons/fi";
 import Head from "next/head";
 import Link from "next/link";
-import { FiArrowLeft, FiPlayCircle } from "react-icons/fi";
-import { registerClickSignUpEventGoogle } from "@/components/Analytics/GoogleAnalytics";
-import { DEFAULT_OG_IMAGE, SIGNUP_URL, SITE_NAME, SITE_URL } from "@/lib/seo";
-import { getAllVideos, getVideoBySlug, VideoEntry } from "@/lib/videos";
 
 const useStyles = createStyles((theme) => ({
   container: {
@@ -338,7 +338,7 @@ export default function VideoPage({ video }: InferGetStaticPropsType<typeof getS
             <div className={classes.actions}>
               <Button
                 component="a"
-                href={SIGNUP_URL}
+                href={SIGNUP_PATH}
                 radius="xl"
                 size="lg"
                 onClick={() => registerClickSignUpEventGoogle()}

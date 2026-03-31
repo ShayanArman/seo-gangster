@@ -1,5 +1,5 @@
 import { Modal, Text, Button, Flex, createStyles } from "@mantine/core";
-import { SIGNUP_URL } from "@/lib/seo";
+import { SIGNUP_PATH } from "@/lib/seo";
 
 const useStyles = createStyles((theme) => ({
   modalContainer: {
@@ -157,7 +157,7 @@ export default function AnnouncementModal({
             mt={10}
             style={{outline: 'none'}}
             component="a"
-            href={SIGNUP_URL}
+            href={SIGNUP_PATH}
             variant="outline"
             color={"dark"}
             radius="xl"

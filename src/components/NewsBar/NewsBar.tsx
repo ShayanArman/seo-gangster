@@ -2,7 +2,7 @@ import { Flex } from "@mantine/core";
 import Link from "next/link";
 
 export default function NewsBar({ isSmallScreen }: { isSmallScreen: boolean }) {
-  const badgeText = "Now taking early teams";
+  const badgeText = "Now taking new customers";
   const ctaText = "AI SEO agents";
 
   return (

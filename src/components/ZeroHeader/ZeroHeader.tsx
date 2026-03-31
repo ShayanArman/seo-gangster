@@ -15,7 +15,7 @@ import { useState, useRef, useEffect } from "react";
 import NavBar from "../NavBar";
 import { FiFastForward } from "react-icons/fi";
 import { registerClickSignUpEventGoogle } from "../Analytics/GoogleAnalytics";
-import { LOGO_PATH, SIGNUP_URL } from "@/lib/seo";
+import { LOGO_PATH, SIGNUP_PATH } from "@/lib/seo";
 
 export const HEADER_PIXEL_HEIGHT = 88;
 export const HEADER_HEIGHT = rem(HEADER_PIXEL_HEIGHT);
@@ -193,7 +193,7 @@ export default function ZeroHeader({
           <Group spacing={8}>
             {!isSmallScreen && (
               <Link
-                href={SIGNUP_URL}
+                href={SIGNUP_PATH}
                 className={classes.link}
               >
                 Sign Up
@@ -222,7 +222,7 @@ function ActionButton({
   return (
     <Button
       component="a"
-      href={SIGNUP_URL}
+      href={SIGNUP_PATH}
       radius="xl"
       size={buttonSize}
       leftIcon={<FiFastForward size={14} />}

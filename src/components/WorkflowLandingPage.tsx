@@ -1,6 +1,6 @@
-import Head from "next/head";
+import { SIGNUP_PATH, SITE_NAME, SITE_URL, getPathLastModified } from "@/lib/seo";
 import { Button, Flex, Text, createStyles } from "@mantine/core";
-import { SIGNUP_URL, SITE_NAME, SITE_URL, getPathLastModified } from "@/lib/seo";
+import Head from "next/head";
 
 export interface WorkflowLandingContent {
   route: string;
@@ -66,7 +66,7 @@ export default function WorkflowLandingPage(content: WorkflowLandingContent) {
             mt={15}
             radius="lg"
             component="a"
-            href={SIGNUP_URL}
+            href={SIGNUP_PATH}
             size="xl"
             color="dark"
             variant="filled"
