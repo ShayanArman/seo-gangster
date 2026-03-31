@@ -13,6 +13,7 @@ import CTABanner from "@/components/CTABanner";
 import PricingSection from "@/components/PricingSection";
 import UserTypes from "@/components/UserTypes";
 import ToolsGrid from "@/components/ToolsGrid";
+import SearchDemandSection from "@/components/SearchDemandSection";
 import { useRouter } from "next/router";
 import { scroller } from "react-scroll";
 import { useEffect } from "react";
@@ -104,6 +105,9 @@ export default function Home() {
 
       {/* ── News Bar ── */}
       <NewsBar isSmallScreen={isSmallScreen}/>
+
+      {/* ── Search Demand ── */}
+      <SearchDemandSection />
 
       {/* ── User Cards ── */}
       <UserCards />
