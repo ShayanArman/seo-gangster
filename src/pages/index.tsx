@@ -10,6 +10,7 @@ import HeroSection from "@/components/HeroSection";
 import FAQSection from "@/components/FAQSection";
 import UserCards from "@/components/UserCards";
 import CTABanner from "@/components/CTABanner";
+import PricingSection from "@/components/PricingSection";
 import UserTypes from "@/components/UserTypes";
 import ToolsGrid from "@/components/ToolsGrid";
 import { useRouter } from "next/router";
@@ -256,6 +257,9 @@ export default function Home() {
 
       {/* ── Steps ── */}
       <StepsSection />
+
+      {/* ── Pricing ── */}
+      <PricingSection />
 
       {/* ── FAQ ── */}
       <FAQSection />
