@@ -3,6 +3,7 @@ export const SITE_URL = "https://seogangster.ai";
 export const SITE_TAGLINE = "AI SEO agents for pages, articles, and weekly freshness.";
 export const SIGNUP_PATH = "/signup";
 export const SIGNUP_URL = `${SITE_URL}${SIGNUP_PATH}`;
+export const SIGNUP_FORM_ENDPOINT = `https://formspree.io/f/mykbjank`;
 export const CONTACT_EMAIL = "hello@seogangster.ai";
 export const JOBS_EMAIL = "jobs@seogangster.ai";
 export const LOGO_PATH = "/seogangster-logo.svg";

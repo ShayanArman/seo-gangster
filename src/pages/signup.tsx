@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { Box, Button, Paper, Stack, Text, TextInput, Textarea, createStyles } from "@mantine/core";
-import { SIGNUP_URL, SITE_NAME, SITE_URL, getPathLastModified } from "@/lib/seo";
+import { SIGNUP_FORM_ENDPOINT, SIGNUP_URL, SITE_NAME, SITE_URL, getPathLastModified } from "@/lib/seo";
 
 const useStyles = createStyles((theme) => ({
   page: {
@@ -106,7 +106,7 @@ export default function SignupPage() {
           The form posts to a placeholder endpoint for now so you can wire the real backend later.
         </Text>
 
-        <Paper component="form" action="https://nowhere.example.com" method="post" className={classes.formCard}>
+        <Paper component="form" action={SIGNUP_FORM_ENDPOINT} method="post" className={classes.formCard}>
           <Stack>
             <TextInput name="name" label="Name" placeholder="Shayan Arman" required />
             <TextInput name="email" type="email" label="Email" placeholder="hello@company.com" required />

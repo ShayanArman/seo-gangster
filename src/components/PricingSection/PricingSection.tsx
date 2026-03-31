@@ -184,7 +184,7 @@ export default function PricingSection() {
             <Text className={classes.badge}>The Growth Package</Text>
 
             <Box className={classes.priceRow}>
-              <Text className={classes.price}>$999</Text>
+              <Text className={classes.price}>$150</Text>
               <Text className={classes.priceUnit}>/mo</Text>
             </Box>
 
