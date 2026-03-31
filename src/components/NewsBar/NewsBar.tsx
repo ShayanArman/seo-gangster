@@ -10,7 +10,8 @@ export default function NewsBar({ isSmallScreen }: { isSmallScreen: boolean }) {
       justify="center"
       style={{
         width: "100%",
-        backgroundColor: "#ffffff",
+        background:
+          "radial-gradient(circle at 50% 0%, rgba(161, 204, 255, 0.24), transparent 36%), linear-gradient(180deg, #ffffff 0%, #f7fbff 100%)",
         padding: isSmallScreen ? "0.25rem 0.5rem 1rem" : "0.35rem 1.25rem 1.4rem",
       }}
     >
@@ -29,21 +30,21 @@ export default function NewsBar({ isSmallScreen }: { isSmallScreen: boolean }) {
             width: "fit-content",
             maxWidth: "100%",
             gap: isSmallScreen ? "0.35rem" : "0.48rem",
-            border: "1px solid rgba(17, 17, 17, 0.1)",
+            border: "1px solid rgba(67, 109, 173, 0.14)",
             borderRadius: 16,
-            backgroundColor: "#fcfcfb",
-            boxShadow: "0 8px 24px rgba(17, 17, 17, 0.06)",
+            backgroundColor: "rgba(245, 249, 255, 0.92)",
+            boxShadow: "0 10px 28px rgba(82, 126, 194, 0.12)",
             padding: isSmallScreen ? "0.26rem 0.3rem" : "0.32rem 0.42rem",
           }}
         >
           <Flex
             align="center"
             justify="center"
-              style={{
-                width: "auto",
-                gap: isSmallScreen ? "0.35rem" : "0.42rem",
-              background: "#111111",
-              color: "#ffffff",
+            style={{
+              width: "auto",
+              gap: isSmallScreen ? "0.35rem" : "0.42rem",
+              background: "#dce9fb",
+              color: "rgba(15, 29, 61, 0.78)",
               fontWeight: 700,
               fontSize: isSmallScreen ? "0.78rem" : "0.84rem",
               lineHeight: 1.2,
@@ -68,7 +69,7 @@ export default function NewsBar({ isSmallScreen }: { isSmallScreen: boolean }) {
               alignItems: "center",
               justifyContent: "center",
               gap: "0.28rem",
-              color: "#111111",
+              color: "rgba(15, 29, 61, 0.82)",
               fontWeight: 600,
               fontSize: isSmallScreen ? "0.8rem" : "0.84rem",
               textDecoration: "none",
