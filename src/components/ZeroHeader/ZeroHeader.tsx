@@ -1,12 +1,13 @@
 import {
   createStyles,
-  Container,
+  Text,
   Group,
   Button,
   Burger,
   rem,
   Flex,
   MantineSize,
+  Box,
 } from "@mantine/core";
 import Image from "next/image";
 import Link from "next/link";
@@ -117,6 +118,24 @@ const useStyles = createStyles((theme) => ({
       backgroundColor: "rgba(17,17,17,0.05)",
     },
   },
+
+  brandLink: {
+    display: "flex",
+    alignItems: "center",
+    textDecoration: "none",
+    color: "#333",
+    transition: "color var(--transition-fast)",
+
+    "&:hover": {
+      color: "#111111",
+    },
+  },
+
+  brandText: {
+    color: "inherit",
+    fontSize: rem(15),
+    lineHeight: 1,
+  },
 }));
 
 /* ─── Smart-Hide Header ─── */
@@ -172,8 +191,11 @@ export default function ZeroHeader({
               size="sm"
               color="#111111"
             />
-            <Link href="/" onClick={() => setOpened(false)}>
-              <Image width={180} height={42} alt="SEO Gangster" src={LOGO_PATH} style={{ filter: "grayscale(1) contrast(1.3)" }} />
+            <Link href="/" onClick={() => setOpened(false)} className={classes.brandLink}>
+              <Flex align="center">
+                <Image width={42} height={42} alt="SEO Gangster" src={LOGO_PATH} style={{ filter: "contrast(1.3)" }} />
+                <Text weight={500} className={classes.brandText}>SEO Gangster</Text>
+              </Flex>
             </Link>
           </Flex>
 
