@@ -179,10 +179,11 @@ const PATH_META: Record<string, Partial<SeoMeta>> = {
 };
 
 const MARCH_21 = "2026-03-21T00:00:00-07:00";
+const MARCH_31 = "2026-03-31T00:00:00-07:00";
 
 const PATH_LAST_MODIFIED: Record<string, string> = {
   "/": MARCH_21,
-  "/signup": MARCH_21,
+  "/signup": MARCH_31,
   "/about": MARCH_21,
   "/story": MARCH_21,
   "/ai-seo-agents": MARCH_21,

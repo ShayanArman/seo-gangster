@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { Box, Button, Paper, Stack, Text, TextInput, Textarea, createStyles } from "@mantine/core";
-import { SIGNUP_FORM_ENDPOINT, SIGNUP_URL, SITE_NAME, SITE_URL, getPathLastModified } from "@/lib/seo";
+import { SIGNUP_FORM_ENDPOINT, SIGNUP_URL, SITE_NAME, getPathLastModified } from "@/lib/seo";
 
 const useStyles = createStyles((theme) => ({
   page: {
@@ -103,7 +103,8 @@ export default function SignupPage() {
           and the kind of search growth you want help with.
         </Text>
         <Text className={classes.lead}>
-          The form posts to a placeholder endpoint for now so you can wire the real backend later.
+          Tell us where growth is stuck, what you need to rank for, and what should keep shipping
+          each week.
         </Text>
 
         <Paper component="form" action={SIGNUP_FORM_ENDPOINT} method="post" className={classes.formCard}>
@@ -111,7 +112,6 @@ export default function SignupPage() {
             <TextInput name="name" label="Name" placeholder="Shayan Arman" required />
             <TextInput name="email" type="email" label="Email" placeholder="hello@company.com" required />
             <TextInput name="website" label="Website" placeholder="https://example.com" />
-            <TextInput name="focus" label="What do you need to rank for?" placeholder="AI SEO agents, local SEO, service pages..." />
             <Textarea
               name="notes"
               label="What should the agents help with?"
