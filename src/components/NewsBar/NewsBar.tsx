@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function NewsBar({ isSmallScreen }: { isSmallScreen: boolean }) {
   const badgeText = "Now taking early teams";
-  const ctaText = "AI SEO agents for weekly freshness";
+  const ctaText = "AI SEO agents";
 
   return (
     <Flex
