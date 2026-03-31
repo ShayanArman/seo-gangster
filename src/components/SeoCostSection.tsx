@@ -104,11 +104,20 @@ const useStyles = createStyles((theme) => ({
     display: "grid",
     gridTemplateRows: "1fr auto",
     minHeight: 100,
+    cursor: "pointer",
     borderRadius: 22,
     overflow: "hidden",
     border: "1px solid rgba(174, 188, 214, 0.62)",
     backgroundColor: "#ffffff",
     boxShadow: "0 18px 42px rgba(15, 29, 61, 0.06)",
+    transition:
+      "transform var(--transition-smooth), box-shadow var(--transition-smooth), border-color var(--transition-smooth)",
+
+    "&:hover": {
+      transform: "translateY(-8px)",
+      borderColor: "rgba(146, 171, 214, 0.9)",
+      boxShadow: "0 30px 56px rgba(15, 29, 61, 0.12)",
+    },
   },
 
   cardTop: {
