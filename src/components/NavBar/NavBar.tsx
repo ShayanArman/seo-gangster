@@ -41,12 +41,19 @@ const useStyles = createStyles((theme) => ({
   rootNav: {
     backgroundColor: "transparent",
     borderRadius: "7px",
+    color: "#333",
+    transition: "color var(--transition-fast), background-color var(--transition-fast)",
+
+    "&:hover": {
+      color: "var(--zero-red-darker)",
+      backgroundColor: "rgba(255,50,119,0.06)",
+    },
   },
 
   label: {
     fontWeight: 500,
     fontSize: "1.5rem",
-    color: "#111111",
+    color: "inherit",
   },
 }));
 
@@ -66,7 +73,10 @@ export default function NavBar({ opened, closeNavBar }: { opened: boolean; close
             <NavLink
               component="a"
               label={link.label}
-              style={link.link === router.asPath ? { backgroundColor: "rgba(17,17,17,0.06)" } : {}}
+              style={link.link === router.asPath ? {
+                backgroundColor: "rgba(255,50,119,0.06)",
+                color: "var(--zero-red-darker)",
+              } : {}}
               classNames={{
                 root: classes.rootNav,
                 label: classes.label,
