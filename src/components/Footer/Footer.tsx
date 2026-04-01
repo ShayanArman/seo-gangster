@@ -1,7 +1,7 @@
 import { createStyles, Box, Text, Flex } from "@mantine/core";
-import Image from "next/image";
 import Link from "next/link";
-import { CONTACT_EMAIL, LOGO_PATH, SIGNUP_PATH } from "@/lib/seo";
+import ZeroLogo from "../ZeroLogo";
+import { CONTACT_EMAIL, SIGNUP_PATH } from "@/lib/seo";
 
 const useStyles = createStyles((theme) => ({
   footer: {
@@ -90,13 +90,7 @@ export default function FooterSection() {
         <div className={classes.grid}>
           {/* Brand Column */}
           <div className={classes.brand}>
-            <Image
-              width={168}
-              height={39}
-              alt="SEO Gangster"
-              src={LOGO_PATH}
-              style={{ filter: "brightness(0) invert(1) grayscale(1) contrast(1.2)" }}
-            />
+            <ZeroLogo variant="dark" hoverable={false} />
             <Text className={classes.brandText}>
               AI SEO agents for pages, articles, technical cleanup, and weekly freshness updates.
             </Text>
