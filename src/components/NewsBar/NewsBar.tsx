@@ -14,10 +14,10 @@ export default function NewsBar({ isSmallScreen }: { isSmallScreen: boolean }) {
         width: "fit-content",
         maxWidth: "100%",
         gap: isSmallScreen ? "0.35rem" : "0.48rem",
-        border: "1px solid rgba(67, 109, 173, 0.14)",
+        border: "1px solid rgba(255, 50, 119, 0.12)",
         borderRadius: 16,
-        backgroundColor: "rgba(245, 249, 255, 0.92)",
-        boxShadow: "0 10px 28px rgba(82, 126, 194, 0.12)",
+        backgroundColor: "rgba(255,50,119,0.06)",
+        boxShadow: "0 10px 28px rgba(255, 50, 119, 0.08)",
         padding: isSmallScreen ? "0.26rem 0.3rem" : "0.32rem 0.42rem",
       }}
     >
@@ -27,7 +27,7 @@ export default function NewsBar({ isSmallScreen }: { isSmallScreen: boolean }) {
         style={{
           width: "auto",
           gap: isSmallScreen ? "0.35rem" : "0.42rem",
-          background: "#dce9fb",
+          background: "rgba(255,50,119,0.10)",
           color: "rgba(15, 29, 61, 0.78)",
           fontWeight: 700,
           fontSize: isSmallScreen ? "0.78rem" : "0.84rem",
@@ -40,7 +40,7 @@ export default function NewsBar({ isSmallScreen }: { isSmallScreen: boolean }) {
         <svg width={isSmallScreen ? "13" : "14"} height={isSmallScreen ? "13" : "14"} viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <path
             d="M9.47 1.56 3.36 9.2a.83.83 0 0 0 .65 1.35h3.12l-.54 4.9c-.05.48.56.76.9.42l6.12-7.64a.83.83 0 0 0-.65-1.35H9.83l.53-4.9c.05-.48-.56-.76-.9-.42Z"
-            fill="currentColor"
+            fill="white"
           />
         </svg>
         <span>{badgeText}</span>

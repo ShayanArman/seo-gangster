@@ -1,22 +1,20 @@
+import { registerClickSignUpEventGoogle } from "../Analytics/GoogleAnalytics";
+import { useState, useRef, useEffect } from "react";
+import { FiFastForward } from "react-icons/fi";
+import { SIGNUP_PATH } from "@/lib/seo";
+import ZeroLogo from "../ZeroLogo";
+import classNames from "classnames";
+import NavBar from "../NavBar";
+import Link from "next/link";
 import {
   createStyles,
-  Text,
   Group,
   Button,
   Burger,
   rem,
   Flex,
   MantineSize,
-  Box,
 } from "@mantine/core";
-import Image from "next/image";
-import Link from "next/link";
-import classNames from "classnames";
-import { useState, useRef, useEffect } from "react";
-import NavBar from "../NavBar";
-import { FiFastForward } from "react-icons/fi";
-import { registerClickSignUpEventGoogle } from "../Analytics/GoogleAnalytics";
-import { LOGO_PATH, SIGNUP_PATH } from "@/lib/seo";
 
 export const HEADER_PIXEL_HEIGHT = 88;
 export const HEADER_HEIGHT = rem(HEADER_PIXEL_HEIGHT);
@@ -118,26 +116,6 @@ const useStyles = createStyles((theme) => ({
       backgroundColor: "rgba(255,50,119,0.06)",
     },
   },
-
-  brandLink: {
-    display: "flex",
-    alignItems: "center",
-    textDecoration: "none",
-    color: "#333",
-    borderRadius: "var(--radius-sm)",
-    transition: "color var(--transition-fast), background-color var(--transition-fast)",
-
-    "&:hover": {
-      color: "var(--zero-red-darker)",
-      backgroundColor: "rgba(255,50,119,0.06)",
-    },
-  },
-
-  brandText: {
-    color: "inherit",
-    fontSize: rem(15),
-    lineHeight: 1,
-  },
 }));
 
 /* ─── Smart-Hide Header ─── */
@@ -193,12 +171,7 @@ export default function ZeroHeader({
               size="sm"
               color="#111111"
             />
-            <Link href="/" onClick={() => setOpened(false)} className={classes.brandLink}>
-              <Flex align="center">
-                <Image width={42} height={42} alt="SEO Gangster" src={LOGO_PATH} style={{ filter: "contrast(1.3)" }} />
-                <Text weight={500} className={classes.brandText}>SEO Gangster</Text>
-              </Flex>
-            </Link>
+            <ZeroLogo />
           </Flex>
 
           <Group spacing={4} className={classes.links}>
