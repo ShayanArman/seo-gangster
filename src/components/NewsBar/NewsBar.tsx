@@ -1,25 +1,37 @@
-import { Flex } from "@mantine/core";
+import { createStyles, Flex } from "@mantine/core";
 import Link from "next/link";
+
+const useStyles = createStyles((_, { isSmallScreen }: { isSmallScreen: boolean }) => ({
+  shell: {
+    width: "fit-content",
+    maxWidth: "100%",
+    gap: isSmallScreen ? "0.35rem" : "0.48rem",
+    border: "1px solid rgba(255, 50, 119, 0.12)",
+    borderRadius: 16,
+    backgroundColor: "rgba(255,50,119,0.06)",
+    boxShadow: "0 10px 28px rgba(255, 50, 119, 0.08)",
+    padding: isSmallScreen ? "0.26rem 0.3rem" : "0.32rem 0.42rem",
+    transition: "border-color var(--transition-fast), background-color var(--transition-fast), box-shadow var(--transition-fast)",
+
+    "&:hover": {
+      borderColor: "var(--zero-blue)",
+      backgroundColor: "rgba(71, 175, 230, 0.08)",
+      boxShadow: "0 10px 28px rgba(71, 175, 230, 0.12)",
+    },
+  },
+}));
 
 export default function NewsBar({ isSmallScreen }: { isSmallScreen: boolean }) {
   const badgeText = "Now taking new customers";
   const ctaText = "AI SEO agents";
+  const { classes } = useStyles({ isSmallScreen });
 
   return (
     <Flex
+      className={classes.shell}
       align="center"
       justify="center"
       direction="row"
-      style={{
-        width: "fit-content",
-        maxWidth: "100%",
-        gap: isSmallScreen ? "0.35rem" : "0.48rem",
-        border: "1px solid rgba(255, 50, 119, 0.12)",
-        borderRadius: 16,
-        backgroundColor: "rgba(255,50,119,0.06)",
-        boxShadow: "0 10px 28px rgba(255, 50, 119, 0.08)",
-        padding: isSmallScreen ? "0.26rem 0.3rem" : "0.32rem 0.42rem",
-      }}
     >
       <Flex
         align="center"
