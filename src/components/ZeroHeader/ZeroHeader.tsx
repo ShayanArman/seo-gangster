@@ -114,8 +114,8 @@ const useStyles = createStyles((theme) => ({
     transition: "color var(--transition-fast), background-color var(--transition-fast)",
 
     "&:hover": {
-      color: "#111111",
-      backgroundColor: "rgba(17,17,17,0.05)",
+      color: "var(--zero-red-darker)",
+      backgroundColor: "rgba(255,50,119,0.06)",
     },
   },
 
